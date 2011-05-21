@@ -136,38 +136,38 @@ tinyxmlerror.o: tinyxml.h tinystr.h
 
 # Paths for libraries and includes for linking (don't change!)
 # -I/usr/include 
-COPTS =  -g3 -Wall  -Werror -ansi -pedantic
+#COPTS =  -g3 -Wall  -Werror -ansi -pedantic
 
 
 # The list of code files, object files, and the compiler to use
 
 # Define our source code (change)
-CFILES = main.c tinyxml.cpp tinyxmlerror.cpp tinystr.cpp
+#CFILES = main.c tinyxml.cpp tinyxmlerror.cpp tinystr.cpp
 
 # Define the .o files to correspond with the .c files
-OFILES = $(CFILES:.c=.o)
+#OFILES = $(CFILES:.c=.o)
 
 # Use the C compiler
-CC = g++
+#CC = g++
 
 # Name of the compiled output (change)
-TARGET = prog
+#TARGET = prog
 
 
 # Makefile terminal commands:  make == make default
 
-default: clean go
+#default: clean go
 
-.c.o: $(CFILES) 
-	$(CCX) -c $< $(COPTS)
+#.c.o: $(CFILES) 
+#	$(CCX) -c $< $(COPTS)
 
-go: $(OFILES) 
-	$(CCX) $(OFILES)  -o $(TARGET) 
+#go: $(OFILES) 
+#	$(CCX) $(OFILES)  -o $(TARGET) 
 
-clean:
-	rm -f $(OFILES) $(TARGET) core
+#clean:
+#	rm -f $(OFILES) $(TARGET) core
 
-cleanall:
-	rm -f $(OFILES) out.ppm *~ $(TARGET) core
+#cleanall:
+#	rm -f $(OFILES) out.ppm *~ $(TARGET) core
 
 
