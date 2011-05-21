@@ -147,8 +147,7 @@ Area *make_area(TiXmlNode *pArea) {
       area = new Area(area_id, desc_id);
       for ( pChild = pArea->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
          {
-            
-            if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT){
+         if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT){
                if(!strcmp(pChild->Value(), "statedescriptor")){
                   cout << "statedescrp" << endl;
                } else if(!strcmp(pChild->Value(), "item")){
@@ -163,6 +162,7 @@ Area *make_area(TiXmlNode *pArea) {
    } else {
       error_parsing("One or more of you area attributes are wrong.");
    }
+
    return area;
 }
 void make_world(TiXmlNode *pParent){
