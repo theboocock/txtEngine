@@ -6,16 +6,16 @@
 #include "Command.h"
 
 class BaseContainer{
- protected:
-   
+ protected:   
    std::vector<StateDescriptor> state_descriptors;
    std::vector<EventHandler> event_handler;
-   std::vector<Command> commands;
-   
-   std::string id;
+   std::vector<Command> commands;   
+   std::string id;   
  public:
    std::string get_id(){return id;}
-   
+   BaseContainer(const char *id){
+      this->id = id;
+   }
 };
 
 #endif
