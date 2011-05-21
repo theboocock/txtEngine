@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<world id="unique_world_name" language=".txt[framework]" author=".txtFramework Team" area="testarea">
+  <area id="testarea" state="home">
+    <statedescriptor id="home" switch="homeshort">You awake finding yourself sitting in front of a Stargate. As you focus on the area surrounding you, it becomes evident that you are stranded on a planet in the vesoura system. 
+    Dazed you observe a gate ignition panel. As you carry yourself across to the panel, you quickly realize several bullet wounds. 
+    With no explaination obvious, you begin the home dialing proccess, the gate vortex opens.</statedescriptor>
+    <statedescriptor id="homeshort">There is a stargate. It's eminating an eerie blue as a vortex pulsates within. It's seemingly the only way home.</statedescriptor>
+    <statedescriptor id="epic">Hello World</statedescriptor>
+    <item id="bottle1">
+      <statedescriptor id="bottledropstate">This is my bottle</statedescriptor>
+      <eventhandler id="tp2">
+        <statechange id="statechange2" target="testarea" state="testing1"></statechange>
+      </eventhandler>
+    </item>
+    <eventhandler id="tp1">
+      <statechange id="statechange1" target="testarea" state="epic"></statechange>
+    </eventhandler>
+  </area>
+</world>
