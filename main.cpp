@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <stack>
 #include "tinyxml.h"
 #include "BaseContainer.h"
 
@@ -46,7 +47,7 @@ Tags to_tag(const char * totag)
    }
 }
    
-   
+stack<void *> objects;   
 
 const unsigned int NUM_INDENTS_PER_SPACE=2;
 
@@ -56,7 +57,6 @@ const char * getIndent( unsigned int numIndents )
    static const unsigned int LENGTH=strlen( pINDENT );
    unsigned int n=numIndents*NUM_INDENTS_PER_SPACE;
    if ( n > LENGTH ) n = LENGTH;
-
    return &pINDENT[ LENGTH-n ];
 }
 
@@ -84,7 +84,6 @@ int dump_attribs_to_stdout(TiXmlElement* pElement, unsigned int indent)
    while (pAttrib)
       {
          printf( "%s%s: value=[%s]", pIndent, pAttrib->Name(), pAttrib->Value());
-
          if (pAttrib->QueryIntValue(&ival)==TIXML_SUCCESS)    printf( " int=%d", ival);
          if (pAttrib->QueryDoubleValue(&dval)==TIXML_SUCCESS) printf( " d=%1.1f", dval);
          printf( "\n" );
@@ -94,17 +93,43 @@ int dump_attribs_to_stdout(TiXmlElement* pElement, unsigned int indent)
    return i;	
 }
 
-void dump_to_stdout( TiXmlNode* pParent, unsigned int indent = 0 )
+void parse_element(TiXmlNode* pParent){
+   Tags element;
+   element = to_tag(pParent->Value());
+   printf( "Element [%d]", element);
+   switch(element){  
+   case WORLD:
+      break;
+   case AREA:     
+      break;
+   case STATEDESCRIPTOR:
+      break;
+   case ITEM:
+      break;
+   case STATECHANGE:
+      break;     
+   case STATECONDITIONAL:
+      break;
+   case EVENTHANDLER:
+      break;
+   case COMMAND:
+      break;
+   case MESSAGE:
+      break;
+   case NOVALUE:
+      break;
+   }
+}
+
+void make_objects( TiXmlNode* pParent, unsigned int indent = 0 )
 {
    if ( !pParent ) return;
-
    TiXmlNode* pChild;
    TiXmlText* pText;
    int t = pParent->Type();
    printf( "%s", getIndent(indent));
    int num;
-   Tags element;
-   switch ( t )
+   switch (t)
       {
       case TiXmlNode::TINYXML_DOCUMENT:
          printf( "Document" );
@@ -112,8 +137,7 @@ void dump_to_stdout( TiXmlNode* pParent, unsigned int indent = 0 )
 
       case TiXmlNode::TINYXML_ELEMENT:
          printf( "Element [%s]", pParent->Value());
-         element = to_tag(pParent->Value());
-         printf( "Element [%d]", element);
+         parse_element(pParent);
          num=dump_attribs_to_stdout(pParent->ToElement(), indent+1);
          switch(num)
             {
@@ -145,20 +169,22 @@ void dump_to_stdout( TiXmlNode* pParent, unsigned int indent = 0 )
    printf( "\n" );
    for ( pChild = pParent->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
       {
-         dump_to_stdout( pChild, indent+1 );
+         make_objects( pChild, indent+1 );
+        
       }
+
 }
 
 // load the named file and dump its structure to STDOUT
 
-void dump_to_stdout(const char* pFilename)
+void make_objects(const char* pFilename)
 {
    TiXmlDocument doc(pFilename);
    bool loadOkay = doc.LoadFile();
    if (loadOkay)
       {
          printf("\n%s:\n", pFilename);
-         dump_to_stdout( &doc ); // defined later in the tutorial
+        make_objects( &doc ); // defined later in the tutorial
       }
    else
       {
@@ -169,6 +195,6 @@ void dump_to_stdout(const char* pFilename)
 int main(int argc, char** argV)
 {
    //wow
-   dump_to_stdout("input.xml");
+   make_objects("input.xml");
    return 0;
 }
