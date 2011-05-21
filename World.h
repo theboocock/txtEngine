@@ -8,23 +8,23 @@ class World{
  protected:
    std::string language;
    std::string author;
-   std::vector<Area> areas;
+   std::vector<Area*> areas;
    std::string initial_area;
    Area *active_area;
  public:
    std::string get_author(){return author;}
    std::string get_language(){return language;}
    Area* get_active_area(){return active_area;}
-   void add_area(Area &new_area){
+   void add_area(Area *new_area){
       areas.push_back(new_area);
    }
    void init_activeArea(){
-      active_area = new Area("start");
+      active_area = new Area("start", " LOL ");
    }
    void change_area(std::string name){
       for(unsigned int area_num = 0; area_num < areas.size(); area_num++){
-         if(areas[area_num].get_id().compare(name) == 0){
-            active_area = &areas[area_num];
+         if(areas[area_num]->get_id().compare(name) == 0){
+            active_area = areas[area_num];
          }
       }
    }
