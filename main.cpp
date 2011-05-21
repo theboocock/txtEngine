@@ -167,7 +167,7 @@ void dump_to_stdout(const char* pFilename)
 
 int main(int argc, char** argV)
 {
-   
+   //lol
    dump_to_stdout("input.xml");
    return 0;
 }
