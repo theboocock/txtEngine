@@ -7,6 +7,7 @@
 #include <iostream>
 #include <sstream>
 #include "tinyxml.h"
+#include "BaseContainer.h"
 
 using namespace std;
 
