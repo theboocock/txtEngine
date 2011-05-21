@@ -249,7 +249,7 @@ class TiXmlString
 	Rep * rep_;
 	static Rep nullrep_;
 
-} ;
+};
 
 
 inline bool operator == (const TiXmlString & a, const TiXmlString & b)
