@@ -8,11 +8,10 @@ class World{
  protected:
    std::string language;
    std::string author;
-   std::string id;
    std::vector<Area> areas;
-   Area* active_area;
+   std::string initial_area;
+   Area *active_area;
  public:
-   std::string get_id(){return id;}
    std::string get_author(){return author;}
    std::string get_language(){return language;}
    Area* get_active_area(){return active_area;}
@@ -35,13 +34,14 @@ class World{
          item = active_area->get_item(command);
       }
    }
-   World(const char *lang, const char *auth, const char *identifier){
+   World(const char *lang, const char *auth, const char *init_area){
       language = lang;
       author = auth;
-      id = identifier;
+      initial_area = init_area;
    }
    ~World(){
    }
 };
+
 
 #endif

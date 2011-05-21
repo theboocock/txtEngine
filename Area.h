@@ -2,22 +2,25 @@
 #define _AREA_H
 #include <string>
 #include <vector>
-#include "BaseContainer.h"
 #include "Item.h"
-#include "Variable.h"
+#include "StateDescriptor.h"
 
-class Area : public BaseContainer{
+class Area{
  protected:
    std::vector<Item> items;
-   std::vector<Variable> variables;
    int num_items;
+   std::string id;
+   std::vector<StateDescriptor> description;
  public:
+   StateDescriptor get_description(){
+      return description[0];
+   }
    void add_item(Item new_item){
       items.push_back(new_item);
       num_items++;
    }
-   void add_variable(Variable new_var){
-      variables.push_back(new_var);
+   std::string get_id(){
+      return id;
    }
    bool has_item(std::string item_to_find){
       for(unsigned int item_num = 0; item_num < items.size(); item_num++){
@@ -35,7 +38,8 @@ class Area : public BaseContainer{
       }
       return NULL;
    }
-   Area(const char *id) : BaseContainer(id){
+   Area(const char *id){
+      this->id = id;
       num_items = 0;
    }
 };
