@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 #****************************************************************************
 #
 # Makefile for TinyXml test.
@@ -129,7 +129,7 @@ tinyxml.o: tinyxml.h tinystr.h
 tinyxmlparser.o: tinyxml.h tinystr.h
 main.o: tinyxml.h tinystr.h
 tinyxmlerror.o: tinyxml.h tinystr.h
-=======
+
 #
 # A simple Makefile for Me!
 #
@@ -142,7 +142,7 @@ COPTS =  -g3 -Wall  -Werror -ansi -pedantic
 # The list of code files, object files, and the compiler to use
 
 # Define our source code (change)
-CFILES = test.c
+CFILES = main.c tinyxml.cpp tinyxmlerror.cpp tinystr.cpp
 
 # Define the .o files to correspond with the .c files
 OFILES = $(CFILES:.c=.o)
@@ -159,10 +159,10 @@ TARGET = prog
 default: clean go
 
 .c.o: $(CFILES) 
-	$(CC) -c $< $(COPTS)
+	$(CCX) -c $< $(COPTS)
 
 go: $(OFILES) 
-	$(CC) $(OFILES)  -o $(TARGET) 
+	$(CCX) $(OFILES)  -o $(TARGET) 
 
 clean:
 	rm -f $(OFILES) $(TARGET) core
@@ -171,4 +171,3 @@ cleanall:
 	rm -f $(OFILES) out.ppm *~ $(TARGET) core
 
 
->>>>>>> fa271fa101afec2b1db47693485015b0e41f2ff5
