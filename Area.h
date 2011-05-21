@@ -10,6 +10,7 @@ class Area{
    std::vector<Item> items;
    int num_items;
    std::string id;
+   std::string curr_desc_id;
    std::vector<StateDescriptor> description;
  public:
    StateDescriptor get_description(){
@@ -38,9 +39,10 @@ class Area{
       }
       return NULL;
    }
-   Area(const char *id){
+   Area(const char *id, const char *desc){
       this->id = id;
       num_items = 0;
+      this->curr_desc_id = desc;
    }
 };
 
