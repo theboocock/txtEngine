@@ -8,7 +8,7 @@
 #include <sstream>
 #include <stack>
 #include "tinyxml.h"
-#include "BaseContainer.h"
+#include "World.h"
 
 using namespace std;
 
@@ -19,7 +19,7 @@ Tags to_tag(const char * totag)
    if(!strcmp(totag, "world")){
       return WORLD;
    }
-   else if(!strcmp(totag, "area")){
+   else if(!strcmp(totag, "area")){      
       return AREA;
    }
    else if(!strcmp(totag, "statedescriptor")){
@@ -95,10 +95,14 @@ int dump_attribs_to_stdout(TiXmlElement* pElement, unsigned int indent)
 
 void parse_element(TiXmlNode* pParent){
    Tags element;
+   World * temp;
    element = to_tag(pParent->Value());
    printf( "Element [%d]", element);
    switch(element){  
    case WORLD:
+      temp = new World("lol", "lol", "lol");
+      objects.push(temp);
+      cout << ((World * )objects.top())->get_id() << endl;
       break;
    case AREA:     
       break;
@@ -125,6 +129,7 @@ void make_objects( TiXmlNode* pParent, unsigned int indent = 0 )
 {
    if ( !pParent ) return;
    TiXmlNode* pChild;
+   Tags element;
    TiXmlText* pText;
    int t = pParent->Type();
    printf( "%s", getIndent(indent));
@@ -157,6 +162,8 @@ void make_objects( TiXmlNode* pParent, unsigned int indent = 0 )
 
       case TiXmlNode::TINYXML_TEXT:
          pText = pParent->ToText();
+         element = to_tag(pParent->Parent()->Value());
+         printf( "Element [%d]", element);
          printf( "Text: [%s]", pText->Value() );
          break;
 
@@ -172,7 +179,6 @@ void make_objects( TiXmlNode* pParent, unsigned int indent = 0 )
          make_objects( pChild, indent+1 );
         
       }
-
 }
 
 // load the named file and dump its structure to STDOUT
@@ -196,5 +202,6 @@ int main(int argc, char** argV)
 {
    //wow
    make_objects("input.xml");
+   
    return 0;
 }

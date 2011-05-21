@@ -1,4 +1,5 @@
 #ifndef _BASE_CONTAINER_H
+#define _BASE_CONTAINER_H
 #include <vector>
 #include <string>
 #include "StateDescriptor.h"
