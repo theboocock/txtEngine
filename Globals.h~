@@ -1,0 +1,7 @@
+#ifndef _GLOBALS_H
+
+class Globals{
+   public
+}
+
+#endif

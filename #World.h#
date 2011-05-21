@@ -1,0 +1,10 @@
+#ifndef _WORLD_H
+
+class World{
+ protected:
+   std::string 
+ public:
+   int get_one(){return one}
+};
+
+#endif
