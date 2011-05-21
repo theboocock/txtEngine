@@ -5,13 +5,12 @@
 class StateDescriptor{
  protected:
    std::string id;
-   std::string switchable;
    std::string description;
 
  public:
-   StateDescriptor(const char * a, const char * b){
-      id = a;
-      switchable = b;
+   StateDescriptor(const char *identifier , const char *desc){
+      id = identifier;
+      description = desc;
    }
    ~StateDescriptor(){}
    
@@ -21,7 +20,6 @@ class StateDescriptor{
    std::string get_description(){
       return description;
    }
-   
 };
 
 #endif
