@@ -70,6 +70,7 @@ const char * getIndentAlt( unsigned int numIndents )
 
    return &pINDENT[ LENGTH-n ];
 }
+void error_parsing(const char * error_string);
 
 int dump_attribs_to_stdout(TiXmlElement* pElement, unsigned int indent)
 {
@@ -121,30 +122,34 @@ void parse_element(TiXmlNode* pParent){
    }
 }
 
+void make_areas(TiXmlNode *pParent){
+
+}
 void make_world(TiXmlNode *pParent){
    const char  *author, *language, *initialarea;
    int attributesFound = 0;
-   TiXmlElement *element = pParent->toElement();
-   TiXmlAttribute *attributes = element->Firstattribute();
-   while (pAttrib){
+   TiXmlElement *element = pParent->ToElement();
+   TiXmlAttribute *attributes = element->FirstAttribute();
+   while (attributes){
       if(!strcmp(attributes->Name(),"author")){
          author = attributes->Value();
          attributesFound++;
       }
-      else if(!strcmp(attributes->Names(),"language")){
+      else if(!strcmp(attributes->Name(),"language")){
          language = attributes->Value();
          attributesFound++;
       }
-      else if(!strcmp(attributes->Names(),"initialarea")){
+      else if(!strcmp(attributes->Name(),"initialarea")){
          initialarea = attributes->Value();
          attributesFound++;
       }
-      pAttrib=pAttrib->Next();
+      attributes=attributes->Next();
    }
    if(attributesFound == WORLD_ATTRIBUTES){
       make_areas(pParent);
-   }
+   }else{
    error_parsing("one or more of the attributes required for world are missing");
+   }
 }
 
 void error_parsing(const char * error_string){
@@ -162,7 +167,9 @@ void make_objects( TiXmlNode* pParent, unsigned int indent = 0 )
    int t = pParent->Type();
    printf( "%s", getIndent(indent));
    int num;
-   make_world(pParent);
+   if(t == TiXmlNode::TINYXML_ELEMENT){
+      make_world(pParent);
+   }
    switch (t)
       {
       case TiXmlNode::TINYXML_DOCUMENT:
@@ -171,7 +178,7 @@ void make_objects( TiXmlNode* pParent, unsigned int indent = 0 )
 
       case TiXmlNode::TINYXML_ELEMENT:
          printf( "Element [%s]", pParent->Value());
-         parse_element(pParent);
+         //parse_element(pParent);
          num=dump_attribs_to_stdout(pParent->ToElement(), indent+1);
          switch(num)
             {

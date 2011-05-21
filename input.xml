@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<world id="unique_world_name" language=".txt[framework]" author=".txtFramework Team" area="testarea">
+<world initialarea="unique_world_name" language=".txt[framework]" author=".txtFramework Team">
   <area id="testarea" state="home">
     <statedescriptor id="home" switch="homeshort">You awake finding yourself sitting in front of a Stargate. As you focus on the area surrounding you, it becomes evident that you are stranded on a planet in the vesoura system. 
     Dazed you observe a gate ignition panel. As you carry yourself across to the panel, you quickly realize several bullet wounds. 
