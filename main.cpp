@@ -7,15 +7,13 @@
 #include <iostream>
 #include <sstream>
 #include "tinyxml.h"
-#include "tinystr.h"
 
 using namespace std;
 
 enum Tags{WORLD, AREA, STATEDESCRIPTOR, ITEM, STATECHANGE, EVENTHANDLER, STATECONDITIONAL, COMMAND, MESSAGE, NOVALUE};
 
 Tags to_tag(const char * totag)
-{
-  
+{  
    if(!strcmp(totag, "world")){
       return WORLD;
    }
