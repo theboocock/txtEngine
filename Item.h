@@ -3,17 +3,21 @@
 
 #include <string>
 #include <vector>
-#include "BaseContainer.h"
 
-class Item : public BaseContainer{
+class Item{
  protected:
    bool collectable;
+   std::string id;
  public:
    bool is_collectable(){
       return collectable;
    }
- Item(bool collect, const char *id): BaseContainer(id){
+   std::string get_id(){
+      return id;
+   }
+ Item(bool collect, const char *id){
       collectable = collect;
+      this->id = id;
    }
 };
 
