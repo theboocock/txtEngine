@@ -17,7 +17,7 @@ using namespace std;
 
 
 World* world;
-enum Tags{WORLD, AREA, STATEDESCRIPTOR, ITEM, STATECHANGE, EVENTHANDLER, STATECONDITIONAL, COMMAND, MESSAGE, NOVALUE};
+/*enum Tags{WORLD, AREA, STATEDESCRIPTOR, ITEM, STATECHANGE, EVENTHANDLER, STATECONDITIONAL, COMMAND, MESSAGE, NOVALUE};
 
 Tags to_tag(const char * totag)
 {  
@@ -52,51 +52,6 @@ Tags to_tag(const char * totag)
    }
 }   
 
-const unsigned int NUM_INDENTS_PER_SPACE=2;
-
-const char * getIndent( unsigned int numIndents )
-{
-   static const char * pINDENT="                                      + ";
-   static const unsigned int LENGTH=strlen( pINDENT );
-   unsigned int n=numIndents*NUM_INDENTS_PER_SPACE;
-   if ( n > LENGTH ) n = LENGTH;
-   return &pINDENT[ LENGTH-n ];
-}
-
-// same as getIndent but no "+" at the end
-const char * getIndentAlt( unsigned int numIndents )
-{
-   static const char * pINDENT="                                        ";
-   static const unsigned int LENGTH=strlen( pINDENT );
-   unsigned int n=numIndents*NUM_INDENTS_PER_SPACE;
-   if ( n > LENGTH ) n = LENGTH;
-
-   return &pINDENT[ LENGTH-n ];
-}
-void error_parsing(const char * error_string);
-
-int dump_attribs_to_stdout(TiXmlElement* pElement, unsigned int indent)
-{
-   if ( !pElement ) return 0;
-
-   TiXmlAttribute* pAttrib=pElement->FirstAttribute();
-   int i=0;
-   int ival;
-   double dval;
-   const char* pIndent=getIndent(indent);
-   printf("\n");
-   while (pAttrib)
-      {
-         printf( "%s%s: value=[%s]", pIndent, pAttrib->Name(), pAttrib->Value());
-         if (pAttrib->QueryIntValue(&ival)==TIXML_SUCCESS)    printf( " int=%d", ival);
-         if (pAttrib->QueryDoubleValue(&dval)==TIXML_SUCCESS) printf( " d=%1.1f", dval);
-         printf( "\n" );
-         i++;
-         pAttrib=pAttrib->Next();
-      }
-   return i;	
-}
-
 void parse_element(TiXmlNode* pParent){
    Tags element;
    element = to_tag(pParent->Value());
@@ -123,8 +78,9 @@ void parse_element(TiXmlNode* pParent){
    case NOVALUE:
       break;
    }
-}
+}*/
 
+void error_parsing(const char * error_string);
 Area *make_area(TiXmlNode *pArea) {
    TiXmlNode* pChild;
    int attributesFound = 0;
@@ -212,66 +168,14 @@ void make_objects( TiXmlNode* pParent, unsigned int indent = 0 )
 {
    if ( !pParent ) return;
    TiXmlNode* pChild; 
-   printf( "%s", getIndent(indent));
-   int num;
-   TiXmlText *pText;
-   Tags element;
    pParent = pParent->FirstChild();
    pChild = pParent->NextSibling();
    int t = pChild->Type();
    cout << t << endl;
    if(t == TiXmlNode::TINYXML_ELEMENT){
       make_world(pChild);
-   } else {
-      cout << "DADADADADADA" << endl;
-   switch (t)
-      {
-      case TiXmlNode::TINYXML_DOCUMENT:
-         printf( "Document" );
-         break;
-
-      case TiXmlNode::TINYXML_ELEMENT:
-         printf( "Element [%s]", pParent->Value());
-         //parse_element(pParent);
-         num=dump_attribs_to_stdout(pParent->ToElement(), indent+1);
-         switch(num)
-            {
-            case 0:  printf( " (No attributes)"); break;
-            case 1:  printf( "%s1 attributes", getIndentAlt(indent)); break;
-            default: printf( "%s%d attributes", getIndentAlt(indent), num); break;
-            }
-         break;
-      
-      case TiXmlNode::TINYXML_COMMENT:
-         printf( "Comment: [%s]", pParent->Value());
-         break;
-
-      case TiXmlNode::TINYXML_UNKNOWN:
-         printf( "Unknown" );
-         break;
-
-      case TiXmlNode::TINYXML_TEXT:
-         pText = pParent->ToText();
-         element = to_tag(pParent->Parent()->Value());
-         printf( "Element [%d]", element);
-         printf( "Text: [%s]", pText->Value() );
-         break;
-
-      case TiXmlNode::TINYXML_DECLARATION:
-         printf( "Declaration" );
-         break;
-      default:
-         break;
-      }
-   printf( "\n" );
-   for ( pChild = pParent->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
-      {
-         make_objects(pChild, indent+1);
-        
-      }
-   }
+ }
 }
-
 // load the named file and dump its structure to STDOUT
 
 void make_objects(const char* pFilename)
