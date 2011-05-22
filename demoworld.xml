@@ -1,0 +1,95 @@
+<?xml version ="1.0"?>
+<world initialarea="bank_vault" language=".txtFramework" author=".txtFramework Team">
+  
+  <area id="room1" initialdescription="bank_vault" status="NONE">
+    <statedescriptor id="bank_vault">
+      The alarm sound is piercing but unphased you continue to empty the valuables from inside the City Bank's vault into a bag in front of you... As sweat collects underneath the balaclava your mum knitted you the realisation sinks in that it is time to get your bag and gun and make for the nearest exit before the police show up.
+    </statedescriptor>
+    <statedescriptor id="bank_vault_short">
+      You are a loser and you live with your mum. Robbing the bank may impress a lot of people... but for fucks sake, find your way out now or you'll be living in prison! Don't forget to get your gun and bag...
+    </statedescriptor>
+    <areacommand id="north1" name="north" area="back_room">
+      You exit the banks vault into their not so secure back room.
+    </areacommand>
+    
+    <item id="gun1" initialdescription="gun" collectable="true">
+    <statedescriptor id="havegun">
+      Its ok, no one else knows its just a BB gun.
+    </statedescriptor>
+    <statedescriptor id="donthavegun">
+      Your trusty old sidearm just waiting to be wielded.
+    </statedescriptor>
+    <itemcommand name="get" statedescription="havegun" changecolectable="true" collectabledependent="true" areachange="inventory">
+      Sweet, theres heaps of BBs left and the hop up will own that security guard.
+      http://answers.yahoo.com/question/index?qid=20110105180224AAQBgB1
+    </itemcommand>
+    <itemcommand name="drop" statedescription="donthavegun" changecolectable="true" collectabledependent="true" areachange="cur_area">
+      You toss the gun aside like yesterdays jam. Bad move.
+    </itemcommand>
+    </item>
+
+    <item id="bag1" initialdescription="bag" collectable="true">
+    <statedescriptor id="bag">
+      A reasonably priced hemp bag you bought from army surplus for your incence collection.
+    </statedescriptor>
+    <itemcommand name="get" statedescription="havebag" changecolectable="true" collectabledependent="true" areachange="inventory">
+      The bag is really heavy. You did good buddy.
+    </itemcommand>
+    <itemcommand name="drop" statedescription="donthavebag" changecolectable="true" collectabledependent="true" areachange="cur_area">
+      Money isn't everything, theres plenty more banks in the city and with a keen pal like Robert you'll bound to get the Street Cred that you crave.
+    </itemcommand>
+    </item>
+  </area>
+  
+  <area id="room2" initialdescription="back_room" status="NONE">
+    <statedescriptor id="back_room">
+      This room was secure but you used RAGE and axed down the door previously. Thats funny, the axe isn't here anymore. You become suspicious...
+    </statedescriptor>
+    <areacommand id="west2" name="west" area="main_room">
+      Preceding with caution you make your way to the front of the bank.
+    </areacommand>
+  </area>
+  
+  <area id="room3" initialdescription="main_room" status="NONE">
+    <statedescriptor id="main_room">
+      People are huddled face down. There's fewer customers than you thought but then again it is a Westpac bank. Your partner in crime is watching over keeping control of the situation. "Lets go Terrance!", he yells from his wheelchair, pistol waving madly. Robert certainly is one crazy SOB.
+    </statedescriptor>
+    
+    <areacommand id="north3" name="north" area="outside">
+      You open the door for Robert and follow him out to the getaway van.
+    </areacommand>
+
+    <item id="pen1" initialdescription="pen" collectable="true">
+      <statedescriptor id="pen">
+        Its a pen on a string. You know, the ones so that you can't take because there's a physical link from the pen to a fixed surface so bankers don't steal it.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="havepen" status="NONE" changecolectable="true" collectabledependent="true" areachange="inventory">
+        Snap. The chain broke and the pen is yours. +25 Street Cred Points
+      </itemcommand>
+      <itemcommand name="drop" statedescription="donthavepen" changecolectable="false" collectabledependent="false" areachange="cur_area">
+        Old butterfingers McGee here... One chance to get one of these puppies and you screwed it up. -40 Street Cred Points.
+      </itemcommand>
+    </item>
+  </area>
+  
+  <area id="room4" initialdescription="outside" tag="NONE">
+    <statedescriptor id="outside">
+      Fresh air slaps you in the face and you breath in the sweet smell of freedom and money, oh and the stacks of Street Cred you're gaining. It smells good! Slight problem though - the security guard is coming at you with *SURPRISE* an axe. You had better shoot him in the face!
+    </statedescriptor>
+    
+    <areacommand id="shoot1" name="shoot" area="NONE">
+      Congratulations! You got hit his left eye and he crumples to the ground. Surely an eye patch and a life of unsteady employment is in order for this guy. +40 Street Cred.
+    </areacommand>
+
+    <areacommand id="east4" name="east" area="van">
+      The van is ready and waiting with wheelchair ramp down. Seconds seem like hours as the ramp pulls Robert inside the van. The jobs not done yet, you lock the wheels on Roberts wheelchair and make sure he is secure. Safety is paramount.
+    </areacommand>
+  </area>
+
+    <area id="room5" initialdescription="van" tag="WIN">
+    <statedescriptor id="van">
+      With Robert safely inside the van you step on it. Tyres screech and rubber flies. You're so hardcore. You have gained 1000 Street Cred Points. And because you win Robert massages your shoulders from the back of the van. What a guy!
+    </statedescriptor>
+  </area>
+  
+</world>
