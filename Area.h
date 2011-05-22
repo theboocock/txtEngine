@@ -30,8 +30,14 @@ class Area{
    int get_num_items(){
       return num_items;
    }
-   StateDescriptor *get_description(){
-      return description[0];
+   
+   std::string get_description(){
+      for(int desc = 0; desc < num_descriptions; desc++){
+         if(!strcmp(description[desc]->get_id().c_str(),curr_desc_id.c_str() )){
+            return description[desc]->get_description();
+         }
+      }
+      return "";
    }
    void add_item(Item *new_item){
       items.push_back(new_item);
