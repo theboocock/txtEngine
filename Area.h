@@ -98,7 +98,7 @@ class Area{
    StateDescriptor *get_descriptor(int index){
       return description[index];
    }
-   Area(const char *id, const char *desc_id, std::string status){
+   Area(const char *id, const char *desc_id, const char* status){
       this->status = status;
       this->id = id;
       num_descriptions = 0;

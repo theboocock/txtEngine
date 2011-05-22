@@ -8,6 +8,9 @@
 #define PARSING_ERROR 2
 #define AREA_COMMAND_ATTRIBUTES 3
 #define ITEM_COMMAND_ATTRIBUTES 6
+#define INVALID "invalid"
+#define MISSING_TAGS "missinge tags"
+#define UNDER_PARENT "under parent"
 
 World *read_file(const char* pFilename, World *world)
 {
@@ -28,9 +31,9 @@ World *read_file(const char* pFilename, World *world)
 
 ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World *world){
    TiXmlNode* pChild;
-   const char *error_tag = "missing tags", *command_chg_col = "true",
-      *command_name = "invalid", *command_state = "invalid",
-      *command_dep = "false", *command_area = "invalid", *command_status ="invalid";
+   const char *error_tag = MISSING_TAGS, *command_chg_col = "true",
+      *command_name = INVALID, *command_state = INVALID,
+      *command_dep = "false", *command_area = INVALID, *command_status =INVALID;
    int attributesFound = 0;
    bool has_name = false, has_state = false,
       has_collect = false, has_collec_dep = false, has_area = false, has_status = false;
@@ -117,8 +120,8 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
 
 AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World *world){
    TiXmlNode* pChild;
-   const char *error_tag = "missing tags",
-      *command_name = "invalid", *command_area = "invalid", *command_status = "invalid";
+   const char *error_tag = MISSING_TAGS,
+      *command_name = INVALID, *command_area = INVALID, *command_status = INVALID;
    int attributesFound = 0;
    bool has_id = false, has_name = false, has_area = false, has_status = false;
    AreaCommand *area_command;
@@ -182,7 +185,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
 
 StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id, World *world){
    TiXmlNode* pChild;
-   const char *state_desc_id = "invalid", *error_tag = "missing tags";
+   const char *state_desc_id = INVALID, *error_tag = MISSING_TAGS;
    int attributesFound = 0;
    bool has_id = false;
    StateDescriptor *state_descriptor;
@@ -196,11 +199,7 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
             error_tag = "More than one id tag";
          }
          has_id = true;
-      } /*else if(!strcmp(attributes->Name(), "switch")){
-          description_switch = attributes->Value();
-          attributesFound++;
-          }
-        */
+      }
       else {
          error_tag = attributes->Name();
          fprintf(stderr, "found something but shouldnt have.\n");
@@ -238,8 +237,8 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
 
 Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
    TiXmlNode* pChild;
-   const char *item_id = "invlaid", *error_tag = "missing tags",
-      *item_init_desc = "invalid";
+   const char *item_id = "invlaid", *error_tag = MISSING_TAGS,
+      *item_init_desc = INVALID;
    int attributesFound =0;
    bool has_id = false, item_collectable = false, has_collec = false,
       has_init_desc = false;
@@ -310,8 +309,8 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
 Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
    TiXmlNode* pChild;
    int attributesFound = 0;
-   const char *area_id = "invalid", *desc_id = "invalid",
-      *error_tag = "missing tags", *area_status = "";
+   const char *area_id = INVALID, *desc_id = INVALID,
+      *error_tag = MISSING_TAGS, *area_status = "";
    bool has_id = false, has_desc = false, has_status = false;
    Area *area;
    TiXmlElement *element = pArea->ToElement();
@@ -381,8 +380,8 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
    return area;
 }
 World *make_world(TiXmlNode *pParent, World *world){
-   const char  *author = "invalid", *language = "invalid",
-      *initialarea = "invalid", *error_tag = "missing tags";
+   const char  *author = INVALID, *language = INVALID,
+      *initialarea = INVALID, *error_tag = MISSING_TAGS;
    int attributesFound = 0, num_of_areas = 0;
    bool has_auth = false, has_lang = false, has_init = false;
    TiXmlNode* pChild;
