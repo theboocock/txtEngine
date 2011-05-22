@@ -415,15 +415,21 @@ void error_parsing(std::string message){
 
 void make_objects( TiXmlNode* pParent, unsigned int indent = 0 )
 {
-   if ( !pParent ) return;
-   TiXmlNode* pChild; 
-   pParent = pParent->FirstChild();
-   pChild = pParent->NextSibling();
-   int t = pChild->Type();
-   std::cout << t << std::endl;
-   if(t == TiXmlNode::TINYXML_ELEMENT){
-      make_world(pChild);
-      
+   if(pParent->Type() == TiXmlNode::TINYXML_DOCUMENT){
+      pParent = pParent->FirstChild();
+      if(pParent->Type() == TiXmlNode::TINYXML_DECLARATION){
+         pParent = pParent->NextSibling();
+         if(pParent->Type() == TiXmlNode::TINYXML_ELEMENT){
+            make_world(pParent);
+         } else{
+            error_parsing("xml document element not found");   
+         }
+      } else{
+         error_parsing("Missing XML declaration");
+         
+      }
+   }else {
+      error_parsing("Missing world element");     
    }
 }
 // load the named file and dump its structure to STDOUT
