@@ -10,6 +10,7 @@ class Item{
    bool collectable;
    std::string id;
    StateDescriptor *description;
+   std::vector<Command*> commands;
  public:
    void set_description(StateDescriptor *desc){
       description = desc;
@@ -20,11 +21,13 @@ class Item{
    std::string get_id(){
       return id;
    }
- Item(bool collect, const char *id){
+   void add_command(Command* command){
+      commands.push_down(command);
+   }
+ Item(bool collect, const char *identifier){
       collectable = collect;
-      this->id = id;
+      id = identifier;
    }
 };
-
 
 #endif
