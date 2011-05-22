@@ -21,7 +21,16 @@ World* world;
 void error_parsing(std::string error_string);
 StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id);
 
-
+ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id){
+   TiXmlNode* pChild;
+   const char *error_tag = "missing tags", *command_id = "invalid",
+      *command_name = "invalid", *command_state = "invlaid";
+   int attributesFound = 0;
+   bool has_id = false, has_name = false, has_area = false;
+   AreaCommand *area_command;
+   TiXmlElement *element = pCommand->ToElement();
+   TiXmlAttribute *attributes = element->FirstAttribute();
+}
 
 AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id){
    TiXmlNode* pChild;
@@ -248,9 +257,8 @@ Area *make_area(TiXmlNode *pArea, int area_index) {
                   area->add_description(make_state_descriptor(pChild, area_id));
                } else if(!strcmp(pChild->Value(), "item")){
                   area->add_item(make_item(pChild, area_id));
-                  std::cout << "Havn't implemented create item yet." << std::endl;
-               } else if(!strcmp(pChild->Value(), "command")){
-                  std::cout << "Havn't implemented create command yet" << std::endl;
+               } else if(!strcmp(pChild->Value(), "areacommand")){
+                  area->add_command(make_area_command(pChild, area_id));
                }               
          } else {
             std::ostringstream sin;
