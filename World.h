@@ -12,6 +12,7 @@ class World{
    std::string initial_area;
    int num_areas;
    Area *active_area;
+   Area *inventory;
  public:
    std::string get_author(){return author;}
    std::string get_language(){return language;}
@@ -28,8 +29,15 @@ class World{
    int get_num_areas(){
       return num_areas;
    }
-   void init_activeArea(){
-      active_area = new Area("start", " LOL ");
+
+   bool init_active_area(){
+      for(unsigned int area_num = 0; area_num < areas.size(); area_num++){
+         if(areas[area_num]->get_id().compare(initial_area)){
+            active_area = areas[area_num];
+            return true;
+         }
+      }
+      return false;
    }
    void change_area(std::string name){
       for(unsigned int area_num = 0; area_num < areas.size(); area_num++){
@@ -44,18 +52,23 @@ class World{
          item = active_area->get_item(command);
       }
    }
+   Area *get_inventory(){
+      return inventory;
+   }
    World(const char *lang, const char *auth, const char *init_area){
       language = lang;
       author = auth;
       initial_area = init_area;
       num_areas = 0;
+      inventory = new Area("inventory","");
    }
    ~World(){
       for(unsigned int area_num = 0; area_num < areas.size(); area_num++){
-         delete areas[area_num];
+          delete areas[area_num];
       }
-      delete active_area;
+      delete inventory;
    }
+   
 };
 
 

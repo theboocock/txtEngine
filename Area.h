@@ -102,6 +102,9 @@ class Area{
       for(unsigned int desc_num = 0; desc_num < description.size(); desc_num++){
          delete description[desc_num];
       }
+      for(unsigned int command_num = 0; command_num < commands.size(); command_num++){
+         delete commands[command_num];
+      }
    }
 };
 

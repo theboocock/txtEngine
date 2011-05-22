@@ -397,6 +397,13 @@ void make_world(TiXmlNode *pParent){
       std::string message = sin.str();
       error_parsing(message);
    }
+   if(!world->init_active_area()){
+      std::ostringstream sin;
+      sin << "initial area not found in the list of areas ";
+      std::string message = sin.str();
+      error_parsing(message);
+   }
+   
 }
 
 void error_parsing(std::string message){
@@ -416,7 +423,8 @@ void make_objects( TiXmlNode* pParent, unsigned int indent = 0 )
    std::cout << t << std::endl;
    if(t == TiXmlNode::TINYXML_ELEMENT){
       make_world(pChild);
- }
+      
+   }
 }
 // load the named file and dump its structure to STDOUT
 
@@ -480,12 +488,14 @@ void print_world_tree(){
 
 int main(int argc, char** argv)
 {
-   make_objects("input.xml");
+   if(argc > 1){
+   make_objects(argv[1]);
    /*delete world deletes everything, as the the deconstructor for
      world calls the decontructor for all areas, which calls the
      decontructor for all items and descriptions...
     */
    print_world_tree();
    delete world;
+   }
    return 0;
 }
