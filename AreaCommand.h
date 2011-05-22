@@ -1,29 +1,31 @@
 #ifndef _AREA_COMMAND_H
 #define _AREA_COMMAND_H
 
+#include<string>
+
 class AreaCommand{
  protected:
-   std::String name;
-   std::String id;
-   std::String message;
-   std::String move_to_area;
+   std::string name;
+   std::string id;
+   std::string message;
+   std::string move_to_area;
    
  public:
-   Command(const char * callmeby, const char * identifier, const char * areatomoveto){
+   AreaCommand(const char * callmeby, const char * identifier, const char * areatomoveto){
       name = callmeby;
       id   = identifier;
       move_to_area= areatomoveto;
       message = "";
    }
-   ~Command(){}
-   std::String get_id(){
+   ~AreaCommand(){}
+   std::string get_id(){
       return id;
    }
-   std::String get_name(){
+   std::string get_name(){
       return name;
    }
-   std::String get_statechange(){
-      return stateChange;
+   std::string get_area_to_move(){
+      return move_to_area;
    }
    void set_message(const char *to_message){
       message = to_message;

@@ -1,28 +1,30 @@
 #ifndef _ITEM_COMMAND_H
 #define _ITEM_COMMAND_H
 
+#include <string>
+
 class ItemCommand{
  protected:
-   std::String name;
-   std::String id;
-   std::String state_change;
-   std::String message;
+   std::string name;
+   std::string id;
+   std::string state_change;
+   std::string message;
    
  public:
-   Command(const char * callmeby, const char * identifier, const char * state_mutator){
+   ItemCommand(const char * callmeby, const char * identifier, const char * state_mutator){
       name = callmeby;
       id   = identifier;
       state_change = state_mutator;
       message = "";
    }
-   ~Command(){}
-   std::String get_id(){
+   ~ItemCommand(){}
+   std::string get_id(){
       return id;
    }
-   std::String get_name(){
+   std::string get_name(){
       return name;
    }
-   std::String get_statechange(){
+   std::string get_statechange(){
       return state_change;
    }
    void set_message(const char *to_message){
