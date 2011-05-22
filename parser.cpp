@@ -306,8 +306,8 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
    TiXmlNode* pChild;
    int attributesFound = 0;
    const char *area_id = "invalid", *desc_id = "invalid",
-      *error_tag = "missing tags", *area_is_win = "false";
-   bool has_id = false, has_desc = false, has_is_win = false;
+      *error_tag = "missing tags", *area_status = "";
+   bool has_id = false, has_desc = false, has_status = false;
    Area *area;
    TiXmlElement *element = pArea->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
@@ -326,20 +326,20 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
             error_tag = "More than one initialdescription tag";
          }
          has_desc = true;
-      } else if (!strcmp(attributes->Name(), "iswin")){
-         area_is_win = attributes->Value();
+      } else if (!strcmp(attributes->Name(), "status")){
+         area_status = attributes->Value();
          attributesFound++;
-         if(has_is_win){
-            error_tag = "More than one is win tag";
+         if(has_status){
+            error_tag = "More than one status tag";
          }
-         has_is_win = true;
+         has_status = true;
       } else {
          error_tag = attributes->Name();         
       }
       attributes=attributes->Next();
    }  
-   if(attributesFound == AREA_ATTRIBUTES && has_desc && has_id && has_is_win){
-      area = new Area(area_id, desc_id, area_is_win);
+   if(attributesFound == AREA_ATTRIBUTES && has_desc && has_id && has_status){
+      area = new Area(area_id, desc_id, area_status);
       for ( pChild = pArea->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT){
                if(!strcmp(pChild->Value(), "statedescriptor")){

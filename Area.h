@@ -11,7 +11,7 @@ class Area{
    std::vector<Item*> items;
    int num_items;
    int num_descriptions, num_commands;
-   bool is_win;
+   std::string status;
    std::string id;
    std::string curr_desc_id;
    std::vector<StateDescriptor*> description;
@@ -25,8 +25,8 @@ class Area{
       }
       return false;
    }
-   bool get_is_win(){
-      return is_win;
+   std::string get_status(){
+      return status;
    }
    bool has_current_desc(){
       return has_description(curr_desc_id);
@@ -92,8 +92,8 @@ class Area{
    StateDescriptor *get_descriptor(int index){
       return description[index];
    }
-   Area(const char *id, const char *desc_id, bool is_win){
-      this->is_win = is_win;
+   Area(const char *id, const char *desc_id, std::string status){
+      this->status = status;
       this->id = id;
       num_descriptions = 0;
       num_items = 0;
