@@ -20,7 +20,7 @@
 World* world;
 
 void error_parsing(std::string error_string);
-StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id);
+//StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id);
 
 ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id){
    TiXmlNode* pChild;
@@ -152,6 +152,62 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id){
    return area_command;
 }
 
+StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id){
+   TiXmlNode* pChild;
+   const char *state_desc_id = "invalid", *error_tag = "missing tags";
+   int attributesFound = 0;
+   bool has_id = false;
+   StateDescriptor *state_descriptor;
+   TiXmlElement *element = pDescription->ToElement();
+   TiXmlAttribute *attributes = element->FirstAttribute();
+   while(attributes){
+      if(!strcmp(attributes->Name(), "id")){
+         state_desc_id = attributes->Value();
+         attributesFound++;
+         if(has_id){
+            error_tag = "More than one id tag";
+         }
+         has_id = true;
+      } /*else if(!strcmp(attributes->Name(), "switch")){
+         description_switch = attributes->Value();
+         attributesFound++;
+      }
+        */
+      else {
+         error_tag = attributes->Name();
+         fprintf(stderr, "found something but shouldnt have.\n");
+         attributesFound++;
+      }
+      attributes = attributes->Next();
+   }
+   if(STATE_DESCRIPTION_ATTRIBUTES == attributesFound && has_id){
+      state_descriptor = new StateDescriptor(state_desc_id);
+      for ( pChild = pDescription->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
+         if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
+            state_descriptor->set_description(pChild->ToText()->Value());
+         } else {
+            std::ostringstream sin;
+            sin << "Under parent ";
+            sin << parent_id;
+            sin << " there is a tag error in ";
+            sin << state_desc_id;
+            std::string message = sin.str();
+            error_parsing(message);
+         }
+      }
+   } else {
+      std::ostringstream sin;
+      sin << "Under parent ";
+      sin << parent_id;
+      sin << " there is an attribute error in a state descriptor, found: ";
+      sin << error_tag;
+      std::string message = sin.str();
+      error_parsing(message);
+   }
+
+   return state_descriptor;
+}
+
 Item *make_item(TiXmlNode *pItem, const char *parent_id){
    TiXmlNode* pChild;
    const char *item_id = "invlaid", *error_tag = "missing tags",
@@ -220,62 +276,6 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id){
       error_parsing(message);
    }
    return item;
-}
-
-StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id){
-   TiXmlNode* pChild;
-   const char *state_desc_id = "invalid", *error_tag = "missing tags";
-   int attributesFound = 0;
-   bool has_id = false;
-   StateDescriptor *state_descriptor;
-   TiXmlElement *element = pDescription->ToElement();
-   TiXmlAttribute *attributes = element->FirstAttribute();
-   while(attributes){
-      if(!strcmp(attributes->Name(), "id")){
-         state_desc_id = attributes->Value();
-         attributesFound++;
-         if(has_id){
-            error_tag = "More than one id tag";
-         }
-         has_id = true;
-      } /*else if(!strcmp(attributes->Name(), "switch")){
-         description_switch = attributes->Value();
-         attributesFound++;
-      }
-        */
-      else {
-         error_tag = attributes->Name();
-         fprintf(stderr, "found something but shouldnt have.\n");
-         attributesFound++;
-      }
-      attributes = attributes->Next();
-   }
-   if(STATE_DESCRIPTION_ATTRIBUTES == attributesFound && has_id){
-      state_descriptor = new StateDescriptor(state_desc_id);
-      for ( pChild = pDescription->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
-         if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
-            state_descriptor->set_description(pChild->ToText()->Value());
-         } else {
-            std::ostringstream sin;
-            sin << "Under parent ";
-            sin << parent_id;
-            sin << " there is a tag error in ";
-            sin << state_desc_id;
-            std::string message = sin.str();
-            error_parsing(message);
-         }
-      }
-   } else {
-      std::ostringstream sin;
-      sin << "Under parent ";
-      sin << parent_id;
-      sin << " there is an attribute error in a state descriptor, found: ";
-      sin << error_tag;
-      std::string message = sin.str();
-      error_parsing(message);
-   }
-
-   return state_descriptor;
 }
 
 Area *make_area(TiXmlNode *pArea, int area_index) {
@@ -440,7 +440,7 @@ void print_world_tree(){
    sin << "World:\n";
    for(int area = 0; area < world->get_num_areas(); area++){
       Area *temp_area = world->get_area(area);
-      sin << "\tArea ";
+      sin << "\tArea: ";
       sin << temp_area->get_id();
       sin << "\n";
       for(int state_desc = 0; state_desc < temp_area->get_num_descriptions(); state_desc++){
@@ -449,6 +449,12 @@ void print_world_tree(){
          sin << temp_desc->get_description();
          sin << "\n";
       }
+      for(int command = 0; command < temp_area->get_num_commands(); command++){
+            AreaCommand *temp_command = temp_area->get_command(command);
+            sin << "\t\tCommand: ";
+            sin << temp_command->get_name();
+            sin << "\n";
+         }
       for(int item = 0; item < temp_area->get_num_items(); item++){
          Item *temp_item = temp_area->get_item(item);
          sin << "\t\tItem:";
@@ -460,6 +466,12 @@ void print_world_tree(){
             sin << temp_desc->get_description();
             sin << "\n";
          }
+         for(int command = 0; command < temp_item->get_num_commands(); command++){
+            ItemCommand *temp_command = temp_item->get_command(command);
+            sin << "\t\t\tCommand: ";
+            sin << temp_command->get_name();
+            sin << "\n";
+         }
       }
    }
    std::string message = sin.str();
@@ -468,7 +480,7 @@ void print_world_tree(){
 
 int main(int argc, char** argv)
 {
-   make_objects("testInput.xml");
+   make_objects("input.xml");
    /*delete world deletes everything, as the the deconstructor for
      world calls the decontructor for all areas, which calls the
      decontructor for all items and descriptions...

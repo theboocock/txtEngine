@@ -10,7 +10,7 @@ class Area{
  protected:
    std::vector<Item*> items;
    int num_items;
-   int num_descriptions;
+   int num_descriptions, num_commands;
    std::string id;
    std::string curr_desc_id;
    std::vector<StateDescriptor*> description;
@@ -66,6 +66,13 @@ class Area{
    }
    void add_command(AreaCommand *command_name){
       commands.push_back(command_name);
+      num_commands++;
+   }
+   int get_num_commands(){
+      return num_commands;
+   }
+   AreaCommand *get_command(int index){
+      return commands[index];
    }
    AreaCommand *has_command(std::string command_name){
       for(unsigned int c_num = 0; c_num < commands.size(); c_num++){
@@ -85,6 +92,7 @@ class Area{
       this->id = id;
       num_descriptions = 0;
       num_items = 0;
+      num_commands = 0;
       this->curr_desc_id = desc_id;
    }
    ~Area(){

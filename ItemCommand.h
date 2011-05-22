@@ -21,6 +21,9 @@ class ItemCommand{
    std::string get_id(){
       return id;
    }
+   std::string get_message(){
+      return message;
+   }
    std::string get_name(){
       return name;
    }
