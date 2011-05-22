@@ -9,12 +9,26 @@
 class Item{
  protected:
    bool collectable;
+   int num_descriptions;
    std::string id;
-   StateDescriptor *description;
+   std::string curr_desc_id;
+   std::vector<StateDescriptor*> description;
    std::vector<ItemCommand*> commands;
  public:
-   void set_description(StateDescriptor *desc){
-      description = desc;
+   bool has_description(std::string desc_id){
+      for(int desc = 0; desc < num_descriptions; desc++){
+         if(!strcmp(description[desc]->get_id().c_str(), desc_id.c_str())){
+            return true;
+         }
+      }
+      return false;
+   }
+   bool has_current_desc(){
+      return has_description(curr_desc_id);
+   }
+   void add_description(StateDescriptor *desc){
+      description.push_back(desc);
+      num_descriptions++;    
    }
    bool is_collectable(){
       return collectable;
@@ -33,9 +47,11 @@ class Item{
       }
       return NULL;
    }
- Item(bool collect, const char *identifier){
+   Item(bool collect, const char *identifier, const char *initial_state){
       collectable = collect;
       id = identifier;
+      num_descriptions = 0;
+      curr_desc_id = initial_state;
    }
 };
 
