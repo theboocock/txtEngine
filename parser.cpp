@@ -17,9 +17,7 @@ World *read_file(const char* pFilename, World *world)
    TiXmlDocument doc(pFilename);
    bool loadOkay = doc.LoadFile();
 
-   if (loadOkay)
-      {
-         printf("\nGAME FILE LOADED SUCCESSFULLY:\n");
+   if (loadOkay){
          return make_objects( &doc, world ); // defined later in the tutorial
       }
    else
@@ -31,11 +29,11 @@ World *read_file(const char* pFilename, World *world)
 
 ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World *world){
    TiXmlNode* pChild;
-   const char *error_tag = MISSING_TAGS, *command_chg_col = "true",
+   const char *error_tag = MISSING_TAGS, 
       *command_name = INVALID, *command_state = INVALID,
-      *command_dep = "false", *command_area = INVALID, *command_status =INVALID;
+      *command_area = INVALID, *command_status =INVALID;
    int attributesFound = 0;
-   bool has_name = false, has_state = false,
+   bool has_name = false, has_state = false, command_chg_col = true, command_dep =true,
       has_collect = false, has_collec_dep = false, has_area = false, has_status = false;
    ItemCommand *item_command;
    TiXmlElement *element = pCommand->ToElement();
@@ -43,9 +41,9 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    while(attributes){
       if(!strcmp(attributes->Name(), "changecollectable")){
          if(!strcmp(attributes->Value(), "false")){
-            command_chg_col = NULL;
+            command_chg_col = false;
          } else {
-            command_chg_col = "true";
+            command_chg_col = true;
          }
          attributesFound++;
          if(has_collect){
@@ -262,7 +260,11 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
          }
          has_id = true;
       } else if(!strcmp(attributes->Name(), "collectable")){
-         item_collectable = attributes->Value();
+		    if(!strcmp(attributes->Value(), "false")){
+            item_collectable = false;
+         } else {
+            item_collectable = true;
+         }
          attributesFound++;
          if(has_collec){
             error_tag = "More than one collectable tag";

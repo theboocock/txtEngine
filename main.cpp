@@ -82,9 +82,11 @@ int main(int argc, char** argv)
 {
    if(argc > 1){
       world = read_file(argv[1], world);
+	  if(world != NULL){
       //print_world_tree();
       gameloop();
       delete world;
+	  }
    }
    return 0;
 }
