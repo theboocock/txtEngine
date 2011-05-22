@@ -23,8 +23,17 @@ class Item{
       }
       return false;
    }
+   
    bool has_current_desc(){
       return has_description(curr_desc_id);
+   }
+   std::string get_description(){
+      for(int desc = 0; desc < num_descriptions; desc++){
+         if(!strcmp(description[desc]->get_id().c_str(),curr_desc_id.c_str() )){
+            return description[desc]->get_description();
+         }
+      }
+      return "";
    }
    void add_description(StateDescriptor *desc){
       description.push_back(desc);

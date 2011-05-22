@@ -64,7 +64,7 @@ class World{
       author = auth;
       initial_area = init_area;
       num_areas = 0;
-      Area* inventory = new Area("inventory","",true);
+      Area* inventory = new Area("inventory","","");
       add_area(inventory);
 
    }

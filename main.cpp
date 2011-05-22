@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <string>
 #include "parser.h"
+#define DEFAULT_VALUE "default_value"
 #define MAXCHARACTERS_PER_LINE 70
 
 /*Method signatures */
@@ -84,17 +85,18 @@ int main(int argc, char** argv)
 
 void gameloop(){
    
-   std::string lastarea ="";
+   std::string last_area = DEFAULT_VALUE;
    while(/*!world->get_active_area()->win()(*/ true){
       std::ostringstream sin;
-      std::ostringstream commandstream;  
-      if(lastarea.compare(world->get_active_area()->get_id()) != 0){
-            lastarea = world->get_active_area()->get_id();
-      sin << world->get_active_area()->get_description() << "\n";
-      for(int items = 0; items < world->get_active_area()->get_num_items();items++){
-         sin << world->get_active_area()->get_item(items)->get_description() << "\n";
-      }
-      std::cout << sin.str();
+      std::ostringstream commandstream;
+      
+      if(last_area.compare(world->get_active_area()->get_id()) != 0){
+         last_area = world->get_active_area()->get_id();
+         sin << world->get_active_area()->get_description() << "\n";
+         for(int items = 0; items < world->get_active_area()->get_num_items();items++){
+            sin << world->get_active_area()->get_item(items)->get_description() << "\n";
+         }
+         std::cout << sin.str();
       }
       std::string line;
       std::getline(std::cin, line);
@@ -109,7 +111,13 @@ void gameloop(){
                std::cout << "Please enter one or two word commands only" << std::endl;            
             }
          } else {
-            commandstream << one_word_command(command1);
+            std::string from_one_word = one_word_command(command1);
+            if(!strcmp(from_one_word.c_str(), DEFAULT_VALUE)){
+               last_area = DEFAULT_VALUE;
+            } else {
+               commandstream << from_one_word;
+               commandstream << "\n";
+            }
          }
       } else {
          std::cout << "Please enter one or two word commands only" << std::endl;     
@@ -122,22 +130,34 @@ void gameloop(){
 }
 
 std::string two_word_command(std::string command1, std::string command2){
-   return command2;
+   std::transform(command1.begin(), command1.end(),
+                  command1.begin(), ::tolower);
+   std::transform(command2.begin(), command2.end(),
+                  command2.begin(), ::tolower);
+   for(int item = 0; item < world->get_active_area->get_num_items(); item++){
+      if(){
+         
+      }
+   }
+   return "havn't done anything...\n";
    
 }
 std::string one_word_command(std::string command){
    std::transform(command.begin(), command.end(),
                   command.begin(), ::tolower);
    if(!command.compare("look")){
-         return "";
-      }
-   else if(!command.compare("bag")){
+         return DEFAULT_VALUE;
+   } else if(!command.compare("bag")){
       return print_inventory();
-   }else if(!command.compare("inventory")){
+   } else if(!command.compare("inventory")){
       return print_inventory();
    }
-   for (int commands = 0; commands < world->get_active_area()->get_num_commands(); commands++){
-      
+   AreaCommand *temp_area_command = world->get_active_area()->has_command(command);
+   if(temp_area_command != NULL){
+      world->change_area(temp_area_command->get_area());
+      return "You changed area.";
+   } else {
+      return "yeah, whaat??\n";
    }
    
 }

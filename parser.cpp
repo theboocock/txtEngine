@@ -245,11 +245,7 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
          if(has_id){
             error_tag = "More than one id tag";
          }
-         if(world->get_area(parent_id)->has_item(item_id)){
-            error_tag = "Trying to create teo items with same id.";
-         } else {
-            has_id = true;
-         }
+         has_id = true;
       } else if(!strcmp(attributes->Name(), "collectable")){
          item_collectable = attributes->Value();
          attributesFound++;
@@ -306,8 +302,8 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
    TiXmlNode* pChild;
    int attributesFound = 0;
    const char *area_id = "invalid", *desc_id = "invalid",
-      *error_tag = "missing tags", *area_is_win = "false";
-   bool has_id = false, has_desc = false, has_is_win = false;
+      *error_tag = "missing tags", *area_status = "";
+   bool has_id = false, has_desc = false, has_status = false;
    Area *area;
    TiXmlElement *element = pArea->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
@@ -326,20 +322,20 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
             error_tag = "More than one initialdescription tag";
          }
          has_desc = true;
-      } else if (!strcmp(attributes->Name(), "iswin")){
-         area_is_win = attributes->Value();
+      } else if (!strcmp(attributes->Name(), "status")){
+         area_status = attributes->Value();
          attributesFound++;
-         if(has_is_win){
-            error_tag = "More than one is win tag";
+         if(has_status){
+            error_tag = "More than one status tag";
          }
-         has_is_win = true;
+         has_status = true;
       } else {
          error_tag = attributes->Name();         
       }
       attributes=attributes->Next();
    }  
-   if(attributesFound == AREA_ATTRIBUTES && has_desc && has_id && has_is_win){
-      area = new Area(area_id, desc_id, area_is_win);
+   if(attributesFound == AREA_ATTRIBUTES && has_desc && has_id && has_status){
+      area = new Area(area_id, desc_id, area_status);
       for ( pChild = pArea->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT){
                if(!strcmp(pChild->Value(), "statedescriptor")){
@@ -439,6 +435,16 @@ World *make_world(TiXmlNode *pParent, World *world){
       Area *temp_area = world->get_area(area);
       for(int item = 0; item < temp_area->get_num_items(); item++){
          Item *temp_item = temp_area->get_item(item);
+         for(int item_next = item+1; item_next < temp_area->get_num_items(); item_next++){
+            if(!strcmp(temp_area->get_item(item_next)->get_id().c_str(), temp_item->get_id().c_str())){
+               std::ostringstream sin;
+               sin << "There are two items in the game with id: ";
+               sin << temp_item->get_id();
+               sin << " both in ";
+               sin << temp_area->get_id();
+               error_parsing(sin.str(), world);
+            }
+         }
          for(int next_area = area + 1; next_area < world->get_num_areas(); next_area++){
             if(world->get_area(next_area)->has_item(temp_item->get_id())){
                std::ostringstream sin;
