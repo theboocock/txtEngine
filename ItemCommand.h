@@ -6,21 +6,31 @@
 class ItemCommand{
  protected:
    std::string name;
-   std::string id;
    std::string state_change;
    std::string message;
+   std::string area_change;
+   bool change_collect, collect_dependent;
    
  public:
-   ItemCommand(const char * identifier,const char * callmeby, const char * state_mutator){
+   ItemCommand(const char * callmeby, const char * state_mutator,
+               bool chng_collec, bool collec_dep, const char *area_chng){
       name = callmeby;
-      id   = identifier;
       state_change = state_mutator;
+      area_change = area_chng;
+      change_collect = chng_collec;
+      collect_dependent = collec_dep;
       message = "";
    }
-   ~ItemCommand(){}
-   std::string get_id(){
-      return id;
+   bool get_change_collect(){
+      return change_collect;
    }
+   bool get_collect_dependent(){
+      return collect_dependent;
+   }
+   std::string get_area_change(){
+      return area_change;
+   }
+   ~ItemCommand(){}
    std::string get_message(){
       return message;
    }

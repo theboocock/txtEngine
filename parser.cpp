@@ -7,7 +7,7 @@
 #define ITEM_ATTRIBUTES 3
 #define PARSING_ERROR 2
 #define AREA_COMMAND_ATTRIBUTES 3
-#define ITEM_COMMAND_ATTRIBUTES 3
+#define ITEM_COMMAND_ATTRIBUTES 5
 
 World *read_file(const char* pFilename, World *world)
 {
@@ -30,20 +30,21 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    TiXmlNode* pChild;
    const char *error_tag = "missing tags", *command_chg_col = "true",
       *command_name = "invalid", *command_state = "invalid",
-      *command_dep = "false";
+      *command_dep = "false", *command_area = "invalid";
    int attributesFound = 0;
-   bool has_id = false, has_name = false, has_state = false;
+   bool has_name = false, has_state = false,
+      has_collect = false, has_collec_dep = false, has_area = false;
    ItemCommand *item_command;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes){
-      if(!strcmp(attributes->Name(), "id")){
-         command_id = attributes->Value();
+      if(!strcmp(attributes->Name(), "changecollectable")){
+         command_chg_col = attributes->Value();
          attributesFound++;
-         if(has_id){
-            error_tag = "More than one id tag";
+         if(has_collect){
+            error_tag = "More than one change collectable tag";
          }
-         has_id = true;
+         has_collect = true;
       } else if(!strcmp(attributes->Name(), "name")){
          command_name = attributes->Value();
          attributesFound++;
@@ -58,6 +59,20 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
             error_tag = "More than one state description tag.";
          }
          has_state = true;
+      } else if(!strcmp(attributes->Name(), "areachange")) {
+         command_area = attributes->Value();
+         attributesFound++;
+         if(has_area){
+            error_tag = "More than one change collectable tag.";
+         }
+         has_area = true;
+      } else if(!strcmp(attributes->Name(), "collectabledependent")) {
+         command_dep = attributes->Value();
+         attributesFound++;
+         if(has_collec_dep){
+            error_tag = "More than one collectable dependent tag.";
+         }
+         has_collec_dep = true;
       } else{
          error_tag = attributes->Name();
          fprintf(stderr, "found something but shouldnt have in make_item_command.\n");
@@ -65,8 +80,8 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
       }
       attributes = attributes->Next();
    }
-   if(ITEM_COMMAND_ATTRIBUTES == attributesFound && has_id && has_name && has_state){
-      item_command = new ItemCommand(command_id, command_name, command_state);
+   if(ITEM_COMMAND_ATTRIBUTES == attributesFound && has_collec_dep && has_name && has_state && has_area && has_collect){
+      item_command = new ItemCommand(command_name, command_state, command_chg_col, command_dep, command_area);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
             item_command->set_message(pChild->ToText()->Value());
@@ -75,7 +90,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
             sin << "Under parent ";
             sin << parent_id;
             sin << " there is a tag error in ";
-            sin << command_id;
+            sin << command_name;
             std::string message = sin.str();
             error_parsing(message, world);
          }
