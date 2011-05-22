@@ -9,7 +9,7 @@
 class Item{
  protected:
    bool collectable;
-   int num_descriptions;
+   int num_descriptions, num_commands;
    std::string id;
    std::string curr_desc_id;
    std::vector<StateDescriptor*> description;
@@ -36,8 +36,15 @@ class Item{
    std::string get_id(){
       return id;
    }
+   int get_num_commands(){
+      return num_commands;
+   }
    void add_command(ItemCommand *command_name){
       commands.push_back(command_name);
+      num_commands++;
+   }
+   ItemCommand *get_command(int index){
+      return commands[index];
    }
    ItemCommand *has_command(std::string command_name){
       ItemCommand *checkingValidity;
@@ -64,6 +71,7 @@ class Item{
       collectable = collect;
       id = identifier;
       num_descriptions = 0;
+      num_commands = 0;
       curr_desc_id = initial_state;
    }
 };
