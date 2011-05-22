@@ -11,7 +11,7 @@ class ItemCommand{
    std::string message;
    
  public:
-   ItemCommand(const char * callmeby, const char * identifier, const char * state_mutator){
+   ItemCommand(const char * identifier,const char * callmeby, const char * state_mutator){
       name = callmeby;
       id   = identifier;
       state_change = state_mutator;
