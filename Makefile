@@ -91,7 +91,7 @@ all: ${OUTPUT}
 # Source files
 #****************************************************************************
 
-SRCS := tinyxml.cpp tinyxmlparser.cpp main.cpp tinyxmlerror.cpp tinystr.cpp
+SRCS := tinyxml.cpp tinyxmlparser.cpp main.cpp tinyxmlerror.cpp tinystr.cpp parser.cpp
 
 # Add on the sources for libraries
 SRCS := ${SRCS}
@@ -123,9 +123,10 @@ clean:
 	-rm -f core ${OBJS} ${OUTPUT}
 
 depend:
-	#makedepend ${INCS} ${SRCS}
+#makedepend ${INCS} ${SRCS}
 
-tinyxml.o: tinyxml.h tinystr.h
-tinyxmlparser.o: tinyxml.h tinystr.h
-main.o: tinyxml.h tinystr.h
-tinyxmlerror.o: tinyxml.h tinystr.h
+#tinyxml.o: tinyxml.h tinystr.h	
+#tinyxmlparser.o: tinyxml.h tinystr.h
+#main.o: tinyxml.h tinystr.h
+#tinyxmlerror.o: tinyxml.h tinystr.h
+#parser.o: tinyxml.h tinystr.h
