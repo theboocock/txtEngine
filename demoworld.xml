@@ -69,6 +69,12 @@
       <statedescriptor id="pen">
         Its a pen on a string. You know, the ones so that you can't take because there's a physical link from the pen to a fixed surface so bankers don't steal it. What a great invention.
       </statedescriptor>
+      <statedescriptor id="havepen">
+        a pen
+      </statedescriptor>
+      <statedescriptor id="donthavepen">
+        a pen just lying on the ground and stuff
+      </statedescriptor>
       <itemcommand name="get" statedescription="havepen" status="NONE" changecollectable="true" collectabledependent="true" areachange="inventory">
         "Snap!" The chain broke and the pen is yours. +25 Street Cred Points
       </itemcommand>

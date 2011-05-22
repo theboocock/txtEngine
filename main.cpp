@@ -234,10 +234,11 @@ std::string one_word_command(std::string command){
 
 std::string print_inventory(){
    std::ostringstream sin;
+   int num = 1;
    sin << "INVENTORY: \n";
    std::string inv = INVENTORY;
    for(int items = 0; items < world->get_area(inv)->get_num_items(); items++){
-      sin << world->get_area(INVENTORY)->get_item(items)->get_description();
+      sin << num++ <<world->get_area(INVENTORY)->get_item(items)->get_description();
    }
    return sin.str();
    
