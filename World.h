@@ -40,6 +40,10 @@ class World{
       initial_area = init_area;
    }
    ~World(){
+      for(unsigned int area_num = 0; area_num < areas.size(); area_num++){
+         delete areas[area_num];
+      }
+      delete active_area;
    }
 };
 

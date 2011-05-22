@@ -7,16 +7,16 @@
 
 class Area{
  protected:
-   std::vector<Item> items;
+   std::vector<Item*> items;
    int num_items;
    std::string id;
    std::string curr_desc_id;
-   std::vector<StateDescriptor> description;
+   std::vector<StateDescriptor*> description;
  public:
-   StateDescriptor get_description(){
+   StateDescriptor *get_description(){
       return description[0];
    }
-   void add_item(Item new_item){
+   void add_item(Item *new_item){
       items.push_back(new_item);
       num_items++;
    }
@@ -25,7 +25,7 @@ class Area{
    }
    bool has_item(std::string item_to_find){
       for(unsigned int item_num = 0; item_num < items.size(); item_num++){
-         if(items[item_num].get_id().compare(item_to_find) == 0){
+         if(items[item_num]->get_id().compare(item_to_find) == 0){
             return true;
          }
       }
@@ -33,16 +33,28 @@ class Area{
    }
    Item *get_item(std::string item_to_get){
       for(unsigned int item_num = 0; item_num < items.size(); item_num++){
-         if(items[item_num].get_id().compare(item_to_get) == 0){
-            return &items[item_num];
+         if(items[item_num]->get_id().compare(item_to_get) == 0){
+            return items[item_num];
          }
       }
       return NULL;
    }
-   Area(const char *id, const char *desc){
+   void add_description(StateDescriptor *desc){
+      description.push_back(desc);
+      
+   }
+   Area(const char *id, const char *desc_id){
       this->id = id;
       num_items = 0;
-      this->curr_desc_id = desc;
+      this->curr_desc_id = desc_id;
+   }
+   ~Area(){
+      for(unsigned int item_num = 0; item_num < items.size(); item_num++){
+         delete items[item_num];
+      }
+      for(unsigned int desc_num = 0; desc_num < description.size(); desc_num++){
+         delete description[desc_num];
+      }
    }
 };
 
