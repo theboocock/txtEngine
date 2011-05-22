@@ -10,13 +10,23 @@ class World{
    std::string author;
    std::vector<Area*> areas;
    std::string initial_area;
+   int num_areas;
    Area *active_area;
  public:
    std::string get_author(){return author;}
    std::string get_language(){return language;}
-   Area* get_active_area(){return active_area;}
+   Area* get_active_area(){
+      return active_area;
+   }
+   Area *get_area(int index){
+      return areas[index];
+   }
    void add_area(Area *new_area){
       areas.push_back(new_area);
+      num_areas++;
+   }
+   int get_num_areas(){
+      return num_areas;
    }
    void init_activeArea(){
       active_area = new Area("start", " LOL ");
@@ -38,6 +48,7 @@ class World{
       language = lang;
       author = auth;
       initial_area = init_area;
+      num_areas = 0;
    }
    ~World(){
       for(unsigned int area_num = 0; area_num < areas.size(); area_num++){

@@ -14,8 +14,8 @@ class StateDescriptor{
    void set_description(const char *desc){
       description = desc;
    }
-   ~StateDescriptor(){}
-   
+   ~StateDescriptor(){
+   }   
    std::string get_id(){
       return id;
    }

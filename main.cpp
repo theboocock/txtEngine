@@ -251,14 +251,37 @@ void make_objects(const char* pFilename)
 void print_world_tree(){
    std::ostringstream sin;
    sin << "World:\n";
-   for(int area = 0; area < 
+   for(int area = 0; area < world->get_num_areas(); area++){
+      Area *temp_area = world->get_area(area);
+      sin << "\tArea ";
+      sin << temp_area->get_id();
+      sin << "\n";
+      for(int state_desc = 0; state_desc < temp_area->get_num_descriptions(); state_desc++){
+         StateDescriptor *temp_desc = temp_area->get_descriptor(state_desc);
+         sin << "\t\tDesc: ";
+         sin << temp_desc->get_description();
+         sin << "\n";
+      }
+      for(int item = 0; item < temp_area->get_num_items(); item++){
+         Item *temp_item = temp_area->get_item(item);
+         sin << "\t\tItem:";
+         sin << temp_item->get_id();
+         sin << "\n";
+         for(int state_desc = 0; state_desc < temp_area->get_num_descriptions(); state_desc++){
+            StateDescriptor *temp_desc = temp_area->get_descriptor(state_desc);
+            sin << "\t\t\tDesc: ";
+            sin << temp_desc->get_description();
+            sin << "\n";
+         }
+      }
+   }
    std::string message = sin.str();
-   error_parsing(message);
+   fprintf(stderr, "Attempt at printing world.\n%s\n", message.c_str());
 }
 
-int main(int argc, char** argV)
+int main(int argc, char** argv)
 {
-   make_objects("testInput.xml");
+   make_objects("input.xml");
    /*delete world deletes everything, as the the deconstructor for
      world calls the decontructor for all areas, which calls the
      decontructor for all items and descriptions...
