@@ -9,8 +9,12 @@
 #include <algorithm>
 #include <string>
 #include "parser.h"
+
 #define DEFAULT_VALUE "default_value"
 #define MAXCHARACTERS_PER_LINE 70
+#define WIN "win"
+#define DEATH "die"
+#define NONE "none"
 
 /*Method signatures */
 void gameloop();
@@ -130,16 +134,32 @@ void gameloop(){
 }
 
 std::string two_word_command(std::string command1, std::string command2){
+   std::ostringstream result;
    std::transform(command1.begin(), command1.end(),
                   command1.begin(), ::tolower);
    std::transform(command2.begin(), command2.end(),
                   command2.begin(), ::tolower);
-   for(int item = 0; item < world->get_active_area->get_num_items(); item++){
-      if(){
-         
+   for(int item = 0; item < world->get_active_area()->get_num_items(); item++){
+      Item *temp_item = world->get_active_area()->get_item(item);
+      if(!strcmp(temp_item->get_id().c_str(), command2.c_str())){
+         ItemCommand *temp_item_command = temp_item->has_command(command1);
+         if(temp_item_command != NULL){
+            //do item command here
+            if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()){
+               temp_item->state_change(temp_item_command->get_state_change());
+               temp_item->change_collectable(temp_item_command->get_change_collect());
+               
+            }
+         } else {
+            result << "There is no command ";
+            result << command1;
+            result << " for item ";
+            result << command2;
+            return result.str();
+         }
       }
    }
-   return "havn't done anything...\n";
+   return "I don't understand that.\n";
    
 }
 std::string one_word_command(std::string command){
