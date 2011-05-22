@@ -4,6 +4,7 @@
 #include <vector>
 #include "Item.h"
 #include "StateDescriptor.h"
+#include "AreaCommand.h"
 
 class Area{
  protected:
@@ -12,6 +13,7 @@ class Area{
    std::string id;
    std::string curr_desc_id;
    std::vector<StateDescriptor*> description;
+   std::vector<AreaCommand*> commands;
  public:
    StateDescriptor *get_description(){
       return description[0];
@@ -42,6 +44,17 @@ class Area{
    void add_description(StateDescriptor *desc){
       description.push_back(desc);
       
+   }
+   void add_command(AreaCommand *command_name){
+      commands.push_back(command_name);
+   }
+   AreaCommand* has_command(const char *command_name){
+      for(unsigned int c_num = 0; c_num < commands.size(); c_num++){
+         if(!commands[c_num]->find(command_name)){
+            return commands[c_num];
+         }
+      }
+      return NULL;
    }
    Area(const char *id, const char *desc_id){
       this->id = id;
