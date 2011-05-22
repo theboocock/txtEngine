@@ -40,13 +40,24 @@ class Item{
       commands.push_back(command_name);
    }
    ItemCommand* has_command(const char *command_name){
+      ItemCommand* checkingValidity;
       for(unsigned int c_num = 0; c_num < commands.size(); c_num++){
-         if(!commands[c_num]->find(command_name)){
-            return commands[c_num];
+         if(!commands[c_num]->get_name().compare(command_name)){
+            checkingValidity = commands[c_num];
+            if(!has_description(checkingValidity->get_state_change())){
+               return checkingValidity;
+            }
          }
       }
       return NULL;
    }
+   int get_num_descriptions(){
+      return num_descriptions;
+   }
+   StateDescriptor *get_descriptor(int index){
+      return description[index];
+   }
+
    Item(bool collect, const char *identifier, const char *initial_state){
       collectable = collect;
       id = identifier;

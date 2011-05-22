@@ -24,18 +24,11 @@ class ItemCommand{
    std::string get_name(){
       return name;
    }
-   std::string get_statechange(){
+   std::string get_state_change(){
       return state_change;
    }
    void set_message(const char *to_message){
       message = to_message;
-   }
-   bool find(std::string to_find){
-      if(!to_find.compare(name)){
-         return true;
-      } else {
-         return false;
-      }
    }
    
 };
