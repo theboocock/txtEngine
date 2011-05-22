@@ -67,9 +67,9 @@ class Area{
    void add_command(AreaCommand *command_name){
       commands.push_back(command_name);
    }
-   AreaCommand* has_command(const char *command_name){
+   AreaCommand *has_command(std::string command_name){
       for(unsigned int c_num = 0; c_num < commands.size(); c_num++){
-         if(!commands[c_num]->find(command_name)){
+         if(!commands[c_num]->get_name().compare(command_name)){
             return commands[c_num];
          }
       }
@@ -81,11 +81,11 @@ class Area{
    StateDescriptor *get_descriptor(int index){
       return description[index];
    }
-   Area(const char *identifier, const char *desc_id){
-      id = identifier;
+   Area(const char *id, const char *desc_id){
+      this->id = id;
       num_descriptions = 0;
       num_items = 0;
-      curr_desc_id = desc_id;
+      this->curr_desc_id = desc_id;
    }
    ~Area(){
       for(unsigned int item_num = 0; item_num < items.size(); item_num++){
