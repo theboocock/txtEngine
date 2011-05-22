@@ -12,19 +12,89 @@
 #define WORLD_ATTRIBUTES 3
 #define AREA_ATTRIBUTES 2
 #define STATE_DESCRIPTION_ATTRIBUTES 1
-#define ITEM_ATTRIBUTES 1
+#define ITEM_ATTRIBUTES 3
 #define PARSING_ERROR 2
+#define AREA_COMMAND_ATTRIBUTES 3
 
 World* world;
 
 void error_parsing(std::string error_string);
 StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id);
 
+
+
+AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id){
+   TiXmlNode* pChild;
+   const char *error_tag = "missing tags", *command_id = "invalid",
+      *command_name = "invalid", *command_area = "invlaid";
+   int attributesFound = 0;
+   bool has_id = false, has_name = false, has_area = false;
+   AreaCommand *area_command;
+   TiXmlElement *element = pCommand->ToElement();
+   TiXmlAttribute *attributes = element->FirstAttribute();
+   while(attributes){
+      if(!strcmp(attributes->Name(), "id")){
+         command_id = attributes->Value();
+         attributesFound++;
+         if(has_id){
+            error_tag = "More than one id tag";
+         }
+         has_id = true;
+      } else if(!strcmp(attributes->Name(), "name")){
+         command_name = attributes->Value();
+         attributesFound++;
+         if(has_name){
+            error_tag = "More than one name tag";
+         }
+         has_name = true;
+      } else if(!strcmp(attributes->Name(), "area")) {
+         command_area = attributes->Value();
+         attributesFound++;
+         if(has_area){
+            error_tag = "More than one area tag.";
+         }
+         has_area = true;
+      } else{
+         error_tag = attributes->Name();
+         fprintf(stderr, "found something but shouldnt have in make_command.\n");
+         attributesFound++;
+      }
+      attributes = attributes->Next();
+   }
+   if(AREA_COMMAND_ATTRIBUTES == attributesFound && has_id && has_name && has_area){
+      area_command = new AreaCommand(command_id, command_name, command_area);
+      for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
+         if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
+            area_command->set_message(pChild->ToText()->Value());
+         } else {
+            std::ostringstream sin;
+            sin << "Under parent ";
+            sin << parent_id;
+            sin << " there is a tag error in ";
+            sin << command_id;
+            std::string message = sin.str();
+            error_parsing(message);
+         }
+      }
+   } else {
+      std::ostringstream sin;
+      sin << "Under parent ";
+      sin << parent_id;
+      sin << " there is an attribute error in a state descriptor tag, found: ";
+      sin << error_tag;
+      std::string message = sin.str();
+      error_parsing(message);
+   }
+   return area_command;
+}
+
 Item *make_item(TiXmlNode *pItem, const char *parent_id){
    TiXmlNode* pChild;
-   const char *item_id = "invlaid", *error_tag = "no tags";
+   const char *item_id = "invlaid", *error_tag = "missing tags",
+      *item_init_desc = "invalid";
    int attributesFound =0;
-   bool has_id = false;
+   bool has_id = false, item_collectable = false, has_collec = false,
+      has_init_desc = false;
    Item *item;
    TiXmlElement *element = pItem->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
@@ -36,19 +106,33 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id){
             error_tag = "More than one id tag";
          }
          has_id = true;
-      } else {
+      } else if(!strcmp(attributes->Name(), "collectable")){
+         item_collectable = attributes->Value();
+         attributesFound++;
+         if(has_collec){
+            error_tag = "More than one collectable tag";
+         }
+         has_collec = true;
+      } else if(!strcmp(attributes->Name(), "initialdescription")) {
+         item_init_desc = attributes->Value();
+         attributesFound++;
+         if(has_init_desc){
+            error_tag = "More than one initial description tag.";
+         }
+         has_init_desc = true;
+      } else{
          error_tag = attributes->Name();
          fprintf(stderr, "found something but shouldnt have in make_item.\n");
          attributesFound++;
       }
       attributes = attributes->Next();
    }
-   if(ITEM_ATTRIBUTES == attributesFound && has_id){
-      item = new Item(true, item_id);
+   if(ITEM_ATTRIBUTES == attributesFound && has_id &&has_init_desc && has_collec){
+      item = new Item(item_collectable, item_id, item_init_desc);
       for ( pChild = pItem->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT){
             if(!strcmp(pChild->Value(), "statedescriptor")){
-               item->set_description(make_state_descriptor(pChild, item_id));
+               item->add_description(make_state_descriptor(pChild, item_id));
             }
          } else {
             std::ostringstream sin;
@@ -74,7 +158,7 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id){
 
 StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id){
    TiXmlNode* pChild;
-   const char *state_desc_id = "invalid", *error_tag = "no tags";
+   const char *state_desc_id = "invalid", *error_tag = "missing tags";
    int attributesFound = 0;
    bool has_id = false;
    StateDescriptor *state_descriptor;
@@ -102,20 +186,19 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
    }
    if(STATE_DESCRIPTION_ATTRIBUTES == attributesFound && has_id){
       state_descriptor = new StateDescriptor(state_desc_id);
-      for ( pChild = pDescription->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
-         {
-            if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
-               state_descriptor->set_description(pChild->ToText()->Value());
-            } else {
-               std::ostringstream sin;
-               sin << "Under parent ";
-               sin << parent_id;
-               sin << " there is a tag error in ";
-               sin << state_desc_id;
-               std::string message = sin.str();
-               error_parsing(message);
-            }
+      for ( pChild = pDescription->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
+         if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
+            state_descriptor->set_description(pChild->ToText()->Value());
+         } else {
+            std::ostringstream sin;
+            sin << "Under parent ";
+            sin << parent_id;
+            sin << " there is a tag error in ";
+            sin << state_desc_id;
+            std::string message = sin.str();
+            error_parsing(message);
          }
+      }
    } else {
       std::ostringstream sin;
       sin << "Under parent ";
@@ -132,7 +215,7 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
 Area *make_area(TiXmlNode *pArea, int area_index) {
    TiXmlNode* pChild;
    int attributesFound = 0;
-   const char *area_id = "invalid", *desc_id = "invalid", *error_tag = "no tags";
+   const char *area_id = "invalid", *desc_id = "invalid", *error_tag = "missing tags";
    bool has_id = false, has_desc = false;
    Area *area;
    TiXmlElement *element = pArea->ToElement();
@@ -164,6 +247,7 @@ Area *make_area(TiXmlNode *pArea, int area_index) {
                if(!strcmp(pChild->Value(), "statedescriptor")){
                   area->add_description(make_state_descriptor(pChild, area_id));
                } else if(!strcmp(pChild->Value(), "item")){
+                  area->add_item(make_item(pChild, area_id));
                   std::cout << "Havn't implemented create item yet." << std::endl;
                } else if(!strcmp(pChild->Value(), "command")){
                   std::cout << "Havn't implemented create command yet" << std::endl;
@@ -196,7 +280,7 @@ Area *make_area(TiXmlNode *pArea, int area_index) {
 }
 void make_world(TiXmlNode *pParent){
    const char  *author = "invalid", *language = "invalid",
-      *initialarea = "invalid", *error_tag = "no tags";
+      *initialarea = "invalid", *error_tag = "missing tags";
    int attributesFound = 0, num_of_areas = 0;
    bool has_auth = false, has_lang = false, has_init = false;
    TiXmlNode* pChild;
@@ -305,8 +389,8 @@ void print_world_tree(){
          sin << "\t\tItem:";
          sin << temp_item->get_id();
          sin << "\n";
-         for(int state_desc = 0; state_desc < temp_area->get_num_descriptions(); state_desc++){
-            StateDescriptor *temp_desc = temp_area->get_descriptor(state_desc);
+         for(int state_desc = 0; state_desc < temp_item->get_num_descriptions(); state_desc++){
+            StateDescriptor *temp_desc = temp_item->get_descriptor(state_desc);
             sin << "\t\t\tDesc: ";
             sin << temp_desc->get_description();
             sin << "\n";
@@ -319,7 +403,7 @@ void print_world_tree(){
 
 int main(int argc, char** argv)
 {
-   make_objects("input.xml");
+   make_objects("testInput.xml");
    /*delete world deletes everything, as the the deconstructor for
      world calls the decontructor for all areas, which calls the
      decontructor for all items and descriptions...
