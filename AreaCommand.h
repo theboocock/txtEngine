@@ -24,7 +24,7 @@ class AreaCommand{
    std::string get_name(){
       return name;
    }
-   std::string get_area_to_move(){
+   std::string get_area(){
       return move_to_area;
    }
    void set_message(const char *to_message){
