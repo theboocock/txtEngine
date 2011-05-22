@@ -19,7 +19,7 @@ World *read_file(const char* pFilename, World *world)
 
    if (loadOkay)
       {
-         printf("\n%s:\n", pFilename);
+         printf("\nGAME FILE LOADED SUCCESSFULLY:\n");
          return make_objects( &doc, world ); // defined later in the tutorial
       }
    else

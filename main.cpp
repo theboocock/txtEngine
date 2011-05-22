@@ -13,8 +13,13 @@
 #define DEFAULT_VALUE "default_value"
 #define MAXCHARACTERS_PER_LINE 70
 #define WIN "win"
-#define DEATH "die"
+#define DIE "die"
 #define NONE "none"
+#define LOOK "look"
+#define BAG "bag"
+#define INVENTORY "inventory"
+
+bool game_over = false;
 
 /*Method signatures */
 void gameloop();
@@ -40,12 +45,12 @@ void print_world_tree(){
          sin << "\n";
       }
       for(int command = 0; command < temp_area->get_num_commands(); command++){
-            AreaCommand *temp_command = temp_area->get_command(command);
-            sin << "\t\tCommand: ";
-            sin << temp_command->get_name();  
-            sin << "\n\t\t\t";
-            sin << temp_command->get_message();
-            sin << "\n";
+         AreaCommand *temp_command = temp_area->get_command(command);
+         sin << "\t\tCommand: ";
+         sin << temp_command->get_name();  
+         sin << "\n\t\t\t";
+         sin << temp_command->get_message();
+         sin << "\n";
       }
       for(int item = 0; item < temp_area->get_num_items(); item++){
          Item *temp_item = temp_area->get_item(item);
@@ -89,46 +94,50 @@ int main(int argc, char** argv)
 
 void gameloop(){
    std::string last_area = DEFAULT_VALUE;
-   while(/*!world->get_active_area()->win()(*/ true){
+   while(!game_over){
       std::ostringstream sin;
       std::ostringstream commandstream;
-      
       if(last_area.compare(world->get_active_area()->get_id()) != 0){
          last_area = world->get_active_area()->get_id();
          sin << world->get_active_area()->get_description() << "\n";
-         for(int items = 0; items < world->get_active_area()->get_num_items();items++){
-            sin << world->get_active_area()->get_item(items)->get_description() << "\n";
+         if(!strcmp(world->get_active_area()->get_status().c_str(), WIN) || !strcmp(world->get_active_area()->get_status().c_str(), DIE)){
+            game_over = true;
+         } else {
+            for(int items = 0; items < world->get_active_area()->get_num_items();items++){
+               sin << world->get_active_area()->get_item(items)->get_description() << "\n\n";
+            }
          }
          std::cout << sin.str();
       }
-      std::string line;
-      std::getline(std::cin, line);
-      std::string command1 , command2;
-      std::string checkmorewords;
-      std::istringstream iss(line);
-      if(iss >> command1){
-         if (iss >> command2){
-            if(!(iss >> checkmorewords)){
-               commandstream << two_word_command(command1 ,command2);
+      if(!game_over){
+         std::cout << ">>";
+         std::string line;
+         std::getline(std::cin, line);
+         std::string command1 , command2;
+         std::string checkmorewords;
+         std::istringstream iss(line);
+         if(iss >> command1){
+            if (iss >> command2){
+               if(!(iss >> checkmorewords)){
+                  commandstream << two_word_command(command1 ,command2);
+               } else {
+                  std::cout << "Please enter one or two word commands only" << std::endl;            
+               }
             } else {
-               std::cout << "Please enter one or two word commands only" << std::endl;            
+               std::string from_one_word = one_word_command(command1);
+               if(!strcmp(from_one_word.c_str(), DEFAULT_VALUE)){
+                  last_area = DEFAULT_VALUE;
+               } else {
+                  commandstream << from_one_word;
+                  commandstream << "\n";
+               }
             }
          } else {
-            std::string from_one_word = one_word_command(command1);
-            if(!strcmp(from_one_word.c_str(), DEFAULT_VALUE)){
-               last_area = DEFAULT_VALUE;
-            } else {
-               commandstream << from_one_word;
-               commandstream << "\n";
-            }
+            std::cout << "Please enter one or two word commands only" << std::endl;     
          }
-      } else {
-         std::cout << "Please enter one or two word commands only" << std::endl;     
+         std::cout <<  "\n" << commandstream.str() << std::endl;
       }
-      std::cout << commandstream.str();
    }
-  
-   
 
 }
 
@@ -145,6 +154,9 @@ std::string two_word_command(std::string command1, std::string command2){
          if(temp_item_command != NULL){
             //do item command here
             if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()){
+               if(!strcmp(world->get_active_area()->get_status().c_str(), WIN)||!strcmp(world->get_active_area()->get_status().c_str() ,DIE)){
+                  game_over = true;
+               }
                temp_item->state_change(temp_item_command->get_state_change());
                temp_item->change_collectable(temp_item_command->get_change_collect());
                world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
@@ -162,17 +174,24 @@ std::string two_word_command(std::string command1, std::string command2){
          }
       }
    }
-   for(int item = 0; item < world->get_area("inventory")->get_num_items(); item++){
-      Item *temp_item = world->get_area("inventory")->get_item(item);
+   for(int item = 0; item < world->get_area(INVENTORY)->get_num_items(); item++){
+      Item *temp_item = world->get_area(INVENTORY)->get_item(item);
       if(!strcmp(temp_item->get_id().c_str(), command2.c_str())){
          ItemCommand *temp_item_command = temp_item->has_command(command1);
          if(temp_item_command != NULL){
             //do item command here
             if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()){
+               if(!strcmp(world->get_active_area()->get_status().c_str(),WIN)||!strcmp(world->get_active_area()->get_status().c_str() ,DIE)){
+                  game_over = true;
+               }
                temp_item->state_change(temp_item_command->get_state_change());
                temp_item->change_collectable(temp_item_command->get_change_collect());
-               world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
-               world->get_area("inventory")->remove_item(item);
+               if( world->get_area(temp_item_command->get_area_change()) !=NULL){
+                  world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
+               } else {
+                  world->get_active_area()->add_item(temp_item);
+               }
+               world->get_area(INVENTORY)->remove_item(item);
                result << temp_item_command->get_message();
                result << "\n";
                return result.str();
@@ -187,25 +206,28 @@ std::string two_word_command(std::string command1, std::string command2){
       }
    }
 
-   return "I don't understand that.\n";
+   return "I don't understand that. \n";
    
 }
 std::string one_word_command(std::string command){
    std::transform(command.begin(), command.end(),
                   command.begin(), ::tolower);
    if(!command.compare("look")){
-         return DEFAULT_VALUE;
+      return DEFAULT_VALUE;
    } else if(!command.compare("bag")){
       return print_inventory();
-   } else if(!command.compare("inventory")){
+   } else if(!command.compare(INVENTORY)){
       return print_inventory();
    }
    AreaCommand *temp_area_command = world->get_active_area()->has_command(command);
    if(temp_area_command != NULL){
+      if(!strcmp(world->get_active_area()->get_status().c_str(), WIN)|| !strcmp(world->get_active_area()->get_status().c_str() ,DIE)){
+         game_over = true;
+      }
       world->change_area(temp_area_command->get_area());
-      return "You changed area.";
+      return temp_area_command->get_message();
    } else {
-      return "yeah, whaat??\n";
+      return "I don't understand that. \n";
    }
    
 }
@@ -213,9 +235,9 @@ std::string one_word_command(std::string command){
 std::string print_inventory(){
    std::ostringstream sin;
    sin << "INVENTORY: \n";
-   std::string inv = "inventory";
+   std::string inv = INVENTORY;
    for(int items = 0; items < world->get_area(inv)->get_num_items(); items++){
-      sin << world->get_area("inventory")->get_item(items)->get_description() << "\n";
+      sin << world->get_area(INVENTORY)->get_item(items)->get_description();
    }
    return sin.str();
    

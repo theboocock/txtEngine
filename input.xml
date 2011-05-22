@@ -48,6 +48,7 @@
   <area id="hallway" initialdescription="darkhallway" status="win">
     <statedescriptor id="darkhallway">
       You look around and nothing in the dimly lit hallway catches you eye
+      YOU WIN THE GAME CONGRATS BRO.
     </statedescriptor>
   </area>
 </world>
