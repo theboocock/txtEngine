@@ -22,9 +22,11 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
 
 Item *make_item(TiXmlNode *pItem, const char *parent_id){
    TiXmlNode* pChild;
-   const char *item_id = "invlaid", *error_tag = "no tags";
+   const char *item_id = "invlaid", *error_tag = "no tags",
+      *item_init_desc = "invalid";
    int attributesFound =0;
-   bool has_id = false;
+   bool has_id = false, item_collectable = false, has_collec = false,
+      has_init_desc = false;
    Item *item;
    TiXmlElement *element = pItem->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
@@ -36,7 +38,20 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id){
             error_tag = "More than one id tag";
          }
          has_id = true;
-      } else {
+      } else if(!strcmp(attributes->Name(), "collectable")){
+         item_collectable = attributes->Value();
+         attributesFound++;
+         if(has_collec){
+            error_tag = "More than one collectable tag";
+         }
+         has_collec = true;
+      } else if(!strcmp(attributes->Name(), "initaldescription")) {
+         item_init_desc = attributes->Value();
+         if(has_init_desc){
+            error_tag = "More than one initial description tag.";
+         }
+         has_init_desc = true;
+      } else{
          error_tag = attributes->Name();
          fprintf(stderr, "found something but shouldnt have in make_item.\n");
          attributesFound++;
@@ -44,7 +59,7 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id){
       attributes = attributes->Next();
    }
    if(ITEM_ATTRIBUTES == attributesFound && has_id){
-      item = new Item(true, item_id);
+      item = new Item(item_collectable, item_id, item_init_desc);
       for ( pChild = pItem->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT){
             if(!strcmp(pChild->Value(), "statedescriptor")){
@@ -164,6 +179,7 @@ Area *make_area(TiXmlNode *pArea, int area_index) {
                if(!strcmp(pChild->Value(), "statedescriptor")){
                   area->add_description(make_state_descriptor(pChild, area_id));
                } else if(!strcmp(pChild->Value(), "item")){
+                  area->add_item(make_item(pChild, area_id));
                   std::cout << "Havn't implemented create item yet." << std::endl;
                } else if(!strcmp(pChild->Value(), "command")){
                   std::cout << "Havn't implemented create command yet" << std::endl;
