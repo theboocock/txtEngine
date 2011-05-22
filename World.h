@@ -31,7 +31,7 @@ class World{
    }
    Area *get_area(std::string area_id){
       for(unsigned int area_num = 0; area_num < areas.size(); area_num++){
-         if(areas[area_num]->get_id().compare(area_id)){
+         if(areas[area_num]->get_id().compare(area_id) == 0){
             return areas[area_num];
          }
       }
@@ -39,7 +39,7 @@ class World{
    }
    bool init_active_area(){
       for(unsigned int area_num = 0; area_num < areas.size(); area_num++){
-         if(areas[area_num]->get_id().compare(initial_area)){
+         if(areas[area_num]->get_id().compare(initial_area) == 0){
             active_area = areas[area_num];
             return true;
          }
@@ -64,13 +64,14 @@ class World{
       author = auth;
       initial_area = init_area;
       num_areas = 0;
-      Area inventory = new Area("inventory","");
+      Area* inventory = new Area("inventory","",true);
+      add_area(inventory);
+
    }
    ~World(){
       for(unsigned int area_num = 0; area_num < areas.size(); area_num++){
           delete areas[area_num];
       }
-      delete inventory;
    }
    
 };
