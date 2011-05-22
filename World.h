@@ -23,6 +23,14 @@ class World{
    Area *get_area(int index){
       return areas[index];
    }
+   Area *get_area(std::string id){
+      for(unsigned int area_num = 0; area_num < areas.size(); area_num++){
+         if(areas[area_num]->get_id().compare(id) == 0){
+            return areas[area_num];
+         }
+      }
+      return NULL;
+   }
    void add_area(Area *new_area){
       areas.push_back(new_area);
       num_areas++;
@@ -61,7 +69,8 @@ class World{
       author = auth;
       initial_area = init_area;
       num_areas = 0;
-      inventory = new Area("inventory","");
+      inventory = new Area("inventory","", false);
+      add_area(inventory);
    }
    ~World(){
       for(unsigned int area_num = 0; area_num < areas.size(); area_num++){
