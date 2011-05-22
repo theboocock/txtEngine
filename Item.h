@@ -30,6 +30,11 @@ class Item{
       description.push_back(desc);
       num_descriptions++;    
    }
+   void change_collectable(bool flip){
+      if(flip){
+         collectable = !collectable;
+      }
+   }
    bool is_collectable(){
       return collectable;
    }
