@@ -6,20 +6,20 @@
 class AreaCommand{
  protected:
    std::string name;
-   std::string id;
+   std::string status;
    std::string message;
    std::string move_to_area;
    
  public:
-   AreaCommand(const char * identifier, const char * callmeby, const char * areatomoveto){
+   AreaCommand(const char * callmeby, const char * areatomoveto,const char * status_command){
       name = callmeby;
-      id   = identifier;
+      status   = status_command;
       move_to_area= areatomoveto;
       message = "";
    }
    ~AreaCommand(){}
-   std::string get_id(){
-      return id;
+   std::string get_status(){
+      return status;
    }
    std::string get_name(){
       return name;

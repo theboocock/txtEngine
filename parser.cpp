@@ -7,7 +7,7 @@
 #define ITEM_ATTRIBUTES 3
 #define PARSING_ERROR 2
 #define AREA_COMMAND_ATTRIBUTES 3
-#define ITEM_COMMAND_ATTRIBUTES 5
+#define ITEM_COMMAND_ATTRIBUTES 6
 
 World *read_file(const char* pFilename, World *world)
 {
@@ -30,10 +30,10 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    TiXmlNode* pChild;
    const char *error_tag = "missing tags", *command_chg_col = "true",
       *command_name = "invalid", *command_state = "invalid",
-      *command_dep = "false", *command_area = "invalid";
+      *command_dep = "false", *command_area = "invalid", *command_status ="invalid";
    int attributesFound = 0;
    bool has_name = false, has_state = false,
-      has_collect = false, has_collec_dep = false, has_area = false;
+      has_collect = false, has_collec_dep = false, has_area = false, has_status = false;
    ItemCommand *item_command;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
@@ -73,6 +73,14 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
             error_tag = "More than one collectable dependent tag.";
          }
          has_collec_dep = true;
+
+      }else if (!strcmp(attributes->Name(), "status")){
+         command_status = attributes->Value();
+         attributesFound++;
+         if(has_status){
+            error_tag = "More than one status tag";
+         }
+         has_status = true;
       } else{
          error_tag = attributes->Name();
          fprintf(stderr, "found something but shouldnt have in make_item_command.\n");
@@ -80,8 +88,8 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
       }
       attributes = attributes->Next();
    }
-   if(ITEM_COMMAND_ATTRIBUTES == attributesFound && has_collec_dep && has_name && has_state && has_area && has_collect){
-      item_command = new ItemCommand(command_name, command_state, command_chg_col, command_dep, command_area);
+   if(ITEM_COMMAND_ATTRIBUTES == attributesFound && has_collec_dep && has_name && has_state && has_area && has_collect && has_status){
+      item_command = new ItemCommand(command_name, command_state, command_chg_col, command_dep, command_area, command_status);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
             item_command->set_message(pChild->ToText()->Value());
@@ -109,22 +117,15 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
 
 AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World *world){
    TiXmlNode* pChild;
-   const char *error_tag = "missing tags", *command_id = "invalid",
-      *command_name = "invalid", *command_area = "invlaid";
+   const char *error_tag = "missing tags",
+      *command_name = "invalid", *command_area = "invalid", *command_status = "invalid";
    int attributesFound = 0;
-   bool has_id = false, has_name = false, has_area = false;
+   bool has_id = false, has_name = false, has_area = false, has_status = false;
    AreaCommand *area_command;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes){
-      if(!strcmp(attributes->Name(), "id")){
-         command_id = attributes->Value();
-         attributesFound++;
-         if(has_id){
-            error_tag = "More than one id tag";
-         }
-         has_id = true;
-      } else if(!strcmp(attributes->Name(), "name")){
+      if(!strcmp(attributes->Name(), "name")){
          command_name = attributes->Value();
          attributesFound++;
          if(has_name){
@@ -138,6 +139,13 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
             error_tag = "More than one area tag.";
          }
          has_area = true;
+      }else if (!strcmp(attributes->Name(), "status")){
+         command_status = attributes->Value();
+         attributesFound++;
+         if(has_status){
+            error_tag = "More than one status tag";
+         }
+         has_status = true;
       } else{
          error_tag = attributes->Name();
          fprintf(stderr, "found something but shouldnt have in make_area_command.\n");
@@ -145,8 +153,8 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
       }
       attributes = attributes->Next();
    }
-   if(AREA_COMMAND_ATTRIBUTES == attributesFound && has_id && has_name && has_area){
-      area_command = new AreaCommand(command_id, command_name, command_area);
+   if(AREA_COMMAND_ATTRIBUTES == attributesFound && has_id && has_name && has_area && has_status){
+      area_command = new AreaCommand(command_name, command_area,command_status);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
             area_command->set_message(pChild->ToText()->Value());
@@ -155,7 +163,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
             sin << "Under parent ";
             sin << parent_id;
             sin << " there is a tag error in ";
-            sin << command_id;
+            sin << command_name;
             std::string message = sin.str();
             error_parsing(message, world);
          }
@@ -189,9 +197,9 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
          }
          has_id = true;
       } /*else if(!strcmp(attributes->Name(), "switch")){
-         description_switch = attributes->Value();
-         attributesFound++;
-      }
+          description_switch = attributes->Value();
+          attributesFound++;
+          }
         */
       else {
          error_tag = attributes->Name();
@@ -264,6 +272,7 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
             error_tag = "More than one initial description tag.";
          }
          has_init_desc = true;
+         
       } else{
          error_tag = attributes->Name();
          fprintf(stderr, "found something but shouldnt have in make_item.\n");
@@ -342,13 +351,13 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
       area = new Area(area_id, desc_id, area_status);
       for ( pChild = pArea->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT){
-               if(!strcmp(pChild->Value(), "statedescriptor")){
-                  area->add_description(make_state_descriptor(pChild, area_id, world));
-               } else if(!strcmp(pChild->Value(), "item")){
-                  area->add_item(make_item(pChild, area_id, world));
-               } else if(!strcmp(pChild->Value(), "areacommand")){
-                  area->add_command(make_area_command(pChild, area_id, world));
-               }               
+            if(!strcmp(pChild->Value(), "statedescriptor")){
+               area->add_description(make_state_descriptor(pChild, area_id, world));
+            } else if(!strcmp(pChild->Value(), "item")){
+               area->add_item(make_item(pChild, area_id, world));
+            } else if(!strcmp(pChild->Value(), "areacommand")){
+               area->add_command(make_area_command(pChild, area_id, world));
+            }               
          } else {
             std::ostringstream sin;
             sin << "Under area ";
@@ -360,13 +369,13 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
          }
       }
    } else {
-       std::ostringstream sin;
-       sin << "Under area ";
-       sin << area_index;
-       sin << " there is an attribute error, found: ";
-       sin << error_tag;
-       std::string message = sin.str();
-       error_parsing(message, world);
+      std::ostringstream sin;
+      sin << "Under area ";
+      sin << area_index;
+      sin << " there is an attribute error, found: ";
+      sin << error_tag;
+      std::string message = sin.str();
+      error_parsing(message, world);
    }
    if(area->has_current_desc()){
       return area;
