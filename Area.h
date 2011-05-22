@@ -70,11 +70,11 @@ class Area{
    StateDescriptor *get_descriptor(int index){
       return description[index];
    }
-   Area(const char *id, const char *desc_id){
-      this->id = id;
+   Area(const char *identifier, const char *desc_id){
+      id = identifier;
       num_descriptions = 0;
       num_items = 0;
-      this->curr_desc_id = desc_id;
+      curr_desc_id = desc_id;
    }
    ~Area(){
       for(unsigned int item_num = 0; item_num < items.size(); item_num++){
