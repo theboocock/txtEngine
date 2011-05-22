@@ -19,8 +19,17 @@
 
 World* world;
 
+/*Method signatures */
+void gameloop();
 void error_parsing(std::string error_string);
-//StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id);
+ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id);
+AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id);
+StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id);
+Area *make_area(TiXmlNode *pArea, int area_index);
+void make_world(TiXmlNode *pParent);
+void make_objects( TiXmlNode* pParent);
+void read_file(const char* pFilename);
+
 
 ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id){
    TiXmlNode* pChild;
@@ -409,11 +418,14 @@ void make_world(TiXmlNode *pParent){
 void error_parsing(std::string message){
    const char *error_string = message.c_str();
    fprintf(stderr,"ERROR: [%s]\n", error_string);
+   if(world != NULL){
+      delete world;
+   }
    exit(2);
 }
 
 
-void make_objects( TiXmlNode* pParent, unsigned int indent = 0 )
+void make_objects( TiXmlNode* pParent)
 {
    if(pParent->Type() == TiXmlNode::TINYXML_DOCUMENT){
       pParent = pParent->FirstChild();
@@ -424,7 +436,7 @@ void make_objects( TiXmlNode* pParent, unsigned int indent = 0 )
          } else{
             error_parsing("xml document element not found");   
          }
-      } else{
+      }else{
          error_parsing("Missing XML declaration");
          
       }
@@ -434,14 +446,14 @@ void make_objects( TiXmlNode* pParent, unsigned int indent = 0 )
 }
 // load the named file and dump its structure to STDOUT
 
-void make_objects(const char* pFilename)
+void read_file(const char* pFilename)
 {
    TiXmlDocument doc(pFilename);
    bool loadOkay = doc.LoadFile();
    if (loadOkay)
       {
          printf("\n%s:\n", pFilename);
-        make_objects( &doc ); // defined later in the tutorial
+         make_objects( &doc ); // defined later in the tutorial
       }
    else
       {
@@ -466,9 +478,11 @@ void print_world_tree(){
       for(int command = 0; command < temp_area->get_num_commands(); command++){
             AreaCommand *temp_command = temp_area->get_command(command);
             sin << "\t\tCommand: ";
-            sin << temp_command->get_name();
+            sin << temp_command->get_name();  
+            sin << "\n\t\t\t";
+            sin << temp_command->get_message();
             sin << "\n";
-         }
+      }
       for(int item = 0; item < temp_area->get_num_items(); item++){
          Item *temp_item = temp_area->get_item(item);
          sin << "\t\tItem:";
@@ -484,6 +498,8 @@ void print_world_tree(){
             ItemCommand *temp_command = temp_item->get_command(command);
             sin << "\t\t\tCommand: ";
             sin << temp_command->get_name();
+            sin << "\n\t\t\t";
+            sin << temp_command->get_message();
             sin << "\n";
          }
       }
@@ -495,13 +511,21 @@ void print_world_tree(){
 int main(int argc, char** argv)
 {
    if(argc > 1){
-   make_objects(argv[1]);
+   read_file(argv[1]);
    /*delete world deletes everything, as the the deconstructor for
      world calls the decontructor for all areas, which calls the
      decontructor for all items and descriptions...
     */
    print_world_tree();
+   gameloop();
    delete world;
    }
    return 0;
+}
+
+void gameloop(){
+   
+
+
+
 }
