@@ -6,7 +6,7 @@
     With no explaination obvious, you begin the home dialing proccess, the gate vortex opens.</statedescriptor>
     <statedescriptor id="homeshort">There is a stargate. It's eminating an eerie blue as a vortex pulsates within. It's seemingly the only way home.</statedescriptor>
     <statedescriptor id="epic">Hello World</statedescriptor>
-    <areacommand id="north1" name="north" area="earth">
+    <areacommand name="north" area="earth">
       You went north and ended up on earth. Think with portals :P
     </areacommand>
     <item id="bottle1" initialdescription="bottleonground" collectable="true">
@@ -37,7 +37,7 @@
       </statedescriptor>
       
     </item>
-    <areacommand id="north2" name="north" area="hallway">
+    <areacommand name="north" area="hallway">
       You walk through the door and enter the hallway.
     </areacommand>
   </area>

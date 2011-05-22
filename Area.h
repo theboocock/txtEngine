@@ -43,6 +43,10 @@ class Area{
       }
       return "";
    }
+   void remove_item(int index){
+      items.erase(items.begin()+index);
+      num_items--;
+   }
    void add_item(Item *new_item){
       items.push_back(new_item);
       num_items++;

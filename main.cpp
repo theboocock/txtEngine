@@ -148,7 +148,11 @@ std::string two_word_command(std::string command1, std::string command2){
             if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()){
                temp_item->state_change(temp_item_command->get_state_change());
                temp_item->change_collectable(temp_item_command->get_change_collect());
-               
+               world->get_area("inventory")->add_item(temp_item);
+               world->get_area("inventory")->remove_item(item);
+               result << world->get_area("inventory")->get_item(temp_item->get_id());
+               result << "did you command...";
+               return result.str();
             }
          } else {
             result << "There is no command ";
