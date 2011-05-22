@@ -9,16 +9,18 @@ class ItemCommand{
    std::string state_change;
    std::string message;
    std::string area_change;
+   std::string status;
    bool change_collect, collect_dependent;
    
  public:
    ItemCommand(const char * callmeby, const char * state_mutator,
-               bool chng_collec, bool collec_dep, const char *area_chng){
+               bool chng_collec, bool collec_dep, const char *area_chng, const char* status_command){
       name = callmeby;
       state_change = state_mutator;
       area_change = area_chng;
       change_collect = chng_collec;
       collect_dependent = collec_dep;
+      status = status_command;
       message = "";
    }
    bool get_change_collect(){
@@ -29,6 +31,9 @@ class ItemCommand{
    }
    std::string get_area_change(){
       return area_change;
+   }
+   std::string get_status(){
+      return status;
    }
    ~ItemCommand(){}
    std::string get_message(){
