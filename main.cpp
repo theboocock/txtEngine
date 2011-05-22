@@ -85,7 +85,7 @@ void error_parsing(std::string error_string);
 
 StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parentId){
    TiXmlNode* pChild;
-   const char *id, *error_tag;
+   const char *state_desc_id, *error_tag;
    int attributesFound = 0;
    bool has_id = false;
    StateDescriptor *state_descriptor;
@@ -93,7 +93,7 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes != NULL){
       if(!strcmp(attributes->Name(), "id")){
-         id = attributes->Value();
+         state_desc_id = attributes->Value();
          attributesFound++;
          has_id = true;
       } /*else if(!strcmp(attributes->Name(), "switch")){
@@ -109,7 +109,7 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
       attributes = attributes->Next();
    }
    if(STATE_DESCRIPTION_ATTRIBUTES == attributesFound && has_id){
-      state_descriptor = new StateDescriptor(id);
+      state_descriptor = new StateDescriptor(state_desc_id);
       for ( pChild = pDescription->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
          {
             if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
@@ -119,7 +119,7 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
                sin << "Under area ";
                sin << parentId;
                sin << " there is a tag error in ";
-               sin << id;
+               sin << state_desc_id;
                std::string message = sin.str();
                error_parsing(message);
             }
