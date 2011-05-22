@@ -42,7 +42,11 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes){
       if(!strcmp(attributes->Name(), "changecollectable")){
-         command_chg_col = attributes->Value();
+         if(!strcmp(attributes->Value(), "false")){
+            command_chg_col = NULL;
+         } else {
+            command_chg_col = "true";
+         }
          attributesFound++;
          if(has_collect){
             error_tag = "More than one change collectable tag";
@@ -70,7 +74,11 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
          }
          has_area = true;
       } else if(!strcmp(attributes->Name(), "collectabledependent")) {
-         command_dep = attributes->Value();
+         if(!strcmp(attributes->Value(), "false")){
+            command_dep = NULL;
+         } else {
+            command_dep = "false";
+         }
          attributesFound++;
          if(has_collec_dep){
             error_tag = "More than one collectable dependent tag.";

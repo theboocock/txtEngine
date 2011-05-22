@@ -88,7 +88,6 @@ int main(int argc, char** argv)
 }
 
 void gameloop(){
-   
    std::string last_area = DEFAULT_VALUE;
    while(/*!world->get_active_area()->win()(*/ true){
       std::ostringstream sin;
@@ -148,10 +147,10 @@ std::string two_word_command(std::string command1, std::string command2){
             if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()){
                temp_item->state_change(temp_item_command->get_state_change());
                temp_item->change_collectable(temp_item_command->get_change_collect());
-               world->get_area("inventory")->add_item(temp_item);
-               world->get_area("inventory")->remove_item(item);
-               result << world->get_area("inventory")->get_item(temp_item->get_id());
-               result << "did you command...";
+               world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
+               world->get_active_area()->remove_item(item);
+               result << temp_item_command->get_message();
+               result << "\n";
                return result.str();
             }
          } else {
@@ -163,6 +162,31 @@ std::string two_word_command(std::string command1, std::string command2){
          }
       }
    }
+   for(int item = 0; item < world->get_area("inventory")->get_num_items(); item++){
+      Item *temp_item = world->get_area("inventory")->get_item(item);
+      if(!strcmp(temp_item->get_id().c_str(), command2.c_str())){
+         ItemCommand *temp_item_command = temp_item->has_command(command1);
+         if(temp_item_command != NULL){
+            //do item command here
+            if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()){
+               temp_item->state_change(temp_item_command->get_state_change());
+               temp_item->change_collectable(temp_item_command->get_change_collect());
+               world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
+               world->get_area("inventory")->remove_item(item);
+               result << temp_item_command->get_message();
+               result << "\n";
+               return result.str();
+            }
+         } else {
+            result << "There is no command ";
+            result << command1;
+            result << " for item ";
+            result << command2;
+            return result.str();
+         }
+      }
+   }
+
    return "I don't understand that.\n";
    
 }

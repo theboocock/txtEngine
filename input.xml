@@ -6,15 +6,19 @@
     With no explaination obvious, you begin the home dialing proccess, the gate vortex opens.</statedescriptor>
     <statedescriptor id="homeshort">There is a stargate. It's eminating an eerie blue as a vortex pulsates within. It's seemingly the only way home.</statedescriptor>
     <statedescriptor id="epic">Hello World</statedescriptor>
-    <areacommand name="north" area="earth">
+    <areacommand name="north" area="earth" status="none">
       You went north and ended up on earth. Think with portals :P
     </areacommand>
     <item id="bottle1" initialdescription="bottleonground" collectable="true">
       <statedescriptor id="bottledropstate">This is my bottle</statedescriptor>
       <statedescriptor id="bottleonground">A bottle of water catches your eye</statedescriptor>
       <itemcommand  name="get" statedescription="bottledropstate" changecollectable="true"
-                   collectabledependent="true" areachange="inventory">
+                    collectabledependent="true" areachange="inventory"  status="none">
         you got the bottle
+      </itemcommand>
+      <itemcommand  name="drop" statedescription="bottleonground" changecollectable="true"
+                    collectabledependent="false" areachange="room1"  status="none">
+        you dropped the bottle
       </itemcommand>
     </item>
   </area>
@@ -29,7 +33,7 @@
         A folder of important looking notes are on the table, you should probably grab them they refence you name in the title
       </statedescriptor>
       <itemcommand  name="get" statedescription="gotfile" changecollectable="true"
-                   collectabledependent="true" areachange="inventory">
+                    collectabledependent="true" areachange="inventory"  status="none">
         You pick the notes up and begin to read, you realise horrifyingly, that the earth is 30 minutes from total destruction and only you can stop it, if only you can remember where you put the amulet.
       </itemcommand>
       <statedescriptor id="gotfile">
@@ -37,7 +41,7 @@
       </statedescriptor>
       
     </item>
-    <areacommand name="north" area="hallway">
+    <areacommand name="north" area="hallway"  status="none">
       You walk through the door and enter the hallway.
     </areacommand>
   </area>
