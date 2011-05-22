@@ -39,12 +39,12 @@ class Item{
    void add_command(ItemCommand *command_name){
       commands.push_back(command_name);
    }
-   ItemCommand* has_command(const char *command_name){
-      ItemCommand* checkingValidity;
+   ItemCommand *has_command(std::string command_name){
+      ItemCommand *checkingValidity;
       for(unsigned int c_num = 0; c_num < commands.size(); c_num++){
          if(!commands[c_num]->get_name().compare(command_name)){
             checkingValidity = commands[c_num];
-            if(!has_description(checkingValidity->get_state_change())){
+            if(has_description(checkingValidity->get_state_change())){
                return checkingValidity;
             }
          }
@@ -57,7 +57,9 @@ class Item{
    StateDescriptor *get_descriptor(int index){
       return description[index];
    }
-
+   void state_change(std::string to_change){
+      curr_desc_id = to_change;
+   }
    Item(bool collect, const char *identifier, const char *initial_state){
       collectable = collect;
       id = identifier;
