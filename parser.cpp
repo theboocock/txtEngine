@@ -8,6 +8,9 @@
 #define PARSING_ERROR 2
 #define AREA_COMMAND_ATTRIBUTES 3
 #define ITEM_COMMAND_ATTRIBUTES 6
+#define INVALID "invalid"
+#define MISSING_TAGS "missinge tags"
+#define UNDER_PARENT "under parent"
 
 World *read_file(const char* pFilename, World *world)
 {
@@ -28,9 +31,9 @@ World *read_file(const char* pFilename, World *world)
 
 ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World *world){
    TiXmlNode* pChild;
-   const char *error_tag = "missing tags", *command_chg_col = "true",
-      *command_name = "invalid", *command_state = "invalid",
-      *command_dep = "false", *command_area = "invalid", *command_status ="invalid";
+   const char *error_tag = MISSING_TAGS, *command_chg_col = "true",
+      *command_name = INVALID, *command_state = INVALID,
+      *command_dep = "false", *command_area = INVALID, *command_status =INVALID;
    int attributesFound = 0;
    bool has_name = false, has_state = false,
       has_collect = false, has_collec_dep = false, has_area = false, has_status = false;
@@ -39,7 +42,11 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes){
       if(!strcmp(attributes->Name(), "changecollectable")){
-         command_chg_col = attributes->Value();
+         if(!strcmp(attributes->Value(), "false")){
+            command_chg_col = NULL;
+         } else {
+            command_chg_col = "true";
+         }
          attributesFound++;
          if(has_collect){
             error_tag = "More than one change collectable tag";
@@ -67,7 +74,11 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
          }
          has_area = true;
       } else if(!strcmp(attributes->Name(), "collectabledependent")) {
-         command_dep = attributes->Value();
+         if(!strcmp(attributes->Value(), "false")){
+            command_dep = NULL;
+         } else {
+            command_dep = "false";
+         }
          attributesFound++;
          if(has_collec_dep){
             error_tag = "More than one collectable dependent tag.";
@@ -117,10 +128,10 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
 
 AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World *world){
    TiXmlNode* pChild;
-   const char *error_tag = "missing tags",
-      *command_name = "invalid", *command_area = "invalid", *command_status = "invalid";
+   const char *error_tag = MISSING_TAGS,
+      *command_name = INVALID, *command_area = INVALID, *command_status = INVALID;
    int attributesFound = 0;
-   bool has_id = false, has_name = false, has_area = false, has_status = false;
+   bool has_name = false, has_area = false, has_status = false;
    AreaCommand *area_command;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
@@ -153,7 +164,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
       }
       attributes = attributes->Next();
    }
-   if(AREA_COMMAND_ATTRIBUTES == attributesFound && has_id && has_name && has_area && has_status){
+   if(AREA_COMMAND_ATTRIBUTES == attributesFound  && has_name && has_area && has_status){
       area_command = new AreaCommand(command_name, command_area,command_status);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
@@ -182,7 +193,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
 
 StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id, World *world){
    TiXmlNode* pChild;
-   const char *state_desc_id = "invalid", *error_tag = "missing tags";
+   const char *state_desc_id = INVALID, *error_tag = MISSING_TAGS;
    int attributesFound = 0;
    bool has_id = false;
    StateDescriptor *state_descriptor;
@@ -196,11 +207,7 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
             error_tag = "More than one id tag";
          }
          has_id = true;
-      } /*else if(!strcmp(attributes->Name(), "switch")){
-          description_switch = attributes->Value();
-          attributesFound++;
-          }
-        */
+      }
       else {
          error_tag = attributes->Name();
          fprintf(stderr, "found something but shouldnt have.\n");
@@ -238,8 +245,8 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
 
 Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
    TiXmlNode* pChild;
-   const char *item_id = "invlaid", *error_tag = "missing tags",
-      *item_init_desc = "invalid";
+   const char *item_id = "invlaid", *error_tag = MISSING_TAGS,
+      *item_init_desc = INVALID;
    int attributesFound =0;
    bool has_id = false, item_collectable = false, has_collec = false,
       has_init_desc = false;
@@ -253,11 +260,7 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
          if(has_id){
             error_tag = "More than one id tag";
          }
-         if(world->get_area(parent_id)->has_item(item_id)){
-            error_tag = "Trying to create teo items with same id.";
-         } else {
-            has_id = true;
-         }
+         has_id = true;
       } else if(!strcmp(attributes->Name(), "collectable")){
          item_collectable = attributes->Value();
          attributesFound++;
@@ -314,8 +317,8 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
 Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
    TiXmlNode* pChild;
    int attributesFound = 0;
-   const char *area_id = "invalid", *desc_id = "invalid",
-      *error_tag = "missing tags", *area_status = "";
+   const char *area_id = INVALID, *desc_id = INVALID,
+      *error_tag = MISSING_TAGS, *area_status = "";
    bool has_id = false, has_desc = false, has_status = false;
    Area *area;
    TiXmlElement *element = pArea->ToElement();
@@ -385,8 +388,8 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
    return area;
 }
 World *make_world(TiXmlNode *pParent, World *world){
-   const char  *author = "invalid", *language = "invalid",
-      *initialarea = "invalid", *error_tag = "missing tags";
+   const char  *author = INVALID, *language = INVALID,
+      *initialarea = INVALID, *error_tag = MISSING_TAGS;
    int attributesFound = 0, num_of_areas = 0;
    bool has_auth = false, has_lang = false, has_init = false;
    TiXmlNode* pChild;
@@ -448,7 +451,17 @@ World *make_world(TiXmlNode *pParent, World *world){
       Area *temp_area = world->get_area(area);
       for(int item = 0; item < temp_area->get_num_items(); item++){
          Item *temp_item = temp_area->get_item(item);
-         for(int next_area = area; next_area < world->get_num_areas(); next_area++){
+         for(int item_next = item+1; item_next < temp_area->get_num_items(); item_next++){
+            if(!strcmp(temp_area->get_item(item_next)->get_id().c_str(), temp_item->get_id().c_str())){
+               std::ostringstream sin;
+               sin << "There are two items in the game with id: ";
+               sin << temp_item->get_id();
+               sin << " both in ";
+               sin << temp_area->get_id();
+               error_parsing(sin.str(), world);
+            }
+         }
+         for(int next_area = area + 1; next_area < world->get_num_areas(); next_area++){
             if(world->get_area(next_area)->has_item(temp_item->get_id())){
                std::ostringstream sin;
                sin << "There are two items in the game with id: ";

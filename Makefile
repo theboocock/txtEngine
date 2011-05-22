@@ -91,7 +91,7 @@ all: ${OUTPUT}
 # Source files
 #****************************************************************************
 
-SRCS := tinyxml.cpp tinyxmlparser.cpp main.cpp tinyxmlerror.cpp tinystr.cpp parser.cpp AreaTest.cpp
+SRCS := tinyxml.cpp tinyxmlparser.cpp main.cpp tinyxmlerror.cpp tinystr.cpp parser.cpp
 
 # Add on the sources for libraries
 SRCS := ${SRCS}

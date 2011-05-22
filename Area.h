@@ -34,8 +34,18 @@ class Area{
    int get_num_items(){
       return num_items;
    }
-   StateDescriptor *get_description(){
-      return description[0];
+   
+   std::string get_description(){
+      for(int desc = 0; desc < num_descriptions; desc++){
+         if(!strcmp(description[desc]->get_id().c_str(),curr_desc_id.c_str() )){
+            return description[desc]->get_description();
+         }
+      }
+      return "";
+   }
+   void remove_item(int index){
+      items.erase(items.begin()+index);
+      num_items--;
    }
    void add_item(Item *new_item){
       items.push_back(new_item);
@@ -92,7 +102,7 @@ class Area{
    StateDescriptor *get_descriptor(int index){
       return description[index];
    }
-   Area(const char *id, const char *desc_id, std::string status){
+   Area(const char *id, const char *desc_id, const char* status){
       this->status = status;
       this->id = id;
       num_descriptions = 0;
