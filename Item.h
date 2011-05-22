@@ -3,12 +3,17 @@
 
 #include <string>
 #include <vector>
+#include "StateDescriptor.h"
 
 class Item{
  protected:
    bool collectable;
    std::string id;
+   StateDescriptor *description;
  public:
+   void set_description(StateDescriptor *desc){
+      description = desc;
+   }
    bool is_collectable(){
       return collectable;
    }

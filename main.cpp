@@ -5,85 +5,63 @@
  **/
 
 #include <iostream>
-#include <cstdlib>
-#include <cstdio>
 #include <sstream>
-#include <stack>
 #include "tinyxml.h"
 #include "World.h"
 
 #define WORLD_ATTRIBUTES 3
 #define AREA_ATTRIBUTES 2
 #define STATE_DESCRIPTION_ATTRIBUTES 1
+#define ITEM_ATTRIBUTES 1
 #define PARSING_ERROR 2
 
 World* world;
-/*enum Tags{WORLD, AREA, STATEDESCRIPTOR, ITEM, STATECHANGE, EVENTHANDLER, STATECONDITIONAL, COMMAND, MESSAGE, NOVALUE};
-
-Tags to_tag(const char * totag)
-{  
-   if(!strcmp(totag, "world")){
-      return WORLD;
-   }
-   else if(!strcmp(totag, "area")){      
-      return AREA;
-   }
-   else if(!strcmp(totag, "statedescriptor")){
-      return STATEDESCRIPTOR;
-   }
-   else if(!strcmp(totag, "item")){
-      return ITEM;
-   }
-   else if(!strcmp(totag, "statechange")){
-      return STATECHANGE;
-   }
-   else if(!strcmp(totag, "eventhandler")){
-      return EVENTHANDLER;
-   }
-   else if(!strcmp(totag, "stateconditional")){
-      return STATECONDITIONAL;
-   }
-   else if(!strcmp(totag, "command")){
-      return COMMAND;
-   }
-   else if(!strcmp(totag, "message")){
-      return MESSAGE;
-   } else {
-      return NOVALUE;
-   }
-}   
-
-void parse_element(TiXmlNode* pParent){
-   Tags element;
-   element = to_tag(pParent->Value());
-   printf( "Element [%d]", element);
-   switch(element){  
-   case WORLD:
-      break;
-   case AREA:
-      break;
-   case STATEDESCRIPTOR:
-      break;
-   case ITEM:
-      break;
-   case STATECHANGE:
-      break;     
-   case STATECONDITIONAL:
-      break;
-   case EVENTHANDLER:
-      break;
-   case COMMAND:
-      break;
-   case MESSAGE:
-      break;
-   case NOVALUE:
-      break;
-   }
-}*/
 
 void error_parsing(std::string error_string);
+StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id);
 
-StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parentId){
+Item *make_item(TiXmlNode *pItem, int parent_id){
+   TiXmlNode* pChild;
+   const char *item_id, *error_tag;
+   int attributesFound =0;
+   bool has_id = false;
+   Item *item;
+   TiXmlElement *element = pItem->ToElement();
+   TiXmlAttribute *attributes = element->FirstAttribute();
+   while(attributes){
+      if(!strcmp(attributes->Name(), "id")){
+         item_id = attributes->Value();
+         attributesFound++;
+         has_id = true;
+      } else {
+         error_tag = attributes->Name();
+         fprintf(stderr, "found something but shouldnt have in make_item.\n");
+         attributesFound++;
+      }
+      attributes = attributes->Next();
+   }
+   if(ITEM_ATTRIBUTES == attributesFound && has_id){
+      item = new Item(true, item_id);
+      for ( pChild = pItem->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
+         if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT){
+            if(!strcmp(pChild->Value(), "statedescriptor")){
+               item->set_description(make_state_descriptor(pChild, item_id));
+            }
+         }
+      }
+   } else {
+      std::ostringstream sin;
+      sin << "Under parent ";
+      sin << parent_id;
+      sin << " there is an attribute error in an item, found: ";
+      sin << error_tag;
+      std::string message = sin.str();
+      error_parsing(message);
+   }
+   return item;
+}
+
+StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id){
    TiXmlNode* pChild;
    const char *state_desc_id, *error_tag;
    int attributesFound = 0;
@@ -91,7 +69,7 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
    StateDescriptor *state_descriptor;
    TiXmlElement *element = pDescription->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
-   while(attributes != NULL){
+   while(attributes){
       if(!strcmp(attributes->Name(), "id")){
          state_desc_id = attributes->Value();
          attributesFound++;
@@ -116,8 +94,8 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
                state_descriptor->set_description(pChild->ToText()->Value());
             } else {
                std::ostringstream sin;
-               sin << "Under area ";
-               sin << parentId;
+               sin << "Under parent ";
+               sin << parent_id;
                sin << " there is a tag error in ";
                sin << state_desc_id;
                std::string message = sin.str();
@@ -126,8 +104,8 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
          }
    } else {
       std::ostringstream sin;
-      sin << "Under area ";
-      sin << parentId;
+      sin << "Under parent ";
+      sin << parent_id;
       sin << " there is an attribute error in a state descriptor, found: ";
       sin << error_tag;
       std::string message = sin.str();
@@ -270,6 +248,14 @@ void make_objects(const char* pFilename)
       }
 }
 
+void print_world_tree(){
+   std::ostringstream sin;
+   sin << "World:\n";
+   for(int area = 0; area < 
+   std::string message = sin.str();
+   error_parsing(message);
+}
+
 int main(int argc, char** argV)
 {
    make_objects("testInput.xml");
@@ -277,6 +263,7 @@ int main(int argc, char** argV)
      world calls the decontructor for all areas, which calls the
      decontructor for all items and descriptions...
     */
+   print_world_tree();
    delete world;
    return 0;
 }
