@@ -11,7 +11,7 @@
 #include "parser.h"
 
 #define DEFAULT_VALUE "default_value"
-#define MAXCHARACTERS_PER_LINE 70
+#define MAX_CHARACTERS_PER_LINE 70
 #define WIN "win"
 #define DIE "die"
 #define NONE "none"
