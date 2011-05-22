@@ -47,6 +47,14 @@ Item *make_item(TiXmlNode *pItem, int parent_id){
             if(!strcmp(pChild->Value(), "statedescriptor")){
                item->set_description(make_state_descriptor(pChild, item_id));
             }
+         } else {
+            std::ostringstream sin;
+            sin << "Under parent ";
+            sin << parent_id;
+            sin << " there is a tag error in ";
+            sin << state_desc_id;
+            std::string message = sin.str();
+            error_parsing(message);
          }
       }
    } else {
