@@ -11,7 +11,7 @@ class AreaCommand{
    std::string move_to_area;
    
  public:
-   AreaCommand(const char * callmeby, const char * identifier, const char * areatomoveto){
+   AreaCommand(const char * identifier, const char * callmeby, const char * areatomoveto){
       name = callmeby;
       id   = identifier;
       move_to_area= areatomoveto;
