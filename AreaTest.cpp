@@ -10,7 +10,7 @@ int main() {
 
    test_area = new Area("TEST AREA", "TEST DESCRIPTION");
    test_item = new Item(0, "TEST ITEM");
-   test_item_command = new ItemCommand("drop", "drop_case_1", "dropped_state");
+   test_item_command = new AreaCommand("north", "bathroom", "kitchen");
    test_state_descriptor = new StateDescriptor("TEST DESCRIPTION");
    
    cout << "Testing Area Class:" << endl;
@@ -30,12 +30,12 @@ int main() {
    cout << "desc. after: " << test_area->get_descriptor(1) << endl;
    cout << "num desc.after" << test_area->get_num_descriptions() << endl;
    //Commands
-   cout << "\nAdding Command: \"drop\"" << endl;
+   cout << "\nAdding Command: \"north\"" << endl;
    test_area->add_command(test_item_command);
-   if(test_area->has_command("drop") != NULL) {
-      cout << test_area->has_command("drop");
+   if(test_area->has_command("north") != NULL) {
+      cout << test_area->has_command("north");
    }else{
-      cout << "Error: Command \"drop\" not added" << endl;
+      cout << "Error: Command \"north\" not added" << endl;
       return 1;
    }
    return 0;
