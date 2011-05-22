@@ -11,7 +11,7 @@
 #include "parser.h"
 
 #define DEFAULT_VALUE "default_value"
-#define MAX_CHARACTERS_PER_LINE 70
+#define MAX_CHARACTERS_PER_LINE 100
 #define WIN "win"
 #define DIE "die"
 #define NONE "none"
@@ -27,6 +27,7 @@ void gameloop();
 std::string two_word_command(std::string command1, std::string command2);
 std::string one_word_command(std::string command);
 std::string print_inventory();
+std::string word_wrap(std::string input_string);
 // load the named file and dump its structure to STDOUT
 
 World *world;
@@ -96,17 +97,18 @@ void gameloop(){
    while(!game_over){
       std::ostringstream sin;
       std::ostringstream commandstream;
+	  std::ostringstream itemstream;
       if(last_area.compare(world->get_active_area()->get_id()) != 0){
          last_area = world->get_active_area()->get_id();
-         sin << world->get_active_area()->get_description() << "\n";
+         sin << world->get_active_area()->get_description();
          if(!strcmp(world->get_active_area()->get_status().c_str(), WIN) || !strcmp(world->get_active_area()->get_status().c_str(), DIE)){
             game_over = true;
          } else {
             for(int items = 0; items < world->get_active_area()->get_num_items();items++){
-               sin << world->get_active_area()->get_item(items)->get_description() << "\n\n";
+               itemstream << world->get_active_area()->get_item(items)->get_description();
             }
          }
-         std::cout << sin.str();
+         std::cout << word_wrap(sin.str())<<word_wrap(itemstream.str());
       }
       if(!game_over){
          std::cout << ">>";
@@ -128,13 +130,12 @@ void gameloop(){
                   last_area = DEFAULT_VALUE;
                } else {
                   commandstream << from_one_word;
-                  commandstream << "\n";
                }
             }
          } else {
             std::cout << "Please enter one or two word commands only" << std::endl;     
          }
-         std::cout <<  "\n" << commandstream.str() << std::endl;
+         std::cout << "\n" << word_wrap(commandstream.str());
       }
    }
 
@@ -246,3 +247,28 @@ std::string print_inventory(){
    
 }
    
+std::string word_wrap(std::string input_string){
+
+	std::istringstream iss(input_string);
+	std::string formatted;
+	std::string line;
+      std::string word;
+   while (iss >> word)
+   {
+      if (line.length() + word.length() > MAX_CHARACTERS_PER_LINE)
+      {
+         formatted +=line+"\n";
+
+         line.clear();
+	  }
+		 line += word + " ";
+   }
+
+   if (!line.empty())
+   {
+      formatted += line + "\n";
+   }
+   return formatted +"\n";
+}
+
+
