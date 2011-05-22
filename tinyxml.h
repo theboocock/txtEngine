@@ -813,8 +813,8 @@ public:
 	#ifdef TIXML_USE_STL
 	const std::string& ValueStr() const	{ return value; }				///< Return the value of this attribute.
 	#endif
-	int				IntValue() const;									///< Return the value of this attribute, converted to an integer.
-	double			DoubleValue() const;								///< Return the value of this attribute, converted to a double.
+	int				IntValue() const;					 ///< Return the value of this attribute, converted to an integer.
+	double			DoubleValue() const;						 ///< Return the value of this attribute, converted to a double.
 
 	// Get the tinyxml string representation
 	const TIXML_STRING& NameTStr() const { return name; }
@@ -835,8 +835,8 @@ public:
 	void SetName( const char* _name )	{ name = _name; }				///< Set the name of this attribute.
 	void SetValue( const char* _value )	{ value = _value; }				///< Set the value.
 
-	void SetIntValue( int _value );										///< Set the value from an integer.
-	void SetDoubleValue( double _value );								///< Set the value from a double.
+	void SetIntValue( int _value );								///< Set the value from an integer.
+	void SetDoubleValue( double _value );							///< Set the value from a double.
 
     #ifdef TIXML_USE_STL
 	/// STL std::string form.
