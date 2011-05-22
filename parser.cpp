@@ -123,7 +123,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
    const char *error_tag = MISSING_TAGS,
       *command_name = INVALID, *command_area = INVALID, *command_status = INVALID;
    int attributesFound = 0;
-   bool has_id = false, has_name = false, has_area = false, has_status = false;
+   bool has_name = false, has_area = false, has_status = false;
    AreaCommand *area_command;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
@@ -156,7 +156,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
       }
       attributes = attributes->Next();
    }
-   if(AREA_COMMAND_ATTRIBUTES == attributesFound && has_id && has_name && has_area && has_status){
+   if(AREA_COMMAND_ATTRIBUTES == attributesFound  && has_name && has_area && has_status){
       area_command = new AreaCommand(command_name, command_area,command_status);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
