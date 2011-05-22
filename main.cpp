@@ -18,6 +18,7 @@
 #define LOOK "look"
 #define BAG "bag"
 #define INVENTORY "inventory"
+#define QUIT "quit"
 
 bool game_over = false;
 
@@ -81,11 +82,7 @@ int main(int argc, char** argv)
 {
    if(argc > 1){
       world = read_file(argv[1], world);
-      /*delete world deletes everything, as the the deconstructor for
-        world calls the decontructor for all areas, which calls the
-        decontructor for all items and descriptions...
-      */
-      // print_world_tree();
+      //print_world_tree();
       gameloop();
       delete world;
    }
@@ -205,16 +202,19 @@ std::string two_word_command(std::string command1, std::string command2){
          }
       }
    }
-
-   return "I don't understand that. \n";
-   
+   return "I don't understand that. \n";  
 }
+
 std::string one_word_command(std::string command){
    std::transform(command.begin(), command.end(),
                   command.begin(), ::tolower);
-   if(!command.compare("look")){
+   if(!command.compare(QUIT)){
+      game_over = true;
       return DEFAULT_VALUE;
-   } else if(!command.compare("bag")){
+   }
+   if(!command.compare(LOOK)){
+      return DEFAULT_VALUE;
+   } else if(!command.compare(BAG)){
       return print_inventory();
    } else if(!command.compare(INVENTORY)){
       return print_inventory();
