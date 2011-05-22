@@ -15,6 +15,7 @@
 #define ITEM_ATTRIBUTES 3
 #define PARSING_ERROR 2
 #define AREA_COMMAND_ATTRIBUTES 3
+#define ITEM_COMMAND_ATTRIBUTES 3
 
 World* world;
 
@@ -26,10 +27,64 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id){
    const char *error_tag = "missing tags", *command_id = "invalid",
       *command_name = "invalid", *command_state = "invlaid";
    int attributesFound = 0;
-   bool has_id = false, has_name = false, has_area = false;
-   AreaCommand *area_command;
+   bool has_id = false, has_name = false, has_state = false;
+   ItemCommand *item_command;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
+   while(attributes){
+      if(!strcmp(attributes->Name(), "id")){
+         command_id = attributes->Value();
+         attributesFound++;
+         if(has_id){
+            error_tag = "More than one id tag";
+         }
+         has_id = true;
+      } else if(!strcmp(attributes->Name(), "name")){
+         command_name = attributes->Value();
+         attributesFound++;
+         if(has_name){
+            error_tag = "More than one name tag";
+         }
+         has_name = true;
+      } else if(!strcmp(attributes->Name(), "statedescription")) {
+         command_state = attributes->Value();
+         attributesFound++;
+         if(has_state){
+            error_tag = "More than one state description tag.";
+         }
+         has_state = true;
+      } else{
+         error_tag = attributes->Name();
+         fprintf(stderr, "found something but shouldnt have in make_item_command.\n");
+         attributesFound++;
+      }
+      attributes = attributes->Next();
+   }
+   if(ITEM_COMMAND_ATTRIBUTES == attributesFound && has_id && has_name && has_state){
+      item_command = new ItemCommand(command_id, command_name, command_state);
+      for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
+         if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
+            item_command->set_message(pChild->ToText()->Value());
+         } else {
+            std::ostringstream sin;
+            sin << "Under parent ";
+            sin << parent_id;
+            sin << " there is a tag error in ";
+            sin << command_id;
+            std::string message = sin.str();
+            error_parsing(message);
+         }
+      }
+   } else {
+      std::ostringstream sin;
+      sin << "Under parent ";
+      sin << parent_id;
+      sin << " there is an attribute error in a item command tag, found: ";
+      sin << error_tag;
+      std::string message = sin.str();
+      error_parsing(message);
+   }
+   return item_command;
 }
 
 AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id){
@@ -65,7 +120,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id){
          has_area = true;
       } else{
          error_tag = attributes->Name();
-         fprintf(stderr, "found something but shouldnt have in make_command.\n");
+         fprintf(stderr, "found something but shouldnt have in make_area_command.\n");
          attributesFound++;
       }
       attributes = attributes->Next();
@@ -89,7 +144,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id){
       std::ostringstream sin;
       sin << "Under parent ";
       sin << parent_id;
-      sin << " there is an attribute error in a state descriptor tag, found: ";
+      sin << " there is an attribute error in a area command tag, found: ";
       sin << error_tag;
       std::string message = sin.str();
       error_parsing(message);
@@ -142,7 +197,9 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id){
          if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT){
             if(!strcmp(pChild->Value(), "statedescriptor")){
                item->add_description(make_state_descriptor(pChild, item_id));
-            }
+            }else if(!strcmp(pChild->Value(), "itemcommand")){
+               item->add_command(make_item_command(pChild, item_id));
+            } 
          } else {
             std::ostringstream sin;
             sin << "Under parent ";
