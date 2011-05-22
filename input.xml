@@ -9,7 +9,7 @@
     <areacommand id="north1" name="NORTH" area="earth">
       You went north and ended up on earth. Think with portals :P
     </areacommand>
-    <item id="bottle1" initialdescription="bottleonground">
+    <item id="bottle1" initialdescription="bottleonground" collectable="true">
       <statedescriptor id="bottledropstate">This is my bottle</statedescriptor>
       <statedescriptor id="bottleonground">A bottle of water catches your eye</statedescriptor>
       <itemcommand id="get1" name="get" statedescription="bottledropstate">
@@ -17,13 +17,13 @@
       </itemcommand>
     </item>
   </area>
-  <area id = "earth" inititaldescription="base">
+  <area id="earth" initialdescription="base">
     <statedescriptor id="base">
       You walk through the stargate to cheers as you have made it back alive. It is a dull chamber but is full with excitement until
       Geoffery comes over to you and says "Look on the table, It's important!!" There is a door to the north that leads to the chambers of rest.
       He walks away and you gaze over at the table.
     </statedescriptor>
-    <item id="notes" initialdescription="ontable">
+    <item id="notes" initialdescription="ontable" collectable="true">
       <statedescriptor id="ontable">
         A folder of important looking notes are on the table, you should probably grab them they refence you name in the title
       </statedescriptor>
