@@ -20,9 +20,9 @@ World* world;
 void error_parsing(std::string error_string);
 StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id);
 
-Item *make_item(TiXmlNode *pItem, int parent_id){
+Item *make_item(TiXmlNode *pItem, const char *parent_id){
    TiXmlNode* pChild;
-   const char *item_id, *error_tag;
+   const char *item_id = "invlaid", *error_tag = "no tags";
    int attributesFound =0;
    bool has_id = false;
    Item *item;
@@ -32,6 +32,9 @@ Item *make_item(TiXmlNode *pItem, int parent_id){
       if(!strcmp(attributes->Name(), "id")){
          item_id = attributes->Value();
          attributesFound++;
+         if(has_id){
+            error_tag = "More than one id tag";
+         }
          has_id = true;
       } else {
          error_tag = attributes->Name();
@@ -52,7 +55,7 @@ Item *make_item(TiXmlNode *pItem, int parent_id){
             sin << "Under parent ";
             sin << parent_id;
             sin << " there is a tag error in ";
-            sin << state_desc_id;
+            sin << item_id;
             std::string message = sin.str();
             error_parsing(message);
          }
@@ -71,7 +74,7 @@ Item *make_item(TiXmlNode *pItem, int parent_id){
 
 StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *parent_id){
    TiXmlNode* pChild;
-   const char *state_desc_id, *error_tag;
+   const char *state_desc_id = "invalid", *error_tag = "no tags";
    int attributesFound = 0;
    bool has_id = false;
    StateDescriptor *state_descriptor;
@@ -81,6 +84,9 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
       if(!strcmp(attributes->Name(), "id")){
          state_desc_id = attributes->Value();
          attributesFound++;
+         if(has_id){
+            error_tag = "More than one id tag";
+         }
          has_id = true;
       } /*else if(!strcmp(attributes->Name(), "switch")){
          description_switch = attributes->Value();
@@ -126,7 +132,7 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
 Area *make_area(TiXmlNode *pArea, int area_index) {
    TiXmlNode* pChild;
    int attributesFound = 0;
-   const char *area_id = "invalid", *desc_id = "invalid", *error_tag;
+   const char *area_id = "invalid", *desc_id = "invalid", *error_tag = "no tags";
    bool has_id = false, has_desc = false;
    Area *area;
    TiXmlElement *element = pArea->ToElement();
@@ -135,10 +141,16 @@ Area *make_area(TiXmlNode *pArea, int area_index) {
       if(!strcmp(attributes->Name(), "id")) {
          area_id = attributes->Value();
          attributesFound++;
+         if(has_id){
+            error_tag = "More than one id tag";
+         }
          has_id = true;
       } else if (!strcmp(attributes->Name(), "initialdescription")){
          desc_id = attributes->Value();
          attributesFound++;
+         if(has_desc){
+            error_tag = "More than one initialdescription tag";
+         }
          has_desc = true;
       } else {
          error_tag = attributes->Name();         
@@ -175,11 +187,16 @@ Area *make_area(TiXmlNode *pArea, int area_index) {
        std::string message = sin.str();
        error_parsing(message);
    }
-
+   if(area->has_current_desc()){
+      return area;
+   } else {
+      error_parsing("The current area can't find inital description.");
+   }
    return area;
 }
 void make_world(TiXmlNode *pParent){
-   const char  *author = "invalid", *language = "invalid", *initialarea = "invalid";
+   const char  *author = "invalid", *language = "invalid",
+      *initialarea = "invalid", *error_tag = "no tags";
    int attributesFound = 0, num_of_areas = 0;
    bool has_auth = false, has_lang = false, has_init = false;
    TiXmlNode* pChild;
@@ -189,16 +206,25 @@ void make_world(TiXmlNode *pParent){
       if(!strcmp(attributes->Name(),"author")){
          author = attributes->Value();
          attributesFound++;
+         if(has_auth){
+            error_tag = "More than one author tag";
+         }
          has_auth = true;
       }
       else if(!strcmp(attributes->Name(),"language")){
          language = attributes->Value();
          attributesFound++;
+         if(has_lang){
+            error_tag = "More than one language tag";
+         }
          has_lang = true;
       }
       else if(!strcmp(attributes->Name(),"initialarea")){
          initialarea = attributes->Value();
          attributesFound++;
+         if(has_init){
+            error_tag = "More than one initialarea tag";
+         }
          has_init = true;
       }
       attributes=attributes->Next();
@@ -216,7 +242,11 @@ void make_world(TiXmlNode *pParent){
          }
       }
    }else{
-      error_parsing("one or more of the attributes required for world are missing");
+      std::ostringstream sin;
+      sin << "In make_world there is an attribute error, found: ";
+      sin << error_tag;
+      std::string message = sin.str();
+      error_parsing(message);
    }
 }
 

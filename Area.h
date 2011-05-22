@@ -16,6 +16,17 @@ class Area{
    std::vector<StateDescriptor*> description;
    std::vector<AreaCommand*> commands;
  public:
+   bool has_description(std::string desc_id){
+      for(int desc = 0; desc < num_descriptions; desc++){
+         if(!strcmp(description[desc]->get_id().c_str(), desc_id.c_str())){
+            return true;
+         }
+      }
+      return false;
+   }
+   bool has_current_desc(){
+      return has_description(curr_desc_id);
+   }
    int get_num_items(){
       return num_items;
    }
