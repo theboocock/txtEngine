@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <world initialarea="unique_world_name" language=".txt[framework]" author=".txtFramework Team">
-  <area id="testarea" initialdescription="home">
+  <area id="room1" initialdescription="home">
     <statedescriptor id="home">You awake finding yourself sitting in front of a Stargate. As you focus on the area surrounding you, it becomes evident that you are stranded on a planet in the vesoura system. 
     Dazed you observe a gate ignition panel. As you carry yourself across to the panel, you quickly realize several bullet wounds. 
     With no explaination obvious, you begin the home dialing proccess, the gate vortex opens.</statedescriptor>
     <statedescriptor id="homeshort">There is a stargate. It's eminating an eerie blue as a vortex pulsates within. It's seemingly the only way home.</statedescriptor>
     <statedescriptor id="epic">Hello World</statedescriptor>
-    <areacommand id="north1" name="NORTH" area="testarea">
-      You went north and ended up at the start. Think with portals :P
+    <areacommand id="north1" name="NORTH" area="earth">
+      You went north and ended up on earth. Think with portals :P
     </areacommand>
     <item id="bottle1" initialdescription="bottleonground">
       <statedescriptor id="bottledropstate">This is my bottle</statedescriptor>
@@ -16,5 +16,32 @@
         you got the bottle
       </itemcommand>
     </item>
+  </area>
+  <area id = "earth" inititaldescription="base">
+    <statedescriptor id="base">
+      You walk through the stargate to cheers as you have made it back alive. It is a dull chamber but is full with excitement until
+      Geoffery comes over to you and says "Look on the table, It's important!!" There is a door to the north that leads to the chambers of rest.
+      He walks away and you gaze over at the table.
+    </statedescriptor>
+    <item id="notes" initialdescription="ontable">
+      <statedescriptor id="ontable">
+        A folder of important looking notes are on the table, you should probably grab them they refence you name in the title
+      </statedescriptor>
+      <itemcommand id="get2" name="get" statedescription="gotfile">
+        You pick the notes up and begin to read, you horrifyingly the earth is 30 minutes from destruction and only you can stop it, if only you can remember where you put the amulet.
+      </itemcommand>
+      <statedescriptor id="gotfile">
+        A folder of important notes, telling you to use the amulet to save the world
+      </statedescriptor>
+      
+    </item>
+    <areacommand id="north2" name="NORTH" area="hallway">
+      You walk through the door and enter the hallway.
+    </areacommand>
+  </area>
+  <area id="hallway" initialdescription="darkhallway">
+    <statedescriptor id="darkhallway">
+      You look around and nothing in the dimly lit hallway catches you eye
+    </statedescriptor>
   </area>
 </world>
