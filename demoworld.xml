@@ -152,6 +152,14 @@
         on your ass. You die.
       </itemcommand>
     </item>
+    <item id="holygrail" initialdescription="full" collectable="true">
+      <statedescriptor id="full">
+        There is a full holy grail.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="full" changecollectable="true" collectabledependent="true" areachange="inventory" status="win">
+        You pick up the holy grail.
+      </itemcommand>
+    </item>
   </area>
 
   <area id="room5" initialdescription="van" status="win">

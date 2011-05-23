@@ -117,6 +117,7 @@ void gameloop(){
          } else {
             for(int items = 0; items < world->get_active_area()->get_num_items();items++){
                itemstream << world->get_active_area()->get_item(items)->get_description();
+               itemstream << "\n";
             }
          }
          std::cout << word_wrap(sin.str())<<word_wrap(itemstream.str());
@@ -166,10 +167,9 @@ std::string two_word_command(std::string command1, std::string command2){
       if(!strcmp(temp_item->get_id().c_str(), command2.c_str())){
          ItemCommand *temp_item_command = temp_item->has_command(command1);
          if(temp_item_command != NULL){
-            std::cout << temp_item_command->get_depends().c_str();
             if(world->get_area(INVENTORY)->has_item(temp_item_command->get_depends()) ||
                !strcmp(world->get_active_area()->get_id().c_str(), temp_item_command->get_depends().c_str()) ||
-               !strcmp(temp_item_command->get_depends().c_str(), NONE)){ //check depends
+               !strcmp(temp_item_command->get_depends().c_str(), NONE)){
                if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()){
                   if(!strcmp(temp_item_command->get_status().c_str(), WIN)||
                      !strcmp(temp_item_command->get_status().c_str() ,DIE)){
