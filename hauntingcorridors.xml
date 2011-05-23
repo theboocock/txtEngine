@@ -42,7 +42,7 @@
       </itemcommand>
     </item>
   </area>
-  <area id="deathroom6" initialdescription="deathroom6" status ="NONE">
+  <area id="deathroom6" initialdescription="deathroom6" status ="die">
     <statedescriptor id="deathroom6">
       never-ending pit
     </statedescriptor>
@@ -104,13 +104,13 @@
       go south
     </areacommand>
   </area>
-  <area id="deathroom2" initialdescription="deathroom2" status ="NONE" >
+  <area id="deathroom2" initialdescription="deathroom2" status ="die" >
     <statedescriptor id="deathroom2">
       sweat shop
     </statedescriptor>
   </area>
   
-  <area id="deathroom11" initialdescription="deathroom11" status ="NONE">
+  <area id="deathroom11" initialdescription="deathroom11" status ="die">
     <statedescriptor id="deathroom11">
       fire
     </statedescriptor>
@@ -133,7 +133,7 @@
     </areacommand>   
     
   </area>
-  <area id="middleroom" initialdescription="middleroom" status ="NONE" >
+  <area id="middleroom" initialdescription="middleroom" status ="die" >
     <statedescriptor id="middleroom">
      walk into own mind
       
@@ -157,12 +157,12 @@
       go west
     </areacommand>   
   </area>
-  <area id="deathroom7" initialdescription="deathroom7" status ="NONE" >
+  <area id="deathroom7" initialdescription="deathroom7" status ="die" >
     <statedescriptor id="deathroom7">
       firing range
     </statedescriptor>
   </area>
-  <area id="deathroom16" initialdescription="deathroom16" status ="NONE">
+  <area id="deathroom16" initialdescription="deathroom16" status ="die">
     <statedescriptor id="deathroom16">
      internal organs aborted
     </statedescriptor>
@@ -212,7 +212,7 @@
       go south
     </areacommand>
   </area>
-  <area id="deathroom12" initialdescription="deathroom12" status ="NONE" >
+  <area id="deathroom12" initialdescription="deathroom12" status ="die" >
     <statedescriptor id="deathroom12">
       diabetes no sugar and just grain
     </statedescriptor>

@@ -102,7 +102,9 @@ int main(int argc, char** argv)
             delete world;
          }
          std::cout << "Would you like to play again? (please enter yes or no)" << std::endl;
-         std::cin >> userinput;
+         std::getline (std::cin,userinput);
+       
+         game_over = false;
       }while (!userinput.compare("yes"));   
          }
    return 0;

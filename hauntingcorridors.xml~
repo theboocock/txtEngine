@@ -1,0 +1,3 @@
+<?xml version ="1.0"?>
+<world initialarea="startchamber"  language=".txtFramework" author=".txtFramework Team">
+  <area id="startchamber" initialdescription="maze_start" status ="NONE">
