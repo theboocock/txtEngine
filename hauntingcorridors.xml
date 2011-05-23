@@ -49,9 +49,11 @@
   </area>
   <area id="collapsedchamber" initialdescription="collapsedchamber" status ="NONE">
     <statedescriptor id="collapsedchamber">
-      A collapsed chamber
+      As you scan your torch from left to right you realise you're in the middle of a huge exogorth nest. Those smelly exogorths sure have been
+      busy digging! Its ok though, the nest is abandoned, phew! But what a state! There's faecal matter everywhere! You better get the heck out
+      of here before you catch a nasty case of pink eye.
 
-      A exit through a tunnel to the south a exit to the east and the west
+      There are exits through a tunnel to the south, to the east, and to the west.
     </statedescriptor>
     <areacommand name="west" area="pathroom" status="NONE" depends="torch">
       go west
@@ -87,9 +89,10 @@
   </area>
   <area id="furnaceroom" initialdescription="furnaceroom" status ="NONE">
     <statedescriptor id="furnaceroom">
-      furnaceroom
+      Its a big room with a raging furnace in the centre. This is probably how they heat the place. The stench and heat is overwhelming.
+      It is time to move on.
 
-      
+     There is a door to the north, the east, and the west. Hmmm, which one to pick? 
     </statedescriptor>
     <areacommand name="east" area="pathroom" status="NONE" depends="torch">
       go east
@@ -135,8 +138,7 @@
   </area>
   <area id="middleroom" initialdescription="middleroom" status ="NONE" depends="torch">
     <statedescriptor id="middleroom">
-     walk into own mind
-      
+     You followed the white rabbit into your own mind you fool! Now you're twice as lost.
     </statedescriptor>
   </area>
   <area id="room8" initialdescription="room8" status ="NONE" depends="torch">
