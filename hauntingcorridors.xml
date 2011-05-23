@@ -2,9 +2,9 @@
 <world initialarea="startchamber"  language=".txtFramework" author=".txtFramework Team">
   <area id="startchamber" initialdescription="maze_start" status ="NONE">
     <statedescriptor id="maze_start">
-      You awake in a sullen chamber with dim light overhead. You cannot remember how you got here but the stench of death
-      fills your nostrils, you begin to dry reach. Get a hold of yourself lawrence you say, there must be an explanation
-      things like this don't happen to good people. Especially not the founder of non for profit industries the world's largest
+      You come to in a sullen chamber with dim light overhead. You cannot remember how you got here but the stench of death
+      fills your nostrils, you begin to dry reach. "Get a hold of yourself lawrence," you say. There must be an explanation.
+      Things like this don't happen to good people. Especially not the founder of non for profit industries the world's largest
       grossing charity. From starving African babies, to abortion clinics, to drug help and so on. Time to escape, Time to move
       as you grow the courage to explore the chamber, you hear faint screams from a distance.
 
