@@ -154,12 +154,16 @@ std::string two_word_command(std::string command1, std::string command2){
          if(temp_item_command != NULL){
             //do item command here
             if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()){
-               if(!strcmp(world->get_active_area()->get_status().c_str(), WIN)||!strcmp(world->get_active_area()->get_status().c_str() ,DIE)){
+               if(!strcmp(temp_item_command->get_status().c_str(), WIN)||!strcmp(temp_item_command->get_status().c_str() ,DIE)){
                   game_over = true;
                }
                temp_item->state_change(temp_item_command->get_state_change());
                temp_item->change_collectable(temp_item_command->get_change_collect());
-               world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
+               if(world->get_area(temp_item_command->get_area_change()) != NULL){
+                  world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
+               } else {
+                  world->get_active_area()->add_item(temp_item);
+               }
                world->get_active_area()->remove_item(item);
                result << temp_item_command->get_message();
                result << "\n";
