@@ -92,14 +92,21 @@ void print_world_tree(){
 
 int main(int argc, char** argv)
 {
+   std::string userinput;
    if(argc > 1){
-      world = read_file(argv[1], world);
-	  if(world != NULL){
-      //print_world_tree();
-      gameloop();
-      delete world;
-	  }
-   }
+      do{
+         world = read_file(argv[1], world);
+         if(world != NULL){
+            //print_world_tree();
+            gameloop();
+            delete world;
+         }
+         std::cout << "Would you like to play again? (please enter yes or no)" << std::endl;
+         std::getline (std::cin,userinput);
+       
+         game_over = false;
+      }while (!userinput.compare("yes"));   
+         }
    return 0;
 }
 

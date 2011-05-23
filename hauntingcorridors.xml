@@ -22,7 +22,7 @@
     <areacommand name="east" area="furnaceroom" status="NONE" depends="torch">
       The smell of coals fills your nostrils and you feel like you are walking into the sun. 
     </areacommand>
-    <item id="torch" initialdescription="onpodium" collectable ="true" depends="torch">
+    <item id="torch" initialdescription="onpodium" collectable ="true">
       <statedescriptor id="onpodium">
         In the center of the room on top of a shoulder height podium, a torch glows so brightly you imagine that it has been
         glowing for thousands of years.Then you realize that thought is ridiculous. The intricate design on the hold suggest that many hours have been spent crafting this lamp.
@@ -42,7 +42,7 @@
       </itemcommand>
     </item>
   </area>
-  <area id="deathroom6" initialdescription="deathroom6" status ="NONE">
+  <area id="deathroom6" initialdescription="deathroom6" status ="die">
     <statedescriptor id="deathroom6">
       never-ending pit
     </statedescriptor>
@@ -68,7 +68,7 @@
       go east
     </areacommand>
   </area>
-  <area id="pathroom" initialdescription="pathroom" status ="NONE" depends="torch">
+  <area id="pathroom" initialdescription="pathroom" status ="NONE" >
     <statedescriptor id="pathroom">
      cobble stone room
 
@@ -107,18 +107,18 @@
       go south
     </areacommand>
   </area>
-  <area id="deathroom2" initialdescription="deathroom2" status ="NONE" depends="torch">
+  <area id="deathroom2" initialdescription="deathroom2" status ="die" >
     <statedescriptor id="deathroom2">
       sweat shop
     </statedescriptor>
   </area>
   
-  <area id="deathroom11" initialdescription="deathroom11" status ="NONE" depends="torch">
+  <area id="deathroom11" initialdescription="deathroom11" status ="die">
     <statedescriptor id="deathroom11">
       fire
     </statedescriptor>
   </area>
-  <area id="room10" initialdescription="room10" status ="NONE" depends="torch">
+  <area id="room10" initialdescription="room10" status ="NONE" >
     <statedescriptor id="room10">
       pub
     </statedescriptor>
@@ -136,12 +136,12 @@
     </areacommand>   
     
   </area>
-  <area id="middleroom" initialdescription="middleroom" status ="NONE" depends="torch">
+  <area id="middleroom" initialdescription="middleroom" status ="die" >
     <statedescriptor id="middleroom">
      You followed the white rabbit into your own mind you fool! Now you're twice as lost.
     </statedescriptor>
   </area>
-  <area id="room8" initialdescription="room8" status ="NONE" depends="torch">
+  <area id="room8" initialdescription="room8" status ="NONE" >
     <statedescriptor id="room8">
       beachvolleyball
       
@@ -159,17 +159,17 @@
       go west
     </areacommand>   
   </area>
-  <area id="deathroom7" initialdescription="deathroom7" status ="NONE" depends="torch">
+  <area id="deathroom7" initialdescription="deathroom7" status ="die" >
     <statedescriptor id="deathroom7">
       firing range
     </statedescriptor>
   </area>
-  <area id="deathroom16" initialdescription="deathroom16" status ="NONE" depends="torch">
+  <area id="deathroom16" initialdescription="deathroom16" status ="die">
     <statedescriptor id="deathroom16">
      internal organs aborted
     </statedescriptor>
   </area>
-  <area id="room15" initialdescription="room15" status ="NONE" depends="torch">
+  <area id="room15" initialdescription="room15" status ="NONE" >
     <statedescriptor id="room15">
       laundromat
     </statedescriptor>
@@ -183,7 +183,7 @@
       go east
     </areacommand>
   </area>
-  <area id="room14" initialdescription="room14" status ="NONE" depends="torch">
+  <area id="room14" initialdescription="room14" status ="NONE">
     <statedescriptor id="room14">
       mirrors  
     </statedescriptor>
@@ -200,7 +200,7 @@
       go south
     </areacommand>
   </area>
-  <area id="room13" initialdescription="room13" status ="NONE" depends="torch">
+  <area id="room13" initialdescription="room13" status ="NONE" >
     <statedescriptor id="room13">
       pokerden     
     </statedescriptor>
@@ -214,12 +214,12 @@
       go south
     </areacommand>
   </area>
-  <area id="deathroom12" initialdescription="deathroom12" status ="NONE" depends="torch">
+  <area id="deathroom12" initialdescription="deathroom12" status ="die" >
     <statedescriptor id="deathroom12">
       diabetes no sugar and just grain
     </statedescriptor>
   </area>
-  <area id="finalarea" initialdescription="finalarea" status ="NONE" depends="torch">
+  <area id="finalarea" initialdescription="finalarea" status ="NONE" >
       <statedescriptor id="finalarea">
         fake win
       </statedescriptor>
@@ -236,7 +236,7 @@
         go south
       </areacommand>
     </area>
-    <area id="realfinalarea" initialdescription="finalarea" status="NONE" depends="torch">
+    <area id="realfinalarea" initialdescription="finalarea" status="win" >
       <statedescriptor id="finalarea">
         finalarea
       </statedescriptor>
