@@ -26,7 +26,7 @@ bool game_over = false;
 void gameloop();
 std::string two_word_command(std::string command1, std::string command2);
 std::string one_word_command(std::string command);
-std::string print_inventory();
+void print_inventory();
 std::string word_wrap(std::string input_string);
 // load the named file and dump its structure to STDOUT
 
@@ -97,7 +97,7 @@ void gameloop(){
    while(!game_over){
       std::ostringstream sin;
       std::ostringstream commandstream;
-	  std::ostringstream itemstream;
+      std::ostringstream itemstream;
       if(last_area.compare(world->get_active_area()->get_id()) != 0){
          last_area = world->get_active_area()->get_id();
          sin << world->get_active_area()->get_description();
@@ -218,9 +218,11 @@ std::string one_word_command(std::string command){
    if(!command.compare(LOOK)){
       return DEFAULT_VALUE;
    } else if(!command.compare(BAG)){
-      return print_inventory();
+     print_inventory();
+     return "";
    } else if(!command.compare(INVENTORY)){
-      return print_inventory();
+      print_inventory();
+      return "";
    }
    AreaCommand *temp_area_command = world->get_active_area()->has_command(command);
    if(temp_area_command != NULL){
@@ -235,15 +237,19 @@ std::string one_word_command(std::string command){
    
 }
 
-std::string print_inventory(){
+void print_inventory(){
    std::ostringstream sin;
    int num = 1;
-   sin << "INVENTORY: \n";
+   sin << "INVENTORY: \n" ;
    std::string inv = INVENTORY;
    for(int items = 0; items < world->get_area(inv)->get_num_items(); items++){
-      sin << num++ <<world->get_area(INVENTORY)->get_item(items)->get_description();
+      sin << num++ << " = " << world->get_area(INVENTORY)->get_item(items)->get_description();
+      if(items  < world->get_area(inv)->get_num_items() - 1){
+         sin << "\n";
+      }
    }
-   return sin.str();
+  
+   std::cout << "\n" <<  sin.str();
    
 }
    
@@ -253,7 +259,7 @@ std::string word_wrap(std::string input_string){
 	std::string formatted;
 	std::string line;
       std::string word;
-   while (iss >> word)
+      while (iss >> word)
    {
       if (line.length() + word.length() > MAX_CHARACTERS_PER_LINE)
       {
@@ -266,9 +272,9 @@ std::string word_wrap(std::string input_string){
 
    if (!line.empty())
    {
-      formatted += line + "\n";
+      formatted += line +"\n";
    }
-   return formatted +"\n";
+   return formatted + "\n";
 }
 
 

@@ -31,10 +31,10 @@
       A reasonably priced hemp bag you bought from army surplus for your incence collection. Although second hand it has very little signs of wear. All in all a fair purchase. Yeah.
     </statedescriptor>
     <statedescriptor id="donthavebag">
-      A reasonably priced hemp bag you bought from army surplus for your incence collection. Although second hand it has very little signs of wear. All in all a fair purchase. Yeah.
+      A hemp bag
     </statedescriptor>
     <statedescriptor id="havebag">
-      A reasonably priced hemp bag you bought from army surplus for your incence collection. Although second hand it has very little signs of wear. All in all a fair purchase. Yeah.
+      A hemp bag
     </statedescriptor>
     <itemcommand name="get" statedescription="havebag" changecollectable="true" collectabledependent="true" areachange="inventory" status="NONE">
       The bag is really heavy. You did good buddy.
