@@ -8,14 +8,19 @@ class AreaCommand{
    std::string name;
    std::string status;
    std::string message;
+   std::string depends;
    std::string move_to_area;
    
  public:
-   AreaCommand(const char * callmeby, const char * areatomoveto,const char * status_command){
+   AreaCommand(const char * callmeby, const char * areatomoveto,const char * status_command, const char * depends_command){
       name = callmeby;
+      depends = depends_command;
       status   = status_command;
       move_to_area= areatomoveto;
       message = "";
+   }
+   std::string get_depends(){
+      return depends;
    }
    ~AreaCommand(){}
    std::string get_status(){

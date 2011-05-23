@@ -12,7 +12,7 @@
       be living in prison! Don't forget to get your gun and bag...
       Exit to the north.
     </statedescriptor>
-    <areacommand name="north" area="room2" status="NONE">
+    <areacommand name="north" area="room2" status="NONE" depends="bag">
       You exit the banks vault into their not so secure store room.
     </areacommand>
     
@@ -150,6 +150,14 @@
         off. You are crying in a ball on the ground and the guard has
         no mercy. He lifts the axe above his head and brings it down
         on your ass. You die.
+      </itemcommand>
+    </item>
+    <item id="holygrail" initialdescription="full" collectable="true">
+      <statedescriptor id="full">
+        There is a full holy grail.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="full" changecollectable="true" collectabledependent="true" areachange="inventory" status="win">
+        You pick up the holy grail.
       </itemcommand>
     </item>
   </area>
