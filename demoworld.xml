@@ -12,7 +12,7 @@
       be living in prison! Don't forget to get your gun and bag...
       Exit to the north.
     </statedescriptor>
-    <areacommand name="north" area="room2" status="NONE">
+    <areacommand name="north" area="room2" status="NONE" depends="bag">
       You exit the banks vault into their not so secure store room.
     </areacommand>
     
