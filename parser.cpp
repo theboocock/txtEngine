@@ -7,8 +7,9 @@
 #define ITEM_ATTRIBUTES 3
 #define PARSING_ERROR 2
 #define AREA_COMMAND_ATTRIBUTES 3
-#define ITEM_COMMAND_ATTRIBUTES 6
+#define ITEM_COMMAND_ATTRIBUTES 5
 #define INVALID "invalid"
+#define NONE "NONE"
 #define MISSING_TAGS "missinge tags"
 #define UNDER_PARENT "under parent"
 
@@ -31,7 +32,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    TiXmlNode* pChild;
    const char *error_tag = MISSING_TAGS, 
       *command_name = INVALID, *command_state = INVALID,
-      *command_area = INVALID, *command_status =INVALID;
+      *command_area = INVALID, *command_status = NONE;
    int attributesFound = 0;
    bool has_name = false, has_state = false, command_chg_col = true, command_dep =true,
       has_collect = false, has_collec_dep = false, has_area = false, has_status = false;
@@ -85,7 +86,6 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
 
       }else if (!strcmp(attributes->Name(), "status")){
          command_status = attributes->Value();
-         attributesFound++;
          if(has_status){
             error_tag = "More than one status tag";
          }
@@ -97,7 +97,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
       }
       attributes = attributes->Next();
    }
-   if(ITEM_COMMAND_ATTRIBUTES == attributesFound && has_collec_dep && has_name && has_state && has_area && has_collect && has_status){
+   if(ITEM_COMMAND_ATTRIBUTES == attributesFound && has_collec_dep && has_name && has_state && has_area && has_collect){
       item_command = new ItemCommand(command_name, command_state, command_chg_col, command_dep, command_area, command_status);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
