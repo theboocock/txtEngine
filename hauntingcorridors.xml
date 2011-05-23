@@ -1,0 +1,78 @@
+<?xml version ="1.0"?>
+<world initialarea="startchamber"  language=".txtFramework" author=".txtFramework Team">
+  <area id="startchamber" initialdescription="maze_start" status ="NONE">
+    <statedescriptor id="maze_start">
+      You awake in a sullen chamber with dim light overhead. You cannot remember how you got here but the stench of death
+      fills your nostrils, you begin to dry reach. Get a hold of yourself lawrence you say, there must be an explanation
+      things like this don't happen to good people. Especially not the founder of non for profit industries the world's largest
+      grossing charity. From starving African babies, to abortion clinics, to drug help and so on. Time to escape, Time to move
+      as you grow the courage to explore the chamber, you hear faint screams from a distance.
+
+      You scan the dimly lit room and you eye a collapsed wall to the east that is small enough for you to crawl through.
+      To the north is a archway with a nice looking cobblestone path it looks much safer than the east.
+      To the west a studded metal door is swung ajar, you can enter through the door but you are weary of the entrance as you can
+      hear the roar of a fire in the distance.
+    </statedescriptor>
+    <areacommand name="west" area="collapsedchamber" status="NONE">
+     You crawl through the gap in the collapsed wall and skuttle through a narrow passage, that look's like it has been dug out by a tiny exogorths, 
+    </areacommand>
+    <areacommand name="north" area="pathroom" status="NONE">
+      You walk along the cobblestone path, you feel the eyes of others upon you. You bolt to the next chamber.
+    </areacommand>
+    <areacommand name="east" area="furnaceroom" status="NONE">
+      The smell of coals fills your nostrils and you feel like you are walking into the sun. 
+    </areacommand>
+    <item id="torch" initialdescription="onpodium" collectable ="true">
+      <statedescriptor id="onpodium">
+        In the center of the room on top of a shoulder height podium, a torch glows so brightly you imagine that it has been
+        glowing for thousands of years.Then you realize that thought is ridiculous. The intricate design on the hold suggest that many hours have been spent crafting this lamp.
+        The torch looks like it would fit nicely in your hand
+      </statedescriptor>
+      <statedescriptor id="onplayer">
+        A glowing lamp
+      </statedescriptor>
+      <statedescriptor id="dropped">
+        A glowing lamp lying amougst the rubble
+      </statedescriptor>
+      <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory" status="NONE">
+        You grab the torch and the light is warm and comforting
+      </itemcommand>
+      <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="NONE" status="NONE">
+        You dropped the torch the floor is now illuminated, nice shoes for a charity man
+      </itemcommand>
+    </item>
+  </area>
+  <area id="collapsedchamber" initialdescription="collapsedchamber" status ="NONE">
+    <statedescriptor id="collapsedchamber">
+      A collapsed chamber
+
+      A exit through a tunnel to the south
+    </statedescriptor>
+    <areacommand name="west" area="pathroom" status="NONE">
+      go west
+    </areacommand>
+    <areacommand name="south" area="startchamber" status="NONE">
+      go south
+    </areacommand>
+    <areacommand name="east" area="deathroom6" status="NONE">
+      go east
+    </areacommand>
+  </area>
+  <area id="pathroom" initialdescription="pathroom" status ="NONE">
+    <statedescriptor id="pathroom">
+     cobble stone room
+
+     
+    </statedescriptor>
+    <areacommand name="west" area="collapsedchamber" status="NONE">
+      You crawl through the gap in the collapsed wall and skuttle through a narrow passage, that look's like it has been dug out by a tiny exogorths, 
+    </areacommand>
+    <areacommand name="north" area="pathroom" status="NONE">
+      You walk along the cobblestone path, you feel the eyes of others upon you. You bolt to the next chamber.
+    </areacommand>
+    <areacommand name="east" area="furnaceroom" status="NONE">
+      The smell of coals fills your nostrils and you feel like you are walking into the sun. 
+    </areacommand>
+    </item>
+  </area>
+</world>
