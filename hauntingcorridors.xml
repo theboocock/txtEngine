@@ -13,16 +13,16 @@
       To the west a studded metal door is swung ajar, you can enter through the door but you are weary of the entrance as you can
       hear the roar of a fire in the distance.
     </statedescriptor>
-    <areacommand name="west" area="collapsedchamber" status="NONE">
+    <areacommand name="west" area="collapsedchamber" status="NONE" depends="torch">
      You crawl through the gap in the collapsed wall and skuttle through a narrow passage, that look's like it has been dug out by a tiny exogorths, 
     </areacommand>
-    <areacommand name="north" area="pathroom" status="NONE">
+    <areacommand name="north" area="pathroom" status="NONE"  depends="torch">
       You walk along the cobblestone path, you feel the eyes of others upon you. You bolt to the next chamber.
     </areacommand>
-    <areacommand name="east" area="furnaceroom" status="NONE">
+    <areacommand name="east" area="furnaceroom" status="NONE" depends="torch">
       The smell of coals fills your nostrils and you feel like you are walking into the sun. 
     </areacommand>
-    <item id="torch" initialdescription="onpodium" collectable ="true">
+    <item id="torch" initialdescription="onpodium" collectable ="true" depends="torch">
       <statedescriptor id="onpodium">
         In the center of the room on top of a shoulder height podium, a torch glows so brightly you imagine that it has been
         glowing for thousands of years.Then you realize that thought is ridiculous. The intricate design on the hold suggest that many hours have been spent crafting this lamp.
@@ -38,41 +38,206 @@
         You grab the torch and the light is warm and comforting
       </itemcommand>
       <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="NONE" status="NONE">
-        You dropped the torch the floor is now illuminated, nice shoes for a charity man
+        You dropped the torch the floor is now illuminated, nice shoes for a charity man. You can't see shit now though if you are planning on navigating you may want to get the lamp
       </itemcommand>
     </item>
+  </area>
+  <area id="deathroom6" initialdescription="deathroom6" status ="NONE">
+    <statedescriptor id="deathroom6">
+      never-ending pit
+    </statedescriptor>
   </area>
   <area id="collapsedchamber" initialdescription="collapsedchamber" status ="NONE">
     <statedescriptor id="collapsedchamber">
       A collapsed chamber
 
-      A exit through a tunnel to the south
+      A exit through a tunnel to the south a exit to the east and the west
     </statedescriptor>
-    <areacommand name="west" area="pathroom" status="NONE">
+    <areacommand name="west" area="pathroom" status="NONE" depends="torch">
       go west
     </areacommand>
-    <areacommand name="south" area="startchamber" status="NONE">
+    <areacommand name="south" area="startchamber" status="NONE" depends="torch">
       go south
     </areacommand>
-    <areacommand name="east" area="deathroom6" status="NONE">
+    <areacommand name="north" area="room10" status="NONE" depends="torch">
+      go north
+    </areacommand>
+    <areacommand name="east" area="deathroom6" status="NONE" depends="torch">
       go east
     </areacommand>
   </area>
-  <area id="pathroom" initialdescription="pathroom" status ="NONE">
+  <area id="pathroom" initialdescription="pathroom" status ="NONE" depends="torch">
     <statedescriptor id="pathroom">
      cobble stone room
 
      
     </statedescriptor>
-    <areacommand name="west" area="collapsedchamber" status="NONE">
-      You crawl through the gap in the collapsed wall and skuttle through a narrow passage, that look's like it has been dug out by a tiny exogorths, 
+    <areacommand name="west" area="room8" status="NONE" depends="torch">
+      go west
     </areacommand>
-    <areacommand name="north" area="pathroom" status="NONE">
-      You walk along the cobblestone path, you feel the eyes of others upon you. You bolt to the next chamber.
+    <areacommand name="north" area="middleroom" status="NONE" depends="torch">
+      go north
     </areacommand>
-    <areacommand name="east" area="furnaceroom" status="NONE">
-      The smell of coals fills your nostrils and you feel like you are walking into the sun. 
+    <areacommand name="east" area="room10" status="NONE" depends="torch">
+      go east
     </areacommand>
-    </item>
+    <areacommand name="south" area="startchamber" status="NONE" depends="torch">
+      go south
+    </areacommand>
   </area>
+  <area id="furnaceroom" initialdescription="furnaceroom" status ="NONE">
+    <statedescriptor id="furnaceroom">
+      furnaceroom
+
+      
+    </statedescriptor>
+    <areacommand name="east" area="pathroom" status="NONE" depends="torch">
+      go east
+    </areacommand>
+    <areacommand name="north" area="room8" status="NONE" depends="torch">
+      go north
+    </areacommand>
+    <areacommand name="west" area="deathroom2" status="NONE" depends="torch">
+      go west
+    </areacommand>
+    <areacommand name="south" area="startchamber" status="NONE" depends="torch">
+      go south
+    </areacommand>
+  </area>
+  <area id="deathroom2" initialdescription="deathroom2" status ="NONE" depends="torch">
+    <statedescriptor id="deathroom2">
+      sweat shop
+    </statedescriptor>
+  </area>
+  
+  <area id="deathroom11" initialdescription="deathroom11" status ="NONE" depends="torch">
+    <statedescriptor id="deathroom11">
+      fire
+    </statedescriptor>
+  </area>
+  <area id="room10" initialdescription="room10" status ="NONE" depends="torch">
+    <statedescriptor id="room10">
+      pub
+    </statedescriptor>
+    <areacommand name="north" area="collapsedchamber" status="NONE" depends="torch">
+      go north
+    </areacommand>
+    <areacommand name="south" area="room15" status="NONE" depends="torch">
+      go south
+    </areacommand>
+    <areacommand name="east" area="deathroom11" status="NONE" depends="torch">
+      go east
+    </areacommand>
+    <areacommand name="west" area="middleroom" status="NONE" depends="torch">
+      go west
+    </areacommand>   
+    
+  </area>
+  <area id="middleroom" initialdescription="middleroom" status ="NONE" depends="torch">
+    <statedescriptor id="middleroom">
+     walk into own mind
+      
+    </statedescriptor>
+  </area>
+  <area id="room8" initialdescription="room8" status ="NONE" depends="torch">
+    <statedescriptor id="room8">
+      beachvolleyball
+      
+    </statedescriptor>
+    <areacommand name="north" area="furnaceroom" status="NONE" depends="torch">
+      go north
+    </areacommand>
+    <areacommand name="south" area="room13" status="NONE" depends="torch">
+      go south
+    </areacommand>
+    <areacommand name="east" area="middleroom" status="NONE" depends="torch">
+      go east
+    </areacommand>
+    <areacommand name="west" area="deathroom6" status="NONE" depends="torch">
+      go west
+    </areacommand>   
+  </area>
+  <area id="deathroom7" initialdescription="deathroom7" status ="NONE" depends="torch">
+    <statedescriptor id="deathroom7">
+      firing range
+    </statedescriptor>
+  </area>
+  <area id="deathroom16" initialdescription="deathroom16" status ="NONE" depends="torch">
+    <statedescriptor id="deathroom16">
+     internal organs aborted
+    </statedescriptor>
+  </area>
+  <area id="room15" initialdescription="room15" status ="NONE" depends="torch">
+    <statedescriptor id="room15">
+      laundromat
+    </statedescriptor>
+    <areacommand name="west" area="room14" status="NONE" depends="torch">
+      go west
+    </areacommand>
+    <areacommand name="south" area="room10" status="NONE" depends="torch">
+      go south
+    </areacommand>
+    <areacommand name="east" area="deathroom16" status="NONE" depends="torch">
+      go east
+    </areacommand>
+  </area>
+  <area id="room14" initialdescription="room14" status ="NONE" depends="torch">
+    <statedescriptor id="room14">
+      mirrors  
+    </statedescriptor>
+    <areacommand name="west" area="furnaceroom" status="NONE" depends="torch">
+      go west
+    </areacommand>
+    <areacommand name="north" area="finalarea" status="NONE" depends="torch">
+      go north
+    </areacommand>
+    <areacommand name="east" area="collapsedchamber" status="NONE" depends="torch"> 
+      go east
+    </areacommand>
+    <areacommand name="south" area="startchamber" status="NONE" depends="torch">
+      go south
+    </areacommand>
+  </area>
+  <area id="room13" initialdescription="room13" status ="NONE" depends="torch">
+    <statedescriptor id="room13">
+      pokerden     
+    </statedescriptor>
+    <areacommand name="east" area="room14" status="NONE" depends="torch">
+      go east
+    </areacommand>
+    <areacommand name="west" area="deathroom2" status="NONE" depends="torch">
+      go west
+    </areacommand>
+    <areacommand name="south" area="startchamber" status="NONE" depends="torch">
+      go south
+    </areacommand>
+  </area>
+  <area id="deathroom12" initialdescription="deathroom12" status ="NONE" depends="torch">
+    <statedescriptor id="deathroom12">
+      diabetes no sugar and just grain
+    </statedescriptor>
+  </area>
+  <area id="finalarea" initialdescription="finalarea" status ="NONE" depends="torch">
+      <statedescriptor id="finalarea">
+        fake win
+      </statedescriptor>
+      <areacommand name="west" area="startchamber" status="NONE" depends="torch">
+        go west
+      </areacommand>
+      <areacommand name="north" area="startchamber" status="NONE" depends="torch">
+        go north
+      </areacommand>
+      <areacommand name="east" area="startchamber" status="NONE" depends="torch">
+        go east
+      </areacommand>
+      <areacommand name="south" area="realfinalarea" status="NONE" depends="torch">
+        go south
+      </areacommand>
+    </area>
+    <area id="realfinalarea" initialdescription="finalarea" status="NONE" depends="torch">
+      <statedescriptor id="finalarea">
+        finalarea
+      </statedescriptor>
+    
+    </area>
 </world>
