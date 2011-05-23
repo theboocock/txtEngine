@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT world (area+)>
+<!ATTLIST world initialarea IDREF #REQUIRED>
+<!ATTLIST world language CDATA ".txtframework">
+<!ATTLIST world author CDATA #REQUIRED>
+<!ELEMENT area (statedescriptor+, areacommand*, item*)>
+<!ATTLIST area id ID #REQUIRED>
+<!ATTLIST area initialdescription IDREF #REQUIRED>
+<!ATTLIST area status CDATA "NONE">
+<!ELEMENT statedescriptor (#CDATA)>
+<!ATTLIST statedescriptor id ID #REQUIRED>
+<!ELEMENT areacommand (#CDATA)>
+<!ATTLIST areacommand depends IDREF #IMPLIED>
+<!ATTLIST areacommand name CDATA #REQUIRED>
+<!ATTLIST areacommand area IDREF #REQUIRED>
+<!ATTLIST areacommand status CDATA "NONE">
+<!ELEMENT item (statedescriptor*, itemcommand+)>
+<!ATTLIST item id ID #REQUIRED>
+<!ATTLIST item initialdescription IDREF #REQUIRED>
+<!ATTLIST item collectable CDATA (true|false) "false">
+<!ELEMENT itemcommand (#CDATA)>
+<!ATTLIST itemcommand name CDATA>
+<!ATTLIST itemcommand depends IDREF #IMPLIED>
+<!ATTLIST itemcommand statedescription IDREF #REQUIRED>
+<!ATTLIST itemcommand changecollectable CDATA (true|false) "false">
+<!ATTLIST itemcommand collectabledependent CDATA (true|false) "false">
+<!ATTLIST itemcommand areachange IDREF #REQUIRED>
+<!ATTLIST itemcommand status CDATA "NONE">
