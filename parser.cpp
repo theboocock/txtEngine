@@ -9,7 +9,7 @@
 #define AREA_COMMAND_ATTRIBUTES 3
 #define ITEM_COMMAND_ATTRIBUTES 5
 #define INVALID "invalid"
-#define NONE "NONE"
+#define NONE "none"
 #define MISSING_TAGS "missinge tags"
 #define UNDER_PARENT "under parent"
 
@@ -32,10 +32,11 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    TiXmlNode* pChild;
    const char *error_tag = MISSING_TAGS, 
       *command_name = INVALID, *command_state = INVALID,
-      *command_area = INVALID, *command_status = NONE;
+      *command_area = INVALID, *command_status = NONE, *command_depends = NONE;
    int attributesFound = 0;
    bool has_name = false, has_state = false, command_chg_col = true, command_dep =true,
-      has_collect = false, has_collec_dep = false, has_area = false, has_status = false;
+      has_collect = false, has_collec_dep = false, has_area = false, has_status = false,
+      has_depends = false;
    ItemCommand *item_command;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
@@ -58,6 +59,12 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
             error_tag = "More than one name tag";
          }
          has_name = true;
+      } else if(!strcmp(attributes->Name(), "depends")){
+         command_depends = attributes->Value();
+         if(has_depends){
+            error_tag = "More than one depends tag";
+         }
+         has_depends = true;
       } else if(!strcmp(attributes->Name(), "statedescription")) {
          command_state = attributes->Value();
          attributesFound++;
@@ -98,7 +105,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
       attributes = attributes->Next();
    }
    if(ITEM_COMMAND_ATTRIBUTES == attributesFound && has_collec_dep && has_name && has_state && has_area && has_collect){
-      item_command = new ItemCommand(command_name, command_state, command_chg_col, command_dep, command_area, command_status);
+      item_command = new ItemCommand(command_name, command_state, command_chg_col, command_dep, command_area, command_status, command_depends);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
             item_command->set_message(pChild->ToText()->Value());
@@ -126,10 +133,10 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
 
 AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World *world){
    TiXmlNode* pChild;
-   const char *error_tag = MISSING_TAGS,
+   const char *error_tag = MISSING_TAGS, *command_depends = NONE,
       *command_name = INVALID, *command_area = INVALID, *command_status = INVALID;
    int attributesFound = 0;
-   bool has_name = false, has_area = false, has_status = false;
+   bool has_name = false, has_area = false, has_status = false, has_depends = false;
    AreaCommand *area_command;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
@@ -148,7 +155,13 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
             error_tag = "More than one area tag.";
          }
          has_area = true;
-      }else if (!strcmp(attributes->Name(), "status")){
+      } else if(!strcmp(attributes->Name(), "depends")) {
+         command_depends = attributes->Value();
+         if(has_depends){
+            error_tag = "More than one depends tag.";
+         }
+         has_depends = true;
+      } else if (!strcmp(attributes->Name(), "status")){
          command_status = attributes->Value();
          attributesFound++;
          if(has_status){
@@ -163,7 +176,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
       attributes = attributes->Next();
    }
    if(AREA_COMMAND_ATTRIBUTES == attributesFound  && has_name && has_area && has_status){
-      area_command = new AreaCommand(command_name, command_area,command_status);
+      area_command = new AreaCommand(command_name, command_area,command_status, command_depends);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
             area_command->set_message(pChild->ToText()->Value());
