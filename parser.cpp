@@ -37,7 +37,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    bool has_name = false, has_state = false, command_chg_col = true, command_dep =true,
       has_collect = false, has_collec_dep = false, has_area = false, has_status = false,
       has_depends = false;
-   ItemCommand *item_command;
+   ItemCommand *item_command = NULL;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes){
@@ -117,6 +117,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
             sin << command_name;
             std::string message = sin.str();
             error_parsing(message, world);
+            
          }
       }
    } else {
@@ -137,7 +138,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
       *command_name = INVALID, *command_area = INVALID, *command_status = INVALID;
    int attributesFound = 0;
    bool has_name = false, has_area = false, has_status = false, has_depends = false;
-   AreaCommand *area_command;
+   AreaCommand *area_command = NULL;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes){
@@ -207,7 +208,7 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
    const char *state_desc_id = INVALID, *error_tag = MISSING_TAGS;
    int attributesFound = 0;
    bool has_id = false;
-   StateDescriptor *state_descriptor;
+   StateDescriptor *state_descriptor = NULL;
    TiXmlElement *element = pDescription->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes){
@@ -261,7 +262,7 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
    int attributesFound =0;
    bool has_id = false, item_collectable = false, has_collec = false,
       has_init_desc = false;
-   Item *item;
+   Item *item = NULL;
    TiXmlElement *element = pItem->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes){
@@ -335,7 +336,7 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
    const char *area_id = INVALID, *desc_id = INVALID,
       *error_tag = MISSING_TAGS, *area_status = "";
    bool has_id = false, has_desc = false, has_status = false;
-   Area *area;
+   Area *area = NULL;
    TiXmlElement *element = pArea->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes){
@@ -496,12 +497,7 @@ World *make_world(TiXmlNode *pParent, World *world){
 void error_parsing(std::string message, World *world){
    const char *error_string = message.c_str();
    fprintf(stderr,"ERROR: [%s]\n", error_string);
-   
-   if(world){
-      delete world;
-   }
-   
-   exit(2);
+   exit(EXIT_FAILURE);
 }
 
 
