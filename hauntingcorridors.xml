@@ -222,6 +222,7 @@
     <statedescriptor id="room14">
       You like looking at yourself in the mirror more than the next guy but here theres a whole room of them. Its a real pain in the ass and you're becoming confused and nauseous.
       Your stomach churns and a projectile vomit coats all mirrors in a brown/orange film. Better get the f!@k out before somebody makes you clean them hadn't you.
+      Exits: north, south, east, west.
     </statedescriptor>
     <areacommand name="west" area="furnaceroom" status="NONE" depends="lamp">
       The smell of coal fills your nostrells.

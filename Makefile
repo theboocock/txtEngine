@@ -82,7 +82,7 @@ CXXFLAGS := ${CXXFLAGS} ${DEFS}
 # Targets of the build
 #****************************************************************************
 
-OUTPUT := xmltest
+OUTPUT := txtgame
 
 all: ${OUTPUT}
 
