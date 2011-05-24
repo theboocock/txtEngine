@@ -90,26 +90,6 @@ void print_world_tree(){
    fprintf(stderr, "Attempt at printing world.\n%s\n", message.c_str());
 }
 
-int main(int argc, char** argv)
-{
-   std::string userinput;
-   if(argc > 1){
-      do{
-         world = read_file(argv[1], world);
-         if(world != NULL){
-            //print_world_tree();
-            gameloop();
-            delete world;
-         }
-         std::cout << "Would you like to play again? (please enter yes or no)" << std::endl;
-         std::getline (std::cin,userinput);
-       
-         game_over = false;
-      }while (!userinput.compare("yes"));   
-         }
-   return 0;
-}
-
 void gameloop(){
    std::string last_area = DEFAULT_VALUE;
    while(!game_over){
@@ -326,4 +306,26 @@ std::string word_wrap(std::string input_string){
    return formatted + "\n";
 }
 
-
+int main(int argc, char** argv)
+{
+   std::string userinput;
+   if(argc > 1){
+      do{
+         world = read_file(argv[1], world);
+         if(world != NULL){
+            //print_world_tree();
+            gameloop();
+            delete world;         
+            std::cout << "Would you like to play again? (please enter yes for arrfirmative)" << std::endl;
+            std::getline (std::cin,userinput);  
+            game_over = true;
+            if(!userinput.compare("yes")){     
+               game_over = false;
+            }
+         } else {
+            game_over = true;
+         }
+      }while (!game_over);   
+   }
+   return 0;
+}
