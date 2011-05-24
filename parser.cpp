@@ -10,22 +10,19 @@
 #define ITEM_COMMAND_ATTRIBUTES 5
 #define INVALID "invalid"
 #define NONE "none"
-#define MISSING_TAGS "missinge tags"
-#define UNDER_PARENT "under parent"
+#define MISSING_TAGS "missing tags"
+#define UNDER_PARENT "under tag with id: "
 
-World *read_file(const char* pFilename, World *world)
-{
+World *read_file(const char* pFilename, World *world){
    TiXmlDocument doc(pFilename);
    bool loadOkay = doc.LoadFile();
 
    if (loadOkay){
-         return make_objects( &doc, world ); // defined later in the tutorial
-      }
-   else
-      {
-         printf("Failed to load file \"%s\"\n", pFilename);
-         return NULL;
-      }
+      return make_objects( &doc, world );
+   } else {
+      printf("Failed to load file \"%s\"\n", pFilename);
+      return NULL;
+   }
 }
 
 ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World *world){
@@ -99,7 +96,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
          has_status = true;
       } else{
          error_tag = attributes->Name();
-         fprintf(stderr, "found something but shouldnt have in make_item_command.\n");
+         fprintf(stderr, "Unknown tag.\n");
          attributesFound++;
       }
       attributes = attributes->Next();
@@ -113,7 +110,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
             std::ostringstream sin;
             sin << "Under parent ";
             sin << parent_id;
-            sin << " there is a tag error in ";
+            sin << " there is a wrong element after ";
             sin << command_name;
             std::string message = sin.str();
             error_parsing(message, world);
@@ -236,7 +233,7 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
             std::ostringstream sin;
             sin << "Under parent ";
             sin << parent_id;
-            sin << " there is a tag error in ";
+            sin << " there is a wrong element after ";
             sin << state_desc_id;
             std::string message = sin.str();
             error_parsing(message, world);
@@ -312,7 +309,7 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
             std::ostringstream sin;
             sin << "Under parent ";
             sin << parent_id;
-            sin << " there is a tag error in ";
+            sin << " there is a wrong element after ";
             sin << item_id;
             std::string message = sin.str();
             error_parsing(message, world);
@@ -447,7 +444,7 @@ World *make_world(TiXmlNode *pParent, World *world){
                world->add_area(make_area(pChild, num_of_areas, world));
             }
          } else {
-            error_parsing("ignoring a tag below world, its not an area.", world);
+            error_parsing("An element below world is not an area.", world);
          }
       }
    }else{
