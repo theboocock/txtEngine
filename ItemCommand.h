@@ -16,44 +16,17 @@ class ItemCommand{
  public:
    ItemCommand(const char * callmeby, const char * state_mutator,
                bool chng_collec, bool collec_dep, const char *area_chng,
-               const char* status_command, const char* depends){
-      name = callmeby;
-      this->depends = depends;
-      state_change = state_mutator;
-      area_change = area_chng;
-      change_collect = chng_collec;
-      collect_dependent = collec_dep;
-      status = status_command;
-      message = "";
-   }
-   std::string get_depends(){
-      return depends;
-   }
-   bool get_change_collect(){
-      return change_collect;
-   }
-   bool get_collect_dependent(){
-      return collect_dependent;
-   }
-   std::string get_area_change(){
-      return area_change;
-   }
-   std::string get_status(){
-      return status;
-   }
-   ~ItemCommand(){}
-   std::string get_message(){
-      return message;
-   }
-   std::string get_name(){
-      return name;
-   }
-   std::string get_state_change(){
-      return state_change;
-   }
-   void set_message(const char *to_message){
-      message = to_message;
-   }
+               const char* status_command, const char* depends);
+   std::string get_depends();
+   bool get_change_collect();
+   bool get_collect_dependent();
+   std::string get_area_change();
+   std::string get_status();
+   ~ItemCommand();
+   std::string get_message();
+   std::string get_name();
+   std::string get_state_change();
+   void set_message(const char *to_message);
    
 };
 

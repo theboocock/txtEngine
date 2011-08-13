@@ -91,7 +91,8 @@ all: ${OUTPUT}
 # Source files
 #****************************************************************************
 
-SRCS := tinyxml.cpp tinyxmlparser.cpp main.cpp tinyxmlerror.cpp tinystr.cpp parser.cpp
+SRCS := tinyxml.cpp tinyxmlparser.cpp main.cpp tinyxmlerror.cpp tinystr.cpp parser.cpp Area.cpp \
+	AreaCommand.cpp Item.cpp ItemCommand.cpp StateDescriptor.cpp World.cpp
 
 # Add on the sources for libraries
 SRCS := ${SRCS}
@@ -120,7 +121,7 @@ dist:
 	bash makedistlinux
 
 clean:
-	-rm -f core ${OBJS} ${OUTPUT}
+	-rm -f core ${OBJS} ${OUTPUT} *~
 
 depend:
 #makedepend ${INCS} ${SRCS}
