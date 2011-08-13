@@ -1,6 +1,7 @@
 #ifndef _ITEM_COMMAND_H
 #define _ITEM_COMMAND_H
 
+#include <vector>
 #include <string>
 
 class ItemCommand{
@@ -11,6 +12,7 @@ class ItemCommand{
    std::string area_change;
    std::string depends;
    std::string status;
+   std::vector<std::string> *synonyms;
    bool change_collect, collect_dependent;
    
  public:
@@ -26,6 +28,7 @@ class ItemCommand{
    std::string get_message();
    std::string get_name();
    std::string get_state_change();
+   bool check_synonyms(std::string command);
    void set_message(const char *to_message);
    
 };

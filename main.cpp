@@ -11,7 +11,7 @@
 #include "parser.h"
 
 #define DEFAULT_VALUE "default_value"
-#define MAX_CHARACTERS_PER_LINE 100
+#define MAX_CHARACTERS_PER_LINE 80
 #define WIN "win"
 #define DIE "die"
 #define NONE "none"
@@ -39,10 +39,10 @@ std::string two_word_command(std::string command1, std::string command2);
 std::string one_word_command(std::string command);
 void print_inventory();
 std::string word_wrap(std::string input_string);
-// load the named file and dump its structure to STDOUT
 
 World *world;
 
+// load the named file and dump its structure to STDOUT
 void print_world_tree(){
    std::ostringstream sin;
    sin << "World:\n";
@@ -284,30 +284,24 @@ void print_inventory(){
    
 std::string word_wrap(std::string input_string){
 
-	std::istringstream iss(input_string);
-	std::string formatted;
-	std::string line;
-      std::string word;
-      while (iss >> word)
-   {
-      if (line.length() + word.length() > MAX_CHARACTERS_PER_LINE)
-      {
+   std::istringstream iss(input_string);
+   std::string formatted;
+   std::string line;
+   std::string word;
+   while (iss >> word) {
+      if (line.length() + word.length() > MAX_CHARACTERS_PER_LINE) {
          formatted +=line+"\n";
-
          line.clear();
-	  }
-		 line += word + " ";
+      }
+      line += word + " ";
    }
-
-   if (!line.empty())
-   {
+   if (!line.empty()) {
       formatted += line +"\n";
    }
    return formatted + "\n";
 }
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv){
    std::string userinput;
    if(argc > 1){
       do{
@@ -319,7 +313,7 @@ int main(int argc, char** argv)
             std::cout << "Would you like to play again? (please enter yes for arrfirmative)" << std::endl;
             std::getline (std::cin,userinput);  
             game_over = true;
-            if(!userinput.compare("yes")){     
+            if(!userinput.compare("yes")){
                game_over = false;
             }
          } else {
