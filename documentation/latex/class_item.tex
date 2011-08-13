@@ -1,0 +1,125 @@
+\hypertarget{class_item}{
+\section{Item Class Reference}
+\label{class_item}\index{Item@{Item}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_item_a75f9cdba85ba1ce65b4ff71073ba8387}{
+bool {\bfseries has\_\-description} (std::string desc\_\-id)}
+\label{class_item_a75f9cdba85ba1ce65b4ff71073ba8387}
+
+\item 
+\hypertarget{class_item_a703702e1992a45ac32beb2eb0e3e38bf}{
+bool {\bfseries has\_\-current\_\-desc} ()}
+\label{class_item_a703702e1992a45ac32beb2eb0e3e38bf}
+
+\item 
+\hypertarget{class_item_a8652cab970af5b7ff68bf960a4e98fa2}{
+std::string {\bfseries get\_\-description} ()}
+\label{class_item_a8652cab970af5b7ff68bf960a4e98fa2}
+
+\item 
+\hypertarget{class_item_af6e0efea4346f669ac5479b258511e68}{
+void {\bfseries add\_\-description} (\hyperlink{class_state_descriptor}{StateDescriptor} $\ast$desc)}
+\label{class_item_af6e0efea4346f669ac5479b258511e68}
+
+\item 
+\hypertarget{class_item_ab8c43c172fbff161c8c2ca765ded9537}{
+void {\bfseries change\_\-collectable} (bool flip)}
+\label{class_item_ab8c43c172fbff161c8c2ca765ded9537}
+
+\item 
+\hypertarget{class_item_a91f14a96cab681bc02dee3f9c9e6af5d}{
+bool {\bfseries is\_\-collectable} ()}
+\label{class_item_a91f14a96cab681bc02dee3f9c9e6af5d}
+
+\item 
+\hypertarget{class_item_a7a3aedd7ab7f81327f57343dcb55d42d}{
+std::string {\bfseries get\_\-id} ()}
+\label{class_item_a7a3aedd7ab7f81327f57343dcb55d42d}
+
+\item 
+\hypertarget{class_item_a9f09c704274546d5bd0903d0cddfd194}{
+int {\bfseries get\_\-num\_\-commands} ()}
+\label{class_item_a9f09c704274546d5bd0903d0cddfd194}
+
+\item 
+\hypertarget{class_item_ab78d891c3aed983ea7b2e5311b0da68c}{
+void {\bfseries add\_\-command} (\hyperlink{class_item_command}{ItemCommand} $\ast$command\_\-name)}
+\label{class_item_ab78d891c3aed983ea7b2e5311b0da68c}
+
+\item 
+\hypertarget{class_item_ab62952c89ce34100e5445478be3bcc1d}{
+\hyperlink{class_item_command}{ItemCommand} $\ast$ {\bfseries get\_\-command} (int index)}
+\label{class_item_ab62952c89ce34100e5445478be3bcc1d}
+
+\item 
+\hypertarget{class_item_aea84f53a54374dd4e9f2a056328bd218}{
+\hyperlink{class_item_command}{ItemCommand} $\ast$ {\bfseries has\_\-command} (std::string command\_\-name)}
+\label{class_item_aea84f53a54374dd4e9f2a056328bd218}
+
+\item 
+\hypertarget{class_item_a41e3300333fa679000fa94f6d5073268}{
+int {\bfseries get\_\-num\_\-descriptions} ()}
+\label{class_item_a41e3300333fa679000fa94f6d5073268}
+
+\item 
+\hypertarget{class_item_ac44dc32fbec845c69919c0e0cb7b24f9}{
+\hyperlink{class_state_descriptor}{StateDescriptor} $\ast$ {\bfseries get\_\-descriptor} (int index)}
+\label{class_item_ac44dc32fbec845c69919c0e0cb7b24f9}
+
+\item 
+\hypertarget{class_item_a3ec1f16ad405a8ddf9ae82a48de551ff}{
+void {\bfseries state\_\-change} (std::string to\_\-change)}
+\label{class_item_a3ec1f16ad405a8ddf9ae82a48de551ff}
+
+\item 
+\hypertarget{class_item_a5fc8374c5132b696c81da743ab8691b7}{
+{\bfseries Item} (bool collect, const char $\ast$identifier, const char $\ast$initial\_\-state)}
+\label{class_item_a5fc8374c5132b696c81da743ab8691b7}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_item_a6bdb6d40e682e1cac093a786cb51d1d1}{
+bool {\bfseries collectable}}
+\label{class_item_a6bdb6d40e682e1cac093a786cb51d1d1}
+
+\item 
+\hypertarget{class_item_a0bedf3dd3801688ca197958b4ed82cd7}{
+int {\bfseries num\_\-descriptions}}
+\label{class_item_a0bedf3dd3801688ca197958b4ed82cd7}
+
+\item 
+\hypertarget{class_item_ac9e4624443be051800792a7f37014373}{
+int {\bfseries num\_\-commands}}
+\label{class_item_ac9e4624443be051800792a7f37014373}
+
+\item 
+\hypertarget{class_item_a1c8acc0ec062f69ccc65faf2a3a44bdb}{
+std::string {\bfseries id}}
+\label{class_item_a1c8acc0ec062f69ccc65faf2a3a44bdb}
+
+\item 
+\hypertarget{class_item_a3c36a19c6fae89b169cc1acf555532dd}{
+std::string {\bfseries curr\_\-desc\_\-id}}
+\label{class_item_a3c36a19c6fae89b169cc1acf555532dd}
+
+\item 
+\hypertarget{class_item_ab27e598cd37ca13b26c40d929d85400d}{
+std::vector$<$ \hyperlink{class_state_descriptor}{StateDescriptor} $\ast$ $>$ {\bfseries description}}
+\label{class_item_ab27e598cd37ca13b26c40d929d85400d}
+
+\item 
+\hypertarget{class_item_add7e6704ad626679f70ff8f2ae76698c}{
+std::vector$<$ \hyperlink{class_item_command}{ItemCommand} $\ast$ $>$ {\bfseries commands}}
+\label{class_item_add7e6704ad626679f70ff8f2ae76698c}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+/home/cshome/m/mabrams/345/txtEngine/Item.h\end{DoxyCompactItemize}

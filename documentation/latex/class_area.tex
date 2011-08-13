@@ -1,0 +1,155 @@
+\hypertarget{class_area}{
+\section{Area Class Reference}
+\label{class_area}\index{Area@{Area}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_area_a928ac4f85119316a126beafc575a5f84}{
+bool {\bfseries has\_\-description} (std::string desc\_\-id)}
+\label{class_area_a928ac4f85119316a126beafc575a5f84}
+
+\item 
+\hypertarget{class_area_ac3f89059fe2ef23610dc3a5650c94c0d}{
+std::string {\bfseries get\_\-status} ()}
+\label{class_area_ac3f89059fe2ef23610dc3a5650c94c0d}
+
+\item 
+\hypertarget{class_area_a7a2701d4527e084ea7f8944925b539d7}{
+bool {\bfseries has\_\-current\_\-desc} ()}
+\label{class_area_a7a2701d4527e084ea7f8944925b539d7}
+
+\item 
+\hypertarget{class_area_aee8135f25247d5e06dc0b28bf8cabcba}{
+int {\bfseries get\_\-num\_\-items} ()}
+\label{class_area_aee8135f25247d5e06dc0b28bf8cabcba}
+
+\item 
+\hypertarget{class_area_acab405d06547438ee02b3d8b9a2ff013}{
+std::string {\bfseries get\_\-description} ()}
+\label{class_area_acab405d06547438ee02b3d8b9a2ff013}
+
+\item 
+\hypertarget{class_area_a687234da51ac6da40d2aee426926dfcd}{
+void {\bfseries remove\_\-item} (int index)}
+\label{class_area_a687234da51ac6da40d2aee426926dfcd}
+
+\item 
+\hypertarget{class_area_a8f4693277743a9dbc6ac0212fc02c86f}{
+void {\bfseries add\_\-item} (\hyperlink{class_item}{Item} $\ast$new\_\-item)}
+\label{class_area_a8f4693277743a9dbc6ac0212fc02c86f}
+
+\item 
+\hypertarget{class_area_a11b2c96e1abfc4146e6d8c2a8da83d34}{
+\hyperlink{class_item}{Item} $\ast$ {\bfseries get\_\-item} (int index)}
+\label{class_area_a11b2c96e1abfc4146e6d8c2a8da83d34}
+
+\item 
+\hypertarget{class_area_a19d6622fb6fb95f6ba5fb212e26728e6}{
+std::string {\bfseries get\_\-id} ()}
+\label{class_area_a19d6622fb6fb95f6ba5fb212e26728e6}
+
+\item 
+\hypertarget{class_area_adcc60d9dea5808c8bb0e21d672667b29}{
+bool {\bfseries has\_\-item} (std::string item\_\-to\_\-find)}
+\label{class_area_adcc60d9dea5808c8bb0e21d672667b29}
+
+\item 
+\hypertarget{class_area_a8b4daa5e9165d10d8f1bede67a82ebe1}{
+\hyperlink{class_item}{Item} $\ast$ {\bfseries get\_\-item} (std::string item\_\-id)}
+\label{class_area_a8b4daa5e9165d10d8f1bede67a82ebe1}
+
+\item 
+\hypertarget{class_area_a27101dd552a05cebb467f108a5246278}{
+void {\bfseries add\_\-description} (\hyperlink{class_state_descriptor}{StateDescriptor} $\ast$desc)}
+\label{class_area_a27101dd552a05cebb467f108a5246278}
+
+\item 
+\hypertarget{class_area_a61f8a73da43dbfa8259a308cb61a28f0}{
+void {\bfseries add\_\-command} (\hyperlink{class_area_command}{AreaCommand} $\ast$command\_\-name)}
+\label{class_area_a61f8a73da43dbfa8259a308cb61a28f0}
+
+\item 
+\hypertarget{class_area_a4ba46fedbf3da57ca8bc6de3f50de0a4}{
+int {\bfseries get\_\-num\_\-commands} ()}
+\label{class_area_a4ba46fedbf3da57ca8bc6de3f50de0a4}
+
+\item 
+\hypertarget{class_area_ad76c8c8174738e806b85b1eb21f89d54}{
+\hyperlink{class_area_command}{AreaCommand} $\ast$ {\bfseries get\_\-command} (int index)}
+\label{class_area_ad76c8c8174738e806b85b1eb21f89d54}
+
+\item 
+\hypertarget{class_area_a698117843155cede5e11bbe3ff2e20e4}{
+\hyperlink{class_area_command}{AreaCommand} $\ast$ {\bfseries has\_\-command} (std::string command\_\-name)}
+\label{class_area_a698117843155cede5e11bbe3ff2e20e4}
+
+\item 
+\hypertarget{class_area_a917fe473912d321f631be8e1b30e5edf}{
+int {\bfseries get\_\-num\_\-descriptions} ()}
+\label{class_area_a917fe473912d321f631be8e1b30e5edf}
+
+\item 
+\hypertarget{class_area_a117aebce322e62d7402e5c36de7475c6}{
+\hyperlink{class_state_descriptor}{StateDescriptor} $\ast$ {\bfseries get\_\-descriptor} (int index)}
+\label{class_area_a117aebce322e62d7402e5c36de7475c6}
+
+\item 
+\hypertarget{class_area_afa6f67fe88559c8dbc5fbd1fbc73d8a2}{
+{\bfseries Area} (const char $\ast$id, const char $\ast$desc\_\-id, const char $\ast$status)}
+\label{class_area_afa6f67fe88559c8dbc5fbd1fbc73d8a2}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_area_a8fcfd7b9f54f722a6bf8c68ac26ea4f6}{
+std::vector$<$ \hyperlink{class_item}{Item} $\ast$ $>$ {\bfseries items}}
+\label{class_area_a8fcfd7b9f54f722a6bf8c68ac26ea4f6}
+
+\item 
+\hypertarget{class_area_a29d6271cf822fe3c7865e249643b0728}{
+int {\bfseries num\_\-items}}
+\label{class_area_a29d6271cf822fe3c7865e249643b0728}
+
+\item 
+\hypertarget{class_area_a4ec123111d0eb0346cc3fa55ee7328e9}{
+int {\bfseries num\_\-descriptions}}
+\label{class_area_a4ec123111d0eb0346cc3fa55ee7328e9}
+
+\item 
+\hypertarget{class_area_a698aec5d64c6990033fd3b029c40c117}{
+int {\bfseries num\_\-commands}}
+\label{class_area_a698aec5d64c6990033fd3b029c40c117}
+
+\item 
+\hypertarget{class_area_ab5b23c6cefb5ff678f5544d7b5900b7b}{
+std::string {\bfseries status}}
+\label{class_area_ab5b23c6cefb5ff678f5544d7b5900b7b}
+
+\item 
+\hypertarget{class_area_a71dbaaeab0c2f2d0ba296593e59b22ce}{
+std::string {\bfseries id}}
+\label{class_area_a71dbaaeab0c2f2d0ba296593e59b22ce}
+
+\item 
+\hypertarget{class_area_a21fb316841238b230f351620ec97e3a6}{
+std::string {\bfseries curr\_\-desc\_\-id}}
+\label{class_area_a21fb316841238b230f351620ec97e3a6}
+
+\item 
+\hypertarget{class_area_af699bd40b15954f8403309672f01d44b}{
+std::vector$<$ \hyperlink{class_state_descriptor}{StateDescriptor} $\ast$ $>$ {\bfseries description}}
+\label{class_area_af699bd40b15954f8403309672f01d44b}
+
+\item 
+\hypertarget{class_area_a5679c7f10791af2545d6853cf0f31ce1}{
+std::vector$<$ \hyperlink{class_area_command}{AreaCommand} $\ast$ $>$ {\bfseries commands}}
+\label{class_area_a5679c7f10791af2545d6853cf0f31ce1}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+/home/cshome/m/mabrams/345/txtEngine/Area.h\end{DoxyCompactItemize}
