@@ -320,7 +320,7 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
       attributes = attributes->Next();
    }
    if(ITEM_ATTRIBUTES == attributesFound && has_id &&has_init_desc && has_collec){
-      item = new Item(item_collectable, item_id, item_init_desc);
+      item = new Item(item_collectable, item_id, item_init_desc, synonyms_vec);
       for ( pChild = pItem->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT){
             if(!strcmp(pChild->Value(), "statedescriptor")){
