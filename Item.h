@@ -14,6 +14,7 @@ class Item{
    std::string curr_desc_id;
    std::vector<StateDescriptor*> description;
    std::vector<ItemCommand*> commands;
+   std::vector<std::string> *synonyms;
  public:
    bool has_description(std::string desc_id);
    bool has_current_desc();
