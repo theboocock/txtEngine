@@ -1,0 +1,293 @@
+<?xml version ="1.0"?>
+<world initialarea="startchamber"  language=".txtFramework" author=".txtFramework Team">
+  <area id="startchamber" initialdescription="maze_start" status ="NONE">
+    <statedescriptor id="maze_start">
+      You come to in a sullen chamber with dim light overhead. You cannot remember how you got here but the stench of death
+      fills your nostrils and you begin to dry reach. "Get a hold of yourself Lawrence", you say. There must be an explanation.
+      Things like this don't happen to good people. Especially not the founder of 'Not for Profit Industries' - The world's largest
+      grossing charity. From starving African babies, to abortion clinics, to drug help and so on. Time to escape, Time to move
+      as you grow the courage to explore the chamber, you hear faint screams from a distance.
+
+      You scan the dimly lit room and you eye a collapsed wall to the east that is small enough for you to crawl through.
+      To the north is an archway with a nice looking cobblestone path. It looks much safer than the east.
+      To the west a studded metal door is swung ajar, you can enter through the door but you are weary of the entrance as you can
+      hear the roar of a fire in the distance.
+    </statedescriptor>
+    <areacommand name="west" area="collapsedchamber" status="NONE" depends="lamp">
+     You crawl through the gap in the collapsed wall and skuttle through a narrow passage, that look's like it has been dug out by a tiny exogorths. 
+    </areacommand>
+    <areacommand name="north" area="pathroom" status="NONE"  depends="lamp">
+      You walk along the cobblestone path, you feel the eyes of others upon you. You bolt to the next chamber and the lamp flickers.
+    </areacommand>
+    <areacommand name="east" area="furnaceroom" status="NONE" depends="lamp">
+      The smell of coal fills your nostrils and you feel like you are walking into the sun. 
+    </areacommand>
+    <item id="lamp" initialdescription="onpodium" collectable ="true">
+      <statedescriptor id="onpodium">
+        In the center of the room on top of a shoulder height podium a lamp glows so brightly you imagine that it has been
+        glowing for thousands of years. Then you realise that thought is ridiculous. The intricate design on the hold suggest 
+        that many hours have been spent crafting this lamp.
+        The lamp looks like it would fit nicely in your hand.
+      </statedescriptor>
+      <statedescriptor id="onplayer">
+        A glowing lamp.
+      </statedescriptor>
+      <statedescriptor id="dropped">
+        A glowing lamp lying amongst the rubble.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory" status="NONE">
+        You grab the lamp and the light is warm and comforting.
+      </itemcommand>
+      <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="NONE" status="NONE">
+        You dropped the lamp. The floor is now illuminated - nice shoes for a charity man. You can't see shit now though!
+        If you are planning on navigating you may want to get the lamp.
+      </itemcommand>
+    </item>
+  </area>
+  
+  <area id="deathroom6" initialdescription="deathroom6" status ="die">
+    <statedescriptor id="deathroom6">
+    Life isn't fair is it? You'd think working for a charity would have taught you this. "Why me!!" you scream as you tumble further and further into a never ending pit.
+    YOU DIED OF DEHYDRATION IN THE NEVER ENDING PIT!!!  GAME OVER
+    </statedescriptor>
+  </area>
+  
+  <area id="collapsedchamber" initialdescription="collapsedchamber" status ="NONE">
+    <statedescriptor id="collapsedchamber">
+      As you scan your lamp from left to right you realise you're in the middle of a huge exogorth nest. Those smelly exogorths sure have been
+      busy digging! Its ok though, the nest is abandoned, phew! But what a state! There's faecal matter everywhere! You better get the heck out
+      of here before you catch a nasty case of pink eye.
+
+      There are exits from the nest through small dugout tunnels to the south, to the east, and to the west.
+    </statedescriptor>
+    <areacommand name="west" area="pathroom" status="NONE" depends="lamp">
+      You get down on your hands and knees and awkwardly crawl holding lamp out in front.
+    </areacommand>
+    <areacommand name="south" area="startchamber" status="NONE" depends="lamp">
+      You get down on your hands and knees and awkwardly crawl holding lamp out in front.
+    </areacommand>
+    <areacommand name="north" area="room10" status="NONE" depends="lamp">
+      As you get down on your hands and knees you hear faint music and laughter. "Someone that can help me", you sigh in relief.
+      Crawling desperately you feel saved as the music gets louder.
+    </areacommand>
+    <areacommand name="east" area="deathroom6" status="NONE" depends="lamp">
+      You get down low and squeeze yourself into the tunnel. "Got a bad feeling about this", you mutter as you creep further.
+      The lamp drops and shatters! You can't see anything!
+    </areacommand>
+  </area>
+  
+  <area id="pathroom" initialdescription="pathroom" status ="NONE">
+    <statedescriptor id="pathroom">
+     Oh great! You came out into the main street of a medieval village. You are facing a well in which villagers are fetching water from.
+     Surrounding the well is a blacksmiths shop front, a tannery, a pub, and a brothel. This is a place you'd like to stay, but you're heart is
+     in the office of 'Not for Profit Industries' and not here.
+
+     A horse and carriage pulls up beside you. "Where to good sir?" asks the driver. You got lucky, perhaps this is a way out.
+     "Would you like to go west view some jousting? Perhaps north to see the healer? East for a drink? Or will it be south to the hotel?"
+    </statedescriptor>
+    <areacommand name="west" area="beachvolleyball" status="NONE" depends="lamp">
+      "I'd like to go west," you reply. You had always wanted to give jousting a go. With the flick of the reins the horse takes off.
+    </areacommand>
+    <areacommand name="north" area="middleroom" status="NONE" depends="lamp">
+      "I'd like to go north," you reply. You are sick of this place maybe you can get some medicine to take away the pain. With the flick of the reins the horse takes off.
+    </areacommand>
+    <areacommand name="east" area="room10" status="NONE" depends="lamp">
+      "I'd like to go east," you reply. You're thirsty and need a pint. With the flick of the reins the horse takes off.
+    </areacommand>
+    <areacommand name="south" area="startchamber" status="NONE" depends="lamp">
+      "I'd like to go south," you reply. You're tired and need a rest. With the flick of the reins the horse takes off.
+    </areacommand>
+  </area>
+  
+  <area id="furnaceroom" initialdescription="furnaceroom" status ="NONE">
+    <statedescriptor id="furnaceroom">
+      Its a big room with a raging furnace in the centre. This is probably how they heat the place. The stench and heat is overwhelming.
+      It is time to move on now, there is charity work to be done.
+      There is a door to the north, the east, and the west. Hmmm, which one to pick? 
+    </statedescriptor>
+    <areacommand name="east" area="pathroom" status="NONE" depends="lamp">
+      You walk to the east and pull on the rusty metal door handle.
+    </areacommand>
+    <areacommand name="north" area="beachvolleyball" status="NONE" depends="lamp">
+      You walk north and the door opens for you from the inside. Sweet, you're at the beach!
+    </areacommand>
+    <areacommand name="west" area="deathroom2" status="NONE" depends="lamp">
+      You walk west and turn the door handle. Its covered in oil. "Yuck!"
+    </areacommand>
+    <areacommand name="south" area="startchamber" status="NONE" depends="lamp">
+      You walk south and open the door.
+    </areacommand>
+  </area>
+  
+  <area id="deathroom2" initialdescription="deathroom2" status ="die" >
+    <statedescriptor id="deathroom2">
+      There's a lot of people crammed in here and the mood is tense. Sewing machines are going flat out to
+      make hats with scarves built in. Angry henchmen come and take you to a workstation.
+      It has everything you need! The seat is a toilet, there is a straw delivering water straight to your
+      mouth and an industrial sewing machine with needles that won't break!
+      You're strapped into the chair and whipped repeatedly until you begin to sew. Wow, not a career you had imagined eh?
+
+      GAME OVER !!!! YOU DIED OF COMPLICATIONS FROM RSI!
+    </statedescriptor>
+  </area>
+  
+  <area id="deathroom11" initialdescription="deathroom11" status ="die">
+    <statedescriptor id="deathroom11">
+      As soon as you open the door you are engulfed by flames! How deceiving was that!?
+    </statedescriptor>
+  </area>
+  <area id="room10" initialdescription="room10" status ="NONE" >
+    <statedescriptor id="room10">
+      Nice find! It's an old irish pub. Theres people singing and crying and laughing and vomiting everywhere. Theres a donkey in the corner watching T.V.
+      Two leprechauns are having a pretty nasty fight about whose rainbow is brighter. You try to ask for help but everyone thinks you're keen for a fight.
+      This is not your sort of pub its time to leave. Theres an unlit fireplace to the north you could move through, and doors to the south, east and west.
+      Theres a sign on the door to the west written in drunken scribble, maybe its in Gaelic. It looks like a warning of sorts but you can't read it.
+    </statedescriptor>
+    <areacommand name="north" area="collapsedchamber" status="NONE" depends="lamp">
+      Your sure this fireplace has never been cleaned. Oh well you begin to crawl and the thick soot covers your whole body.
+      The light from the lamp is useless because of the black soot.
+    </areacommand>
+    <areacommand name="south" area="room15" status="NONE" depends="lamp">
+      A weird smell is coming from this direction. It makes you want to hurl.
+    </areacommand>
+    <areacommand name="east" area="deathroom11" status="NONE" depends="lamp">
+      Are you sick of this game yet?
+    </areacommand>
+    <areacommand name="west" area="middleroom" status="NONE" depends="lamp">
+      "Fourteen! Fourteen! Fourteen!" shout the patrons as you open the door. "What are they on about?" you ask yourself.
+    </areacommand>   
+    
+  </area>
+  <area id="middleroom" initialdescription="middleroom" status ="die" >
+    <statedescriptor id="middleroom">
+     You followed the white rabbit into your own mind you fool! Now you're twice as lost.
+     YOU DIED OF OLD AGE! GAME OVER
+    </statedescriptor>
+  </area>
+  
+  <area id="beachvolleyball" initialdescription="beachvolleyball" status ="NONE" >
+    <statedescriptor id="beachvolleyball">
+      Sweet! Theres lots of people playing beach volley ball here. It's your favourite sport to play when your not knee deep in boring charity work.
+      Luckily you were prepared and have your speedos with you. A quick change and a few games later you're pumped to find a way out of this hell hole.
+      There are exits to the north, south, east and west.
+    </statedescriptor>
+    <areacommand name="north" area="furnaceroom" status="NONE" depends="lamp">
+      "I can smell coal".
+    </areacommand>
+    <areacommand name="south" area="room13" status="NONE" depends="lamp">
+      Goin' down south.
+    </areacommand>
+    <areacommand name="east" area="middleroom" status="NONE" depends="lamp">
+      You went the wrong way!
+    </areacommand>
+    <areacommand name="west" area="deathroom6" status="NONE" depends="lamp">
+      HINT: Maybe get a pen and paper for this puzzle...
+    </areacommand>   
+  </area>
+  
+  <area id="deathroom7" initialdescription="deathroom7" status ="die" >
+    <statedescriptor id="deathroom7">
+      Who steps out into a live firing range?! Bullets fly and rip holes in your chest. Theres blood everywhere and the owner of the range is not happy.
+      OSH is going to shut him down for this unless he finds a way to clean the mess up. But all this doesn't matter because you're going to die.
+      YOU DIED!! GAME OVER
+    </statedescriptor>
+  </area>
+  
+  <area id="deathroom16" initialdescription="deathroom16" status ="die">
+    <statedescriptor id="deathroom16">
+     A modern operating theatre lies in front of you. They actually have everything! Bright operating lights, high speed drills, electromagnetic hammers, harmonic scalpels.... All there.
+     From behind a nurse injects you in the neck and you black out.
+     YOUR ORGANS WERE DONATED TO CHARITY! HOW FITTING. GAME OVER!!!!
+    </statedescriptor>
+  </area>
+  
+  <area id="room15" initialdescription="room15" status ="NONE" >
+    <statedescriptor id="room15">
+      This is a plain old laundromat. There are washing machines on one side and dryers on the other side. It smells like shitty pants mixed with washing powder.
+      An angry lookin' fella is sitting on a bench staring you down. Nothing more to see here.
+      There are exits west, south and east.
+    </statedescriptor>
+    <areacommand name="west" area="room14" status="NONE" depends="lamp">
+      Phew a safe place.
+    </areacommand>
+    <areacommand name="south" area="room10" status="NONE" depends="lamp">
+      Phew a safe place.
+    </areacommand>
+    <areacommand name="east" area="deathroom16" status="NONE" depends="lamp">
+      The angry looking guy stands up and pulls out a knife. You throw the lamp at his face and run through the door to the next room.
+    </areacommand>
+  </area>
+  
+  <area id="room14" initialdescription="room14" status ="NONE">
+    <statedescriptor id="room14">
+      You like looking at yourself in the mirror more than the next guy but here theres a whole room of them. Its a real pain in the ass and you're becoming confused and nauseous.
+      Your stomach churns and a projectile vomit coats all mirrors in a brown/orange film. Better get the f!@k out before somebody makes you clean them hadn't you.
+      Exits: north, south, east, west.
+    </statedescriptor>
+    <areacommand name="west" area="furnaceroom" status="NONE" depends="lamp">
+      The smell of coal fills your nostrells.
+    </areacommand>
+    <areacommand name="north" area="finalarea" status="NONE" depends="lamp">
+      You go north.
+    </areacommand>
+    <areacommand name="east" area="collapsedchamber" status="NONE" depends="lamp"> 
+      You go east.
+    </areacommand>
+    <areacommand name="south" area="startchamber" status="NONE" depends="lamp">
+      You proceed south.
+    </areacommand>
+  </area>
+  
+  <area id="room13" initialdescription="room13" status ="NONE" >
+    <statedescriptor id="room13">
+      "Well well, lookie lookie." You can't see anything through a thick cloud of smoke.
+      With a cautious shuffle forward you identify the room as a poker den.
+      You know lots about poker having worked such charitable organisations as 'Gamblers Anonymous' and 'Problem Gambling Foundation'.
+      "I'm in!" you squeal and take a seat. Hours pass and you have no money left, you already owe thousands, better run for it before you get hit.
+      You spot three exits two doors look similar (east and south) but west has a sign on it with writing that you can't quite make out.
+    </statedescriptor>
+    <areacommand name="east" area="room14" status="NONE" depends="lamp">
+      Wise choice my friend.
+    </areacommand>
+    <areacommand name="west" area="deathroom2" status="NONE" depends="lamp">
+     You almost figured out this puzzle. Almost!
+    </areacommand>
+    <areacommand name="south" area="startchamber" status="NONE" depends="lamp">
+      Sigh...
+    </areacommand>
+  </area>
+  
+  <area id="deathroom12" initialdescription="deathroom12" status ="die" >
+    <statedescriptor id="deathroom12">
+      Oh dear. You just came through one of those one way doors. There's no way you're getting out of here. To make matters worse
+      you're diabetic and all there is to eat is a pile of grain in the corner. Goodluck.
+      YOU DIED!! CONGRATULATIONS GAME OVER
+    </statedescriptor>
+  </area>
+  
+  <area id="finalarea" initialdescription="finalarea" status ="NONE" >
+      <statedescriptor id="finalarea">
+        You practically won! Everyones cheering because you're well on your way back to your important charity work.
+        Confetti, streamers, and party poppers are flying. All you have to do now is pick the right door. They're all
+        identical except the one facing south. It has a sign on it saying "WIN".
+      </statedescriptor>
+      <areacommand name="west" area="startchamber" status="NONE" depends="lamp">
+        Here we go...
+      </areacommand>
+      <areacommand name="north" area="startchamber" status="NONE" depends="lamp">
+        Here we go...
+      </areacommand>
+      <areacommand name="east" area="startchamber" status="NONE" depends="lamp">
+        Here we go...
+      </areacommand>
+      <areacommand name="south" area="realfinalarea" status="NONE" depends="lamp">
+        This looks promising...
+      </areacommand>
+    </area>
+    <area id="realfinalarea" initialdescription="finalarea" status="win" >
+      <statedescriptor id="finalarea">
+        You did it! Now that you've finished this game you had better clean your room or something.
+      </statedescriptor>
+    
+    </area>
+</world>
