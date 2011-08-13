@@ -41,3 +41,14 @@ void ItemCommand::set_message(const char *to_message){
    message = to_message;
 }
 
+bool check_synonyms(std::string command){
+   if(synonyms == NULL){
+      return false;
+   }
+   for(unsigned int count = 0; count < synonyms.size(); count++){
+      if(!synonyms[count].compare(command_name)){
+         return true;
+      }
+   } return false;   
+}
+
