@@ -2,16 +2,17 @@
 #include "tinyxml.h"
 
 #define WORLD_ATTRIBUTES 3
-#define AREA_ATTRIBUTES 3
+#define AREA_ATTRIBUTES 2
 #define STATE_DESCRIPTION_ATTRIBUTES 1
 #define ITEM_ATTRIBUTES 3
 #define PARSING_ERROR 2
-#define AREA_COMMAND_ATTRIBUTES 3
+#define AREA_COMMAND_ATTRIBUTES 2
 #define ITEM_COMMAND_ATTRIBUTES 5
 #define INVALID "invalid"
 #define NONE "none"
 #define MISSING_TAGS "missing tags"
 #define UNDER_PARENT "under tag with id: "
+#define SEPERATOR ","
 
 World *read_file(const char* pFilename, World *world){
    TiXmlDocument doc(pFilename);
@@ -22,6 +23,21 @@ World *read_file(const char* pFilename, World *world){
    } else {
       printf("Failed to load file \"%s\"\n", pFilename);
       return NULL;
+   }
+}
+
+void string_explode(std::string str, std::string seperator, std::vector<std::string> *result){
+   int found;
+   found  str.find_first_of(seperator);
+   while(found != string::pos){
+      if(found > 0){
+         result->push_back(str.substr(0, found));
+      }
+   str = str.substr(found+1);
+   found = str.find_first_of(seperator);
+   }
+   if(str.length() > 0){
+      result->push_back(str);
    }
 }
 
@@ -132,7 +148,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
 AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World *world){
    TiXmlNode* pChild;
    const char *error_tag = MISSING_TAGS, *command_depends = NONE,
-      *command_name = INVALID, *command_area = INVALID, *command_status = INVALID;
+      *command_name = INVALID, *command_area = INVALID, *command_status = NONE;
    int attributesFound = 0;
    bool has_name = false, has_area = false, has_status = false, has_depends = false;
    AreaCommand *area_command = NULL;
@@ -161,7 +177,6 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
          has_depends = true;
       } else if (!strcmp(attributes->Name(), "status")){
          command_status = attributes->Value();
-         attributesFound++;
          if(has_status){
             error_tag = "More than one status tag";
          }
@@ -173,7 +188,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
       }
       attributes = attributes->Next();
    }
-   if(AREA_COMMAND_ATTRIBUTES == attributesFound  && has_name && has_area && has_status){
+   if(AREA_COMMAND_ATTRIBUTES == attributesFound  && has_name && has_area){
       area_command = new AreaCommand(command_name, command_area,command_status, command_depends);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
@@ -255,11 +270,12 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
 Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
    TiXmlNode* pChild;
    const char *item_id = "invlaid", *error_tag = MISSING_TAGS,
-      *item_init_desc = INVALID;
+      *item_init_desc = INVALID, *synonyms = NONE;
    int attributesFound =0;
    bool has_id = false, item_collectable = false, has_collec = false,
-      has_init_desc = false;
+      has_init_desc = false, has_synonyms = false;
    Item *item = NULL;
+   std::vector<std::string> *synonyms_vec = NULL;
    TiXmlElement *element = pItem->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes){
@@ -289,6 +305,13 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
          }
          has_init_desc = true;
          
+      } else if (!strcmp(attributes->Name(), "synonyms")){
+         synonyms = attributes->Value();
+         string_explode(synonyms, SEPERATOR, synonyms_vec);
+         if(has_synonyms){
+            error_tag = "More than one synonyms tags.";
+         }
+         has_synonyms = true;
       } else{
          error_tag = attributes->Name();
          fprintf(stderr, "found something but shouldnt have in make_item.\n");
@@ -331,7 +354,7 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
    TiXmlNode* pChild;
    int attributesFound = 0;
    const char *area_id = INVALID, *desc_id = INVALID,
-      *error_tag = MISSING_TAGS, *area_status = "";
+      *error_tag = MISSING_TAGS, *area_status = NONE;
    bool has_id = false, has_desc = false, has_status = false;
    Area *area = NULL;
    TiXmlElement *element = pArea->ToElement();
@@ -353,7 +376,6 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
          has_desc = true;
       } else if (!strcmp(attributes->Name(), "status")){
          area_status = attributes->Value();
-         attributesFound++;
          if(has_status){
             error_tag = "More than one status tag";
          }
@@ -363,8 +385,8 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
       }
       attributes=attributes->Next();
    }  
-   if(attributesFound == AREA_ATTRIBUTES && has_desc && has_id && has_status){
-      area = new Area(area_id, desc_id, area_status);
+   if(attributesFound == AREA_ATTRIBUTES && has_desc && has_id){
+      area = new Area(area_id, desc_id, desc_id);
       for ( pChild = pArea->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT){
             if(!strcmp(pChild->Value(), "statedescriptor")){
