@@ -54,6 +54,12 @@ ItemCommand *Item::has_command(std::string command_name){
             return checkingValidity;
          }
       }
+      else if(commands[c_num]->check_synonyms(command_name)){
+         checkingValidity = commands[c_num];
+         if(has_description(checkingValidity->get_state_change())){
+            return checkingValidity;
+         }
+      }
    }
    return NULL;
 }
