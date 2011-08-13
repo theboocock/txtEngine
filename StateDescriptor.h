@@ -8,20 +8,11 @@ class StateDescriptor{
    std::string description;
 
  public:
-   StateDescriptor(const char *identifier){
-      id = identifier;
-   }
-   void set_description(const char *desc){
-      description = desc;
-   }
-   ~StateDescriptor(){
-   }   
-   std::string get_id(){
-      return id;
-   }
-   std::string get_description(){
-      return description;
-   }
+   StateDescriptor(const char *identifier);
+   void set_description(const char *desc);
+   ~StateDescriptor();
+   std::string get_id();
+   std::string get_description();
 };
 
 #endif
