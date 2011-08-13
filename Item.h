@@ -7,6 +7,8 @@
 #include "ItemCommand.h"
 
 class Item{
+ private:
+   bool check_synonyms();
  protected:
    bool collectable;
    int num_descriptions, num_commands;

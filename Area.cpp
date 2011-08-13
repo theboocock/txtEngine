@@ -43,7 +43,10 @@ std::string Area::get_id(){
 bool Area::has_item(std::string item_to_find){
    for(unsigned int item_num = 0; item_num < items.size(); item_num++){
       if(items[item_num]->get_id().compare(item_to_find) == 0){
+         
          return true;
+      } else {
+         check synonoyms;
       }
    }
    return false;
