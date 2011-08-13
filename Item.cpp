@@ -72,12 +72,13 @@ StateDescriptor *Item::get_descriptor(int index){
 void Item::state_change(std::string to_change){
    curr_desc_id = to_change;
 }
-Item::Item(bool collect, const char *identifier, const char *initial_state){
+Item::Item(bool collect, const char *identifier, const char *initial_state, std::vector<std::String> *synonyms){
    collectable = collect;
    id = identifier;
    num_descriptions = 0;
    num_commands = 0;
    curr_desc_id = initial_state;
+   this.synonyms = synonyms;
 }
 Item::~Item(){
    for(unsigned int command_num = 0; command_num < commands.size(); command_num++){

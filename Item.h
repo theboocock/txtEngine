@@ -30,7 +30,7 @@ class Item{
    int get_num_descriptions();
    StateDescriptor *get_descriptor(int index);
    void state_change(std::string to_change);
-   Item(bool collect, const char *identifier, const char *initial_state);
+   Item(bool collect, const char *identifier, const char *initial_state, std::vector<std::String> *synonyms);
    ~Item();
 };
 
