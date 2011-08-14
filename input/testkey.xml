@@ -3,8 +3,10 @@
   <area id="start" initialdescription="start" >
     <statedescriptor id="start">
       In the first place. Use your own imagination, please :)
+
+      there is a door with a lock to the north
     </statedescriptor>
-    <areacommand name="north" area="finish" depends="key">
+    <areacommand name="north" area="finish" locked="true">
     </areacommand>
     <item id="key" initialdescription="floor" collectable ="true" synonyms="bluekey,keys">
       <statedescriptor id="floor">
@@ -14,6 +16,10 @@
         You are holding the key.
       </statedescriptor>
       <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
+        you go the key
+      </itemcommand>
+      <itemcommand name="use" statedescription="onplayer" changecollectable="false" collectabledependent="false" areachange="inventory" unlock="start/north">
+        you used the key to open the north door
       </itemcommand>
     </item>
     <item id="key2" initialdescription="floor" collectable ="true" synonyms="bluekey,keys">

@@ -45,7 +45,7 @@ bool Area::has_item(std::string item_to_find){
       if(items[item_num]->get_id().compare(item_to_find) == 0){
          
          return true;
-      } else if(!items[item_num]->has_synonym(item_to_find)){
+      } else if(items[item_num]->has_synonym(item_to_find)){
             return items[item_num];
          }
    }
