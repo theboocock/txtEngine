@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT world (area+)>
-<!ATTLIST world initialarea IDREF #REQUIRED>
-<!ATTLIST world language CDATA ".txtframework">
-<!ATTLIST world author CDATA #REQUIRED>
+  <!ATTLIST world initialarea IDREF #REQUIRED>
+  <!ATTLIST world language CDATA ".txtframework">
+  <!ATTLIST world author CDATA #REQUIRED>
 <!ELEMENT area (statedescriptor+, areacommand*, item*)>
-<!ATTLIST area id ID #REQUIRED>
-<!ATTLIST area initialdescription IDREF #REQUIRED>
-<!ATTLIST area status CDATA "NONE">
+  <!ATTLIST area id ID #REQUIRED>
+  <!ATTLIST area initialdescription IDREF #REQUIRED>
+  <!ATTLIST area status CDATA "none">
 <!ELEMENT statedescriptor (#CDATA)>
-<!ATTLIST statedescriptor id ID #REQUIRED>
+  <!ATTLIST statedescriptor id ID #REQUIRED>
 <!ELEMENT areacommand (#CDATA)>
-<!ATTLIST areacommand depends IDREF #IMPLIED>
-<!ATTLIST areacommand name CDATA #REQUIRED>
-<!ATTLIST areacommand area IDREF #REQUIRED>
-<!ATTLIST areacommand status CDATA "NONE">
+  <!ATTLIST areacommand depends IDREF #IMPLIED>
+  <!ATTLIST areacommand name CDATA #REQUIRED>
+  <!ATTLIST areacommand area IDREF #REQUIRED>
+  <!ATTLIST areacommand status CDATA "none">
+  <!ATTLIST areacommand synonyms CDATA "none">
+  <!ATTLIST areacommand locked (true|false) "false">
 <!ELEMENT item (statedescriptor*, itemcommand+)>
-<!ATTLIST item id ID #REQUIRED>
-<!ATTLIST item initialdescription IDREF #REQUIRED>
-<!ATTLIST item collectable CDATA (true|false) "false">
+  <!ATTLIST item id ID #REQUIRED>
+  <!ATTLIST item initialdescription IDREF #REQUIRED>
+  <!ATTLIST item collectable CDATA (true|false) "false">
+  <!ATTLIST areacommand synonyms CDATA "none">
 <!ELEMENT itemcommand (#CDATA)>
-<!ATTLIST itemcommand name CDATA>
-<!ATTLIST itemcommand depends IDREF #IMPLIED>
-<!ATTLIST itemcommand statedescription IDREF #REQUIRED>
-<!ATTLIST itemcommand changecollectable CDATA (true|false) "false">
-<!ATTLIST itemcommand collectabledependent CDATA (true|false) "false">
-<!ATTLIST itemcommand areachange IDREF #REQUIRED>
-<!ATTLIST itemcommand status CDATA "NONE">
+  <!ATTLIST itemcommand name CDATA>
+  <!ATTLIST itemcommand depends IDREF #IMPLIED>
+  <!ATTLIST itemcommand statedescription IDREF #REQUIRED>
+  <!ATTLIST itemcommand changecollectable CDATA (true|false) "false">
+  <!ATTLIST itemcommand collectabledependent CDATA (true|false) "false">
+  <!ATTLIST itemcommand areachange IDREF #REQUIRED>
+  <!ATTLIST itemcommand status CDATA "none">
+  <!ATTLIST areacommand synonyms CDATA "none">
+  <!ATTLIST itemcommand unlock CDATA "none">
