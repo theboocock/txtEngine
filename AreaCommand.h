@@ -44,7 +44,6 @@ class AreaCommand{
       @return Description of returned value.
    */
    AreaCommand(const char * callmeby, const char * areatomoveto,const char * status_command, const char * depends_command, std::vector<std::string> *synonyms);
-   std::string get_depends();
 
       /**
       Write description of function here.
