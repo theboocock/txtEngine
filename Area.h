@@ -35,11 +35,8 @@ class Area{
  public:
     
     /**
-     Checks whether the StateDesctiptor vector 'description' contains the 
-     value
-     
-     The function arguments listed with "param" will be compared 
-     to the declaration and verified.
+     Checks whether the description ID passed in is in the vector of
+     StateDescriptors for the area and returns true or false accordingly.
      
      @param[in] desc_id A description ID.
      @return Returns true if desc_id is in 'description' otherwise return false.

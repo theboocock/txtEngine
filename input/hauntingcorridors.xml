@@ -14,7 +14,7 @@
       hear the roar of a fire in the distance.
     </statedescriptor>
     <areacommand name="west" area="collapsedchamber" depends="lamp">
-     You crawl through the gap in the collapsed wall and skuttle through a narrow passage, that look's like it has been dug out by a tiny exogorths. 
+      You crawl through the gap in the collapsed wall and skuttle through a narrow passage, that look's like it has been dug out by a tiny exogorths. 
     </areacommand>
     <areacommand name="north" area="pathroom" depends="lamp">
       You walk along the cobblestone path, you feel the eyes of others upon you. You bolt to the next chamber and the lamp flickers.
@@ -47,8 +47,8 @@
   
   <area id="deathroom6" initialdescription="deathroom6" status ="die">
     <statedescriptor id="deathroom6">
-    Life isn't fair is it? You'd think working for a charity would have taught you this. "Why me!!" you scream as you tumble further and further into a never ending pit.
-    YOU DIED OF DEHYDRATION IN THE NEVER ENDING PIT!!!  GAME OVER
+      Life isn't fair is it? You'd think working for a charity would have taught you this. "Why me!!" you scream as you tumble further and further into a never ending pit.
+      YOU DIED OF DEHYDRATION IN THE NEVER ENDING PIT!!!  GAME OVER
     </statedescriptor>
   </area>
   
@@ -78,12 +78,12 @@
   
   <area id="pathroom" initialdescription="pathroom" >
     <statedescriptor id="pathroom">
-     Oh great! You came out into the main street of a medieval village. You are facing a well in which villagers are fetching water from.
-     Surrounding the well is a blacksmiths shop front, a tannery, a pub, and a brothel. This is a place you'd like to stay, but you're heart is
-     in the office of 'Not for Profit Industries' and not here.
+      Oh great! You came out into the main street of a medieval village. You are facing a well in which villagers are fetching water from.
+      Surrounding the well is a blacksmiths shop front, a tannery, a pub, and a brothel. This is a place you'd like to stay, but you're heart is
+      in the office of 'Not for Profit Industries' and not here.
 
-     A horse and carriage pulls up beside you. "Where to good sir?" asks the driver. You got lucky, perhaps this is a way out.
-     "Would you like to go west view some jousting? Perhaps north to see the healer? East for a drink? Or will it be south to the hotel?"
+      A horse and carriage pulls up beside you. "Where to good sir?" asks the driver. You got lucky, perhaps this is a way out.
+      "Would you like to go west view some jousting? Perhaps north to see the healer? East for a drink? Or will it be south to the hotel?"
     </statedescriptor>
     <areacommand name="west" area="beachvolleyball"  depends="lamp">
       "I'd like to go west," you reply. You had always wanted to give jousting a go. With the flick of the reins the horse takes off.
@@ -160,8 +160,8 @@
   </area>
   <area id="middleroom" initialdescription="middleroom" status ="die" >
     <statedescriptor id="middleroom">
-     You followed the white rabbit into your own mind you fool! Now you're twice as lost.
-     YOU DIED OF OLD AGE! GAME OVER
+      You followed the white rabbit into your own mind you fool! Now you're twice as lost.
+      YOU DIED OF OLD AGE! GAME OVER
     </statedescriptor>
   </area>
   
@@ -195,9 +195,9 @@
   
   <area id="deathroom16" initialdescription="deathroom16" status ="die">
     <statedescriptor id="deathroom16">
-     A modern operating theatre lies in front of you. They actually have everything! Bright operating lights, high speed drills, electromagnetic hammers, harmonic scalpels.... All there.
-     From behind a nurse injects you in the neck and you black out.
-     YOUR ORGANS WERE DONATED TO CHARITY! HOW FITTING. GAME OVER!!!!
+      A modern operating theatre lies in front of you. They actually have everything! Bright operating lights, high speed drills, electromagnetic hammers, harmonic scalpels.... All there.
+      From behind a nurse injects you in the neck and you black out.
+      YOUR ORGANS WERE DONATED TO CHARITY! HOW FITTING. GAME OVER!!!!
     </statedescriptor>
   </area>
   
@@ -250,7 +250,7 @@
       Wise choice my friend.
     </areacommand>
     <areacommand name="west" area="deathroom2"  depends="lamp">
-     You almost figured out this puzzle. Almost!
+      You almost figured out this puzzle. Almost!
     </areacommand>
     <areacommand name="south" area="startchamber"  depends="lamp">
       Sigh...
@@ -266,28 +266,28 @@
   </area>
   
   <area id="finalarea" initialdescription="finalarea"  >
-      <statedescriptor id="finalarea">
-        You practically won! Everyones cheering because you're well on your way back to your important charity work.
-        Confetti, streamers, and party poppers are flying. All you have to do now is pick the right door. They're all
-        identical except the one facing south. It has a sign on it saying "WIN".
-      </statedescriptor>
-      <areacommand name="west" area="startchamber" depends="lamp">
-        Here we go...
-      </areacommand>
-      <areacommand name="north" area="startchamber" depends="lamp">
-        Here we go...
-      </areacommand>
-      <areacommand name="east" area="startchamber" depends="lamp">
-        Here we go...
-      </areacommand>
-      <areacommand name="south" area="realfinalarea" depends="lamp">
-        This looks promising...
-      </areacommand>
-    </area>
-    <area id="realfinalarea" initialdescription="finalarea" status="win" >
-      <statedescriptor id="finalarea">
-        You did it! Now that you've finished this game you had better clean your room or something.
-      </statedescriptor>
+    <statedescriptor id="finalarea">
+      You practically won! Everyones cheering because you're well on your way back to your important charity work.
+      Confetti, streamers, and party poppers are flying. All you have to do now is pick the right door. They're all
+      identical except the one facing south. It has a sign on it saying "WIN".
+    </statedescriptor>
+    <areacommand name="west" area="startchamber" depends="lamp">
+      Here we go...
+    </areacommand>
+    <areacommand name="north" area="startchamber" depends="lamp">
+      Here we go...
+    </areacommand>
+    <areacommand name="east" area="startchamber" depends="lamp">
+      Here we go...
+    </areacommand>
+    <areacommand name="south" area="realfinalarea" depends="lamp">
+      This looks promising...
+    </areacommand>
+  </area>
+  <area id="realfinalarea" initialdescription="finalarea" status="win" >
+    <statedescriptor id="finalarea">
+      You did it! Now that you've finished this game you had better clean your room or something.
+    </statedescriptor>
     
-    </area>
+  </area>
 </world>
