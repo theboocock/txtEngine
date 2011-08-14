@@ -228,7 +228,7 @@ class Item{
    @param[in,out] _inoutArg3 Description of third function argument.
    @return Description of returned value.
 */
-   ItemCommand *has_command(std::string command_name);
+   ItemCommand *get_command(std::string command_name);
 
    /**
    Write description of function here.

@@ -37,3 +37,11 @@ bool AreaCommand::find(std::string to_find){
       return false;
    }
 }
+
+void AreaCommand::unlock(){
+   locked = false;
+}
+
+bool AreaCommand::is_locked(){
+   return locked;
+}

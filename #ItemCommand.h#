@@ -13,21 +13,24 @@
  */
 // $Log$
 
-#ifndef _AREA_COMMAND_H
-#define _AREA_COMMAND_H
+#ifndef _ITEM_COMMAND_H
+#define _ITEM_COMMAND_H
 
 #include <vector>
 #include <string>
 
-class AreaCommand{
+class ItemCommand{
  protected:
-   bool locked;
    std::string name;
-   std::string status;
+   std::string state_change;
    std::string message;
+   std::string area_change;
    std::string depends;
-   std::string move_to_area;
+   std::string status;
+   std::string unlocks;
    std::vector<std::string> *synonyms;
+   std::vector<
+   bool change_collect, collect_dependent;
    
  public:
 
@@ -44,25 +47,12 @@ class AreaCommand{
       @param[in,out] _inoutArg3 Description of third function argument.
       @return Description of returned value.
    */
+   ItemCommand(const char * callmeby, const char * state_mutator,
+               bool chng_collec, bool collec_dep, const char *area_chng,
+               const char* status_command,const char* depends,
+               std::vector<std::string> * synonyms);
 
-   AreaCommand(const char * callmeby, const char * areatomoveto,const char * status_command, const char * depends_command, std::vector<std::string> *synonyms, bool locked);
-
-      /**
-      Write description of function here.
-      The function should follow these comments.
-      Use of "brief" tag is optional. (no point to it)
-     
-      The function arguments listed with "param" will be compared 
-      to the declaration and verified.
-     
-      @param[in]     _inArg1 Description of first function argument.
-      @param[out]    _outArg2 Description of second function argument.
-      @param[in,out] _inoutArg3 Description of third function argument.
-      @return Description of returned value.
-   */
-   ~AreaCommand();
-   
-   /**
+    /**
      Write description of function here.
      The function should follow these comments.
      Use of "brief" tag is optional. (no point to it)
@@ -75,9 +65,69 @@ class AreaCommand{
      @param[in,out] _inoutArg3 Description of third function argument.
      @return Description of returned value.
      */
-   std::string get_depends();
+   ~ItemCommand();
 
    /**
+      Write description of function here.
+      The function should follow these comments.
+      Use of "brief" tag is optional. (no point to it)
+     
+      The function arguments listed with "param" will be compared 
+      to the declaration and verified.
+     
+      @param[in]     _inArg1 Description of first function argument.
+      @param[out]    _outArg2 Description of second function argument.
+      @param[in,out] _inoutArg3 Description of third function argument.
+      @return Description of returned value.
+   */
+   std::string get_depends();
+
+    /**
+     Write description of function here.
+     The function should follow these comments.
+     Use of "brief" tag is optional. (no point to it)
+     
+     The function arguments listed with "param" will be compared 
+     to the declaration and verified.
+     
+     @param[in]     _inArg1 Description of first function argument.
+     @param[out]    _outArg2 Description of second function argument.
+     @param[in,out] _inoutArg3 Description of third function argument.
+     @return Description of returned value.
+     */
+   bool get_change_collect();
+
+    /**
+     Write description of function here.
+     The function should follow these comments.
+     Use of "brief" tag is optional. (no point to it)
+     
+     The function arguments listed with "param" will be compared 
+     to the declaration and verified.
+     
+     @param[in]     _inArg1 Description of first function argument.
+     @param[out]    _outArg2 Description of second function argument.
+     @param[in,out] _inoutArg3 Description of third function argument.
+     @return Description of returned value.
+     */
+   bool get_collect_dependent();
+
+    /**
+     Write description of function here.
+     The function should follow these comments.
+     Use of "brief" tag is optional. (no point to it)
+     
+     The function arguments listed with "param" will be compared 
+     to the declaration and verified.
+     
+     @param[in]     _inArg1 Description of first function argument.
+     @param[out]    _outArg2 Description of second function argument.
+     @param[in,out] _inoutArg3 Description of third function argument.
+     @return Description of returned value.
+     */
+   std::string get_area_change();
+
+    /**
      Write description of function here.
      The function should follow these comments.
      Use of "brief" tag is optional. (no point to it)
@@ -92,37 +142,7 @@ class AreaCommand{
      */
    std::string get_status();
 
-   /**
-     Write description of function here.
-     The function should follow these comments.
-     Use of "brief" tag is optional. (no point to it)
-     
-     The function arguments listed with "param" will be compared 
-     to the declaration and verified.
-     
-     @param[in]     _inArg1 Description of first function argument.
-     @param[out]    _outArg2 Description of second function argument.
-     @param[in,out] _inoutArg3 Description of third function argument.
-     @return Description of returned value.
-     */
-   std::string get_name();
-
-   /**
-     Write description of function here.
-     The function should follow these comments.
-     Use of "brief" tag is optional. (no point to it)
-     
-     The function arguments listed with "param" will be compared 
-     to the declaration and verified.
-     
-     @param[in]     _inArg1 Description of first function argument.
-     @param[out]    _outArg2 Description of second function argument.
-     @param[in,out] _inoutArg3 Description of third function argument.
-     @return Description of returned value.
-     */
-   std::string get_area();
-
-   /**
+    /**
      Write description of function here.
      The function should follow these comments.
      Use of "brief" tag is optional. (no point to it)
@@ -137,7 +157,52 @@ class AreaCommand{
      */
    std::string get_message();
 
-   /**
+    /**
+     Write description of function here.
+     The function should follow these comments.
+     Use of "brief" tag is optional. (no point to it)
+     
+     The function arguments listed with "param" will be compared 
+     to the declaration and verified.
+     
+     @param[in]     _inArg1 Description of first function argument.
+     @param[out]    _outArg2 Description of second function argument.
+     @param[in,out] _inoutArg3 Description of third function argument.
+     @return Description of returned value.
+     */
+   std::string get_name();
+
+    /**
+     Write description of function here.
+     The function should follow these comments.
+     Use of "brief" tag is optional. (no point to it)
+     
+     The function arguments listed with "param" will be compared 
+     to the declaration and verified.
+     
+     @param[in]     _inArg1 Description of first function argument.
+     @param[out]    _outArg2 Description of second function argument.
+     @param[in,out] _inoutArg3 Description of third function argument.
+     @return Description of returned value.
+     */
+   std::string get_state_change();
+
+    /**
+     Write description of function here.
+     The function should follow these comments.
+     Use of "brief" tag is optional. (no point to it)
+     
+     The function arguments listed with "param" will be compared 
+     to the declaration and verified.
+     
+     @param[in]     _inArg1 Description of first function argument.
+     @param[out]    _outArg2 Description of second function argument.
+     @param[in,out] _inoutArg3 Description of third function argument.
+     @return Description of returned value.
+     */
+   bool check_synonyms(std::string command);
+
+    /**
      Write description of function here.
      The function should follow these comments.
      Use of "brief" tag is optional. (no point to it)
@@ -152,22 +217,12 @@ class AreaCommand{
      */
    void set_message(const char *to_message);
 
-   /**
-     Write description of function here.
-     The function should follow these comments.
-     Use of "brief" tag is optional. (no point to it)
-     
-     The function arguments listed with "param" will be compared 
-     to the declaration and verified.
-     
-     @param[in]     _inArg1 Description of first function argument.
-     @param[out]    _outArg2 Description of second function argument.
-     @param[in,out] _inoutArg3 Description of third function argument.
-     @return Description of returned value.
-     */
-   bool find(std::string to_find);
-   void unlock();
-   bool is_locked();
+   bool unlocks();
+
+   std::string unlock_areacommand_string();
+
+   std::string unlock_area_string();
+   
 };
 
 #endif

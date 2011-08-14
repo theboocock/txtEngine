@@ -1,4 +1,5 @@
 #include "ItemCommand.h"
+#include <iostream>
 
 ItemCommand::ItemCommand(const char * callmeby, const char * state_mutator,
                          bool chng_collec, bool collec_dep, const char *area_chng,
@@ -56,22 +57,22 @@ bool ItemCommand::check_synonyms(std::string command){
    } return false;   
 }
 
-bool unlocks(){
-   if(unlocks == NULL){
+bool ItemCommand::unlocks(){
+   if(unlock.compare("none")==0){
       return false;
    }
    return true;
 }
 
-std::string unlock_area_string(){
+std::string ItemCommand::unlock_area_string(){
    size_t found;
-   found = unlocks.find_first_of("/");
-   return str.substr(0,found);
+   found = unlock.find_first_of("/");
+   return unlock.substr(0,found);
 }
 
-std::string unlock_areacommand_string(){
+std::string ItemCommand::unlock_areacommand_string(){
    size_t found;
-   found = unlocks.find_first_of("/");
-   return str.substr(found + 1, unlocks.size());
+   found = unlock.find_first_of("/");
+   return unlock.substr(found + 1, unlock.size());
 }
 

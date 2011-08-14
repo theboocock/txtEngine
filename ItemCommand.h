@@ -27,7 +27,7 @@ class ItemCommand{
    std::string area_change;
    std::string depends;
    std::string status;
-   std::string unlocks;
+   std::string unlock;
    std::vector<std::string> *synonyms;
    bool change_collect, collect_dependent;
    

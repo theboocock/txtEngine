@@ -303,7 +303,10 @@ class Area{
      @param[out]    _outArg2 Description of second function argument.
      @param[in,out] _inoutArg3 Description of third function argument.
      @return Description of returned value.
-     */
+    */
+     
+   void unlock(std::string area_command_id);
+     
    Area(const char *id, const char *desc_id, const char* status);
     
     /**

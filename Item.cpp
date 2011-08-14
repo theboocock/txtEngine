@@ -58,7 +58,7 @@ void Item::add_command(ItemCommand *command_name){
 ItemCommand* Item::get_command(int index){
    return commands[index];
 }
-ItemCommand *Item::has_command(std::string command_name){
+ItemCommand *Item::get_command(std::string command_name){
    ItemCommand *checkingValidity;
    for(unsigned int c_num = 0; c_num < commands.size(); c_num++){
       if(!commands[c_num]->get_name().compare(command_name)){
