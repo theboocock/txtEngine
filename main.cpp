@@ -57,6 +57,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <fstream>
 #include <algorithm>
 #include <string>
 #include "parser.h"
@@ -142,6 +143,9 @@ std::string word_wrap(std::string input_string);
    Prints out the parsed XML file in a tree structure.
 */
 void print_world_tree();
+
+void load_game();
+void save_game();
 
 //------------------------------------------------------------------------------
 /* Method Definitions */
@@ -238,6 +242,7 @@ void gameloop(){
          } else {
             std::cout << "Please enter one or two word commands only" << std::endl;     
          }
+         
          std::cout << "\n" << word_wrap(commandstream.str());
       }
    }
@@ -289,6 +294,7 @@ std::string two_word_command(std::string command1, std::string command2){
             return "You can't do that.\n";
          }
       } else {
+         std::cout << temp_item->get_id() << std::endl;
          result << "There is no command ";
          result << command1;
          result << " for item ";
@@ -299,6 +305,7 @@ std::string two_word_command(std::string command1, std::string command2){
    temp_item = NULL;
    temp_item = world->get_area(INVENTORY)->get_item(command2, item);
    if(temp_item != NULL){
+      
          ItemCommand *temp_item_command = temp_item->get_command(command1);
          if(temp_item_command != NULL){
             if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()){
@@ -325,6 +332,7 @@ std::string two_word_command(std::string command1, std::string command2){
                return result.str();
             }
          } else {
+          
             result << "There is no command ";
             result << command1;
             result << " for item ";
