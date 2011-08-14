@@ -24,7 +24,6 @@ class World{
    Area *get_area(std::string area_id);
    bool init_active_area();
    void change_area(std::string name);
-   void command(std::string command);
    World(const char *lang, const char *auth, const char *init_area);
    ~World();   
 };

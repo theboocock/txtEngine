@@ -45,20 +45,21 @@ bool Area::has_item(std::string item_to_find){
       if(items[item_num]->get_id().compare(item_to_find) == 0){
          
          return true;
-      } else if(items[item_num]->has_synonym(item_to_find)){
+      } else if(!items[item_num]->has_synonym(item_to_find)){
             return items[item_num];
          }
    }
    return false;
 }
-Item *Area::get_item(std::string item_id){
+Item *Area::get_item(std::string item_id, unsigned int &index){
    for(unsigned int item_num = 0; item_num < items.size(); item_num++){
-      std::cout << "dasdas" << std::endl;
       if(items[item_num]->get_id().compare(item_id) == 0){
+         index = item_num;
          return items[item_num];
       }
       else if(items[item_num]->has_synonym(item_id)){
-            return items[item_num];
+         index = item_num;
+         return items[item_num];
          }
       }
    return NULL;
