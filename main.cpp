@@ -57,6 +57,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <fstream>
 #include <algorithm>
 #include <string>
 #include "parser.h"
@@ -142,6 +143,9 @@ std::string word_wrap(std::string input_string);
    Prints out the parsed XML file in a tree structure.
 */
 void print_world_tree();
+
+void load_game();
+void save_game();
 
 //------------------------------------------------------------------------------
 /* Method Definitions */
@@ -238,6 +242,7 @@ void gameloop(){
          } else {
             std::cout << "Please enter one or two word commands only" << std::endl;     
          }
+         
          std::cout << "\n" << word_wrap(commandstream.str());
       }
    }
