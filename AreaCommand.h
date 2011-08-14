@@ -21,6 +21,7 @@
 
 class AreaCommand{
  protected:
+   bool locked;
    std::string name;
    std::string status;
    std::string message;
@@ -43,7 +44,8 @@ class AreaCommand{
       @param[in,out] _inoutArg3 Description of third function argument.
       @return Description of returned value.
    */
-   AreaCommand(const char * callmeby, const char * areatomoveto,const char * status_command, const char * depends_command, std::vector<std::string> *synonyms);
+
+   AreaCommand(const char * callmeby, const char * areatomoveto,const char * status_command, const char * depends_command, std::vector<std::string> *synonyms, bool locked);
 
       /**
       Write description of function here.

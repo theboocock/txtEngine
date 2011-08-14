@@ -25,7 +25,7 @@
     <item id="lamp" initialdescription="onpodium" collectable ="true" synonyms="torch,light">
       <statedescriptor id="onpodium">
         In the center of the room on top of a shoulder height podium a lamp glows so brightly you imagine that it has been
-        glowing for thousands of years. Then you realise that thought is ridiculous. The intricate design on the hold suggest 
+        glowing for thousands of years. Then you realise that thought is ridiculous. The intricate design on the hold suggests 
         that many hours have been spent crafting this lamp.
         The lamp looks like it would fit nicely in your hand.
       </statedescriptor>
