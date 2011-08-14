@@ -10,7 +10,7 @@
 
       You scan the dimly lit room and you eye a collapsed wall to the east that is small enough for you to crawl through.
       To the north is an archway with a nice looking cobblestone path. It looks much safer than the east.
-      To the west a studded metal door is swung ajar, you can enter through the door but you are weary of the entrance as you can
+      To the west a studded metal door swung ajar, you can enter through the door but you are weary of the entrance as you can
       hear the roar of a fire in the distance.
     </statedescriptor>
     <areacommand name="west" area="collapsedchamber" depends="lamp">
@@ -19,13 +19,13 @@
     <areacommand name="north" area="pathroom" depends="lamp">
       You walk along the cobblestone path, you feel the eyes of others upon you. You bolt to the next chamber and the lamp flickers.
     </areacommand>
-    <areacommand name="east" area="furnaceroom" depends="lamp">
+    <areacommand name="east" area="furnaceroom" depends="lamp" locked="true">
       The smell of coal fills your nostrils and you feel like you are walking into the sun. 
     </areacommand>
     <item id="lamp" initialdescription="onpodium" collectable ="true" synonyms="torch,light,flashlight">
       <statedescriptor id="onpodium">
         In the center of the room on top of a shoulder height podium a lamp glows so brightly you imagine that it has been
-        glowing for thousands of years. Then you realise that thought is ridiculous. The intricate design on the hold suggest 
+        glowing for thousands of years. Then you realise that thought is ridiculous. The intricate design on the hold suggests 
         that many hours have been spent crafting this lamp.
         The lamp looks like it would fit nicely in your hand.
       </statedescriptor>
@@ -35,8 +35,13 @@
       <statedescriptor id="dropped">
         A glowing lamp lying amongst the rubble.
       </statedescriptor>
+<<<<<<< HEAD
       <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory" unlock="startchamber/east">
         You grab the lamp and the light is warm and comforting.
+=======
+      <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
+        You pick up the lamp the light is warm and comforting.
+>>>>>>> baff60446a9bdc9e6b5ec44c3b271d18264bfb1d
       </itemcommand>
       <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="NONE" >
         You dropped the lamp. The floor is now illuminated - nice shoes for a charity man. You can't see shit now though!

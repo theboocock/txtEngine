@@ -1,0 +1,37 @@
+<?xml version ="1.0"?>
+<world initialarea="start" language=".txtFramework" author=".txtFramework Team">
+  <area id="start" initialdescription="start" >
+    <statedescriptor id="start">
+      In the first place. Use your own imagination, please :)
+    </statedescriptor>
+    <areacommand name="north" area="finish" depends="key">
+    </areacommand>
+    <item id="key" initialdescription="floor" collectable ="true" synonyms="bluekey,keys">
+      <statedescriptor id="floor">
+        The key lies on the floor.
+      </statedescriptor>
+      <statedescriptor id="onplayer">
+        You are holding the key.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
+      </itemcommand>
+    </item>
+    <item id="key2" initialdescription="floor" collectable ="true" synonyms="bluekey,keys">
+      <statedescriptor id="floor">
+        The key2 lies on the floor.
+      </statedescriptor>
+      <statedescriptor id="onplayer">
+        You are holding the key.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
+      </itemcommand>
+    </item>
+  </area>
+  <area id="finish" initialdescription="init">
+    <statedescriptor id="init">
+      You are in the finish area.
+    </statedescriptor>
+    <areacommand name="south" area="start">
+    </areacommand>
+  </area>
+</world>

@@ -280,7 +280,7 @@ std::string two_word_command(std::string command1, std::string command2){
    unsigned int item = NULL;
    Item *temp_item = world->get_active_area()->get_item(command2, item);
    if(temp_item != NULL){
-      ItemCommand *temp_item_command = temp_item->has_command(command1);
+      ItemCommand *temp_item_command = temp_item->get_command(command1);
       if(temp_item_command != NULL){
          if(world->get_area(INVENTORY)->has_item(temp_item_command->get_depends()) ||
             !strcmp(world->get_active_area()->get_id().c_str(), temp_item_command->get_depends().c_str()) ||
@@ -292,6 +292,13 @@ std::string two_word_command(std::string command1, std::string command2){
                }
                temp_item->state_change(temp_item_command->get_state_change());
                temp_item->change_collectable(temp_item_command->get_change_collect());
+               if(temp_item_command->unlocks()){
+                  if(!temp_item_command->unlock_area_string().compare(world->get_active_area()->get_id())){
+                     world->get_active_area()->unlock(temp_item_command->unlock_areacommand_string());
+                  } else {
+                     return "You can't do that. \n";
+                  }
+               }
                if(world->get_area(temp_item_command->get_area_change()) != NULL){
                   world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
                } else {
@@ -316,7 +323,7 @@ std::string two_word_command(std::string command1, std::string command2){
    temp_item = NULL;
    temp_item = world->get_area(INVENTORY)->get_item(command2, item);
    if(temp_item != NULL){
-         ItemCommand *temp_item_command = temp_item->has_command(command1);
+         ItemCommand *temp_item_command = temp_item->get_command(command1);
          if(temp_item_command != NULL){
             if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()){
                if(!strcmp(world->get_active_area()->get_status().c_str(),WIN)||!strcmp(world->get_active_area()->get_status().c_str() ,DIE)){
@@ -324,6 +331,13 @@ std::string two_word_command(std::string command1, std::string command2){
                }
                temp_item->state_change(temp_item_command->get_state_change());
                temp_item->change_collectable(temp_item_command->get_change_collect());
+                     if(temp_item_command->unlocks()){
+                        if(!temp_item_command->unlock_area_string().compare(world->get_active_area()->get_id())){
+                           world->get_active_area()->unlock(temp_item_command->unlock_areacommand_string());
+                        } else {
+                           return "You can't do that. \n";
+                        }
+                     }
                if( world->get_area(temp_item_command->get_area_change()) !=NULL){
                   world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
                } else {
@@ -381,8 +395,11 @@ std::string one_word_command(std::string command){
    if(temp_area_command != NULL){
       if(world->get_area(INVENTORY)->has_item(temp_area_command->get_depends()) ||
          !strcmp(temp_area_command->get_depends().c_str(), NONE)) {
+         if(!temp_area_command->is_locked()){
          world->change_area(temp_area_command->get_area());
          return temp_area_command->get_message();
+         }
+         return "That way is locked";
       } else {
          return "You can't do that.\n";
       }

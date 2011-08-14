@@ -1,9 +1,10 @@
 #include "ItemCommand.h"
+#include <iostream>
 
 ItemCommand::ItemCommand(const char * callmeby, const char * state_mutator,
                          bool chng_collec, bool collec_dep, const char *area_chng,
                          const char* status_command, const char* depends,
-                         std::vector<std::string> *syns){
+                         std::vector<std::string> *syns, std::string unlocks){
    name = callmeby;
    this->depends = depends;
    state_change = state_mutator;
@@ -13,6 +14,7 @@ ItemCommand::ItemCommand(const char * callmeby, const char * state_mutator,
    status = status_command;
    message = "";
    synonyms = syns;
+   unlock = unlocks;
 }
 
 std::string ItemCommand::get_depends(){
@@ -62,4 +64,23 @@ bool ItemCommand::check_synonyms(std::string command){
          return true;
       }
    } return false;   
+}
+
+bool ItemCommand::unlocks(){
+   if(unlock.compare("none")==0){
+      return false;
+   }
+   return true;
+}
+
+std::string ItemCommand::unlock_area_string(){
+   size_t found;
+   found = unlock.find_first_of("/");
+   return unlock.substr(0,found);
+}
+
+std::string ItemCommand::unlock_areacommand_string(){
+   size_t found;
+   found = unlock.find_first_of("/");
+   return unlock.substr(found + 1, unlock.size());
 }
