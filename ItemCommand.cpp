@@ -55,3 +55,22 @@ bool ItemCommand::check_synonyms(std::string command){
    } return false;   
 }
 
+bool unlocks(){
+   if(unlocks == NULL){
+      return false;
+   }
+   return true;
+}
+
+std::string unlock_area_string(){
+   size_t found;
+   found = unlocks.find_first_of("/");
+   return str.substr(0,found);
+}
+
+std::string unlock_areacommand_string(){
+   size_t found;
+   found = unlocks.find_first_of("/");
+   return str.substr(found + 1, unlocks.size());
+}
+

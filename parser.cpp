@@ -50,9 +50,9 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    int attributesFound = 0;
    bool has_name = false, has_state = false, command_chg_col = true, command_dep =true,
       has_collect = false, has_collec_dep = false, has_area = false, has_status = false,
-      has_depends = false, has_synonyms = false;
-   std::vector<std::string> *synonyms_vec = NULL;
+      has_depends = false, has_synonyms;
    ItemCommand *item_command = NULL;
+   std::vector<std::string> *synonyms_vec = NULL;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes){
@@ -127,9 +127,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
       attributes = attributes->Next();
    }
    if(ITEM_COMMAND_ATTRIBUTES == attributesFound && has_collec_dep && has_name && has_state && has_area && has_collect){
-      item_command = new ItemCommand(command_name, command_state, command_chg_col,
-                                     command_dep, command_area, command_status,
-                                     command_depends, synonyms_vec);
+      item_command = new ItemCommand(command_name, command_state, command_chg_col, command_dep, command_area, command_status, command_depends);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
             item_command->set_message(pChild->ToText()->Value());
@@ -159,12 +157,9 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
 AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World *world){
    TiXmlNode* pChild;
    const char *error_tag = MISSING_TAGS, *command_depends = NONE,
-      *command_name = INVALID, *command_area = INVALID, *command_status = NONE,
-      *synonyms = NULL;
+      *command_name = INVALID, *command_area = INVALID, *command_status = NONE,;
    int attributesFound = 0;
-   bool has_name = false, has_area = false, has_status = false, has_depends = false,
-      has_synonyms = false;
-   std::vector<std::string> *synonyms_vec = NULL;
+   bool has_name = false, has_area = false, has_status = false, has_depends = false;
    AreaCommand *area_command = NULL;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
@@ -195,14 +190,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
             error_tag = "More than one status tag";
          }
          has_status = true;
-      } else if (!strcmp(attributes->Name(), "synonyms")){
-         synonyms = attributes->Value();
-         string_explode(synonyms, SEPERATOR, synonyms_vec);
-         if(has_synonyms){
-            error_tag = "More than one synonyms tags.";
-         }
-         has_synonyms = true;
-      }  else{
+      } else{
          error_tag = attributes->Name();
          fprintf(stderr, "found something but shouldnt have in make_area_command.\n");
          attributesFound++;
@@ -210,8 +198,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
       attributes = attributes->Next();
    }
    if(AREA_COMMAND_ATTRIBUTES == attributesFound  && has_name && has_area){
-      area_command = new AreaCommand(command_name, command_area,command_status,
-                                     command_depends, synonyms_vec);
+      area_command = new AreaCommand(command_name, command_area,command_status, command_depends);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
             area_command->set_message(pChild->ToText()->Value());
