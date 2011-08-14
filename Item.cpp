@@ -16,12 +16,11 @@ bool Item::has_current_desc(){
 
 bool Item::has_synonym(std::string item){
    std::vector<std::string>& synonymsRef = *synonyms;
-   std::cout << "checking synonyms" << std::endl;
    if(synonyms == NULL){
       return false;
    }
    for(unsigned int count = 0; count < synonyms->size(); count++){
-      if(!synonymsRef[count].compare(item)){
+      if(synonymsRef[count].compare(item) == 0){
          return true;
       }
    } return false;    

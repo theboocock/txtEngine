@@ -184,7 +184,7 @@ class Area{
      @param[in,out] _inoutArg3 Description of third function argument.
      @return Description of returned value.
      */
-   Item *get_item(std::string item_id);
+   Item *get_item(std::string item_id, unsigned int &item);
     
     /**
      Write description of function here.

@@ -160,46 +160,45 @@ std::string two_word_command(std::string command1, std::string command2){
    if(!strcmp(command1.c_str(), GO)){
       return one_word_command(command2);
    }
-   for(int item = 0; item < world->get_active_area()->get_num_items(); item++){
-      Item *temp_item = world->get_active_area()->get_item(item);
-      if(!strcmp(temp_item->get_id().c_str(), command2.c_str())){
-         ItemCommand *temp_item_command = temp_item->has_command(command1);
-         if(temp_item_command != NULL){
-            if(world->get_area(INVENTORY)->has_item(temp_item_command->get_depends()) ||
-               !strcmp(world->get_active_area()->get_id().c_str(), temp_item_command->get_depends().c_str()) ||
-               !strcmp(temp_item_command->get_depends().c_str(), NONE)){
-               if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()){
-                  if(!strcmp(temp_item_command->get_status().c_str(), WIN)||
-                     !strcmp(temp_item_command->get_status().c_str() ,DIE)){
-                     game_over = true;
-                  }
-                  temp_item->state_change(temp_item_command->get_state_change());
-                  temp_item->change_collectable(temp_item_command->get_change_collect());
-                  if(world->get_area(temp_item_command->get_area_change()) != NULL){
-                     world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
-                  } else {
-                     world->get_active_area()->add_item(temp_item);
-                  }
-                  world->get_active_area()->remove_item(item);
-                  result << temp_item_command->get_message();
-                  result << "\n";
-                  return result.str();
+   unsigned int item = NULL;
+   Item *temp_item = world->get_active_area()->get_item(command2, item);
+   if(temp_item != NULL){
+      ItemCommand *temp_item_command = temp_item->has_command(command1);
+      if(temp_item_command != NULL){
+         if(world->get_area(INVENTORY)->has_item(temp_item_command->get_depends()) ||
+            !strcmp(world->get_active_area()->get_id().c_str(), temp_item_command->get_depends().c_str()) ||
+            !strcmp(temp_item_command->get_depends().c_str(), NONE)){
+            if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()){
+               if(!strcmp(temp_item_command->get_status().c_str(), WIN)||
+                  !strcmp(temp_item_command->get_status().c_str() ,DIE)){
+                  game_over = true;
                }
-            } else {
-               return "You can't do that.\n";
+               temp_item->state_change(temp_item_command->get_state_change());
+               temp_item->change_collectable(temp_item_command->get_change_collect());
+               if(world->get_area(temp_item_command->get_area_change()) != NULL){
+                  world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
+               } else {
+                  world->get_active_area()->add_item(temp_item);
+               }
+               world->get_active_area()->remove_item(item);
+               result << temp_item_command->get_message();
+               result << "\n";
+               return result.str();
             }
          } else {
-            result << "There is no command ";
-            result << command1;
-            result << " for item ";
-            result << command2;
-            return result.str();
+            return "You can't do that.\n";
          }
+      } else {
+         result << "There is no command ";
+         result << command1;
+         result << " for item ";
+         result << command2;
+         return result.str();
       }
    }
-   for(int item = 0; item < world->get_area(INVENTORY)->get_num_items(); item++){
-      Item *temp_item = world->get_area(INVENTORY)->get_item(item);
-      if(!strcmp(temp_item->get_id().c_str(), command2.c_str())){
+   temp_item = NULL;
+   temp_item = world->get_area(INVENTORY)->get_item(command2, item);
+   if(temp_item != NULL){
          ItemCommand *temp_item_command = temp_item->has_command(command1);
          if(temp_item_command != NULL){
             if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()){
@@ -225,7 +224,6 @@ std::string two_word_command(std::string command1, std::string command2){
             result << command2;
             return result.str();
          }
-      }
    }
    return "I don't understand that. \n";  
 }
@@ -256,8 +254,8 @@ std::string one_word_command(std::string command){
    if(!command.compare(LOOK)){
       return DEFAULT_VALUE;
    } else if(!command.compare(BAG)){
-     print_inventory();
-     return "";
+      print_inventory();
+      return "";
    } else if(!command.compare(INVENTORY)){
       print_inventory();
       return "";

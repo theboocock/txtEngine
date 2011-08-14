@@ -26,8 +26,7 @@ World *read_file(const char* pFilename, World *world){
    }
 }
 
-void string_explode(std::string str, std::string seperator,
-                    std::vector<std::string> *result){
+void string_explode(std::string str, std::string seperator, std::vector<std::string> *&result){
    size_t found;
    result = new std::vector<std::string>();
    found = str.find_first_of(seperator);

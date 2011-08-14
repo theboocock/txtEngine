@@ -39,12 +39,6 @@ void World::change_area(std::string name){
       }
    }
 }
-void World::command(std::string command){
-   Item* item;
-   if(active_area->has_item(command)){
-      item = active_area->get_item(command);
-   }
-}
 World::World(const char *lang, const char *auth, const char *init_area){
    language = lang;
    author = auth;
