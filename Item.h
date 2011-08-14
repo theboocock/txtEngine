@@ -20,6 +20,7 @@ class Item{
  public:
    bool has_description(std::string desc_id);
    bool has_current_desc();
+   bool has_synonym(std::string);
    std::string get_description();
    void add_description(StateDescriptor *desc);
    void change_collectable(bool flip);
@@ -32,7 +33,7 @@ class Item{
    int get_num_descriptions();
    StateDescriptor *get_descriptor(int index);
    void state_change(std::string to_change);
-   Item(bool collect, const char *identifier, const char *initial_state, std::vector<std::String> *synonyms);
+   Item(bool collect, const char *identifier, const char *initial_state, std::vector<std::string> *synonyms);
    ~Item();
 };
 

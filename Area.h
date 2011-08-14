@@ -2,6 +2,7 @@
 #define _AREA_H
 #include <string>
 #include <vector>
+#include <iostream>
 #include "Item.h"
 #include "StateDescriptor.h"
 #include "AreaCommand.h"

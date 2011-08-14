@@ -2,7 +2,7 @@
 
 bool Area::has_description(std::string desc_id){
    for(int desc = 0; desc < num_descriptions; desc++){
-      if(!strcmp(description[desc]->get_id().c_str(), desc_id.c_str())){
+      if(!description[desc]->get_id().compare(desc_id)){
          return true;
       }
    }
@@ -20,7 +20,7 @@ int Area::get_num_items(){
    
 std::string Area::get_description(){
    for(int desc = 0; desc < num_descriptions; desc++){
-      if(!strcmp(description[desc]->get_id().c_str(),curr_desc_id.c_str() )){
+      if(!description[desc]->get_id().compare(curr_desc_id)){
          return description[desc]->get_description();
       }
    }
@@ -45,20 +45,25 @@ bool Area::has_item(std::string item_to_find){
       if(items[item_num]->get_id().compare(item_to_find) == 0){
          
          return true;
-      } else {
-         check synonoyms;
-      }
+      } else if(items[item_num]->has_synonym(item_to_find)){
+            return items[item_num];
+         }
    }
    return false;
 }
 Item *Area::get_item(std::string item_id){
    for(unsigned int item_num = 0; item_num < items.size(); item_num++){
+      std::cout << "dasdas" << std::endl;
       if(items[item_num]->get_id().compare(item_id) == 0){
          return items[item_num];
       }
-   }
+      else if(items[item_num]->has_synonym(item_id)){
+            return items[item_num];
+         }
+      }
    return NULL;
 }
+   
 void Area::add_description(StateDescriptor *desc){
    description.push_back(desc);
    num_descriptions++;

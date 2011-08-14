@@ -27,17 +27,18 @@ World *read_file(const char* pFilename, World *world){
 }
 
 void string_explode(std::string str, std::string seperator, std::vector<std::string> *result){
-   int found;
-   found  str.find_first_of(seperator);
-   while(found != string::pos){
+   unsigned int found;
+   result = new std::vector<std::string>();
+   found =  str.find_first_of(seperator);
+   while(found != std::string::npos){
       if(found > 0){
-         result->push_back(str.substr(0, found));
+         (*result).push_back(str.substr(0, found));
       }
    str = str.substr(found+1);
    found = str.find_first_of(seperator);
    }
    if(str.length() > 0){
-      result->push_back(str);
+      (*result).push_back(str);
    }
 }
 
@@ -269,7 +270,7 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
 
 Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world){
    TiXmlNode* pChild;
-   const char *item_id = "invlaid", *error_tag = MISSING_TAGS,
+   const char *item_id = "invalid", *error_tag = MISSING_TAGS,
       *item_init_desc = INVALID, *synonyms = NONE;
    int attributesFound =0;
    bool has_id = false, item_collectable = false, has_collec = false,

@@ -1,8 +1,9 @@
 #include "Item.h"
+#include <iostream>
 
 bool Item::has_description(std::string desc_id){
    for(int desc = 0; desc < num_descriptions; desc++){
-      if(!strcmp(description[desc]->get_id().c_str(), desc_id.c_str())){
+      if(!description[desc]->get_id().compare(desc_id)){
          return true;
       }
    }
@@ -12,9 +13,22 @@ bool Item::has_description(std::string desc_id){
 bool Item::has_current_desc(){
    return has_description(curr_desc_id);
 }
+
+bool Item::has_synonym(std::string item){
+   std::vector<std::string>& synonymsRef = *synonyms;
+   std::cout << "checking synonyms" << std::endl;
+   if(synonyms == NULL){
+      return false;
+   }
+   for(unsigned int count = 0; count < synonyms->size(); count++){
+      if(!synonymsRef[count].compare(item)){
+         return true;
+      }
+   } return false;    
+}
 std::string Item::get_description(){
    for(int desc = 0; desc < num_descriptions; desc++){
-      if(!strcmp(description[desc]->get_id().c_str(),curr_desc_id.c_str())){
+      if(!description[desc]->get_id().compare(curr_desc_id)){
          return description[desc]->get_description();
       }
    }
@@ -72,13 +86,13 @@ StateDescriptor *Item::get_descriptor(int index){
 void Item::state_change(std::string to_change){
    curr_desc_id = to_change;
 }
-Item::Item(bool collect, const char *identifier, const char *initial_state, std::vector<std::String> *synonyms){
+Item::Item(bool collect, const char *identifier, const char *initial_state, std::vector<std::string> *synonyms){
    collectable = collect;
    id = identifier;
    num_descriptions = 0;
    num_commands = 0;
    curr_desc_id = initial_state;
-   this.synonyms = synonyms;
+   this->synonyms = synonyms;
 }
 Item::~Item(){
    for(unsigned int command_num = 0; command_num < commands.size(); command_num++){
