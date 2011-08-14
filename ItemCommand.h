@@ -16,6 +16,7 @@
 #ifndef _ITEM_COMMAND_H
 #define _ITEM_COMMAND_H
 
+#include "Constants.h"
 #include <vector>
 #include <string>
 

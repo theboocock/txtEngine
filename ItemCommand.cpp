@@ -1,3 +1,4 @@
+
 #include "ItemCommand.h"
 #include <iostream>
 
@@ -67,7 +68,7 @@ bool ItemCommand::check_synonyms(std::string command){
 }
 
 bool ItemCommand::unlocks(){
-   if(unlock.compare("none")==0){
+   if(unlock.compare(NONE)==0){
       return false;
    }
    return true;
