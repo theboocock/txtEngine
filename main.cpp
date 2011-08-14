@@ -207,9 +207,8 @@ void gameloop() {
         if(last_area.compare(world->get_active_area()->get_id()) != 0) {
             last_area = world->get_active_area()->get_id();
             sin << world->get_active_area()->get_description();
-            std::cout << world->get_active_area()->get_status() << std::endl;
+            //std::cout << world->get_active_area()->get_status() << std::endl;
             if(!strcmp(world->get_active_area()->get_status().c_str(), WIN) || !strcmp(world->get_active_area()->get_status().c_str(), DIE)) {
-                std::cout << "got here\n";
                 game_over = true;
                 }
             else {
