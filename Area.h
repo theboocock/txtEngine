@@ -1,4 +1,3 @@
-// $Id$
 /**
  * @file Area.h
  * Area.h defines the methods for the Area.cpp source file.
@@ -11,7 +10,6 @@
  * @author Tatai Nikora
  * @version 0.3
  */
-// $Log$
 
 #ifndef _AREA_H
 #define _AREA_H

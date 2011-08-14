@@ -1,25 +1,69 @@
-// $Id$
 /**
  * @file Main.cpp
  * Main file for the game. 
  *
- * @brief Defines the Area class.
+ * @licence Open-source
+ * @date 14/08/2011
+ * @brief The main file for txtEngine.
  *
  * @author Michael Abrams
  * @author James Boocock
  * @author Toby Herbert
  * @author Tatai Nikora
  * @version 0.3
- * @remark Parser code is not mine using freely distributed TinYXML library
+ * @remark Parser code is freely distributed TinyXML library
  *
  */
-// $Log$
+
+/*! \mainpage Documentation for the txtEngine Project
+ *
+ * \section date_sec Date Updated:
+ * 14-08-2011
+ *
+ * \section about_sec What is txtEngine?
+ * txtEngine is an interpreter for text only adventure games. Games are
+ * written using the XML language making it easy for anyone to write and
+ * play their own games.
+ *
+ * \section links_sec Links:
+ *
+ * <ul>
+ * <li>txtEngine Project Site on Github:
+ * <a href="https://github.com/smilefreak/txtEngine">
+ * https://github.com/smilefreak/txtEngine</a><br></li>
+ *
+ * <li>Facebook Fanpage: <a href="http://www.facebook.com/txtEngine">
+ * http://www.facebook.com/txtEngine</a><br></li>
+ *
+ * <li>TinyXML Documentation:
+ * <a href="http://www.grinninglizard.com/tinyxmldocs/index.html">
+ * http://www.grinninglizard.com/tinyxmldocs/index.html</a><br></li>
+ * </ul>
+ *
+ * \section bugs_sec Report Bugs:
+ * Please report any bugs here:
+ * <a href="https://github.com/smilefreak/txtEngine/issues">
+ * https://github.com/smilefreak/txtEngine/issues</a><br>
+ *
+ * \section author_sec Authors:
+ * Toby Herbert, Michael Abrams, James Boocock, Tatai Nikora
+ * 
+ * 
+ */
+
+//------------------------------------------------------------------------------
+/*Method signatures */
+//------------------------------------------------------------------------------
 
 #include <iostream>
 #include <sstream>
 #include <algorithm>
 #include <string>
 #include "parser.h"
+
+//------------------------------------------------------------------------------
+/*Define hardcoded values */
+//------------------------------------------------------------------------------
 
 #define DEFAULT_VALUE "default_value"
 #define MAX_CHARACTERS_PER_LINE 80
@@ -42,18 +86,91 @@
 #define HELP "help"
 #define HELP_COMMAND "Schrodinger says the cat is both dead and alive."
 
-bool game_over = false;
-
-/*Method signatures */
-void gameloop();
-std::string two_word_command(std::string command1, std::string command2);
-std::string one_word_command(std::string command);
-void print_inventory();
-std::string word_wrap(std::string input_string);
+//------------------------------------------------------------------------------
+/* Global Variables */
+//------------------------------------------------------------------------------
 
 World *world;
+bool game_over = false;
 
-// load the named file and dump its structure to STDOUT
+//------------------------------------------------------------------------------
+/* Method Prototypes */
+//------------------------------------------------------------------------------
+
+/**
+   @brief The main gameloop.
+*/
+void gameloop();
+
+/**
+     Write description of function here.
+     The function should follow these comments.
+     Use of "brief" tag is optional. (no point to it)
+     
+     The function arguments listed with "param" will be compared 
+     to the declaration and verified.
+     
+     @param[in]     _inArg1 Description of first function argument.
+     @param[out]    _outArg2 Description of second function argument.
+     @param[in,out] _inoutArg3 Description of third function argument.
+     @return Description of returned value.
+     */
+std::string one_word_command(std::string command);
+
+/**
+     Write description of function here.
+     The function should follow these comments.
+     Use of "brief" tag is optional. (no point to it)
+     
+     The function arguments listed with "param" will be compared 
+     to the declaration and verified.
+     
+     @param[in] command1 The first word.
+     @param[in] command2 The second word.
+     @return A string
+     */
+std::string two_word_command(std::string command1, std::string command2);
+
+/**
+     Write description of function here.
+     The function should follow these comments.
+     Use of "brief" tag is optional. (no point to it)
+     
+     The function arguments listed with "param" will be compared 
+     to the declaration and verified.
+     
+     @param[in]     _inArg1 Description of first function argument.
+     @param[out]    _outArg2 Description of second function argument.
+     @param[in,out] _inoutArg3 Description of third function argument.
+     @return Description of returned value.
+     */
+void print_inventory();
+
+/**
+     Write description of function here.
+     The function should follow these comments.
+     Use of "brief" tag is optional. (no point to it)
+     
+     The function arguments listed with "param" will be compared 
+     to the declaration and verified.
+     
+     @param[in]     _inArg1 Description of first function argument.
+     @param[out]    _outArg2 Description of second function argument.
+     @param[in,out] _inoutArg3 Description of third function argument.
+     @return Description of returned value.
+     */
+std::string word_wrap(std::string input_string);
+
+/**
+   This method is used for debug purposes only:
+   Prints out the parsed XML file in a tree structure.
+*/
+void print_world_tree();
+
+//------------------------------------------------------------------------------
+/* Method Definitions */
+//------------------------------------------------------------------------------
+
 void print_world_tree(){
    std::ostringstream sin;
    sin << "World:\n";
@@ -316,10 +433,11 @@ int main(int argc, char** argv){
       do{
          world = read_file(argv[1], world);
          if(world != NULL){
+            /*Debug Only*/
             //print_world_tree();
             gameloop();
             delete world;         
-            std::cout << "Would you like to play again? (please enter yes for arrfirmative)" << std::endl;
+            std::cout << "Would you like to play again? (please enter yes for affirmative)" << std::endl;
             std::getline (std::cin,userinput);  
             game_over = true;
             if(!userinput.compare("yes")){

@@ -22,7 +22,7 @@
     <areacommand name="east" area="furnaceroom" depends="lamp">
       The smell of coal fills your nostrils and you feel like you are walking into the sun. 
     </areacommand>
-    <item id="lamp" initialdescription="onpodium" collectable ="true" synonyms="torch,light">
+    <item id="lamp" initialdescription="onpodium" collectable ="true" synonyms="torch,light,flashlight">
       <statedescriptor id="onpodium">
         In the center of the room on top of a shoulder height podium a lamp glows so brightly you imagine that it has been
         glowing for thousands of years. Then you realise that thought is ridiculous. The intricate design on the hold suggest 
@@ -35,7 +35,7 @@
       <statedescriptor id="dropped">
         A glowing lamp lying amongst the rubble.
       </statedescriptor>
-      <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
+      <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory" unlock="startchamber/east">
         You grab the lamp and the light is warm and comforting.
       </itemcommand>
       <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="NONE" >
