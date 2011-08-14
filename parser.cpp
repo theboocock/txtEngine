@@ -27,11 +27,10 @@ World *read_file(const char* pFilename, World *world){
 }
 
 void string_explode(std::string str, std::string seperator, std::vector<std::string> *result){
-   unsigned int found;
+   size_t found;
    result = new std::vector<std::string>();
-   found =  str.find_first_of(seperator);
-   while(found != std::string::npos){
-      if(found > 0){
+   found = str.find_first_of(seperator);
+   while(found != std::string::npos){      if(found > 0){
          (*result).push_back(str.substr(0, found));
       }
    str = str.substr(found+1);
@@ -46,12 +45,14 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    TiXmlNode* pChild;
    const char *error_tag = MISSING_TAGS, 
       *command_name = INVALID, *command_state = INVALID,
-      *command_area = INVALID, *command_status = NONE, *command_depends = NONE;
+      *command_area = INVALID, *command_status = NONE, *command_depends = NONE,
+      *synonyms = NULL;
    int attributesFound = 0;
    bool has_name = false, has_state = false, command_chg_col = true, command_dep =true,
       has_collect = false, has_collec_dep = false, has_area = false, has_status = false,
-      has_depends = false;
+      has_depends = false, has_synonyms;
    ItemCommand *item_command = NULL;
+   std::vector<std::string> *synonyms_vec = NULL;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes){
@@ -111,7 +112,14 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
             error_tag = "More than one status tag";
          }
          has_status = true;
-      } else{
+      } else if (!strcmp(attributes->Name(), "synonyms")){
+         synonyms = attributes->Value();
+         string_explode(synonyms, SEPERATOR, synonyms_vec);
+         if(has_synonyms){
+            error_tag = "More than one synonyms tags.";
+         }
+         has_synonyms = true;
+      }  else{
          error_tag = attributes->Name();
          fprintf(stderr, "Unknown tag.\n");
          attributesFound++;
