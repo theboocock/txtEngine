@@ -36,6 +36,7 @@
         A glowing lamp lying amongst the rubble.
       </statedescriptor>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory" unlock="startchamber/west">
 =======
 <<<<<<< HEAD
@@ -44,10 +45,12 @@
         You grab the lamp and the light is warm and comforting.
 =======
       <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
+=======
+      <itemcommand name="get" synonyms="fetch,grab,pickup" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
+>>>>>>> 82bf9feca4fb2e684b8c97d53c533d3535dac2ad
         You pick up the lamp the light is warm and comforting.
->>>>>>> baff60446a9bdc9e6b5ec44c3b271d18264bfb1d
       </itemcommand>
-      <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="NONE" >
+      <itemcommand name="drop" synonyms="throw,chuck,toss,remove" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="NONE" >
         You dropped the lamp. The floor is now illuminated - nice shoes for a charity man. You can't see shit now though!
         If you are planning on navigating you may want to get the lamp.
       </itemcommand>
