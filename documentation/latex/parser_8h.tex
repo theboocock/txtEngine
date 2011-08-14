@@ -1,0 +1,66 @@
+\hypertarget{parser_8h}{
+\section{/home/cshome/m/mabrams/345/txtEngine/parser.h File Reference}
+\label{parser_8h}\index{/home/cshome/m/mabrams/345/txtEngine/parser.h@{/home/cshome/m/mabrams/345/txtEngine/parser.h}}
+}
+
+
+Describes the Parser Class.  
+
+
+{\ttfamily \#include $<$iostream$>$}\par
+{\ttfamily \#include $<$sstream$>$}\par
+{\ttfamily \#include $<$string$>$}\par
+{\ttfamily \#include \char`\"{}tinyxml.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}World.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{parser_8h_a7a5f1ed2df578bb7630502a2a0c40f5e}{
+void {\bfseries error\_\-parsing} (std::string error\_\-string, \hyperlink{class_world}{World} $\ast$world)}
+\label{parser_8h_a7a5f1ed2df578bb7630502a2a0c40f5e}
+
+\item 
+\hypertarget{parser_8h_a2a662ae71857af8d6b9546479a6877ed}{
+\hyperlink{class_item_command}{ItemCommand} $\ast$ {\bfseries make\_\-item\_\-command} (\hyperlink{class_ti_xml_node}{TiXmlNode} $\ast$pCommand, const char $\ast$parent\_\-id, \hyperlink{class_world}{World} $\ast$world)}
+\label{parser_8h_a2a662ae71857af8d6b9546479a6877ed}
+
+\item 
+\hypertarget{parser_8h_a26bb113d0e19c9b78379bbde522c7e76}{
+\hyperlink{class_area_command}{AreaCommand} $\ast$ {\bfseries make\_\-area\_\-command} (\hyperlink{class_ti_xml_node}{TiXmlNode} $\ast$pCommand, const char $\ast$parent\_\-id, \hyperlink{class_world}{World} $\ast$world)}
+\label{parser_8h_a26bb113d0e19c9b78379bbde522c7e76}
+
+\item 
+\hypertarget{parser_8h_a77cd775cd350280b4e707ba439f01e07}{
+\hyperlink{class_state_descriptor}{StateDescriptor} $\ast$ {\bfseries make\_\-state\_\-descriptor} (\hyperlink{class_ti_xml_node}{TiXmlNode} $\ast$pDescription, const char $\ast$parent\_\-id, \hyperlink{class_world}{World} $\ast$world)}
+\label{parser_8h_a77cd775cd350280b4e707ba439f01e07}
+
+\item 
+\hypertarget{parser_8h_aa0a2a8e7e35261c36a5268b099b972c0}{
+\hyperlink{class_area}{Area} $\ast$ {\bfseries make\_\-area} (\hyperlink{class_ti_xml_node}{TiXmlNode} $\ast$pArea, int area\_\-index, \hyperlink{class_world}{World} $\ast$world)}
+\label{parser_8h_aa0a2a8e7e35261c36a5268b099b972c0}
+
+\item 
+\hypertarget{parser_8h_aa822a7164b884d2b057604a10a69f160}{
+\hyperlink{class_world}{World} $\ast$ {\bfseries make\_\-world} (\hyperlink{class_ti_xml_node}{TiXmlNode} $\ast$pParent, \hyperlink{class_world}{World} $\ast$world)}
+\label{parser_8h_aa822a7164b884d2b057604a10a69f160}
+
+\item 
+\hypertarget{parser_8h_a0770bb1cd7b266aa1bdaca961380244c}{
+\hyperlink{class_world}{World} $\ast$ {\bfseries make\_\-objects} (\hyperlink{class_ti_xml_node}{TiXmlNode} $\ast$pParent, \hyperlink{class_world}{World} $\ast$world)}
+\label{parser_8h_a0770bb1cd7b266aa1bdaca961380244c}
+
+\item 
+\hypertarget{parser_8h_a56cad0ffafea1cb6e859d550e423d599}{
+\hyperlink{class_world}{World} $\ast$ {\bfseries read\_\-file} (const char $\ast$pFilename, \hyperlink{class_world}{World} $\ast$world)}
+\label{parser_8h_a56cad0ffafea1cb6e859d550e423d599}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Describes the Parser Class. 2011/08/14  Open-\/source \begin{DoxyAuthor}{Author}
+Michael Abrams, Toby Herbert, James Boocock, Tatai Nikora 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2011/08/10 
+\end{DoxyDate}

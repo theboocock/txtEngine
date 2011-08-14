@@ -52,7 +52,7 @@
  */
 
 //------------------------------------------------------------------------------
-/*Method signatures */
+/* Include */
 //------------------------------------------------------------------------------
 
 #include <iostream>
@@ -60,31 +60,7 @@
 #include <algorithm>
 #include <string>
 #include "parser.h"
-
-//------------------------------------------------------------------------------
-/*Define hardcoded values */
-//------------------------------------------------------------------------------
-
-#define DEFAULT_VALUE "default_value"
-#define MAX_CHARACTERS_PER_LINE 80
-#define WIN "win"
-#define DIE "die"
-#define NONE "none"
-#define LOOK "look"
-#define BAG "bag"
-#define GO "go"
-#define INVENTORY "inventory"
-#define QUIT "quit"
-#define NORTH "north"
-#define N "n"
-#define SOUTH "south"
-#define S "s"
-#define EAST "east"
-#define E "e"
-#define WEST "west"
-#define W "w"
-#define HELP "help"
-#define HELP_COMMAND "Schrodinger says the cat is both dead and alive."
+#include "constants.h"
 
 //------------------------------------------------------------------------------
 /* Global Variables */

@@ -1,0 +1,51 @@
+initial_area
+
+west to collapsed_chamber
+north to furnace room
+east to path_room
+
+      You awaken in a sullen chamber with dim light overhead. You cannot remember how you got here but the stench of death
+      fills your nostrils, you begin to dry reach. "Get a hold of yourself lawrence," you say. There must be an explanation.
+      Things like this don't happen to good people. Especially not the founder of non for profit industries the world's largest
+      grossing charity. From starving African babies, to abortion clinics, to drug help and so on. Time to escape, Time to move
+      as you grow the courage to explore the chamber, you hear faint screams from a distance.
+
+      You scan the dimly lit room and you eye a collapsed wall to the east that is small enough for you to crawl through.
+      To the north is a archway with a nice looking cobblestone path it looks much safer than the east.
+      To the west a studded metal door is swung ajar, you can enter through the door but you are weary of the entrance as you can
+      hear the roar of a fire in the distance.
+
+collapsed chamber
+
+Torch off:
+You can't see anything!
+
+Torch on:
+As you scan your torch from left to right you realise you're in the middle of a huge exogorth nest. Those smelly exogorths sure have been
+busy digging! Its ok though, the nest is abandoned, phew! But what a state! There's faecal matter everywhere! You better get the heck out
+of here before you catch a nasty case of pink eye.
+Item: Exogorth faeces
+
+furnace_room
+
+path_room
+
+
+
+death states: 7
+
+middle death state: firing range
+
+a never ending pit:
+
+ You fall into a pit and died of starvation. Your body is still falling however and will never get a proper
+ burial. Shame.
+
+sweat shop: forced to sew forever
+
+ There's a lot of people crammed in here and the mood is tense. Angry henchmen come and take you to
+ a workstation. It has everything you need! The seat is a toilet, there is a straw delivering water
+ straight to your mouth and an industrial sewing machine with needles that wont break! Just what you
+ always wanted! You're strapped into the chair and whipped repetedly until you begin to sew. Wow,
+ not a career you had imagined eh? YOU DIED OF RSI!
+ 
