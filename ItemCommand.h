@@ -16,9 +16,9 @@ class ItemCommand{
    bool change_collect, collect_dependent;
    
  public:
-   ItemCommand(const char * callmeby, const char * state_mutator,
-               bool chng_collec, bool collec_dep, const char *area_chng,
-               const char* status_command, const char* depends);
+   ItemCommand(const char * callmeby, const char * state_mutator, bool chng_collec,
+               bool collec_dep, const char *area_chng, const char* status_command,
+               const char* depends, std::vector<std::string> * synonyms);
    std::string get_depends();
    bool get_change_collect();
    bool get_collect_dependent();

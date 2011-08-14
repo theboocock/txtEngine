@@ -128,7 +128,9 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
       attributes = attributes->Next();
    }
    if(ITEM_COMMAND_ATTRIBUTES == attributesFound && has_collec_dep && has_name && has_state && has_area && has_collect){
-      item_command = new ItemCommand(command_name, command_state, command_chg_col, command_dep, command_area, command_status, command_depends);
+      item_command = new ItemCommand(command_name, command_state, command_chg_col,
+                                     command_dep, command_area, command_status,
+                                     command_depends, synonyms_vec);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
             item_command->set_message(pChild->ToText()->Value());
@@ -209,7 +211,8 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
       attributes = attributes->Next();
    }
    if(AREA_COMMAND_ATTRIBUTES == attributesFound  && has_name && has_area){
-      area_command = new AreaCommand(command_name, command_area,command_status, command_depends);
+      area_command = new AreaCommand(command_name, command_area,command_status,
+                                     command_depends, synonyms_vec);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
             area_command->set_message(pChild->ToText()->Value());

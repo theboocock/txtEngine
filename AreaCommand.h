@@ -1,7 +1,8 @@
 #ifndef _AREA_COMMAND_H
 #define _AREA_COMMAND_H
 
-#include<string>
+#include <vector>
+#include <string>
 
 class AreaCommand{
  protected:
@@ -10,9 +11,10 @@ class AreaCommand{
    std::string message;
    std::string depends;
    std::string move_to_area;
+   std::vector<std::string> *synonyms;
    
  public:
-   AreaCommand(const char * callmeby, const char * areatomoveto,const char * status_command, const char * depends_command);
+   AreaCommand(const char * callmeby, const char * areatomoveto,const char * status_command, const char * depends_command, std::vector<std::string> *synonyms);
    std::string get_depends();
    ~AreaCommand();
    std::string get_status();
