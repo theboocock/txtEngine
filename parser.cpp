@@ -46,7 +46,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    const char *error_tag = MISSING_TAGS, 
       *command_name = INVALID, *command_state = INVALID,
       *command_area = INVALID, *command_status = NONE, *command_depends = NONE,
-      *synonyms = NULL, *unlock = NONE;
+      *synonyms = NONE, *unlock = NONE;
    int attributesFound = 0;
    bool has_name = false, has_state = false, command_chg_col = true, command_dep =true,
       has_collect = false, has_collec_dep = false, has_area = false, has_status = false,
@@ -164,8 +164,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
 AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World *world){
    TiXmlNode* pChild;
    const char *error_tag = MISSING_TAGS, *command_depends = NONE,
-      *command_name = INVALID, *command_area = INVALID, *command_status = NONE,
-      *synonyms = NULL;
+      *command_name = INVALID, *command_area = INVALID, *command_status = NONE, *synonyms= NONE;
    int attributesFound = 0;
    bool has_name = false, has_area = false, has_status = false, has_depends = false,
       has_synonyms = false, has_locked = false, locked = false;

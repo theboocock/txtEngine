@@ -44,6 +44,7 @@ class AreaCommand{
       @param[in,out] _inoutArg3 Description of third function argument.
       @return Description of returned value.
    */
+
    AreaCommand(const char * callmeby, const char * areatomoveto,const char * status_command, const char * depends_command, std::vector<std::string> *synonyms, bool locked);
 
       /**
@@ -165,6 +166,8 @@ class AreaCommand{
      @return Description of returned value.
      */
    bool find(std::string to_find);
+   void unlock();
+   bool is_locked();
 };
 
 #endif

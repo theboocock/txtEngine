@@ -215,6 +215,12 @@ class ItemCommand{
      @return Description of returned value.
      */
    void set_message(const char *to_message);
+
+   bool unlocks();
+
+   std::string unlock_areacommand_string();
+
+   std::string unlock_area_string();
    
 };
 

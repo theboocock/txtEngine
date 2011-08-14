@@ -45,7 +45,7 @@ bool Area::has_item(std::string item_to_find){
       if(items[item_num]->get_id().compare(item_to_find) == 0){
          
          return true;
-      } else if(!items[item_num]->has_synonym(item_to_find)){
+      } else if(items[item_num]->has_synonym(item_to_find)){
             return items[item_num];
          }
    }
@@ -111,5 +111,15 @@ Area::~Area(){
    }
    for(unsigned int command_num = 0; command_num < commands.size(); command_num++){
       delete commands[command_num];
+   }
+}
+
+
+void Area::unlock(std::string area_command_id){
+   for(unsigned int c_num = 0; c_num < commands.size(); c_num++){
+      if(!commands[c_num]->get_name().compare(area_command_id)){
+         commands[c_num]->unlock();
+      }
+
    }
 }
