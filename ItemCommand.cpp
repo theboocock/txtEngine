@@ -3,7 +3,7 @@
 ItemCommand::ItemCommand(const char * callmeby, const char * state_mutator,
                          bool chng_collec, bool collec_dep, const char *area_chng,
                          const char* status_command, const char* depends,
-                         std::vector<std::string> *syns){
+                         std::vector<std::string> *syns, std::string unlocks){
    name = callmeby;
    this->depends = depends;
    state_change = state_mutator;
@@ -13,6 +13,7 @@ ItemCommand::ItemCommand(const char * callmeby, const char * state_mutator,
    status = status_command;
    message = "";
    synonyms = syns;
+   unlock = unlocks;
 }
 std::string ItemCommand::get_depends(){
    return depends;

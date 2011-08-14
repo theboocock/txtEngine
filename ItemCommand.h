@@ -27,6 +27,7 @@ class ItemCommand{
    std::string area_change;
    std::string depends;
    std::string status;
+   std::string unlock;
    std::vector<std::string> *synonyms;
    bool change_collect, collect_dependent;
    
@@ -48,7 +49,7 @@ class ItemCommand{
    ItemCommand(const char * callmeby, const char * state_mutator,
                bool chng_collec, bool collec_dep, const char *area_chng,
                const char* status_command,const char* depends,
-               std::vector<std::string> * synonyms);
+               std::vector<std::string> * synonyms, std::string unlock);
 
     /**
      Write description of function here.

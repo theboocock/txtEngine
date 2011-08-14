@@ -46,11 +46,11 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    const char *error_tag = MISSING_TAGS, 
       *command_name = INVALID, *command_state = INVALID,
       *command_area = INVALID, *command_status = NONE, *command_depends = NONE,
-      *synonyms = NULL;
+      *synonyms = NULL, *unlock = NULL;
    int attributesFound = 0;
    bool has_name = false, has_state = false, command_chg_col = true, command_dep =true,
       has_collect = false, has_collec_dep = false, has_area = false, has_status = false,
-      has_depends = false, has_synonyms = false;
+      has_depends = false, has_synonyms = false, has_unlock = false;
    std::vector<std::string> *synonyms_vec = NULL;
    ItemCommand *item_command = NULL;
    TiXmlElement *element = pCommand->ToElement();
@@ -64,34 +64,34 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
          }
          attributesFound++;
          if(has_collect){
-            error_tag = "More than one change collectable tag";
+            error_tag = "More than one change collectable tag for an item.";
          }
          has_collect = true;
       } else if(!strcmp(attributes->Name(), "name")){
          command_name = attributes->Value();
          attributesFound++;
          if(has_name){
-            error_tag = "More than one name tag";
+            error_tag = "More than one name tag for an item.";
          }
          has_name = true;
       } else if(!strcmp(attributes->Name(), "depends")){
          command_depends = attributes->Value();
          if(has_depends){
-            error_tag = "More than one depends tag";
+            error_tag = "More than one depends tag for an item.";
          }
          has_depends = true;
       } else if(!strcmp(attributes->Name(), "statedescription")) {
          command_state = attributes->Value();
          attributesFound++;
          if(has_state){
-            error_tag = "More than one state description tag.";
+            error_tag = "More than one state description tag for an item.";
          }
          has_state = true;
       } else if(!strcmp(attributes->Name(), "areachange")) {
          command_area = attributes->Value();
          attributesFound++;
          if(has_area){
-            error_tag = "More than one change collectable tag.";
+            error_tag = "More than one change collectable tag for an item.";
          }
          has_area = true;
       } else if(!strcmp(attributes->Name(), "collectabledependent")) {
@@ -102,24 +102,29 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
          }
          attributesFound++;
          if(has_collec_dep){
-            error_tag = "More than one collectable dependent tag.";
+            error_tag = "More than one collectable dependent tag for an item.";
          }
          has_collec_dep = true;
 
       }else if (!strcmp(attributes->Name(), "status")){
          command_status = attributes->Value();
          if(has_status){
-            error_tag = "More than one status tag";
+            error_tag = "More than one status tag for an item.";
          }
          has_status = true;
       } else if (!strcmp(attributes->Name(), "synonyms")){
          synonyms = attributes->Value();
          string_explode(synonyms, SEPERATOR, synonyms_vec);
          if(has_synonyms){
-            error_tag = "More than one synonyms tags.";
+            error_tag = "More than one synonyms tags for an item.";
          }
          has_synonyms = true;
-      }  else{
+      } else if(!strcmp(attributes->Name(), "unlock")){
+         unlock = attributes->Value();
+         if(has_unlock){
+            error_tag = "More than one unlock tag for an item.";
+         }
+      } else {
          error_tag = attributes->Name();
          fprintf(stderr, "Unknown tag.\n");
          attributesFound++;
@@ -129,7 +134,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    if(ITEM_COMMAND_ATTRIBUTES == attributesFound && has_collec_dep && has_name && has_state && has_area && has_collect){
       item_command = new ItemCommand(command_name, command_state, command_chg_col,
                                      command_dep, command_area, command_status,
-                                     command_depends, synonyms_vec);
+                                     command_depends, synonyms_vec, unlock);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
             item_command->set_message(pChild->ToText()->Value());
@@ -163,7 +168,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
       *synonyms = NULL;
    int attributesFound = 0;
    bool has_name = false, has_area = false, has_status = false, has_depends = false,
-      has_synonyms = false;
+      has_synonyms = false, has_locked = false, locked = false;
    std::vector<std::string> *synonyms_vec = NULL;
    AreaCommand *area_command = NULL;
    TiXmlElement *element = pCommand->ToElement();
@@ -202,7 +207,15 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
             error_tag = "More than one synonyms tags.";
          }
          has_synonyms = true;
-      }  else{
+      } else if(!strcmp(attributes->Name(), "locked")){
+         if(!strcmp(attributes->Value(), "true")){
+            locked = true;
+         }
+         if(has_locked){
+            error_tag = "More than one locked tag.";
+         }
+         has_locked = true;
+      } else{
          error_tag = attributes->Name();
          fprintf(stderr, "found something but shouldnt have in make_area_command.\n");
          attributesFound++;
@@ -211,7 +224,7 @@ AreaCommand *make_area_command(TiXmlNode *pCommand, const char *parent_id, World
    }
    if(AREA_COMMAND_ATTRIBUTES == attributesFound  && has_name && has_area){
       area_command = new AreaCommand(command_name, command_area,command_status,
-                                     command_depends, synonyms_vec);
+                                     command_depends, synonyms_vec, locked);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT){
             area_command->set_message(pChild->ToText()->Value());
