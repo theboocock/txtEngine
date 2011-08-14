@@ -35,10 +35,10 @@
       <statedescriptor id="dropped">
         A glowing lamp lying amongst the rubble.
       </statedescriptor>
-      <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
+      <itemcommand name="get" synonym="fetch,grab,pickup" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
         You pick up the lamp the light is warm and comforting.
       </itemcommand>
-      <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="NONE" >
+      <itemcommand name="drop" synonym="throw,chuck,toss,remove" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="NONE" >
         You dropped the lamp. The floor is now illuminated - nice shoes for a charity man. You can't see shit now though!
         If you are planning on navigating you may want to get the lamp.
       </itemcommand>
