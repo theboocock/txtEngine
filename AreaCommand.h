@@ -16,7 +16,8 @@
 #ifndef _AREA_COMMAND_H
 #define _AREA_COMMAND_H
 
-#include<string>
+#include <vector>
+#include <string>
 
 class AreaCommand{
  protected:
@@ -25,26 +26,27 @@ class AreaCommand{
    std::string message;
    std::string depends;
    std::string move_to_area;
+   std::vector<std::string> *synonyms;
    
  public:
 
    /**
-     Write description of function here.
-     The function should follow these comments.
-     Use of "brief" tag is optional. (no point to it)
+      Write description of function here.
+      The function should follow these comments.
+      Use of "brief" tag is optional. (no point to it)
      
-     The function arguments listed with "param" will be compared 
-     to the declaration and verified.
+      The function arguments listed with "param" will be compared 
+      to the declaration and verified.
      
-     @param[in]     _inArg1 Description of first function argument.
-     @param[out]    _outArg2 Description of second function argument.
-     @param[in,out] _inoutArg3 Description of third function argument.
-     @return Description of returned value.
-     */
-   AreaCommand(const char * callmeby, const char * areatomoveto,
-               const char * status_command, const char * depends_command);
+      @param[in]     _inArg1 Description of first function argument.
+      @param[out]    _outArg2 Description of second function argument.
+      @param[in,out] _inoutArg3 Description of third function argument.
+      @return Description of returned value.
+   */
+   AreaCommand(const char * callmeby, const char * areatomoveto,const char * status_command, const char * depends_command, std::vector<std::string> *synonyms);
+   std::string get_depends();
 
-   /**
+      /**
       Write description of function here.
       The function should follow these comments.
       Use of "brief" tag is optional. (no point to it)
