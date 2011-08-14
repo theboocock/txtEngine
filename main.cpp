@@ -1,8 +1,19 @@
+// $Id$
 /**
- *  Parser code is not mine using freely distributed TinYXML library
- * @author James Boocock, Toby Herbert, Mike Abrams
+ * @file Main.cpp
+ * Main file for the game. 
  *
- **/
+ * @brief Defines the Area class.
+ *
+ * @author Michael Abrams
+ * @author James Boocock
+ * @author Toby Herbert
+ * @author Tatai Nikora
+ * @version 0.3
+ * @remark Parser code is not mine using freely distributed TinYXML library
+ *
+ */
+// $Log$
 
 #include <iostream>
 #include <sstream>
