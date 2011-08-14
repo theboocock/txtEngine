@@ -35,13 +35,8 @@
       <statedescriptor id="dropped">
         A glowing lamp lying amongst the rubble.
       </statedescriptor>
-<<<<<<< HEAD
-      <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory" unlock="startchamber/east">
-        You grab the lamp and the light is warm and comforting.
-=======
       <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
         You pick up the lamp the light is warm and comforting.
->>>>>>> baff60446a9bdc9e6b5ec44c3b271d18264bfb1d
       </itemcommand>
       <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="NONE" >
         You dropped the lamp. The floor is now illuminated - nice shoes for a charity man. You can't see shit now though!
