@@ -420,7 +420,7 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
       attributes=attributes->Next();
    }  
    if(attributesFound == AREA_ATTRIBUTES && has_desc && has_id){
-      area = new Area(area_id, desc_id, desc_id);
+      area = new Area(area_id, desc_id, area_status);
       for ( pChild = pArea->FirstChild(); pChild != 0; pChild = pChild->NextSibling()){
          if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT){
             if(!strcmp(pChild->Value(), "statedescriptor")){

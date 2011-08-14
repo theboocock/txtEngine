@@ -19,7 +19,7 @@
     <areacommand name="north" area="pathroom" depends="lamp">
       You walk along the cobblestone path, you feel the eyes of others upon you. You bolt to the next chamber and the lamp flickers.
     </areacommand>
-    <areacommand name="east" area="furnaceroom" depends="lamp" locked="true">
+    <areacommand name="east" area="furnaceroom" depends="lamp">
       The smell of coal fills your nostrils and you feel like you are walking into the sun. 
     </areacommand>
     <item id="lamp" initialdescription="onpodium" collectable ="true" synonyms="torch,light,flashlight">
@@ -35,10 +35,10 @@
       <statedescriptor id="dropped">
         A glowing lamp lying amongst the rubble.
       </statedescriptor>
-      <itemcommand name="get" synonym="fetch,grab,pickup" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
+      <itemcommand name="get" synonyms="fetch,grab,pickup" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
         You pick up the lamp the light is warm and comforting.
       </itemcommand>
-      <itemcommand name="drop" synonym="throw,chuck,toss,remove" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="NONE" >
+      <itemcommand name="drop" synonyms="throw,chuck,toss,remove" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="NONE" >
         You dropped the lamp. The floor is now illuminated - nice shoes for a charity man. You can't see shit now though!
         If you are planning on navigating you may want to get the lamp.
       </itemcommand>

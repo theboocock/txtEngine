@@ -207,7 +207,9 @@ void gameloop(){
       if(last_area.compare(world->get_active_area()->get_id()) != 0){
          last_area = world->get_active_area()->get_id();
          sin << world->get_active_area()->get_description();
+         std::cout << world->get_active_area()->get_status() << std::endl;
          if(!strcmp(world->get_active_area()->get_status().c_str(), WIN) || !strcmp(world->get_active_area()->get_status().c_str(), DIE)){
+            std::cout << "got here\n";
             game_over = true;
          } else {
             for(int items = 0; items < world->get_active_area()->get_num_items();items++){
@@ -241,8 +243,7 @@ void gameloop(){
             }
          } else {
             std::cout << "Please enter one or two word commands only" << std::endl;     
-         }
-         
+         }        
          std::cout << "\n" << word_wrap(commandstream.str());
       }
    }
