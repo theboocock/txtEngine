@@ -50,3 +50,16 @@ void AreaCommand::unlock() {
 bool AreaCommand::is_locked() {
     return locked;
     }
+
+bool AreaCommand::has_synonym(std::string item) {
+   std::vector<std::string>& synonymsRef = *synonyms;
+   if(synonyms == NULL) {
+      return false;
+   }
+   for(unsigned int count = 0; count < synonyms->size(); count++) {
+      if(synonymsRef[count].compare(item) == 0) {
+         return true;
+      }
+   }
+   return false;
+}

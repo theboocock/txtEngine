@@ -166,6 +166,7 @@ class AreaCommand {
         bool find(std::string to_find);
         void unlock();
         bool is_locked();
+        bool has_synonym(std::string item);
     };
 
 #endif
