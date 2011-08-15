@@ -147,6 +147,8 @@ void print_world_tree();
 void load_game();
 void save_game();
 
+std::string save;
+
 //------------------------------------------------------------------------------
 /* Method Definitions */
 //------------------------------------------------------------------------------
@@ -239,7 +241,7 @@ void gameloop() {
                         }
                     }
                 else {
-                    std::string from_one_word = one_word_command(command1);
+                   std::string from_one_word = two_word_command(GO,command1);
                     if(!strcmp(from_one_word.c_str(), DEFAULT_VALUE)) {
                         last_area = DEFAULT_VALUE;
                         }
