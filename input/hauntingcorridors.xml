@@ -13,14 +13,14 @@
       To the west a studded metal door swung ajar, you can enter through the door but you are weary of the entrance as you can
       hear the roar of a fire in the distance.
     </statedescriptor>
-    <areacommand name="west" area="collapsedchamber" depends="lamp">
+    <areacommand name="west" area="collapsedchamber" depends="lamp" locked="true">
       You crawl through the gap in the collapsed wall and skuttle through a narrow passage, that look's like it has been dug out by a tiny exogorths. 
     </areacommand>
     <areacommand name="north" area="pathroom" depends="lamp">
       You walk along the cobblestone path, you feel the eyes of others upon you. You bolt to the next chamber and the lamp flickers.
     </areacommand>
     <areacommand name="east" area="furnaceroom" depends="lamp">
-      The smell of coal fills your nostrils and you feel like you are walking into the sun. 
+      The smell of coal fills your nostrils and you feel like you are walking into the sun.
     </areacommand>
     <item id="lamp" initialdescription="onpodium" collectable ="true" synonyms="torch,light,flashlight">
       <statedescriptor id="onpodium">
