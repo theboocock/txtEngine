@@ -207,7 +207,6 @@ void gameloop() {
         if(last_area.compare(world->get_active_area()->get_id()) != 0) {
             last_area = world->get_active_area()->get_id();
             sin << world->get_active_area()->get_description();
-            //std::cout << world->get_active_area()->get_status() << std::endl;
             if(!strcmp(world->get_active_area()->get_status().c_str(), WIN) || !strcmp(world->get_active_area()->get_status().c_str(), DIE)) {
                 game_over = true;
                 }
@@ -303,7 +302,6 @@ std::string two_word_command(std::string command1, std::string command2) {
                 }
             }
         else {
-            std::cout << temp_item->get_id() << std::endl;
             result << "There is no command ";
             result << command1;
             result << " for item ";
