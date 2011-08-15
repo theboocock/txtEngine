@@ -5,7 +5,7 @@
  * @licence Open-source
  * @date 14/08/2011
  * @brief The main file for txtEngine.
- *
+ * 
  * @author Michael Abrams
  * @author James Boocock
  * @author Toby Herbert
@@ -69,6 +69,7 @@
 
 World *world;
 bool game_over = false;
+std::vector<std::string> commandList;
 
 //------------------------------------------------------------------------------
 /* Method Prototypes */
@@ -225,39 +226,39 @@ void gameloop() {
             std::cout << word_wrap(sin.str())<<word_wrap(itemstream.str());
         }
         if(!game_over) {
-           std::cout << ">>";
-           std::string line;
-           std::getline(std::cin, line);
-           std::string command1 , command2;
-           std::string checkmorewords;
-           std::istringstream iss(line);
-           if(iss >> command1) {
-              if (iss >> command2) {
-                 if(!(iss >> checkmorewords)) {
-                    commandstream << two_word_command(command1 ,command2);
-                 }
-                 else {
-                    std::cout << "Please enter one or two word commands only" << std::endl;
-                 }
-              }
-              else {
-                 std::string from_one_word = two_word_command(GO,command1);
-                 if(!strcmp(from_one_word.c_str(), DEFAULT_VALUE)) {
-                    last_area = DEFAULT_VALUE;
-                 }
-                 else {
-                    commandstream << from_one_word;
-                 }
-              }
-           }
-           else {
-              std::cout << "Please enter one or two word commands only" << std::endl;
-           }
-           std::cout << "\n" << word_wrap(commandstream.str());
+            std::cout << ">>";
+            std::string line;
+            std::getline(std::cin, line);
+            std::string command1 , command2;
+            std::string checkmorewords;
+            std::istringstream iss(line);
+            commandList.push_back(line);
+            if(iss >> command1) {
+                if (iss >> command2) {
+                    if(!(iss >> checkmorewords)) {
+                        commandstream << two_word_command(command1 ,command2);
+                        }
+                    else {
+                        std::cout << "Please enter one or two word commands only" << std::endl;
+                        }
+                    }
+                else {
+                    std::string from_one_word = one_word_command(command1);
+                    if(!strcmp(from_one_word.c_str(), DEFAULT_VALUE)) {
+                        last_area = DEFAULT_VALUE;
+                        }
+                    else {
+                        commandstream << from_one_word;
+                        }
+                    }
+                }
+            else {
+                std::cout << "Please enter one or two word commands only" << std::endl;
+                }
+            std::cout << "\n" << word_wrap(commandstream.str());
+            }
         }
     }
-
-}
 
 std::string two_word_command(std::string command1, std::string command2) {
     std::ostringstream result;
@@ -390,6 +391,19 @@ std::string one_word_command(std::string command) {
     if(!command.compare(LOOK)) {
         return DEFAULT_VALUE;
         }
+    if (!command.compare(SAVE)) {
+        std::ofstream saveFile;
+        std::cout << "Please enter a save filename: " << std::endl;
+        std::string filename;
+        getline(std::cin, filename);
+        saveFile.open(filename.c_str());
+        for (int i=0; i < commandList.size(); i++) {
+            if(commandList[i].compare(SAVE))
+                saveFile << commandList[i] << std::endl;
+        } 
+        saveFile.close();
+        return "saved";
+    }
     else if(!command.compare(BAG)) {
         print_inventory();
         return "";
@@ -453,12 +467,43 @@ std::string word_wrap(std::string input_string) {
     return formatted + "\n";
     }
 
+void load(char* const file) {
+    std::ifstream myfile (file);
+    if (myfile.is_open())
+    {
+        while ( myfile.good() )
+        {
+            std::string line;
+            getline (myfile,line);
+            std::string command1 , command2;
+            std::string checkmorewords;
+            std::istringstream iss(line);
+            commandList.push_back(line);
+            if(iss >> command1) {
+                if (iss >> command2) {
+                    if(!(iss >> checkmorewords)) {
+                        two_word_command(command1 ,command2);
+                    }
+                }
+                else {
+                    one_word_command(command1);
+                }
+            }
+        }
+        myfile.close();
+    }
+}
+
 int main(int argc, char** argv) {
     std::string userinput;
     if(argc > 1) {
         do {
             world = read_file(argv[1], world);
             if(world != NULL) {
+                /*Debug Only*/
+                //print_world_tree();
+                if (argc > 2)
+                    load(argv[2]);
                 gameloop();
                 delete world;
                 std::cout << "Would you like to play again? (please enter yes for affirmative)" << std::endl;
