@@ -225,39 +225,39 @@ void gameloop() {
             std::cout << word_wrap(sin.str())<<word_wrap(itemstream.str());
         }
         if(!game_over) {
-            std::cout << ">>";
-            std::string line;
-            std::getline(std::cin, line);
-            std::string command1 , command2;
-            std::string checkmorewords;
-            std::istringstream iss(line);
-            if(iss >> command1) {
-                if (iss >> command2) {
-                    if(!(iss >> checkmorewords)) {
-                        commandstream << two_word_command(command1 ,command2);
-                        }
-                    else {
-                        std::cout << "Please enter one or two word commands only" << std::endl;
-                        }
-                    }
-                else {
-                   std::string from_one_word = two_word_command(GO,command1);
-                    if(!strcmp(from_one_word.c_str(), DEFAULT_VALUE)) {
-                        last_area = DEFAULT_VALUE;
-                        }
-                    else {
-                        commandstream << from_one_word;
-                        }
-                    }
-                }
-            else {
-                std::cout << "Please enter one or two word commands only" << std::endl;
-                }
-            std::cout << "\n" << word_wrap(commandstream.str());
-            }
+           std::cout << ">>";
+           std::string line;
+           std::getline(std::cin, line);
+           std::string command1 , command2;
+           std::string checkmorewords;
+           std::istringstream iss(line);
+           if(iss >> command1) {
+              if (iss >> command2) {
+                 if(!(iss >> checkmorewords)) {
+                    commandstream << two_word_command(command1 ,command2);
+                 }
+                 else {
+                    std::cout << "Please enter one or two word commands only" << std::endl;
+                 }
+              }
+              else {
+                 std::string from_one_word = two_word_command(GO,command1);
+                 if(!strcmp(from_one_word.c_str(), DEFAULT_VALUE)) {
+                    last_area = DEFAULT_VALUE;
+                 }
+                 else {
+                    commandstream << from_one_word;
+                 }
+              }
+           }
+           else {
+              std::cout << "Please enter one or two word commands only" << std::endl;
+           }
+           std::cout << "\n" << word_wrap(commandstream.str());
         }
-
     }
+
+}
 
 std::string two_word_command(std::string command1, std::string command2) {
     std::ostringstream result;
@@ -386,6 +386,7 @@ std::string one_word_command(std::string command) {
         game_over = true;
         return DEFAULT_VALUE;
         }
+    
     if(!command.compare(LOOK)) {
         return DEFAULT_VALUE;
         }
@@ -458,8 +459,6 @@ int main(int argc, char** argv) {
         do {
             world = read_file(argv[1], world);
             if(world != NULL) {
-                /*Debug Only*/
-                //print_world_tree();
                 gameloop();
                 delete world;
                 std::cout << "Would you like to play again? (please enter yes for affirmative)" << std::endl;
