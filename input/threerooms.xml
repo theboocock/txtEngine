@@ -6,14 +6,14 @@
       You are on the floor of a small metal walled box, there are buttons on one wall, an elevator!
       There is no where you don't hurt, but no blood is visible. You stammer to your feet.
     </statedescriptor>
-    <areacommand name="out" area="room1" synonyms="north,door,leave,east,south,west">
+    <areacommand name="out" area="room1" synonyms="north,door,leave,east,south,west,outside">
       You leave the elevator, only to hear a loud thud behind you. Dazed, you think nothing of it. 
     </areacommand>
     <item id="button" initialdescription="only" collectable="false" synonyms="knob,buttons,door">
       <statedescriptor id="only">
       </statedescriptor>
-      <itemcommand name="press" statedescription="only" changecollectable="false" collectabledependent="false" areachange="none" synonyms="use,touch">
-        You press the buttons only to hear sparks coming from behind the panels. The door looks like it could be opened by hand.
+      <itemcommand name="press" statedescription="only" changecollectable="false" collectabledependent="false" areachange="none" synonyms="use,touch,push">
+        You press the buttons only to hear sparks coming from behind the panels. The door looks like it could be opened by hand. (hint: try leave)
       </itemcommand>
     </item>
     <item id="room" initialdescription="none" collectable="false" synonyms="elevator,door">
@@ -35,12 +35,12 @@
     </statedescriptor>
     <item id="plant" initialdescription="init" collectable="false" synonyms="flower,plants,flowers">
       <statedescriptor id="init">
-        The plants are redish, yellow. no, they are green... You eyes are still blurry, but colour doesnt matter right now. The species of plant life is unknown to you. There is no sign that a human has grown or even seen these plants before, better not touch them.
+        The plants are redish, yellow. No wait, they are green... You can't quite tell your eyes are still blurry, but colour doesn't matter right now. The species of plant life is unknown to you. There is no sign that a human has grown or even seen these plants before, better not touch them.
       </statedescriptor>
       <statedescriptor id="smell">
-        The plants are redish, yellow. no, they are green... You eyes are still blurry, but colour doesnt matter right now. The species of plant life is unknown to you. There is no sign that a human has grown or even seen these plants before, better not touch them. The confusion of smell emmited by them still confuses you.
+        The plants are redish, yellow. No wait, they are green... You can't quite tell your eyes are still blurry, but colour doesn't matter right now. The species of plant life is unknown to you. There is no sign that a human has grown or even seen these plants before, better not touch them. The confusion of smell emmited by them still confuses you.
       </statedescriptor>
-      <itemcommand name="get" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="touch,grab,move,use">
+      <itemcommand name="get" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="touch,grab,move,use,eat">
         The plant is just like any other plant on your fingers, but it seems to make you more dizzy. You leave it alone.
       </itemcommand>
        <itemcommand name="look" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="see,describe,examine,feel">
@@ -83,8 +83,8 @@
     <areacommand name="up" area="room2" synonyms="north,ladder,climb,trapdoor" locked="true">
       You cautiosly pull yourself out of the trapdoor.
     </areacommand>
-    <areacommand name="back" area="room2" synonyms="elevator,door">
-      You force open the door from which you came, the elevator has gone. The shaft only seems to go up one level. You close the door and tur around.
+    <areacommand name="back" area="room1" synonyms="elevator,door">
+      You force open the door from which you came, the elevator has gone. The shaft only seems to go up one level. You close the door and turn around.
     </areacommand>
     <item id="mirror" initialdescription="cansee" collectable="false">
       <statedescriptor id="cansee">
@@ -99,14 +99,24 @@
       </statedescriptor>
       <itemcommand name="check" statedescription="none" changecollectable="false" collectabledependent="false" areachange="none" synonyms="look,feel,get,remove,grab,retrieve">
         You feel in your pocket and pull out a note. It reads: 
-        'Welcome future me, this is a little hint from the past, the room you are in is not surreal, you are actually in this realm and if you die you die. ps. You love vegimite! It has a yellow lid.' 
+        'Welcome future me, this is a little hint from the past you, the room you are in is not surreal, you are actually in this realm and if you die you die. The water is not magical but the plants might be. ps. You love vegimite! It has a yellow lid.' 
+      </itemcommand>
+    </item>
+    <item id="lid" initialdescription="none" collectable="false" synonyms="red">
+      <statedescriptor id="none">
+      </statedescriptor>
+      <itemcommand name="get" statedescription="none" changecollectable="false" collectabledependent="false" areachange="none">
+        The lid is attached to something, I have to find out what first, it is bugging me!
+      </itemcommand>
+      <itemcommand name="look" statedescription="none" changecollectable="fasle" collectabledependent="false" areachange="none" synonyms="examine">
+        The lid is still red. You cant see what it is attached too.
       </itemcommand>
     </item>
     <item id="water" initialdescription="init" collectable="false" synonyms="stream,river">
       <statedescriptor id="init">
       </statedescriptor>
       <itemcommand name="drink" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="take,sip,consume">
-        You try to drink from the stream of water, but ur socks get a litlle wet and it distracts you.
+        You try to drink from the stream of water, but your socks get a litlle wet and it distracts you.
       </itemcommand>
       <itemcommand name="look" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="watch,examine,see,stare">
         Hours pass as you stare at the water flowing in an inifinte loop, how does it do that?
