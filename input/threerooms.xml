@@ -11,10 +11,10 @@
     <areacommand name="out" area="room1" synonyms="north,door,leave,east,south,west">
       You leave the elevator, only to hear a loud thud behind you. Dazed, you think nothing of it. 
     </areacommand>
-    <item id="button" initialdescription="only" collecable="false" synonyms="knob,buttons,door">
+    <item id="button" initialdescription="only" collectable="false" synonyms="knob,buttons,door">
       <statedescriptor id="only">
       </statedescriptor>
-      <itemcommand name="press" statedescription="only" changecollectable="false" collecabledependent="false" synonyms="use,touch">
+      <itemcommand name="press" statedescription="only" changecollectable="false" collectabledependent="false" synonyms="use,touch">
         You press the buttons only to hear sparks coming from behind the panels. The door looks like it could be opened by hand.
       </itemcommand>
     </item>
@@ -26,14 +26,14 @@
       You are in a growers room, many rare species of plant surround you. Its strange the plants don't have any smell, if fact there is no smell at all around you. There seems to be a small stream of water ever so slowly, but surely, flowing around the plants in a never ending loop. A design unimaginable to you. 
       The only exit you can see is a ladder leading to a trapdoor, in what you can only guess is the north end of the room.
     </statedescriptor>
-    <item id="plant" initialdescription="init" collecable="false" synonyms="flower,plants,flowers">
+    <item id="plant" initialdescription="init" collectable="false" synonyms="flower,plants,flowers">
       <statedescriptor id="init">
         The plants are redish, yellow. no, they are green... You eyes are still blurry, but colour doesnt matter right now. The species of plant life is unknown to you. There is no sign that a human has grown or even seen these plants before, better not touch them.
       </statedescriptor>
-      <itemcommand name="get" statedescription="init" changecollectable="false" collecabledependent="false" areachange="none" synonyms="touch,grab,move,use">
+      <itemcommand name="get" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="touch,grab,move,use">
         The plant is just like any other plant on your fingers, but it seems to make you more dizzy. You leave it alone.
       </itemcommand>
-      <itemcommand name="look" statedescription="init" changecollectable="false" collecabledependent="false" areachange="none" synonyms="see,describe,examine,feel">
+      <itemcommand name="look" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="see,describe,examine,feel">
         Hmm, you vision is still blurry, but the plant looks like it has rotated towards you...
       </itemcommand>
       <itemcommand name="smell" statedescription="smell" changecollectable="false" areachange="none" synonyms="sniff,inhale" depends="marmite">
@@ -41,26 +41,33 @@
         You must have hurt your head really bady.
       </itemcommand>
     </item>
-    <item id="key" initialdescription="none" collecable="true">
+    <item id="key" initialdescription="none" collectable="true">
       <statedescriptor name="none">
       </statedescriptor>
       <statedescriptor name="have">
         Shiney gold key.
       </statedescriptor>
-      <itemcommand name="get" statedescription="have" changecollectable="true" collecabledependent="true" areachange="inventory" synonyms="grab,obtain,collect" depends="marmite">
+      <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,obtain,collect" depends="marmite">
         You have obtained the key, its shiney exterior gold coating penetrates your senses relieving your pain for a brief second. The pain returns but you seem less aware of it.
       </itemcommand>
-      <itemcommand name="use" statedescription="none" changecollectable="false" collecabledependent="false" areachange="none" synonyms="unlock" depends="key" unlock="room1/up">
+      <itemcommand name="use" statedescription="none" changecollectable="false" collectabledependent="false" areachange="none" synonyms="unlock" depends="key" unlock="room1/up">
         The key seems to pull from your hand into the lock, and twist itself. The trapdoor padlock plops open.
       </itemcommand>
     </item>
-    <item id="marmite" initialdescription="cansee" collecable="true">
+    <item id="marmite" initialdescription="cansee" collectable="true">
       <statedescriptor name="cansee">
         You can see a small red lid behind one of the plants, if only you could remember what things had red lids...
       </statedescriptor>
-      <itemcommand name="get" statedescription="have" changecollectable="true" collecabledependent=="true" areachange="none" synonyms="grab,collect">
+      <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="none" synonyms="grab,collect">
       </itemcommand>
     </item>
     <areacommand name="up" area="room2" synonyms="north,ladder,climb,trapdoor" locked="true">
       You cautiosly pull yourself out of the trapdoor.
     </areacommand>
+  </area>
+  <area id="room2" initialdescription="init" status="win">
+    <statedescriptor id="init">
+      You come up through the trapdoor into a wooden shed. There is a slowly dripping tap to your left, that drips into a small pipe feeding into the floor. Another door is to your right. It is tow metal doors meeting in the middle with an litlle light above them. The shed has a few bits and pieces, most notable there are many bags of potting mix, most empty, and garnng tools. This explains the room below. But why did the plants have unusual smells, and why were they unrecognisable? As you ponder this thought you see the sheds door is wide open to the world outside. You stammer out hoping to find more answers... 
+    </statedescriptor>
+  </area>
+</world>
