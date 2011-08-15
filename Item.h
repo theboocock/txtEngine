@@ -47,6 +47,7 @@ class Item {
         std::vector<StateDescriptor*> description;
         std::vector<ItemCommand*> commands;
         std::vector<std::string> *synonyms;
+        std::string depends;
 
     public:
 
@@ -289,7 +290,7 @@ class Item {
         @return Description of returned value.
         */
         Item(bool collect, const char *identifier, const char *initial_state,
-             std::vector<std::string> *synonyms);
+             std::vector<std::string> *synonyms, const char * depends);
 
         /**
         Write description of function here.
@@ -305,6 +306,8 @@ class Item {
         @return Description of returned value.
         */
         ~Item();
+
+        std::string get_depends();
     };
 
 #endif

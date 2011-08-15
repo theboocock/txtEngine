@@ -5,7 +5,7 @@
  * @licence Open-source
  * @date 14/08/2011
  * @brief The main file for txtEngine.
- *
+ * 
  * @author Michael Abrams
  * @author James Boocock
  * @author Toby Herbert
@@ -69,6 +69,7 @@
 
 World *world;
 bool game_over = false;
+std::vector<std::string> commandList;
 
 //------------------------------------------------------------------------------
 /* Method Prototypes */
@@ -147,6 +148,8 @@ void print_world_tree();
 void load_game();
 void save_game();
 
+std::string save;
+
 //------------------------------------------------------------------------------
 /* Method Definitions */
 //------------------------------------------------------------------------------
@@ -212,12 +215,16 @@ void gameloop() {
                 }
             else {
                 for(int items = 0; items < world->get_active_area()->get_num_items(); items++) {
-                    itemstream << world->get_active_area()->get_item(items)->get_description();
-                    itemstream << "\n";
-                    }
+                   if(world->get_area(INVENTORY)->has_item(world->get_active_area()->get_item(items)->get_depends()) ||
+                      !strcmp(world->get_active_area()->get_id().c_str(), world->get_active_area()->get_item(items)->get_depends().c_str()) ||
+                      !strcmp(world->get_active_area()->get_item(items)->get_depends().c_str(), NONE)){
+                      itemstream << world->get_active_area()->get_item(items)->get_description();
+                      itemstream << "\n"; 
+                   }
                 }
-            std::cout << word_wrap(sin.str())<<word_wrap(itemstream.str());
             }
+            std::cout << word_wrap(sin.str())<<word_wrap(itemstream.str());
+        }
         if(!game_over) {
             std::cout << ">>";
             std::string line;
@@ -225,6 +232,7 @@ void gameloop() {
             std::string command1 , command2;
             std::string checkmorewords;
             std::istringstream iss(line);
+            commandList.push_back(line);
             if(iss >> command1) {
                 if (iss >> command2) {
                     if(!(iss >> checkmorewords)) {
@@ -250,7 +258,6 @@ void gameloop() {
             std::cout << "\n" << word_wrap(commandstream.str());
             }
         }
-
     }
 
 std::string two_word_command(std::string command1, std::string command2) {
@@ -265,6 +272,9 @@ std::string two_word_command(std::string command1, std::string command2) {
     unsigned int item = NULL;
     Item *temp_item = world->get_active_area()->get_item(command2, item);
     if(temp_item != NULL) {
+       if(world->get_area(INVENTORY)->has_item(temp_item->get_depends()) ||
+          !strcmp(world->get_active_area()->get_id().c_str(), world->get_active_area()->get_item(item)->get_depends().c_str()) ||
+          !strcmp(world->get_active_area()->get_item(item)->get_depends().c_str(), NONE)){
         ItemCommand *temp_item_command = temp_item->get_command(command1);
         if(temp_item_command != NULL) {
             if(world->get_area(INVENTORY)->has_item(temp_item_command->get_depends()) ||
@@ -309,6 +319,7 @@ std::string two_word_command(std::string command1, std::string command2) {
             return result.str();
             }
         }
+    }
     temp_item = NULL;
     temp_item = world->get_area(INVENTORY)->get_item(command2, item);
     if(temp_item != NULL) {
@@ -376,9 +387,23 @@ std::string one_word_command(std::string command) {
         game_over = true;
         return DEFAULT_VALUE;
         }
+    
     if(!command.compare(LOOK)) {
         return DEFAULT_VALUE;
         }
+    if (!command.compare(SAVE)) {
+        std::ofstream saveFile;
+        std::cout << "Please enter a save filename: " << std::endl;
+        std::string filename;
+        getline(std::cin, filename);
+        saveFile.open(filename.c_str());
+        for (int i=0; i < commandList.size(); i++) {
+            if(commandList[i].compare(SAVE))
+                saveFile << commandList[i] << std::endl;
+        } 
+        saveFile.close();
+        return "saved";
+    }
     else if(!command.compare(BAG)) {
         print_inventory();
         return "";
@@ -442,6 +467,33 @@ std::string word_wrap(std::string input_string) {
     return formatted + "\n";
     }
 
+void load(char* const file) {
+    std::ifstream myfile (file);
+    if (myfile.is_open())
+    {
+        while ( myfile.good() )
+        {
+            std::string line;
+            getline (myfile,line);
+            std::string command1 , command2;
+            std::string checkmorewords;
+            std::istringstream iss(line);
+            commandList.push_back(line);
+            if(iss >> command1) {
+                if (iss >> command2) {
+                    if(!(iss >> checkmorewords)) {
+                        two_word_command(command1 ,command2);
+                    }
+                }
+                else {
+                    one_word_command(command1);
+                }
+            }
+        }
+        myfile.close();
+    }
+}
+
 int main(int argc, char** argv) {
     std::string userinput;
     if(argc > 1) {
@@ -450,6 +502,8 @@ int main(int argc, char** argv) {
             if(world != NULL) {
                 /*Debug Only*/
                 //print_world_tree();
+                if (argc > 2)
+                    load(argv[2]);
                 gameloop();
                 delete world;
                 std::cout << "Would you like to play again? (please enter yes for affirmative)" << std::endl;

@@ -34,37 +34,11 @@ class ItemCommand {
 
     public:
 
-        /**
-           Write description of function here.
-           The function should follow these comments.
-           Use of "brief" tag is optional. (no point to it)
-
-           The function arguments listed with "param" will be compared
-           to the declaration and verified.
-
-           @param[in]     _inArg1 Description of first function argument.
-           @param[out]    _outArg2 Description of second function argument.
-           @param[in,out] _inoutArg3 Description of third function argument.
-           @return Description of returned value.
-        */
         ItemCommand(const char * callmeby, const char * state_mutator,
                     bool chng_collec, bool collec_dep, const char *area_chng,
                     const char* status_command,const char* depends,
                     std::vector<std::string> * synonyms, std::string unlock);
-
-        /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
-
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
-         */
+        
         ~ItemCommand();
 
         /**

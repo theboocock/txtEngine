@@ -84,16 +84,18 @@ StateDescriptor *Item::get_descriptor(int index) {
    return description[index];
 }
 void Item::state_change(std::string to_change) {
-   curr_desc_id = to_change;
-}
-Item::Item(bool collect, const char *identifier, const char *initial_state, std::vector<std::string> *synonyms) {
-   collectable = collect;
-   id = identifier;
-   num_descriptions = 0;
-   num_commands = 0;
-   curr_desc_id = initial_state;
-   this->synonyms = synonyms;
-}
+    curr_desc_id = to_change;
+    }
+Item::Item(bool collect, const char *identifier, const char *initial_state, std::vector<std::string> *synonyms, const char *depends) {
+    collectable = collect;
+    id = identifier;
+    num_descriptions = 0;
+    num_commands = 0;
+    curr_desc_id = initial_state;
+    this->synonyms = synonyms;
+    this->depends = depends;
+    }
+
 Item::~Item() {
    for(unsigned int command_num = 0; command_num < commands.size(); command_num++) {
       delete commands[command_num];
@@ -102,7 +104,11 @@ Item::~Item() {
       delete description[desc_num];
    }
    if(synonyms!=NULL){
-      delete synonyms;
-   }
+         delete synonyms;
+      }
+}
+
+std::string Item::get_depends(){
+   return depends;
 }
 

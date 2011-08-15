@@ -33,5 +33,7 @@
 #define W "w"
 #define HELP "help"
 #define HELP_COMMAND "Schrodinger says the cat is both dead and alive."
+#define SAVE "save"
+#define LOAD "load"
 
 #endif //_CONSTANTS_H
