@@ -21,6 +21,7 @@
   <!ATTLIST item initialdescription IDREF #REQUIRED>
   <!ATTLIST item collectable CDATA (true|false) "false">
   <!ATTLIST areacommand synonyms CDATA "none">
+  <!ATTLIST item depends IDREF #IMPLIED>
 <!ELEMENT itemcommand (#CDATA)>
   <!ATTLIST itemcommand name CDATA>
   <!ATTLIST itemcommand depends IDREF #IMPLIED>

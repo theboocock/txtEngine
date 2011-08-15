@@ -51,8 +51,9 @@
         You must have hurt your head really bady.
       </itemcommand>
     </item>
-    <item id="key" initialdescription="none" collectable="true">
+    <item id="key" initialdescription="none" collectable="true" depends="marmite">
       <statedescriptor id="none">
+        You should not see this message until you have the marmite...
       </statedescriptor>
       <statedescriptor id="have">
         Shiney gold key.
