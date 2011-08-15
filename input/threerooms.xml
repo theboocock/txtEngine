@@ -51,9 +51,9 @@
         You must have hurt your head really bady.
       </itemcommand>
     </item>
-    <item id="key" initialdescription="none" collectable="true" depends="marmite">
+    <item id="key" initialdescription="none" collectable="true" depends="cookie">
       <statedescriptor id="none">
-        You should not see this message until you have the marmite...
+        The biscuit has been moved and reveals a key.
       </statedescriptor>
       <statedescriptor id="have">
         Shiney gold key.
@@ -74,7 +74,7 @@
       </statedescriptor>
       <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,collect">
         You grab the marmite, and take a whiff. YUCK!
-        Hey You remembered something, you do not like marmite! And your smell is returning.
+        Hey You remembered something, you do not like marmite! And your smell is returning, maybe you should look around more.
       </itemcommand>
       <itemcommand name="drop" statedescription="cansee" changecollectable="true" collectabledependent="false" areachange="none" synonyms="throw,pudown">
         You put the marmite down. You seem sadened by this, and your sense of smell depletes.
@@ -82,6 +82,9 @@
     </item>
     <areacommand name="up" area="room2" synonyms="north,ladder,climb,trapdoor" locked="true">
       You cautiosly pull yourself out of the trapdoor.
+    </areacommand>
+    <areacommand name="back" area="room2" synonyms="elevator,door">
+      You force open the door from which you came, the elevator has gone. The shaft only seems to go up one level. You close the door and tur around.
     </areacommand>
     <item id="mirror" initialdescription="cansee" collectable="false">
       <statedescriptor id="cansee">
@@ -107,6 +110,17 @@
       </itemcommand>
       <itemcommand name="look" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="watch,examine,see,stare">
         Hours pass as you stare at the water flowing in an inifinte loop, how does it do that?
+      </itemcommand>
+    </item>
+    <item id="cookie" initialdescription="init" collectable="true" synonyms="biscuit,cake,chocolate" depends="marmite">
+      <statedescriptor id="init">
+        The smell of a warm, freshly cooked cookie catches you attention, you turn to see one sitting on a clean plate in the open cupboard behind where you entered from.
+      </statedescriptor>
+      <statedescriptor id="have">
+        You have one chocolate cookie.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="eat,grab,devour">
+        You take the cookie and start to devour it, but as you lift it towards your mouth, there where the cookie used to lie is a key.
       </itemcommand>
     </item>
   </area>
