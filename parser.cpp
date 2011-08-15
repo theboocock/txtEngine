@@ -329,10 +329,10 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
 Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world) {
     TiXmlNode* pChild;
     const char *item_id = "invalid", *error_tag = MISSING_TAGS,
-                *item_init_desc = INVALID, *synonyms = NONE;
+       *item_init_desc = INVALID, *synonyms = NONE, *depends = NONE;
     int attributesFound =0;
     bool has_id = false, item_collectable = false, has_collec = false,
-         has_init_desc = false, has_synonyms = false;
+       has_init_desc = false, has_synonyms = false , has_depends = false;
     Item *item = NULL;
     std::vector<std::string> *synonyms_vec = NULL;
     TiXmlElement *element = pItem->ToElement();
@@ -376,6 +376,14 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world) {
                 }
             has_synonyms = true;
             }
+        else if(!strcmp(attributes->Name(), "depends")){
+
+           depends = attributes->Value();
+           if(has_depends){
+              error_tag = "More than one depends tag.";
+           }
+           has_depends = true;           
+        }
         else {
             error_tag = attributes->Name();
             fprintf(stderr, "found something but shouldnt have in make_item.\n");
@@ -384,7 +392,7 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world) {
         attributes = attributes->Next();
         }
     if(ITEM_ATTRIBUTES == attributesFound && has_id &&has_init_desc && has_collec) {
-        item = new Item(item_collectable, item_id, item_init_desc, synonyms_vec);
+       item = new Item(item_collectable, item_id, item_init_desc, synonyms_vec ,depends);
         for ( pChild = pItem->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) {
             if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT) {
                 if(!strcmp(pChild->Value(), "statedescriptor")) {

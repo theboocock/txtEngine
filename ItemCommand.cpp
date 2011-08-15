@@ -38,7 +38,11 @@ std::string ItemCommand::get_status() {
     return status;
     }
 
-ItemCommand::~ItemCommand() {}
+ItemCommand::~ItemCommand() {
+   if(synonyms!=NULL){
+      delete synonyms;
+   }
+}
 std::string ItemCommand::get_message() {
     return message;
     }

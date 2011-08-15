@@ -212,12 +212,16 @@ void gameloop() {
                 }
             else {
                 for(int items = 0; items < world->get_active_area()->get_num_items(); items++) {
-                    itemstream << world->get_active_area()->get_item(items)->get_description();
-                    itemstream << "\n";
-                    }
+                   if(world->get_area(INVENTORY)->has_item(world->get_active_area()->get_item(items)->get_depends()) ||
+                      !strcmp(world->get_active_area()->get_id().c_str(), world->get_active_area()->get_item(items)->get_depends().c_str()) ||
+                      !strcmp(world->get_active_area()->get_item(items)->get_depends().c_str(), NONE)){
+                      itemstream << world->get_active_area()->get_item(items)->get_description();
+                      itemstream << "\n"; 
+                   }
                 }
-            std::cout << word_wrap(sin.str())<<word_wrap(itemstream.str());
             }
+            std::cout << word_wrap(sin.str())<<word_wrap(itemstream.str());
+        }
         if(!game_over) {
             std::cout << ">>";
             std::string line;
@@ -265,6 +269,9 @@ std::string two_word_command(std::string command1, std::string command2) {
     unsigned int item = NULL;
     Item *temp_item = world->get_active_area()->get_item(command2, item);
     if(temp_item != NULL) {
+       if(world->get_area(INVENTORY)->has_item(temp_item->get_depends()) ||
+          !strcmp(world->get_active_area()->get_id().c_str(), world->get_active_area()->get_item(item)->get_depends().c_str()) ||
+          !strcmp(world->get_active_area()->get_item(item)->get_depends().c_str(), NONE)){
         ItemCommand *temp_item_command = temp_item->get_command(command1);
         if(temp_item_command != NULL) {
             if(world->get_area(INVENTORY)->has_item(temp_item_command->get_depends()) ||
@@ -309,6 +316,7 @@ std::string two_word_command(std::string command1, std::string command2) {
             return result.str();
             }
         }
+    }
     temp_item = NULL;
     temp_item = world->get_area(INVENTORY)->get_item(command2, item);
     if(temp_item != NULL) {

@@ -1,7 +1,7 @@
 /**
  * @file Area.h
  * Area.h defines the methods for the Area.cpp source file.
- *
+ * 
  * @brief Defines the Area class.
  *
  * @author Michael Abrams
@@ -37,7 +37,7 @@ class Area {
          StateDescriptors for the area and returns true or false accordingly.
 
          @param[in] desc_id A description ID.
-         @return Returns true if desc_id is in 'description' otherwise return false.
+         @return Returns true if 'description' holds desc_id, otherwise returns false.
          */
         bool has_description(std::string desc_id);
 
@@ -50,17 +50,12 @@ class Area {
         std::string get_status();
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
-
+         Calls the has_description method.
+	
          The function arguments listed with "param" will be compared
          to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+	 @see has_description();
+         @return
          */
         bool has_current_desc();
 

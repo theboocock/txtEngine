@@ -1,17 +1,15 @@
-// $Id$
 /**
  * @file Area.h
  * Area.h defines the methods for the Area.cpp source file.
  *
  * @brief Defines the Area class.
- *
+ * 
  * @author Michael Abrams
  * @author James Boocock
  * @author Toby Herbert
  * @author Tatai Nikora
  * @version 0.3
  */
-// $Log$
 
 #ifndef _AREA_COMMAND_H
 #define _AREA_COMMAND_H

@@ -14,7 +14,11 @@ AreaCommand::AreaCommand(const char * callmeby, const char * areatomoveto,
 std::string AreaCommand::get_depends() {
     return depends;
     }
-AreaCommand::~AreaCommand() {}
+AreaCommand::~AreaCommand() {
+   if(synonyms!=NULL){
+      delete synonyms;
+   }
+}
 std::string AreaCommand::get_status() {
     return status;
     }
