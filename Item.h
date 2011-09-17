@@ -20,6 +20,9 @@
 #include <vector>
 #include "StateDescriptor.h"
 #include "ItemCommand.h"
+#include "combine.h"
+
+class Area;
 
 class Item {
     private:
@@ -43,6 +46,8 @@ class Item {
         bool collectable;
         int num_descriptions, num_commands;
         std::string id;
+        Area * inside;
+        combine * combine_var;
         std::string curr_desc_id;
         std::vector<StateDescriptor*> description;
         std::vector<ItemCommand*> commands;
@@ -50,6 +55,27 @@ class Item {
         std::string depends;
 
     public:
+
+        /**
+           Checks whether this Item has an inside area.
+         */
+        
+        bool has_inside();
+
+        /**
+           Checks whether this Item can combine with another.
+         */
+        
+        bool has_combine();
+
+        /**
+           Accessors and mutators for inside and combine.
+        */
+
+        Area * get_inside();
+        combine * get_combine();
+        void set_inside(Area * a);
+        void set_combine(combine * c);
 
         /**
         Write description of function here.

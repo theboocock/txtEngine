@@ -411,7 +411,7 @@ std::string one_word_command(std::string command) {
         std::string filename;
         getline(std::cin, filename);
         saveFile.open(filename.c_str());
-        for (int i=0; i < commandList.size(); i++) {
+        for (unsigned int i=0; i < commandList.size(); i++) {
             if(commandList[i].compare(SAVE))
                 saveFile << commandList[i] << std::endl;
         } 
@@ -550,28 +550,57 @@ void read_filter_list(char* const file){
 int main(int argc, char** argv) {
     std::string userinput;
     if(argc > 1) {
-        do {
-            world = read_file(argv[1], world);
+        if (strstr(argv[1], "-exec")) {
+            world = read_file(argv[2], world);
             if(world != NULL) {
-                /*Debug Only*/
-                //print_world_tree();
-                if (argc > 2)
-                    load(argv[2]);
-		read_filter_list("input/ignorewords.txt");                
-		gameloop();
-                delete world;
-                std::cout << "Would you like to play again? (please enter yes for affirmative)" << std::endl;
-                std::getline (std::cin,userinput);
-                game_over = true;
-                if(!userinput.compare("yes")) {
-                    game_over = false;
+                load(argv[3]);
+                std::string command1 , command2;
+                std::string checkmorewords;
+                std::istringstream iss(argv[4]);
+                commandList.push_back(argv[4]);
+                if(iss >> command1) {
+                    if (iss >> command2) {
+                        if(!(iss >> checkmorewords)) {
+                            std::cout << two_word_command(command1 ,command2);
+                        }
+                    }
+                    else {
+                        std::cout << one_word_command(command1);
                     }
                 }
-            else {
-                game_over = true;
-                }
+                std::ofstream saveFile;
+                saveFile.open(argv[3]);
+                for (int i=0; i < commandList.size(); i++) {
+                    if(commandList[i].compare(SAVE))
+                        saveFile << commandList[i] << std::endl;
+                } 
+                saveFile.close();
             }
-        while (!game_over);
+        } else {
+            do {
+                world = read_file(argv[1], world);
+                if(world != NULL) {
+                    /*Debug Only*/
+                    //print_world_tree();
+			read_filter_list("input/ignorewords.txt");
+                    if (argc > 2)
+                        load(argv[2]);
+                    gameloop();
+                    delete world;
+                    std::cout << "Would you like to play again? (please enter yes for affirmative)" << std::endl;
+                    std::getline (std::cin,userinput);
+                    game_over = true;
+                    if(!userinput.compare("yes")) {
+                        game_over = false;
+                        }
+                    }
+                else {
+                    game_over = true;
+                    }
+            } while (!game_over);
         }
-    return 0;
+    } else {
+        std::cout << "Usage: txtEngine Filename" << std::endl;
     }
+    return 0;
+}

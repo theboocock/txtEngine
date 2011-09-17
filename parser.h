@@ -160,4 +160,7 @@ extern World *make_objects( TiXmlNode* pParent, World *world);
 */
 extern World *read_file(const char* pFilename, World *world);
 
+extern combine *make_combine(TiXmlNode *pCommand, const char * parent_id, World *world);
+
+extern Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world);
 #endif
