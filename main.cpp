@@ -496,34 +496,45 @@ void load(char* const file) {
 
 int main(int argc, char** argv) {
     std::string userinput;
-    if(argc > 1) {
-        if (strstr(argv[1], "-exec")) {
-            world = read_file(argv[2], world);
-            if(world != NULL) {
-                load(argv[3]);
-                std::string command1 , command2;
-                std::string checkmorewords;
-                std::istringstream iss(argv[4]);
-                commandList.push_back(argv[4]);
-                if(iss >> command1) {
-                    if (iss >> command2) {
-                        if(!(iss >> checkmorewords)) {
-                            std::cout << two_word_command(command1 ,command2);
-                        }
-                    }
-                    else {
-                        std::cout << one_word_command(command1);
+    if (strstr(argv[1], "-exec") && argc == 5) {
+        world = read_file(argv[2], world);
+        
+        if(world != NULL) {
+            load(argv[3]);
+            std::string command1 , command2;
+            std::string checkmorewords;
+            std::istringstream iss(argv[4]);
+            commandList.push_back(argv[4]);
+            Area* check = world->get_active_area();
+            if(iss >> command1) {
+                if (iss >> command2) {
+                    if(!(iss >> checkmorewords)) {
+                        std::cout << two_word_command(command1 ,command2);
                     }
                 }
-                std::ofstream saveFile;
-                saveFile.open(argv[3]);
-                for (int i=0; i < commandList.size(); i++) {
-                    if(commandList[i].compare(SAVE))
-                        saveFile << commandList[i] << std::endl;
-                } 
-                saveFile.close();
+                else {
+                    std::cout << one_word_command(command1);
+                }
             }
-        } else {
+            if (check != world->get_active_area())
+                std::cout << world->get_active_area()->get_description();
+            std::ofstream saveFile;
+            saveFile.open(argv[3]);
+            for (int i=0; i < commandList.size(); i++) {
+                if(commandList[i].compare(SAVE))
+                    saveFile << commandList[i] << std::endl;
+            }
+            
+            saveFile.close();
+            
+        }
+    } else if (strstr(argv[1], "-stat") && argc == 4) {
+        world = read_file(argv[2], world);
+        if(world != NULL) {
+            load(argv[3]);
+            std::cout << world->get_active_area()->get_description();
+        }
+    } else if(argc > 1) {
             do {
                 world = read_file(argv[1], world);
                 if(world != NULL) {
@@ -544,9 +555,9 @@ int main(int argc, char** argv) {
                     game_over = true;
                     }
             } while (!game_over);
-        }
     } else {
         std::cout << "Usage: txtEngine Filename" << std::endl;
     }
+    
     return 0;
 }
