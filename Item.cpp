@@ -84,17 +84,17 @@ StateDescriptor *Item::get_descriptor(int index) {
    return description[index];
 }
 void Item::state_change(std::string to_change) {
-    curr_desc_id = to_change;
-    }
+   curr_desc_id = to_change;
+}
 Item::Item(bool collect, const char *identifier, const char *initial_state, std::vector<std::string> *synonyms, const char *depends) {
-    collectable = collect;
-    id = identifier;
-    num_descriptions = 0;
-    num_commands = 0;
-    curr_desc_id = initial_state;
-    this->synonyms = synonyms;
-    this->depends = depends;
-    }
+   collectable = collect;
+   id = identifier;
+   num_descriptions = 0;
+   num_commands = 0;
+   curr_desc_id = initial_state;
+   this->synonyms = synonyms;
+   this->depends = depends;
+}
 
 Item::~Item() {
    for(unsigned int command_num = 0; command_num < commands.size(); command_num++) {
@@ -104,11 +104,35 @@ Item::~Item() {
       delete description[desc_num];
    }
    if(synonyms!=NULL){
-         delete synonyms;
-      }
+      delete synonyms;
+   }
 }
 
 std::string Item::get_depends(){
    return depends;
 }
 
+bool Item::has_inside(){
+   if(inside!=NULL){
+      return true;
+   }
+   return false;
+}
+bool Item::has_combine(){
+   if(combine!=NULL){
+      return true;
+   }
+   return false;
+}
+Area * Item::get_inside(){
+   return inside;
+}
+Combine * Item::get_combine(){
+   return combine;
+}
+void Item::set_inside(Area * a){
+   inside = a;
+}
+void Item::set_combine(Combine * c){
+   combine = c;
+}

@@ -44,6 +44,8 @@ class Item {
         bool collectable;
         int num_descriptions, num_commands;
         std::string id;
+        std::Area * inside;
+        std::Combine * combine;
         std::string curr_desc_id;
         std::vector<StateDescriptor*> description;
         std::vector<ItemCommand*> commands;
@@ -51,6 +53,27 @@ class Item {
         std::string depends;
 
     public:
+
+        /**
+           Checks whether this Item has an inside area.
+         */
+        
+        bool has_inside();
+
+        /**
+           Checks whether this Item can combine with another.
+         */
+        
+        bool has_combine();
+
+        /**
+           Accessors and mutators for inside and combine.
+        */
+
+        Area * get_inside();
+        Combine * get_combine();
+        void set_inside(Area * a);
+        void set_combine(Combine * c);
 
         /**
         Write description of function here.
