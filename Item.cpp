@@ -119,7 +119,7 @@ bool Item::has_inside(){
    return false;
 }
 bool Item::has_combine(){
-   if(combine!=NULL){
+   if(combine_var!=NULL){
       return true;
    }
    return false;
@@ -127,12 +127,12 @@ bool Item::has_combine(){
 Area * Item::get_inside(){
    return inside;
 }
-Combine * Item::get_combine(){
-   return combine;
+combine * Item::get_combine(){
+   return combine_var;
 }
 void Item::set_inside(Area * a){
    inside = a;
 }
-void Item::set_combine(Combine * c){
-   combine = c;
+void Item::set_combine(combine * c){
+   combine_var = c;
 }

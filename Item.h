@@ -20,6 +20,9 @@
 #include <vector>
 #include "StateDescriptor.h"
 #include "ItemCommand.h"
+#include "combine.h"
+
+class Area;
 
 class Item {
     private:
@@ -43,8 +46,8 @@ class Item {
         bool collectable;
         int num_descriptions, num_commands;
         std::string id;
-        std::Area * inside;
-        std::Combine * combine;
+        Area * inside;
+        combine * combine_var;
         std::string curr_desc_id;
         std::vector<StateDescriptor*> description;
         std::vector<ItemCommand*> commands;
@@ -70,9 +73,9 @@ class Item {
         */
 
         Area * get_inside();
-        Combine * get_combine();
+        combine * get_combine();
         void set_inside(Area * a);
-        void set_combine(Combine * c);
+        void set_combine(combine * c);
 
         /**
         Write description of function here.

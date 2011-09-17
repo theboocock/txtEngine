@@ -397,7 +397,7 @@ std::string one_word_command(std::string command) {
         std::string filename;
         getline(std::cin, filename);
         saveFile.open(filename.c_str());
-        for (int i=0; i < commandList.size(); i++) {
+        for (unsigned int i=0; i < commandList.size(); i++) {
             if(commandList[i].compare(SAVE))
                 saveFile << commandList[i] << std::endl;
         } 

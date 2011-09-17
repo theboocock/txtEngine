@@ -43,6 +43,70 @@ void string_explode(std::string str, std::string seperator, std::vector<std::str
         }
     }
 
+/**
+ *
+ * @param pCommand the node containing the combine 
+ * @pacam world the world object in which this is added
+ *
+ */
+
+combine *make_combine(TiXmlNode * pCommand,const char *parent_id,  World *world ){
+	TiXmlNode *pChild;
+	std::string first_id, second_id;
+	std::string error_tag = MISSING_TAGS;
+	combine *combine_var = NULL;
+	bool one = false, two = false;
+	TiXmlElement *element = pCommand->ToElement();
+	TiXmlAttribute *attributes = element->FirstAttribute();
+	while(attributes){
+		if(!strcmp(attributes->Name(), "first_id")){
+			first_id = attributes->Value();
+			if(one){
+				error_tag = "More than one first_id tag";
+			}
+			one = true;
+		} else if(!strcmp(attributes->Name() , "second_id")){
+			second_id = attributes->Value();
+			if(two){
+				error_tag = "More than one second_id tag";
+			}
+			two =  true;
+		}
+
+	}
+	if(one && two){
+		combine_var = new combine(first_id, second_id);
+		
+        for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) {
+            if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT) {
+                combine_var->set_combination(make_item(pChild,"combine",world ));
+                }
+            else {
+                std::ostringstream sin;
+                sin << "Under parent ";
+                sin << parent_id;
+                sin << " there is a wrong element after ";
+                sin << "Combine";
+                std::string message = sin.str();
+                error_parsing(message, world);
+
+                }
+            }
+
+	} else {
+        std::ostringstream sin;
+        sin << "Under parent ";
+        sin << parent_id;
+        sin << " there is an attribute error in a item command tag, found: ";
+        sin << error_tag;
+        std::string message = sin.str();
+        error_parsing(message, world);
+	}
+	return combine_var;
+
+}
+
+
 ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World *world) {
     TiXmlNode* pChild;
     const char *error_tag = MISSING_TAGS,
@@ -150,7 +214,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
                                        command_depends, synonyms_vec, unlock);
         for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) {
             if(pChild->Type() == TiXmlNode::TINYXML_TEXT) {
-                item_command->set_message(pChild->ToText()->Value());
+                item_command->set_message((pChild->ToText()->Value()));
                 }
             else {
                 std::ostringstream sin;
@@ -400,6 +464,9 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world) {
                 else if(!strcmp(pChild->Value(), "itemcommand")) {
                     item->add_command(make_item_command(pChild, item_id, world));
                     }
+		else if(!strcmp(pChild->Value(), "combine")){
+		    item->set_combine(make_combine(pChild, item_id,world));
+	    }
                 }
             else {
                 std::ostringstream sin;

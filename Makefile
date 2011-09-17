@@ -92,7 +92,7 @@ all: ${OUTPUT}
 #****************************************************************************
 
 SRCS := tinyxml.cpp tinyxmlparser.cpp main.cpp tinyxmlerror.cpp tinystr.cpp parser.cpp Area.cpp \
-	AreaCommand.cpp Item.cpp ItemCommand.cpp StateDescriptor.cpp World.cpp
+	combine.cpp AreaCommand.cpp Item.cpp ItemCommand.cpp StateDescriptor.cpp World.cpp
 
 # Add on the sources for libraries
 SRCS := ${SRCS}
