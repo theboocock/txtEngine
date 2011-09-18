@@ -95,7 +95,7 @@
         Hey theres seems to be something in your shirt pocket.
       </itemcommand>
     </item>
-    <item id="chest" initialdescription="closed" collectable="false" synonyms="box,storage" conatiner="true" locked="true">
+    <item id="chest" initialdescription="closed" collectable="false" synonyms="box,storage" container="true" locked="true">
       <statedescriptor id="closed">
         A locked chest sits directly opposite you. It is not locked by a key though, something more magical has control over it.
       </statedescriptor>
@@ -115,7 +115,7 @@
         </itemcommand>
       </item>
     </item>
-    <item id="pot" initialdescription="open" collectable="false" synonyms="container" conatiner="true" locked="false">
+    <item id="pot" initialdescription="open" collectable="false" synonyms="container" container="true" locked="false">
       <statedescriptor id="closed">
         A locked chest sits directly opposite you. It is not locked by a key though, something more magical has control over it.
       </statedescriptor>
