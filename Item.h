@@ -46,8 +46,10 @@ class Item {
         bool collectable;
         int num_descriptions, num_commands;
         std::string id;
-        Area * inside;
+        bool container;
+        bool locked;
         combine * combine_var;
+        std::vector<Item *> contains;
         std::string curr_desc_id;
         std::vector<StateDescriptor*> description;
         std::vector<ItemCommand*> commands;
