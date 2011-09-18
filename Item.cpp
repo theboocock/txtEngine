@@ -5,7 +5,7 @@ void Item::remove_item(std::string item_id){
 	for(unsigned int i=0; i < contains.size(); i++){
    		if(!contains[i]->get_id().compare(item_id)) {contains.erase(contains.begin() + i);
 			num_items--;
-		}else if(!contains[i]->has_synonym(item_id)) {
+		}else if(contains[i]->has_synonym(item_id)) {
 			num_items--;
        			 contains.erase(contains.begin() + i);
      		 }//else{
