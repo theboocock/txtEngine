@@ -15,19 +15,19 @@ class Item;
 
 class combine{
 	
-	public:
+ public:
 
-		combine(std::string first_id, std::string second_id);
-		~combine();
-		Item* get_combination();
-		void set_combination(Item * item);
-	private:
-		// First item_id 
-		std::string first_id;
-		// Second item_id
-		std::string second_id;
-		//The item that is the combination
-		Item * combination;
+   combine(std::string first_id, std::string second_id);
+   ~combine();
+   Item* get_combination();
+   void set_combination(Item * item);
+ private:
+   // First item_id 
+   std::string first_id;
+   // Second item_id
+   std::string second_id;
+   //The item that is the combination
+   Item * combination;
 
 };
 
