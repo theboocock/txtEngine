@@ -38,5 +38,10 @@
 #define IGNORELIST "input/ignorewords.txt"
 #define IGNORELISTERROR "\n\nERROR: Filter List not found!\n\n"
 #define TOOMANYWORDS "Please use fewer words for commands"
+#define COMBINE "combine"
+#define PUT "put"
+#define STORE "store"
+#define MIX "mix"
+#define GARBAGE "garbage"
 
 #endif //_CONSTANTS_H
