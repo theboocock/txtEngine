@@ -32,12 +32,16 @@ void Area::remove_item(int index) {
 }
 void Area::remove_item(std::string item_id){
    for(unsigned int i=0; i < items.size(); i++){
-   	if(items[i]->item_id.compare(item_id)) items.erase(i);
-   }else if(items[i]->has_synonym(item_id)) {
-        items.erase(i);
+   	if(!items[i]->get_id().compare(item_id)){ items.erase(items.begin() + i);
+		num_items--;
+	}else if(items[i]->has_synonym(item_id)) {
+        items.erase(items.begin() + i);
+	num_items--;
       }else{
-	items->remove_item(item_id);
+	items[i]->remove_item(item_id);
       }
+
+   }
 }
 void Area::add_item(Item *new_item) {
    items.push_back(new_item);
@@ -50,7 +54,7 @@ std::string Area::get_id() {
    return id;
 }
 bool Area::has_item(std::string item_to_find) {
-   for(unsigned int item_num = 0; item_num < items.size(); item_num++) {
+	for(unsigned int item_num = 0; item_num < items.size(); item_num++) {
       if(items[item_num]->get_id().compare(item_to_find) == 0) {
 
          return true;
@@ -63,6 +67,7 @@ bool Area::has_item(std::string item_to_find) {
 }
 Item * Area::get_item(std::string item_id, unsigned int &index) {
    for(unsigned int item_num = 0; item_num < items.size(); item_num++) {
+	 
       if(items[item_num]->get_id().compare(item_id) == 0) {
          index = item_num;
          return items[item_num];
@@ -71,6 +76,11 @@ Item * Area::get_item(std::string item_id, unsigned int &index) {
 
          index = item_num;
          return items[item_num];
+      }else if(items[item_num]->has_container() && !items[item_num]->is_locked()){
+	Item* temp_item = items[item_num]->get_item(item_id);
+	if(temp_item != NULL){
+		return temp_item;
+	}
       }
    }
    return NULL;

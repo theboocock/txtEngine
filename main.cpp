@@ -87,12 +87,7 @@ void gameloop();
 std::string one_word_command(std::string command);
 
 /**
-<<<<<<< HEAD
    @brief A method to handle two word commands.
-   @param[in] command A two word command in the form of a string.
-   @return Output of the command.
-=======
-   Write description of function here.
    The function should follow these comments.
    Use of "brief" tag is optional. (no point to it)
 
@@ -102,7 +97,6 @@ std::string one_word_command(std::string command);
    @param[in] command1 The first word.
    @param[in] command2 The second word.
    @return A string
->>>>>>> 78a43d95694abb97dc8cde5abb697de5d47af042
 */
 std::string two_word_command(std::string command1, std::string command2);
 
@@ -305,12 +299,13 @@ std::string two_word_command(std::string command1, std::string command2) {
    if(!strcmp(command1.c_str(), GO)) {
       return one_word_command(command2);
    }
+   std::cout << command2 << std::endl;
    unsigned int item =-1 ;
    Item *temp_item = world->get_active_area()->get_item(command2, item);
    if(temp_item != NULL) {
       if(world->get_area(INVENTORY)->has_item(temp_item->get_depends()) ||
-         !strcmp(world->get_active_area()->get_id().c_str(), world->get_active_area()->get_item(item)->get_depends().c_str()) ||
-         !strcmp(world->get_active_area()->get_item(item)->get_depends().c_str(), NONE)){
+         !strcmp(world->get_active_area()->get_id().c_str(), world->get_active_area()->get_item(temp_item->get_id(),item)->get_depends().c_str()) ||
+         !strcmp(world->get_active_area()->get_item(temp_item->get_id(),item)->get_depends().c_str(), NONE)){
          ItemCommand *temp_item_command = temp_item->get_command(command1);
          if(temp_item_command != NULL) {
             if(world->get_area(INVENTORY)->has_item(temp_item_command->get_depends()) ||
@@ -350,7 +345,7 @@ std::string two_word_command(std::string command1, std::string command2) {
                   else {
                      world->get_active_area()->add_item(temp_item);
                   }
-                  world->get_active_area()->remove_item(item);
+                  world->get_active_area()->remove_item(temp_item->get_id());
                   result << temp_item_command->get_message();
                   result << "\n";
                   return result.str();
@@ -409,7 +404,7 @@ std::string two_word_command(std::string command1, std::string command2) {
             else {
                world->get_active_area()->add_item(temp_item);
             }
-            world->get_area(INVENTORY)->remove_item(item);
+            world->get_area(INVENTORY)->remove_item(temp_item->get_id());
             result << temp_item_command->get_message();
             result << "\n";
             return result.str();
@@ -454,7 +449,7 @@ std::string three_word_command(std::string command){
             }
          } 
          else if(have_item_2->has_combine()){
-            std::string id_combine = have_item_1->get_id();
+            std::string id_combine = have_item_2->get_id();
             temp_combine = have_item_2->get_combine();
             if(!temp_combine->get_second_id().compare(id_combine)){
                world->get_area(GARBAGE)->add_item(have_item_2);
@@ -652,14 +647,11 @@ std::string input_filter(std::string str){
    return ret;
 }
 
-<<<<<<< HEAD
-=======
 /**
    Reads in words from file to filterList
    vector.
 
 */
->>>>>>> 78a43d95694abb97dc8cde5abb697de5d47af042
 void read_filter_list(const char* file){
    std::ifstream myfile (file);
    if (myfile.is_open())
@@ -709,7 +701,6 @@ int main(int argc, char** argv) {
             
          saveFile.close();
             
-<<<<<<< HEAD
         }
     } else if (strstr(argv[1], "-stat") && argc == 4) {
         world = read_file(argv[2], world);
@@ -722,7 +713,7 @@ int main(int argc, char** argv) {
                 world = read_file(argv[1], world);
                 if(world != NULL) {
                     //Debug Only
-                    //print_world_tree();
+                  // print_world_tree();
 		    	const char *file_f = (IGNORELIST);
 			read_filter_list(file_f);
                     if (argc > 2)
@@ -743,41 +734,6 @@ int main(int argc, char** argv) {
     } else {
         std::cout << "Usage: txtEngine Filename" << std::endl;
     }
-=======
-      }
-   } else if (strstr(argv[1], "-stat") && argc == 4) {
-      world = read_file(argv[2], world);
-      if(world != NULL) {
-         load(argv[3]);
-         std::cout << world->get_active_area()->get_description();
-      }
-   } else if(argc > 1) {
-      do {
-         world = read_file(argv[1], world);
-         if(world != NULL) {
-            /*Debug Only*/
-            //print_world_tree();
-            const char *file_f = (IGNORELIST);
-            read_filter_list(file_f);
-            if (argc > 2)
-               load(argv[2]);
-            gameloop();
-            delete world;
-            std::cout << "Would you like to play again? (please enter yes for affirmative)" << std::endl;
-            std::getline (std::cin,userinput);
-            game_over = true;
-            if(!userinput.compare("yes")) {
-               game_over = false;
-            }
-         }
-         else {
-            game_over = true;
-         }
-      } while (!game_over);
-   } else {
-      std::cout << "Usage: txtEngine Filename" << std::endl;
-   }
->>>>>>> 78a43d95694abb97dc8cde5abb697de5d47af042
     
    return 0;
 }

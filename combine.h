@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <string>
+#include "StateDescriptor.h"
 
 class Item;
 
@@ -22,6 +23,7 @@ class combine{
    std::string get_id();
    std::string get_first_id();
    std::string get_second_id();
+   std::string get_description();
    void set_combination(Item * item);
    void set_description(StateDescriptor * d);
  private:
