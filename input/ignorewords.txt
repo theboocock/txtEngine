@@ -35,10 +35,10 @@ while
 with
 without
 both
-not only
-but also  
+not
+only
+but
+also  
 either
 neither
 whether
-up
-down
