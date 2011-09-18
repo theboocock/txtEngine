@@ -57,7 +57,7 @@ combine *make_combine(TiXmlNode * pCommand,const char *parent_id,  World *world 
    std::string first_id, second_id, combine_id, combine_desc;
    std::string error_tag = MISSING_TAGS;
    combine *combine_var = NULL;
-   bool one = false, two = false, has_id = false, has_desc = false;
+   bool one = false, two = false, has_id = false;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
    int num_attributes = 0;
@@ -91,7 +91,7 @@ combine *make_combine(TiXmlNode * pCommand,const char *parent_id,  World *world 
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) {
          if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT) {
 	    if(!strcmp(pChild->Value(), "statedescriptor")) {
-		combine_var->set_description(make_state_descriptor(pChild, combine_id, world));
+		combine_var->set_description(make_state_descriptor(pChild, combine_id.c_str(), world));
 	    } else if(!strcmp(pChild->Value(), "item")){
             	combine_var->set_combination(make_item(pChild,"combine",world ));
 	    } else {
@@ -110,7 +110,7 @@ combine *make_combine(TiXmlNode * pCommand,const char *parent_id,  World *world 
             error_parsing(message, world);
          }
       }
-      if(!strcmp(error_tag, MISSING_TAGS)){
+      if(!strcmp(error_tag.c_str, MISSING_TAGS)){
 	   error_parsing(error_tag, world);
       }
    } else {
@@ -231,7 +231,7 @@ ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World
    if(ITEM_COMMAND_ATTRIBUTES == attributesFound && has_collec_dep && has_name && has_state && has_area && has_collect) {
       item_command = new ItemCommand(command_name, command_state, command_chg_col,
                                      command_dep, command_area, command_status,
-                                     command_depends, synonyms_vec, unlock);
+                                     command_depends, synonyms_vec, unlock, false);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) {
          if(pChild->Type() == TiXmlNode::TINYXML_TEXT) {
             item_command->set_message((pChild->ToText()->Value()));
