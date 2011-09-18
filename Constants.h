@@ -35,5 +35,8 @@
 #define HELP_COMMAND "Schrodinger says the cat is both dead and alive."
 #define SAVE "save"
 #define LOAD "load"
+#define IGNORELIST "input/ignorewords.txt"
+#define IGNORELISTERROR "\n\nERROR: Filter List not found!\n\n"
+#define TOOMANYWORDS "Please use fewer words for commands"
 
 #endif //_CONSTANTS_H

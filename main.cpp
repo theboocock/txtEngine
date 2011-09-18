@@ -574,7 +574,7 @@ int main(int argc, char** argv) {
                 if(world != NULL) {
                     /*Debug Only*/
                     //print_world_tree();
-			read_filter_list(IGNORELISTema);
+			read_filter_list(IGNORELIST);
                     if (argc > 2)
                         load(argv[2]);
                     gameloop();
