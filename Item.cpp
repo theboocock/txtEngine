@@ -152,8 +152,14 @@ Item::~Item() {
    for(unsigned int desc_num = 0; desc_num < description.size(); desc_num++) {
       delete description[desc_num];
    }
+   for(int item_num = 0; item_num < num_items; item_num++) {
+      delete contains[item_num];
+   }
    if(synonyms!=NULL){
       delete synonyms;
+   }
+   if(combine_var!=NULL){
+	delete combine_var;
    }
 }
 

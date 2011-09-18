@@ -6,6 +6,7 @@
  */
 
 #include "combine.h"
+#include "Item.h"
 
 combine::combine(std::string id,std::string first, std::string second_id){
 	this->id = id;	
@@ -14,10 +15,15 @@ combine::combine(std::string id,std::string first, std::string second_id){
 }
 
 combine::~combine(){
+	if(combination!=NULL){
+		delete combination;
+	}
 }
 
 Item* combine::get_combination(){
-	return combination;
+	Item* temp = combination;
+	combination = NULL;
+	return temp;
 }
 
 void combine::set_combination(Item * item){
