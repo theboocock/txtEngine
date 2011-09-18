@@ -62,29 +62,16 @@ class Item {
         */
         void add_item(Item*);
 
-        /**
-           Checks whether this Item has an inside area.
-         */
-        bool has_inside();
 
         /**
            Checks whether this Item can combine with another.
          */
         bool has_combine();
 
-        /**
-           Accessors and mutators for inside.
-        */
-        Area * get_inside();
-	
 	/**
            Accessors and mutators for inside and combine.
         */
         combine * get_combine();
-	
-	
-        void set_inside(Area * a);
-	
 	
         void set_combine(combine * c);
 	

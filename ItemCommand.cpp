@@ -5,7 +5,8 @@
 ItemCommand::ItemCommand(const char * callmeby, const char * state_mutator,
                          bool chng_collec, bool collec_dep, const char *area_chng,
                          const char* status_command, const char* depends,
-                         std::vector<std::string> *syns, std::string unlocks) {
+                         std::vector<std::string> *syns, std::string unlocks, bool combine) {
+    this->call_combine = combine;
     name = callmeby;
     this->depends = depends;
     state_change = state_mutator;
@@ -16,7 +17,12 @@ ItemCommand::ItemCommand(const char * callmeby, const char * state_mutator,
     message = "";
     synonyms = syns;
     unlock = unlocks;
-    }
+}
+
+bool ItemCommand::is_combine(){
+	return call_combine;
+}
+
 
 std::string ItemCommand::get_depends() {
     return depends;

@@ -1,4 +1,3 @@
-// $Id$
 /**
  * @file Area.h
  * Area.h defines the methods for the Area.cpp source file.
@@ -11,7 +10,6 @@
  * @author Tatai Nikora
  * @version 0.3
  */
-// $Log$
 
 #ifndef _ITEM_COMMAND_H
 #define _ITEM_COMMAND_H
@@ -29,15 +27,17 @@ class ItemCommand {
         std::string depends;
         std::string status;
         std::string unlock;
+	bool call_combine;
         std::vector<std::string> *synonyms;
         bool change_collect, collect_dependent;
 
     public:
-
+	bool is_combine();
+	
         ItemCommand(const char * callmeby, const char * state_mutator,
                     bool chng_collec, bool collec_dep, const char *area_chng,
                     const char* status_command,const char* depends,
-                    std::vector<std::string> * synonyms, std::string unlock);
+                    std::vector<std::string> * synonyms, std::string unlock, bool combine);
         
         ~ItemCommand();
 
