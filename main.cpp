@@ -216,7 +216,8 @@ void print_world_tree() {
 void gameloop() {
     std::string last_area = DEFAULT_VALUE;
     while(!game_over) {
-        std::ostringstream sin;
+        std::ostringstream sin;i
+	std::string combinelist; 
         std::ostringstream commandstream;
         std::ostringstream itemstream;
         if(last_area.compare(world->get_active_area()->get_id()) != 0) {
@@ -231,11 +232,17 @@ void gameloop() {
                       !strcmp(world->get_active_area()->get_id().c_str(), world->get_active_area()->get_item(items)->get_depends().c_str()) ||
                       !strcmp(world->get_active_area()->get_item(items)->get_depends().c_str(), NONE)){
                       itemstream << world->get_active_area()->get_item(items)->get_description();
+		      if(!world->get_active_area()->get_item(items)->has_container() &&
+				      !world->get_active_area()->get_item(items)->is_locked()){
+			       combinelist.push_back(world->get_active_area()->get_items(items)->print_contained_items());
+
+			       combinelist.push_back("\n");
+		      }
                       itemstream << "\n"; 
-                   }
+                   } 
                 }
             }
-            std::cout << word_wrap(sin.str())<<word_wrap(itemstream.str());
+            std::cout << word_wrap(sin.str())<<word_wrap(itemstream.str())<< std::endl << combinelist << std::endl;
         }
         if(!game_over) {
             std::cout << ">>";
@@ -282,7 +289,7 @@ std::string two_word_command(std::string command1, std::string command2) {
     if(!strcmp(command1.c_str(), GO)) {
         return one_word_command(command2);
         }
-    unsigned int item = NULL;
+    unsigned int item =-1 ;
     Item *temp_item = world->get_active_area()->get_item(command2, item);
     if(temp_item != NULL) {
        if(world->get_area(INVENTORY)->has_item(temp_item->get_depends()) ||
@@ -377,6 +384,11 @@ std::string two_word_command(std::string command1, std::string command2) {
         }
     return "I don't understand that. \n";
     }
+
+std::string three_word_command(std::string command){
+	return "";	
+
+}
 
 std::string one_word_command(std::string command) {
     std::transform(command.begin(), command.end(),
@@ -514,7 +526,7 @@ std::string input_filter(std::string str){
     std::string word;
    while (iss >> word) {
       bool contains = false;
-      for(int i = 0; i < filterList.size(); i++){
+      for(unsigned int i = 0; i < filterList.size(); i++){
 	  if(word==filterList[i]) contains = true; 
       }
       if(!contains) ret += word + " ";
@@ -573,7 +585,7 @@ int main(int argc, char** argv) {
                 std::cout << world->get_active_area()->get_description();
             std::ofstream saveFile;
             saveFile.open(argv[3]);
-            for (int i=0; i < commandList.size(); i++) {
+            for (unsigned int i=0; i < commandList.size(); i++) {
                 if(commandList[i].compare(SAVE))
                     saveFile << commandList[i] << std::endl;
             }
