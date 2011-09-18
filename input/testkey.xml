@@ -16,7 +16,7 @@
         You are holding the key.
       </statedescriptor>
       <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
-        you go the key
+        you get the key
       </itemcommand>
       <itemcommand name="use" statedescription="onplayer" changecollectable="false" collectabledependent="false" areachange="inventory" unlock="start/north">
         you used the key to open the north door
@@ -27,13 +27,14 @@
         The key2 lies on the floor.
       </statedescriptor>
       <statedescriptor id="onplayer">
-        You are holding the key.
+        You are holding the key2.
       </statedescriptor>
       <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
+        You get key2.
       </itemcommand>
     </item>
   </area>
-  <area id="finish" initialdescription="init">
+  <area id="finish" initialdescription="init" status="win">
     <statedescriptor id="init">
       You are in the finish area.
     </statedescriptor>

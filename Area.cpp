@@ -68,6 +68,7 @@ Item * Area::get_item(std::string item_id, unsigned int &index) {
          return items[item_num];
       }
       else if(items[item_num]->has_synonym(item_id)) {
+
          index = item_num;
          return items[item_num];
       }
