@@ -304,7 +304,7 @@ std::string two_word_command(std::string command1, std::string command2) {
                   temp_item->state_change(temp_item_command->get_state_change());
                   temp_item->change_collectable(temp_item_command->get_change_collect());
                   if(temp_item_command->unlocks()) {
-                     if(temp_item_command->unlock_area_string().find_first_of("/") == std::string.npos()){
+                     if(temp_item_command->unlock_area_string().find_first_of("/") == temp_item_command->unlock_area_string().npos()){
                         std::string temp_item_id = temp_item_command->unlock_area_string();
                         if(world->get_active_area()->has_item(temp_item_id)){
                            unsigned int this_is_pointless = 0;
@@ -363,7 +363,7 @@ std::string two_word_command(std::string command1, std::string command2) {
             temp_item->state_change(temp_item_command->get_state_change());
             temp_item->change_collectable(temp_item_command->get_change_collect());
             if(temp_item_command->unlocks()) {
-               if(temp_item_command->unlock_area_string().find_first_of("/") == std:string.npos()){
+               if(temp_item_command->unlock_area_string().find_first_of("/") == temp_item_command->unlock_area_string().npos()){
                   std::string temp_item_id = temp_item_command->unlock_area_string();
                   unsigned int unknown = 0;
                   if(world->get_active_area()->has_item(temp_item_id)){
