@@ -2,6 +2,7 @@
 #include <iostream>
 
 void Item::remove_item(std::string item_id){
+    /*
 	for(unsigned int i=0; i < items.size(); i++){
    		if(items[i]->item_id.compare(item_id)) items.erase(i);
   		 }else if(items[i]->has_synonym(item_id)) {
@@ -9,6 +10,11 @@ void Item::remove_item(std::string item_id){
      		 }//else{
 		//	items->remove_item(item_id);
    	 //  }
+     */
+}
+
+std::string Item::get_item_id(){
+    return this->id;
 }
 
 void Item::flip_locked(){
