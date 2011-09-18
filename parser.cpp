@@ -110,7 +110,7 @@ combine *make_combine(TiXmlNode * pCommand,const char *parent_id,  World *world 
             error_parsing(message, world);
          }
       }
-      if(!strcmp(error_tag.c_str, MISSING_TAGS)){
+      if(!strcmp(error_tag.c_str(), MISSING_TAGS)){
 	   error_parsing(error_tag, world);
       }
    } else {
@@ -425,8 +425,9 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world) {
    TiXmlAttribute *attributes = element->FirstAttribute();
    while(attributes) {
       if(!strcmp(attributes->Name(), "id")) {
+	 
          item_id = attributes->Value();
-         attributesFound++;
+	 attributesFound++;
          if(has_id) {
             error_tag = "More than one id tag";
          }

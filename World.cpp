@@ -51,6 +51,7 @@ World::World(const char *lang, const char *auth, const char *init_area) {
     Area* inventory = new Area("inventory","","");
     Area* garbage = new Area("garbage","","");
     add_area(inventory);
+    add_area(garbage);
 
     }
 World::~World() {
