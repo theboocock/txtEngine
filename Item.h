@@ -23,22 +23,6 @@
 class Area;
 
 class Item {
-    private:
-
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
-
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
-
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        bool check_synonyms();
 
     protected:
         bool collectable;
@@ -343,7 +327,7 @@ class Item {
         @return Description of returned value.
         */
         Item(bool collect, const char *identifier, const char *initial_state,
-             std::vector<std::string> *synonyms, const char * depends);
+             std::vector<std::string> *synonyms, const char * depends, bool container, bool locked);
 
         /**
         Write description of function here.
