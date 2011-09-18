@@ -68,7 +68,7 @@ World *world;
 bool game_over = false;
 std::vector<std::string> commandList;
 std::vector<std::string> filterList;
-
+std::string save;
 
 //------------------------------------------------------------------------------
 /* Method Prototypes */
@@ -82,37 +82,20 @@ void gameloop();
 /**
    @brief A method to handle one word commands.
    @param[in] command A single word command in the form of a string.
-   @return 
+   @return Output of the command.
 */
 std::string one_word_command(std::string command);
 
 /**
-     Write description of function here.
-     The function should follow these comments.
-     Use of "brief" tag is optional. (no point to it)
-
-     The function arguments listed with "param" will be compared
-     to the declaration and verified.
-
-     @param[in] command1 The first word.
-     @param[in] command2 The second word.
-     @return A string
-     */
+   @brief A method to handle two word commands.
+   @param[in] command A two word command in the form of a string.
+   @return Output of the command.
+*/
 std::string two_word_command(std::string command1, std::string command2);
 
 /**
-     Write description of function here.
-     The function should follow these comments.
-     Use of "brief" tag is optional. (no point to it)
-
-     The function arguments listed with "param" will be compared
-     to the declaration and verified.
-
-     @param[in]     _inArg1 Description of first function argument.
-     @param[out]    _outArg2 Description of second function argument.
-     @param[in,out] _inoutArg3 Description of third function argument.
-     @return Description of returned value.
-     */
+     Prints out the contents of the inventory vector.
+*/
 void print_inventory();
 
 /**
@@ -130,20 +113,32 @@ std::string word_wrap(std::string input_string);
 void print_world_tree();
 
 /**
-   Loads a game from a .sav file
+   Loads a game from a .sav file.
 */
 void load_game();
 
 /**
-   Saves a game to a .sav file
+   Saves a game to a .sav file by dumping the command list vector
+   to a file.
 */
 void save_game();
 
-std::string save;
+/**
+   Checks the input string for words that are in the filterList
+   vector. If they are in the list they are removed from the string.
+   
+   @param[in] input_string A string to be filtered
+   @return A string with words from filterList removed.
+*/
+std::string input_filter(std::string input_string);
 
-std::string input_filter(std::string);
+/**
+    Reads words from a specified file into
+    the filterList vector.
 
-void read_filter_list();
+    @param[in] str A string of a file path to a list of words to ignore.
+*/
+void read_filter_list(std::string str);
 
 //------------------------------------------------------------------------------
 /* Method Definitions */
@@ -507,11 +502,6 @@ std::string input_filter(std::string str){
 	return ret;
 }
 
-/**
-    Reads in words from file to filterList
-    vector.
-
-*/
 void read_filter_list(char* const file){
      std::ifstream myfile (file);
     if (myfile.is_open())
@@ -572,7 +562,7 @@ int main(int argc, char** argv) {
             do {
                 world = read_file(argv[1], world);
                 if(world != NULL) {
-                    /*Debug Only*/
+                    //Debug Only
                     //print_world_tree();
 			read_filter_list(IGNORELIST);
                     if (argc > 2)
