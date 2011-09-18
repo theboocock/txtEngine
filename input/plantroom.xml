@@ -113,7 +113,7 @@
       </statedescriptor>
       <itemcommand name="open" statedescription="open" changecollectable="false" collectabledependent="false" areachange="none" synonyms="unlock" depends="wand">
         You wave the wand in a meaningless fashion above the chest. It did nothing. You throw the want at the chest in disgust!
-        The wand hits the chest and you hear it unlock, that was weird.
+        The wand hits the chest and you hear the lock turn, that was weird.
       </itemcommand>
       <item id="transistors" initialdescription="init" collectable="true" synonyms="transistor,chips,capasitors">
 	<statedescriptor id="init">
@@ -144,21 +144,6 @@
         </itemcommand>
       </item>
     </item>
-	<item id="wand" initialdescription="init" collectable="true" synonyms="stick">
-        <statedescriptor id="init">
-          A wand.
-        </statedescriptor>
-        <statedescriptor id="dropped">
-          The wand is here.
-        </statedescriptor>
-        <itemcommand name="use" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" unlock="chest">
-          You wave the wand in a meaningless fashion above the chest. It did nothing. You throw the want at the chest in disgust!
-          The wand hits the chest and you hear it unlock, that was weird.
-        </itemcommand>
-<itemcommand name="get" statedescription="init" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,collect">
-          You take the wand.
-        </itemcommand>
-      </item>
     <item id="pot" initialdescription="open" collectable="false" synonyms="container" container="true" locked="false">
       <statedescriptor id="closed">
         A locked chest sits directly opposite you. It is not locked by a key though, something more magical has control over it.
@@ -169,7 +154,21 @@
       <itemcommand name="look" statedescription="open" changecollectable="false" collectabledependent="false" areachange="none" synonyms="see">
         You look at the pot, it looks normal.
       </itemcommand>
-      
+      <item id="wand" initialdescription="init" collectable="true" synonyms="stick">
+        <statedescriptor id="init">
+          A wand.
+        </statedescriptor>
+        <statedescriptor id="dropped">
+          The wand is here.
+        </statedescriptor>
+        <itemcommand name="use" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" unlock="chest">
+          You wave the wand in a meaningless fashion above the chest. It did nothing. You throw the want at the chest in disgust!
+          The wand hits the chest and you hear the lock turn, that was weird.
+        </itemcommand>
+	<itemcommand name="get" statedescription="init" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,collect">
+          You take the wand.
+        </itemcommand>
+      </item>
     </item>
     <item id="pocket" initialdescription="none" collectable="false" synonyms="shirt">
       <statedescriptor id="none">
