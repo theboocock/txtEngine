@@ -200,8 +200,8 @@ void print_world_tree() {
 void gameloop() {
     std::string last_area = DEFAULT_VALUE;
     while(!game_over) {
-        std::ostringstream sin;i
-	std::string combinelist; 
+        std::ostringstream sin;
+	std::string combinelist = ""; 
         std::ostringstream commandstream;
         std::ostringstream itemstream;
         if(last_area.compare(world->get_active_area()->get_id()) != 0) {
@@ -218,9 +218,9 @@ void gameloop() {
                       itemstream << world->get_active_area()->get_item(items)->get_description();
 		      if(!world->get_active_area()->get_item(items)->has_container() &&
 				      !world->get_active_area()->get_item(items)->is_locked()){
-			       combinelist.push_back(world->get_active_area()->get_items(items)->print_contained_items());
+			       combinelist+= (world->get_active_area()->get_item(items)->print_contained_items());
 
-			       combinelist.push_back("\n");
+			       combinelist +="\n";
 		      }
                       itemstream << "\n"; 
                    } 
