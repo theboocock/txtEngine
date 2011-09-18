@@ -70,6 +70,8 @@
 World *world;
 bool game_over = false;
 std::vector<std::string> commandList;
+std::vector<std::string> filterList;
+
 
 //------------------------------------------------------------------------------
 /* Method Prototypes */
@@ -125,17 +127,10 @@ std::string two_word_command(std::string command1, std::string command2);
 void print_inventory();
 
 /**
-     Write description of function here.
-     The function should follow these comments.
-     Use of "brief" tag is optional. (no point to it)
+     Wraps the output to a specified size.
 
-     The function arguments listed with "param" will be compared
-     to the declaration and verified.
-
-     @param[in]     _inArg1 Description of first function argument.
-     @param[out]    _outArg2 Description of second function argument.
-     @param[in,out] _inoutArg3 Description of third function argument.
-     @return Description of returned value.
+     @param[in] input_string The output of the game to be wrapped
+     @return A wrapped string, properly formatted.
      */
 std::string word_wrap(std::string input_string);
 
@@ -145,15 +140,31 @@ std::string word_wrap(std::string input_string);
 */
 void print_world_tree();
 
+/**
+   Loads a game from a .sav file
+*/
 void load_game();
+
+/**
+   Saves a game to a .sav file
+*/
 void save_game();
 
 std::string save;
+
+std::string input_filter(std::string);
+
+void read_filter_list();
 
 //------------------------------------------------------------------------------
 /* Method Definitions */
 //------------------------------------------------------------------------------
 
+
+/**
+   This method is used for debug purposes only:
+   Prints out the parsed XML file in a tree structure.
+*/
 void print_world_tree() {
     std::ostringstream sin;
     sin << "World:\n";
@@ -201,6 +212,7 @@ void print_world_tree() {
     fprintf(stderr, "Attempt at printing world.\n%s\n", message.c_str());
     }
 
+
 void gameloop() {
     std::string last_area = DEFAULT_VALUE;
     while(!game_over) {
@@ -229,6 +241,7 @@ void gameloop() {
             std::cout << ">>";
             std::string line;
             std::getline(std::cin, line);
+	    line = input_filter(line);
             std::string command1 , command2;
             std::string checkmorewords;
             std::istringstream iss(line);
@@ -239,7 +252,7 @@ void gameloop() {
                         commandstream << two_word_command(command1 ,command2);
                         }
                     else {
-                        std::cout << "Please enter one or two word commands only" << std::endl;
+                        std::cout << "Perhaps you could be more specific" << std::endl;
                         }
                     }
                 else {
@@ -253,7 +266,7 @@ void gameloop() {
                     }
                 }
             else {
-                std::cout << "Please enter one or two word commands only" << std::endl;
+                std::cout << "Perhaps you could be more specific" << std::endl;
                 }
             std::cout << "\n" << word_wrap(commandstream.str());
             }
@@ -312,6 +325,7 @@ std::string two_word_command(std::string command1, std::string command2) {
                 }
             }
         else {
+           //Command does not exist for that item.
             result << "There is no command ";
             result << command1;
             result << " for item ";
@@ -494,41 +508,92 @@ void load(char* const file) {
     }
 }
 
+std::string input_filter(std::string str){
+    std::istringstream iss(str);
+    std::string ret ="";
+    std::string word;
+   while (iss >> word) {
+      bool contains = false;
+      for(int i = 0; i < filterList.size(); i++){
+	  if(word==filterList[i]) contains = true; 
+      }
+      if(!contains) ret += word + " ";
+   }
+	//std::cout << ret << std::endl;//debug
+        ret = ret.erase(ret.size()-1);
+	return ret;
+}
+
+/**
+    Reads in words from file to filterList
+    vector.
+
+*/
+void read_filter_list(char* const file){
+     std::ifstream myfile (file);
+    if (myfile.is_open())
+    {
+        while ( myfile.good() )
+        {
+            std::string line;
+            getline (myfile,line);
+            filterList.push_back(line);
+        }
+        myfile.close();
+    }else{ std::cout << "\n\nFilter List not found!\n\n" << std::endl;}
+	/*Debug filterList
+	for(int i =0; i < filterList.size(); i++){
+		std::cout << filterList[i] << std::endl;
+	}*/
+}
+
 int main(int argc, char** argv) {
     std::string userinput;
-    if(argc > 1) {
-        if (strstr(argv[1], "-exec")) {
-            world = read_file(argv[2], world);
-            if(world != NULL) {
-                load(argv[3]);
-                std::string command1 , command2;
-                std::string checkmorewords;
-                std::istringstream iss(argv[4]);
-                commandList.push_back(argv[4]);
-                if(iss >> command1) {
-                    if (iss >> command2) {
-                        if(!(iss >> checkmorewords)) {
-                            std::cout << two_word_command(command1 ,command2);
-                        }
-                    }
-                    else {
-                        std::cout << one_word_command(command1);
+    if (strstr(argv[1], "-exec") && argc == 5) {
+        world = read_file(argv[2], world);
+        
+        if(world != NULL) {
+            load(argv[3]);
+            std::string command1 , command2;
+            std::string checkmorewords;
+            std::istringstream iss(argv[4]);
+            commandList.push_back(argv[4]);
+            Area* check = world->get_active_area();
+            if(iss >> command1) {
+                if (iss >> command2) {
+                    if(!(iss >> checkmorewords)) {
+                        std::cout << two_word_command(command1 ,command2);
                     }
                 }
-                std::ofstream saveFile;
-                saveFile.open(argv[3]);
-                for (int i=0; i < commandList.size(); i++) {
-                    if(commandList[i].compare(SAVE))
-                        saveFile << commandList[i] << std::endl;
-                } 
-                saveFile.close();
+                else {
+                    std::cout << one_word_command(command1);
+                }
             }
-        } else {
+            if (check != world->get_active_area())
+                std::cout << world->get_active_area()->get_description();
+            std::ofstream saveFile;
+            saveFile.open(argv[3]);
+            for (int i=0; i < commandList.size(); i++) {
+                if(commandList[i].compare(SAVE))
+                    saveFile << commandList[i] << std::endl;
+            }
+            
+            saveFile.close();
+            
+        }
+    } else if (strstr(argv[1], "-stat") && argc == 4) {
+        world = read_file(argv[2], world);
+        if(world != NULL) {
+            load(argv[3]);
+            std::cout << world->get_active_area()->get_description();
+        }
+    } else if(argc > 1) {
             do {
                 world = read_file(argv[1], world);
                 if(world != NULL) {
                     /*Debug Only*/
                     //print_world_tree();
+			read_filter_list("input/ignorewords.txt");
                     if (argc > 2)
                         load(argv[2]);
                     gameloop();
@@ -544,9 +609,9 @@ int main(int argc, char** argv) {
                     game_over = true;
                     }
             } while (!game_over);
-        }
     } else {
         std::cout << "Usage: txtEngine Filename" << std::endl;
     }
+    
     return 0;
 }
