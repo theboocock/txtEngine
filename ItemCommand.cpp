@@ -84,10 +84,6 @@ bool ItemCommand::unlocks() {
         }
     return true;
     }
-std::string ItemCommand::get_unlockstring(){
-	return unlock;
-}
-
 
 std::string ItemCommand::unlock_area_string() {
     size_t found;
