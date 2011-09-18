@@ -39,7 +39,7 @@ class Item {
         std::string depends;
 
     public:
-
+	void flip_locked();
 	bool is_locked();
 
 	bool has_container();

@@ -1,6 +1,9 @@
 #include "Item.h"
 #include <iostream>
 
+void Item::flip_locked(){
+	locked = !locked;
+}
 bool Item::is_locked(){
 	return locked;
 }
