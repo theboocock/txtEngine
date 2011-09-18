@@ -39,6 +39,7 @@ class Item {
         std::string depends;
 
     public:
+	void remove_item(std::string item_id);
 	void flip_locked();
 	bool is_locked();
 

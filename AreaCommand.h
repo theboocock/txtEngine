@@ -14,6 +14,9 @@
 #ifndef _AREA_COMMAND_H
 #define _AREA_COMMAND_H
 
+//------------------------------------------------------------------------------
+/* Include */
+//------------------------------------------------------------------------------
 #include <vector>
 #include <string>
 
@@ -30,48 +33,26 @@ class AreaCommand {
     public:
 
         /**
-           Write description of function here.
-           The function should follow these comments.
-           Use of "brief" tag is optional. (no point to it)
+          The constructor for an AreaCommand.
 
-           The function arguments listed with "param" will be compared
-           to the declaration and verified.
-
-           @param[in]     _inArg1 Description of first function argument.
-           @param[out]    _outArg2 Description of second function argument.
-           @param[in,out] _inoutArg3 Description of third function argument.
-           @return Description of returned value.
+           @param[in] callmeby The name of this command.
+	   @param[in] areamoveto The area to move to when this command is called.
+	   @param[in] status_command The status id to change to.
+	   @param[in] depends_command 
+	   @param[in] synonyms A vector containing synonyms of 'callmeby'.
+	   @param[in] locked If true command cannot be called.
         */
-
-        AreaCommand(const char * callmeby, const char * areatomoveto,const char * status_command, const char * depends_command, std::vector<std::string> *synonyms, bool locked);
+        AreaCommand(const char * callmeby, const char * areatomoveto, const char * status_command, const char * depends_command, std::vector<std::string> *synonyms, bool locked);
 
         /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
-
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
-
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
+           The AreaCommand Destructor
         */
         ~AreaCommand();
 
         /**
-          Write description of function here.
-          The function should follow these comments.
-          Use of "brief" tag is optional. (no point to it)
+          An accessor for the depends member.
 
-          The function arguments listed with "param" will be compared
-          to the declaration and verified.
-
-          @param[in]     _inArg1 Description of first function argument.
-          @param[out]    _outArg2 Description of second function argument.
-          @param[in,out] _inoutArg3 Description of third function argument.
-          @return Description of returned value.
+          @return A string 
           */
         std::string get_depends();
 
