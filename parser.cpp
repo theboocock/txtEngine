@@ -527,7 +527,7 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
    int attributesFound = 0;
    const char *area_id = INVALID, *desc_id = INVALID,
       *error_tag = MISSING_TAGS, *area_status = NONE;
-   bool has_id = false, has_desc = false, has_status = false, has_locked = false;
+   bool has_id = false, has_desc = false, has_status = false;
    Area *area = NULL;
    TiXmlElement *element = pArea->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
