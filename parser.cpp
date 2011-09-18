@@ -447,8 +447,7 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world) {
               error_tag = "More than one depends tag.";
            }
            has_depends = true;           
-        }
-        else {
+        } else {
             error_tag = attributes->Name();
             fprintf(stderr, "found something but shouldnt have in make_item.\n");
             attributesFound++;
