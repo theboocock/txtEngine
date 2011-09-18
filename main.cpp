@@ -32,9 +32,6 @@
  * <a href="https://github.com/smilefreak/txtEngine">
  * https://github.com/smilefreak/txtEngine</a><br></li>
  *
- * <li>Facebook Fanpage: <a href="http://www.facebook.com/txtEngine">
- * http://www.facebook.com/txtEngine</a><br></li>
- *
  * <li>TinyXML Documentation:
  * <a href="http://www.grinninglizard.com/tinyxmldocs/index.html">
  * http://www.grinninglizard.com/tinyxmldocs/index.html</a><br></li>
@@ -83,18 +80,10 @@ std::vector<std::string> filterList;
 void gameloop();
 
 /**
-     Write description of function here.
-     The function should follow these comments.
-     Use of "brief" tag is optional. (no point to it)
-
-     The function arguments listed with "param" will be compared
-     to the declaration and verified.
-
-     @param[in]     _inArg1 Description of first function argument.
-     @param[out]    _outArg2 Description of second function argument.
-     @param[in,out] _inoutArg3 Description of third function argument.
-     @return Description of returned value.
-     */
+   @brief A method to handle one word commands.
+   @param[in] command A single word command in the form of a string.
+   @return 
+*/
 std::string one_word_command(std::string command);
 
 /**
@@ -160,11 +149,6 @@ void read_filter_list();
 /* Method Definitions */
 //------------------------------------------------------------------------------
 
-
-/**
-   This method is used for debug purposes only:
-   Prints out the parsed XML file in a tree structure.
-*/
 void print_world_tree() {
     std::ostringstream sin;
     sin << "World:\n";
@@ -252,7 +236,7 @@ void gameloop() {
                         commandstream << two_word_command(command1 ,command2);
                         }
                     else {
-                        std::cout << "Perhaps you could be more specific" << std::endl;
+                        std::cout << TOOMANYWORDS << std::endl;
                         }
                     }
                 else {
@@ -266,7 +250,7 @@ void gameloop() {
                     }
                 }
             else {
-                std::cout << "Perhaps you could be more specific" << std::endl;
+                std::cout << TOOMANYWORDS << std::endl;
                 }
             std::cout << "\n" << word_wrap(commandstream.str());
             }
@@ -519,7 +503,6 @@ std::string input_filter(std::string str){
       }
       if(!contains) ret += word + " ";
    }
-	//std::cout << ret << std::endl;//debug
         ret = ret.erase(ret.size()-1);
 	return ret;
 }
@@ -540,11 +523,9 @@ void read_filter_list(char* const file){
             filterList.push_back(line);
         }
         myfile.close();
-    }else{ std::cout << "\n\nFilter List not found!\n\n" << std::endl;}
-	/*Debug filterList
-	for(int i =0; i < filterList.size(); i++){
-		std::cout << filterList[i] << std::endl;
-	}*/
+    }else{
+       std::cout << IGNORELISTERROR << std::endl;
+    }
 }
 
 int main(int argc, char** argv) {
@@ -593,7 +574,7 @@ int main(int argc, char** argv) {
                 if(world != NULL) {
                     /*Debug Only*/
                     //print_world_tree();
-			read_filter_list("input/ignorewords.txt");
+			read_filter_list(IGNORELISTema);
                     if (argc > 2)
                         load(argv[2]);
                     gameloop();
