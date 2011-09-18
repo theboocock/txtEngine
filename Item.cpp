@@ -10,7 +10,7 @@ bool Item::has_container(){
 }
 
 Item* Item::get_item(std::string item_id){
-for(unsigned int item_num = 0; item_num < num_items; item_num++) {
+for(int item_num = 0; item_num < num_items; item_num++) {
       if(contains[item_num]->get_id().compare(item_id) == 0) {
          return contains[item_num];
       }
@@ -29,7 +29,7 @@ void Item::add_item(Item* new_item){
 std::string Item::print_contained_items(){
 	std::string str = this->get_description()+ " contains:" + "\n";
 	for(int i=0;i<num_items;i++){
-	    str += "\t-"+ contains[i].get_description() +"\n";
+	    str += "\t-"+ contains[i]->get_description() +"\n";
 	}
 	return str;
 }
@@ -161,13 +161,6 @@ std::string Item::get_depends(){
    return depends;
 }
 
-bool Item::has_inside(){
-   if(inside!=NULL){
-      return true;
-   }
-   return false;
-}
-
 bool Item::has_combine(){
    if(combine_var!=NULL){
       return true;
@@ -175,16 +168,8 @@ bool Item::has_combine(){
    return false;
 }
 
-Area * Item::get_inside(){
-   return inside;
-}
-
 combine * Item::get_combine(){
    return combine_var;
-}
-
-void Item::set_inside(Area * a){
-   inside = a;
 }
 
 void Item::set_combine(combine * c){
