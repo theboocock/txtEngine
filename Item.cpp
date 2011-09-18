@@ -1,6 +1,41 @@
 #include "Item.h"
 #include <iostream>
 
+bool is_locked(){
+	return locked;
+}
+
+bool has_container(){
+	return container;
+}
+
+Item* Item::get_item(std::string item_id){
+for(unsigned int item_num = 0; item_num < num_items; item_num++) {
+      if(contains[item_num]->get_id().compare(item_id) == 0) {
+         index = item_num;
+         return contains[item_num];
+      }
+      else if(contains[item_num]->has_synonym(item_id)) {
+         index = item_num;
+         return contains[item_num];
+      }
+   }
+   return NULL;
+}
+
+void Item::add_item(Item* new_item){
+	contains.push_back(new_item);
+	num_items++;
+}
+
+std::string print_contained_items(){
+	std::string str = this->get_description()+ " contains:" + "\n";
+	for(int i=0;i<num_items;i++){
+	    str += "\t-"+ contains[i].get_description() +"\n";
+	}
+	return str;
+}
+
 bool Item::has_description(std::string desc_id) {
    for(int desc = 0; desc < num_descriptions; desc++) {
       if(!description[desc]->get_id().compare(desc_id)) {
@@ -91,6 +126,7 @@ Item::Item(bool collect, const char *identifier, const char *initial_state, std:
    id = identifier;
    num_descriptions = 0;
    num_commands = 0;
+   num_items = 0;
    curr_desc_id = initial_state;
    this->synonyms = synonyms;
    this->depends = depends;

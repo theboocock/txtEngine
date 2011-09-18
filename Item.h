@@ -1,4 +1,3 @@
-// $Id$
 /**
  * @file Area.h
  * Area.h defines the methods for the Area.cpp source file.
@@ -11,7 +10,6 @@
  * @author Tatai Nikora
  * @version 0.3
  */
-// $Log$
 
 #ifndef _ITEM_H
 #define _ITEM_H
@@ -44,7 +42,7 @@ class Item {
 
     protected:
         bool collectable;
-        int num_descriptions, num_commands;
+        int num_descriptions, num_commands, num_items;
         std::string id;
         bool container;
         bool locked;
@@ -58,27 +56,54 @@ class Item {
 
     public:
 
+	bool is_locked();
+
+	bool has_container();
+
+	/**
+           Returns a string with all items item contains.
+	   
+         */
+        std::string print_contained_items();
+
+	/**
+           Returns a pointer to an item by id or null if
+	   
+         */
+        Item* get_item(std::string item_id);
+
+	/**
+           Adds an item to the contains vector
+	   
+        */
+        void add_item(Item*);
+
         /**
            Checks whether this Item has an inside area.
          */
-        
         bool has_inside();
 
         /**
            Checks whether this Item can combine with another.
          */
-        
         bool has_combine();
 
         /**
+           Accessors and mutators for inside.
+        */
+        Area * get_inside();
+	
+	/**
            Accessors and mutators for inside and combine.
         */
-
-        Area * get_inside();
         combine * get_combine();
+	
+	
         void set_inside(Area * a);
+	
+	
         void set_combine(combine * c);
-
+	
         /**
         Write description of function here.
         The function should follow these comments.
