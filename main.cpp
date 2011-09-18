@@ -524,7 +524,7 @@ std::string input_filter(std::string str){
     vector.
 
 */
-void read_filter_list(char* const file){
+void read_filter_list(const char* file){
      std::ifstream myfile (file);
     if (myfile.is_open())
     {
@@ -586,7 +586,8 @@ int main(int argc, char** argv) {
                 if(world != NULL) {
                     /*Debug Only*/
                     //print_world_tree();
-			read_filter_list(IGNORELIST);
+		    	const char *file_f = (IGNORELIST);
+			read_filter_list(file_f);
                     if (argc > 2)
                         load(argv[2]);
                     gameloop();
