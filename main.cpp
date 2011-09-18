@@ -113,6 +113,9 @@ std::string two_word_command(std::string command1, std::string command2);
      @param[in,out] _inoutArg3 Description of third function argument.
      @return Description of returned value.
      */
+
+std::string three_word_command(std::string command);
+
 void print_inventory();
 
 /**
@@ -201,7 +204,7 @@ void gameloop() {
     std::string last_area = DEFAULT_VALUE;
     while(!game_over) {
         std::ostringstream sin;
-	std::string combinelist = ""; 
+	std::string combinelist; 
         std::ostringstream commandstream;
         std::ostringstream itemstream;
         if(last_area.compare(world->get_active_area()->get_id()) != 0) {
@@ -216,9 +219,9 @@ void gameloop() {
                       !strcmp(world->get_active_area()->get_id().c_str(), world->get_active_area()->get_item(items)->get_depends().c_str()) ||
                       !strcmp(world->get_active_area()->get_item(items)->get_depends().c_str(), NONE)){
                       itemstream << world->get_active_area()->get_item(items)->get_description();
-		      if(!world->get_active_area()->get_item(items)->has_container() &&
+		      if(world->get_active_area()->get_item(items)->has_container() &&
 				      !world->get_active_area()->get_item(items)->is_locked()){
-			       combinelist+= (world->get_active_area()->get_item(items)->print_contained_items());
+			       combinelist+= ((world->get_active_area()->get_item(items)->print_contained_items()));
 
 			       combinelist +="\n";
 		      }
@@ -226,26 +229,33 @@ void gameloop() {
                    } 
                 }
             }
-            std::cout << word_wrap(sin.str())<<word_wrap(itemstream.str())<< std::endl << combinelist << std::endl;
+            std::cout << word_wrap(sin.str())<<word_wrap(itemstream.str())<< std::endl << combinelist;
         }
         if(!game_over) {
             std::cout << ">>";
             std::string line;
             std::getline(std::cin, line);
 	    line = input_filter(line);
-            std::string command1 , command2;
+            std::string command1 , command2, command3;
             std::string checkmorewords;
             std::istringstream iss(line);
             commandList.push_back(line);
             if(iss >> command1) {
                 if (iss >> command2) {
-                    if(!(iss >> checkmorewords)) {
+                    if(!(iss >> command3)) {
                         commandstream << two_word_command(command1 ,command2);
                         }
-                    else {
-                        std::cout << TOOMANYWORDS << std::endl;
-                        }
-                    }
+                    else if(!(iss >> checkmorewords)){
+			    std::stringstream s2;
+			s2 << command1 << " " << command2 << " " << command3;
+			checkmorewords = s2.str();
+			commandstream << three_word_command(checkmorewords);
+		    } else {
+
+			    std::cout << TOOMANYWORDS << std::endl;
+		    }    
+		}
+                   
                 else {
                     std::string from_one_word = one_word_command(command1);
                     if(!strcmp(from_one_word.c_str(), DEFAULT_VALUE)) {
@@ -260,9 +270,11 @@ void gameloop() {
                 std::cout << TOOMANYWORDS << std::endl;
                 }
             std::cout << "\n" << word_wrap(commandstream.str());
-            }
-        }
     }
+}
+}
+
+
 
 std::string two_word_command(std::string command1, std::string command2) {
     std::ostringstream result;
@@ -370,10 +382,85 @@ std::string two_word_command(std::string command1, std::string command2) {
     }
 
 std::string three_word_command(std::string command){
-	return "";	
-
+	std::transform(command.begin(), command.end(),
+			command.begin(), ::tolower);
+	std::stringstream word(command);
+	std::string first_id;
+	std::string second_id;
+	std::string action;
+	word >> action >>first_id >>second_id;
+	if(!action.compare(COMBINE) || !action.compare(MIX)){
+		unsigned int item_1;
+		unsigned int item_2;
+		Item * have_item_1 = world->get_area(INVENTORY)->get_item(first_id,item_1);
+		Item * have_item_2 = world->get_area(INVENTORY)->get_item(second_id,item_2);
+		if(have_item_2 != NULL  && have_item_1 != NULL){
+			combine * temp_combine;
+			if(have_item_1->has_combine()){
+				std::string id_combine = have_item_2->get_id();
+				temp_combine = have_item_1->get_combine();
+				if(!temp_combine->get_second_id().compare(id_combine)){
+					world->get_area(GARBAGE)->add_item(have_item_2);
+					world->get_area(GARBAGE)->add_item(have_item_1);
+					world->get_area(INVENTORY)->remove_item(item_2);
+					world->get_area(INVENTORY)->remove_item(item_1);
+					world->get_area(INVENTORY)->add_item(temp_combine->get_combination());
+				}
+			} 
+			else if(have_item_2->has_combine()){
+				std::string id_combine = have_item_1->get_id();
+				temp_combine = have_item_2->get_combine();
+				if(!temp_combine->get_second_id().compare(id_combine)){
+					world->get_area(GARBAGE)->add_item(have_item_2);
+					world->get_area(GARBAGE)->add_item(have_item_1);
+					world->get_area(INVENTORY)->remove_item(item_2);
+					world->get_area(INVENTORY)->remove_item(item_1);
+					world->get_area(INVENTORY)->add_item(temp_combine->get_combination());
+				}
+				else {
+				return	"no combine information found for these two items\n";
+				}
+			} else {
+				return "no combine information found for these two items\n";
+			}
+		}else {
+	return "One or more item names incorrect for combine \n";
+		}
+	} else if(!action.compare(PUT) || !action.compare(STORE)){
+		unsigned int item;
+		unsigned int item2;
+		Item * have_item = world->get_area(INVENTORY)->get_item(first_id,item);
+		if(have_item != NULL){
+			Item* box = world->get_area(INVENTORY)->get_item(second_id,item2);
+			if(box == NULL){
+				box = world->get_active_area()->get_item(second_id,item2);
+			}
+				if(box != NULL){
+					if(box->has_container()){
+						if(!box->is_locked()){
+							box->add_item(have_item);
+							world->get_area(INVENTORY)->remove_item(item);
+							std::stringstream ss;
+        						ItemCommand *temp_item_command = have_item->get_command("drop");
+        							if(temp_item_command != NULL) {
+									have_item->state_change(temp_item_command->get_state_change());
+									have_item->change_collectable(temp_item_command->get_change_collect());
+									ss <<"You put the "<< first_id << " in the " << second_id << "\n"; 
+									return ss.str();
+								
+						}
+						return "known bug please specify drop command in XML";
+						}
+						return "The box is locked";
+					}
+					return "this item has no storage";
+				}
+			return "second item is not in inventory or the area you are in. \n";
+			}		
+		return "I don't understand that. \n";
+	}
+	return "i don't understand that. \n";
 }
-
 std::string one_word_command(std::string command) {
     std::transform(command.begin(), command.end(),
                    command.begin(), ::tolower);
