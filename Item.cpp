@@ -1,22 +1,20 @@
 #include "Item.h"
 #include <iostream>
 
-bool is_locked(){
+bool Item::is_locked(){
 	return locked;
 }
 
-bool has_container(){
+bool Item::has_container(){
 	return container;
 }
 
 Item* Item::get_item(std::string item_id){
 for(unsigned int item_num = 0; item_num < num_items; item_num++) {
       if(contains[item_num]->get_id().compare(item_id) == 0) {
-         index = item_num;
          return contains[item_num];
       }
       else if(contains[item_num]->has_synonym(item_id)) {
-         index = item_num;
          return contains[item_num];
       }
    }
@@ -28,7 +26,7 @@ void Item::add_item(Item* new_item){
 	num_items++;
 }
 
-std::string print_contained_items(){
+std::string Item::print_contained_items(){
 	std::string str = this->get_description()+ " contains:" + "\n";
 	for(int i=0;i<num_items;i++){
 	    str += "\t-"+ contains[i].get_description() +"\n";
@@ -61,6 +59,7 @@ bool Item::has_synonym(std::string item) {
    }
    return false;
 }
+
 std::string Item::get_description() {
    for(int desc = 0; desc < num_descriptions; desc++) {
       if(!description[desc]->get_id().compare(curr_desc_id)) {
@@ -69,31 +68,39 @@ std::string Item::get_description() {
    }
    return "";
 }
+
 void Item::add_description(StateDescriptor *desc) {
    description.push_back(desc);
    num_descriptions++;
 }
+
 void Item::change_collectable(bool flip) {
    if(flip) {
       collectable = !collectable;
    }
 }
+
 bool Item::is_collectable() {
    return collectable;
 }
+
 std::string Item::get_id() {
    return id;
 }
+
 int Item::get_num_commands() {
    return num_commands;
 }
+
 void Item::add_command(ItemCommand *command_name) {
    commands.push_back(command_name);
    num_commands++;
 }
+
 ItemCommand* Item::get_command(int index) {
    return commands[index];
 }
+
 ItemCommand *Item::get_command(std::string command_name) {
    ItemCommand *checkingValidity;
    for(unsigned int c_num = 0; c_num < commands.size(); c_num++) {
@@ -112,16 +119,20 @@ ItemCommand *Item::get_command(std::string command_name) {
    }
    return NULL;
 }
+
 int Item::get_num_descriptions() {
    return num_descriptions;
 }
+
 StateDescriptor *Item::get_descriptor(int index) {
    return description[index];
 }
+
 void Item::state_change(std::string to_change) {
    curr_desc_id = to_change;
 }
-Item::Item(bool collect, const char *identifier, const char *initial_state, std::vector<std::string> *synonyms, const char *depends) {
+
+Item::Item(bool collect, const char *identifier, const char *initial_state, std::vector<std::string> *synonyms, const char *depends, bool container, bool locked) {
    collectable = collect;
    id = identifier;
    num_descriptions = 0;
@@ -130,6 +141,8 @@ Item::Item(bool collect, const char *identifier, const char *initial_state, std:
    curr_desc_id = initial_state;
    this->synonyms = synonyms;
    this->depends = depends;
+   this->container = container;
+   this->locked = locked;
 }
 
 Item::~Item() {
@@ -154,21 +167,26 @@ bool Item::has_inside(){
    }
    return false;
 }
+
 bool Item::has_combine(){
    if(combine_var!=NULL){
       return true;
    }
    return false;
 }
+
 Area * Item::get_inside(){
    return inside;
 }
+
 combine * Item::get_combine(){
    return combine_var;
 }
+
 void Item::set_inside(Area * a){
    inside = a;
 }
+
 void Item::set_combine(combine * c){
    combine_var = c;
 }
