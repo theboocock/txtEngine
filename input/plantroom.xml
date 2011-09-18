@@ -155,6 +155,9 @@
           You wave the wand in a meaningless fashion above the chest. It did nothing. You throw the want at the chest in disgust!
           The wand hits the chest and you hear it unlock, that was weird.
         </itemcommand>
+<itemcommand name="get" statedescription="init" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,collect">
+          You take the wand.
+        </itemcommand>
       </item>
     <item id="pot" initialdescription="open" collectable="false" synonyms="container" container="true" locked="false">
       <statedescriptor id="closed">
