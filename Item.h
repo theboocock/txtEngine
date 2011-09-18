@@ -61,6 +61,12 @@ class Item {
 	bool has_container();
 
 	/**
+           Returns a string with all items item contains.
+	   
+         */
+        std::string print_contained_items();
+
+	/**
            Returns a pointer to an item by id or null if
 	   
          */
