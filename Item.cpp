@@ -12,6 +12,7 @@ bool Item::has_container(){
 Item* Item::get_item(std::string item_id){
 for(int item_num = 0; item_num < num_items; item_num++) {
       if(contains[item_num]->get_id().compare(item_id) == 0) {
+	 num_items--;
          return contains[item_num];
       }
       else if(contains[item_num]->has_synonym(item_id)) {
@@ -139,6 +140,7 @@ Item::Item(bool collect, const char *identifier, const char *initial_state, std:
    num_commands = 0;
    num_items = 0;
    curr_desc_id = initial_state;
+   this->combine_var = NULL;
    this->synonyms = synonyms;
    this->depends = depends;
    this->container = container;
