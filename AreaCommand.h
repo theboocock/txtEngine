@@ -50,103 +50,73 @@ class AreaCommand {
         ~AreaCommand();
 
         /**
-          An accessor for the depends member.
+          Returns what the AreaCommand depends on.
 
-          @return A string 
+          @return An id of an item the command depends on.
           */
         std::string get_depends();
 
         /**
-          Write description of function here.
-          The function should follow these comments.
-          Use of "brief" tag is optional. (no point to it)
+          Get the status of the AreaCommand
 
-          The function arguments listed with "param" will be compared
-          to the declaration and verified.
-
-          @param[in]     _inArg1 Description of first function argument.
-          @param[out]    _outArg2 Description of second function argument.
-          @param[in,out] _inoutArg3 Description of third function argument.
-          @return Description of returned value.
+          @return The status of the AreaCommand.
           */
         std::string get_status();
 
         /**
-          Write description of function here.
-          The function should follow these comments.
-          Use of "brief" tag is optional. (no point to it)
+          Get the name of the AreaCommand.
 
-          The function arguments listed with "param" will be compared
-          to the declaration and verified.
-
-          @param[in]     _inArg1 Description of first function argument.
-          @param[out]    _outArg2 Description of second function argument.
-          @param[in,out] _inoutArg3 Description of third function argument.
-          @return Description of returned value.
+          @return The name of the AreaCommand.
           */
         std::string get_name();
 
         /**
-          Write description of function here.
-          The function should follow these comments.
-          Use of "brief" tag is optional. (no point to it)
+          Get the name of the area to move to when this command is used.
 
-          The function arguments listed with "param" will be compared
-          to the declaration and verified.
-
-          @param[in]     _inArg1 Description of first function argument.
-          @param[out]    _outArg2 Description of second function argument.
-          @param[in,out] _inoutArg3 Description of third function argument.
-          @return Description of returned value.
+          @return The name of the area to move to.
           */
         std::string get_area();
 
         /**
-          Write description of function here.
-          The function should follow these comments.
-          Use of "brief" tag is optional. (no point to it)
+          Get the message to print when this command is used.
 
-          The function arguments listed with "param" will be compared
-          to the declaration and verified.
-
-          @param[in]     _inArg1 Description of first function argument.
-          @param[out]    _outArg2 Description of second function argument.
-          @param[in,out] _inoutArg3 Description of third function argument.
-          @return Description of returned value.
+          @return A message to print for this command.
           */
         std::string get_message();
 
         /**
-          Write description of function here.
-          The function should follow these comments.
-          Use of "brief" tag is optional. (no point to it)
+          Change the message for this command.
 
-          The function arguments listed with "param" will be compared
-          to the declaration and verified.
-
-          @param[in]     _inArg1 Description of first function argument.
-          @param[out]    _outArg2 Description of second function argument.
-          @param[in,out] _inoutArg3 Description of third function argument.
-          @return Description of returned value.
+          @param[in] to_message The new message for this command.
           */
         void set_message(const char *to_message);
 
         /**
-          Write description of function here.
-          The function should follow these comments.
-          Use of "brief" tag is optional. (no point to it)
+          Compares the name of the command with a string.
 
-          The function arguments listed with "param" will be compared
-          to the declaration and verified.
-
-          @param[in]     _inArg1 Description of first function argument.
-          @param[out]    _outArg2 Description of second function argument.
-          @param[in,out] _inoutArg3 Description of third function argument.
-          @return Description of returned value.
+          @param[in] to_find A string to compare with the command name.
+          @return True if the strings match otherwise false.
           */
         bool find(std::string to_find);
+
+        /**
+          Unlocks the command so it can be called.
+          */
         void unlock();
+
+        /**
+          Checks whether this area command is locked.
+
+          @return True if the command is locked or false if it is unlocked.
+          */
         bool is_locked();
+
+        /**
+         Checks if the area command has a synonym matching a string.
+
+          @param[in] item The name to check
+          @return True if the synonym list has the string or false if not.
+          */
         bool has_synonym(std::string item);
     };
 

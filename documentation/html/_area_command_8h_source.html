@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -59,56 +60,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">/home/cshome/m/mabrams/345/txtEngine/AreaCommand.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _AREA_COMMAND_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _AREA_COMMAND_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include&lt;string&gt;</span>
-<a name="l00005"></a>00005 
-<a name="l00006"></a><a class="code" href="class_area_command.html">00006</a> <span class="keyword">class </span><a class="code" href="class_area_command.html">AreaCommand</a>{
-<a name="l00007"></a>00007  <span class="keyword">protected</span>:
-<a name="l00008"></a>00008    std::string name;
-<a name="l00009"></a>00009    std::string status;
-<a name="l00010"></a>00010    std::string message;
-<a name="l00011"></a>00011    std::string depends;
-<a name="l00012"></a>00012    std::string move_to_area;
-<a name="l00013"></a>00013    
-<a name="l00014"></a>00014  <span class="keyword">public</span>:
-<a name="l00015"></a>00015    <a class="code" href="class_area_command.html">AreaCommand</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> * callmeby, <span class="keyword">const</span> <span class="keywordtype">char</span> * areatomoveto,<span class="keyword">const</span> <span class="keywordtype">char</span> * status_command, <span class="keyword">const</span> <span class="keywordtype">char</span> * depends_command){
-<a name="l00016"></a>00016       name = callmeby;
-<a name="l00017"></a>00017       depends = depends_command;
-<a name="l00018"></a>00018       status   = status_command;
-<a name="l00019"></a>00019       move_to_area= areatomoveto;
-<a name="l00020"></a>00020       message = <span class="stringliteral">&quot;&quot;</span>;
-<a name="l00021"></a>00021    }
-<a name="l00022"></a>00022    std::string get_depends(){
-<a name="l00023"></a>00023       <span class="keywordflow">return</span> depends;
-<a name="l00024"></a>00024    }
-<a name="l00025"></a>00025    ~<a class="code" href="class_area_command.html">AreaCommand</a>(){}
-<a name="l00026"></a>00026    std::string get_status(){
-<a name="l00027"></a>00027       <span class="keywordflow">return</span> status;
-<a name="l00028"></a>00028    }
-<a name="l00029"></a>00029    std::string get_name(){
-<a name="l00030"></a>00030       <span class="keywordflow">return</span> name;
-<a name="l00031"></a>00031    }
-<a name="l00032"></a>00032    std::string get_area(){
-<a name="l00033"></a>00033       <span class="keywordflow">return</span> move_to_area;
-<a name="l00034"></a>00034    }
-<a name="l00035"></a>00035    std::string get_message(){
-<a name="l00036"></a>00036       <span class="keywordflow">return</span> message;
-<a name="l00037"></a>00037    }
-<a name="l00038"></a>00038    <span class="keywordtype">void</span> set_message(<span class="keyword">const</span> <span class="keywordtype">char</span> *to_message){
-<a name="l00039"></a>00039       message = to_message;
-<a name="l00040"></a>00040    }
-<a name="l00041"></a>00041    <span class="keywordtype">bool</span> find(std::string to_find){
-<a name="l00042"></a>00042       <span class="keywordflow">if</span>(!to_find.compare(name)){
-<a name="l00043"></a>00043          <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00044"></a>00044       } <span class="keywordflow">else</span> {
-<a name="l00045"></a>00045          <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00046"></a>00046       }
-<a name="l00047"></a>00047    }
-<a name="l00048"></a>00048 };
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 <span class="preprocessor">#endif</span>
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00014"></a>00014 <span class="preprocessor">#ifndef _AREA_COMMAND_H</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span><span class="preprocessor">#define _AREA_COMMAND_H</span>
+<a name="l00016"></a>00016 <span class="preprocessor"></span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00019"></a>00019 
+<a name="l00020"></a><a class="code" href="class_area_command.html">00020</a> <span class="keyword">class </span><a class="code" href="class_area_command.html">AreaCommand</a> {
+<a name="l00021"></a>00021     <span class="keyword">protected</span>:
+<a name="l00022"></a>00022         <span class="keywordtype">bool</span> locked;
+<a name="l00023"></a>00023         std::string name;
+<a name="l00024"></a>00024         std::string status;
+<a name="l00025"></a>00025         std::string message;
+<a name="l00026"></a>00026         std::string depends;
+<a name="l00027"></a>00027         std::string move_to_area;
+<a name="l00028"></a>00028         std::vector&lt;std::string&gt; *synonyms;
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030     <span class="keyword">public</span>:
+<a name="l00031"></a>00031 
+<a name="l00046"></a>00046         <a class="code" href="class_area_command.html#a638e3a777d9c8e3810212835b979eff0">AreaCommand</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> * callmeby, <span class="keyword">const</span> <span class="keywordtype">char</span> * areatomoveto,<span class="keyword">const</span> <span class="keywordtype">char</span> * status_command, <span class="keyword">const</span> <span class="keywordtype">char</span> * depends_command, std::vector&lt;std::string&gt; *synonyms, <span class="keywordtype">bool</span> locked);
+<a name="l00047"></a>00047 
+<a name="l00061"></a>00061         <a class="code" href="class_area_command.html#aa978468c6b9bcc165d70437273623950">~AreaCommand</a>();
+<a name="l00062"></a>00062 
+<a name="l00076"></a>00076         std::string <a class="code" href="class_area_command.html#a7c24cd88b6913494bfed3b6f6b0fe7f6">get_depends</a>();
+<a name="l00077"></a>00077 
+<a name="l00091"></a>00091         std::string <a class="code" href="class_area_command.html#adc3423bc66eba73317cd941632026b85">get_status</a>();
+<a name="l00092"></a>00092 
+<a name="l00106"></a>00106         std::string <a class="code" href="class_area_command.html#ad61a6fb1db17d07a2e214c7c2267581d">get_name</a>();
+<a name="l00107"></a>00107 
+<a name="l00121"></a>00121         std::string <a class="code" href="class_area_command.html#a9f558f5ce36040a51401924af9781402">get_area</a>();
+<a name="l00122"></a>00122 
+<a name="l00136"></a>00136         std::string <a class="code" href="class_area_command.html#a594ec5125fc0467ee001064ff73a1632">get_message</a>();
+<a name="l00137"></a>00137 
+<a name="l00151"></a>00151         <span class="keywordtype">void</span> <a class="code" href="class_area_command.html#a1a081291614ee6ff8c5841d2753b3b1b">set_message</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *to_message);
+<a name="l00152"></a>00152 
+<a name="l00166"></a>00166         <span class="keywordtype">bool</span> <a class="code" href="class_area_command.html#a317a22131f031bbc4f364b1199261829">find</a>(std::string to_find);
+<a name="l00167"></a>00167         <span class="keywordtype">void</span> unlock();
+<a name="l00168"></a>00168         <span class="keywordtype">bool</span> is_locked();
+<a name="l00169"></a>00169         <span class="keywordtype">bool</span> has_synonym(std::string item);
+<a name="l00170"></a>00170     };
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -116,7 +109,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -125,7 +118,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sat Aug 13 2011 14:54:08 for txtEngine by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Aug 15 2011 18:06:52 for txtEngine by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

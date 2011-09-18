@@ -87,22 +87,9 @@ void gameloop();
 std::string one_word_command(std::string command);
 
 /**
-<<<<<<< HEAD
    @brief A method to handle two word commands.
    @param[in] command A two word command in the form of a string.
    @return Output of the command.
-=======
-   Write description of function here.
-   The function should follow these comments.
-   Use of "brief" tag is optional. (no point to it)
-
-   The function arguments listed with "param" will be compared
-   to the declaration and verified.
-
-   @param[in] command1 The first word.
-   @param[in] command2 The second word.
-   @return A string
->>>>>>> 78a43d95694abb97dc8cde5abb697de5d47af042
 */
 std::string two_word_command(std::string command1, std::string command2);
 
@@ -652,14 +639,11 @@ std::string input_filter(std::string str){
    return ret;
 }
 
-<<<<<<< HEAD
-=======
 /**
    Reads in words from file to filterList
    vector.
 
 */
->>>>>>> 78a43d95694abb97dc8cde5abb697de5d47af042
 void read_filter_list(const char* file){
    std::ifstream myfile (file);
    if (myfile.is_open())
@@ -706,10 +690,7 @@ int main(int argc, char** argv) {
             if(commandList[i].compare(SAVE))
                saveFile << commandList[i] << std::endl;
          }
-            
          saveFile.close();
-            
-<<<<<<< HEAD
         }
     } else if (strstr(argv[1], "-stat") && argc == 4) {
         world = read_file(argv[2], world);
@@ -742,42 +723,6 @@ int main(int argc, char** argv) {
             } while (!game_over);
     } else {
         std::cout << "Usage: txtEngine Filename" << std::endl;
-    }
-=======
-      }
-   } else if (strstr(argv[1], "-stat") && argc == 4) {
-      world = read_file(argv[2], world);
-      if(world != NULL) {
-         load(argv[3]);
-         std::cout << world->get_active_area()->get_description();
-      }
-   } else if(argc > 1) {
-      do {
-         world = read_file(argv[1], world);
-         if(world != NULL) {
-            /*Debug Only*/
-            //print_world_tree();
-            const char *file_f = (IGNORELIST);
-            read_filter_list(file_f);
-            if (argc > 2)
-               load(argv[2]);
-            gameloop();
-            delete world;
-            std::cout << "Would you like to play again? (please enter yes for affirmative)" << std::endl;
-            std::getline (std::cin,userinput);
-            game_over = true;
-            if(!userinput.compare("yes")) {
-               game_over = false;
-            }
-         }
-         else {
-            game_over = true;
-         }
-      } while (!game_over);
-   } else {
-      std::cout << "Usage: txtEngine Filename" << std::endl;
-   }
->>>>>>> 78a43d95694abb97dc8cde5abb697de5d47af042
-    
+    }    
    return 0;
 }

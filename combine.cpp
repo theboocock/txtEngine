@@ -1,8 +1,13 @@
-/*
+/**
+ * @file Combine.cpp
+ * 
+ * @brief Source file for Combine functionality.
  *
- * @file combine.cpp
- * @description cpp implementation of combine
- *
+ * @author Michael Abrams
+ * @author James Boocock
+ * @author Toby Herbert
+ * @author Tatai Nikora
+ * @version 0.3
  */
 
 #include "combine.h"
