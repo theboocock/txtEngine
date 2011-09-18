@@ -9,9 +9,18 @@
 #include "Item.h"
 
 combine::combine(std::string id,std::string first, std::string second_id){
+	this->description = NULL;
 	this->id = id;	
 	this->first_id = first_id;
 	this->second_id = second_id;
+}
+
+void set_description(StateDescriptor * d){
+	this->description = d;
+}
+
+std::string get_description(){
+	return this->description;
 }
 
 combine::~combine(){

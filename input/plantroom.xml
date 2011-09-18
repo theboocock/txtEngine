@@ -55,6 +55,9 @@
       <statedescriptor id="none">
         The biscuit has been moved and reveals a key.
       </statedescriptor>
+      <statedescriptor id="dropped">
+        The shiney gold key is here.
+      </statedescriptor>
       <statedescriptor id="have">
         Shiney gold key.
       </statedescriptor>
@@ -64,10 +67,16 @@
       <itemcommand name="use" statedescription="none" changecollectable="false" collectabledependent="false" areachange="none" synonyms="unlock" depends="key" unlock="room1/up">
         The key seems to pull from your hand into the lock, and twist itself. The trapdoor padlock plops open.
       </itemcommand>
+      <itemcommand name="drop" statedescription="droppped" changecollectable="true" collectabledependent="false" areachange="none" synonyms="throw,putdown">
+        You put the key down.
+      </itemcommand>
     </item>
     <item id="marmite" initialdescription="cansee" collectable="true">
       <statedescriptor id="cansee">
         You can see a small red lid behind one of the plants, if only you could remember what things had red lids...
+      </statedescriptor>
+      <statedescriptor id="dropped">
+        The marmite is here.
       </statedescriptor>
       <statedescriptor id="have">
         You are still holding the marmite, why?
@@ -76,7 +85,7 @@
         You grab the marmite, and take a whiff. YUCK!
         Hey You remembered something, you do not like marmite! And your smell is returning, maybe you should look around more.
       </itemcommand>
-      <itemcommand name="drop" statedescription="cansee" changecollectable="true" collectabledependent="false" areachange="none" synonyms="throw,pudown">
+      <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="none" synonyms="throw,putdown">
         You put the marmite down. You seem sadened by this, and your sense of smell depletes.
       </itemcommand>
     </item>
@@ -95,7 +104,7 @@
         Hey theres seems to be something in your shirt pocket.
       </itemcommand>
     </item>
-    <item id="chest" initialdescription="closed" collectable="false" synonyms="box,storage" conatiner="true" locked="true">
+    <item id="chest" initialdescription="closed" collectable="false" synonyms="box,storage" container="true" locked="true">
       <statedescriptor id="closed">
         A locked chest sits directly opposite you. It is not locked by a key though, something more magical has control over it.
       </statedescriptor>
@@ -103,19 +112,39 @@
         The chest of wonder lies in awe in front of you. Do you dare disturb this magnificent beast?
       </statedescriptor>
       <itemcommand name="open" statedescription="open" changecollectable="false" collectabledependent="false" areachange="none" synonyms="unlock" depends="wand">
-        If wave the wand in a meaningless fashion above the chest. It did nothing. You throw the want at the chest in disgust!
+        You wave the wand in a meaningless fashion above the chest. It did nothing. You throw the want at the chest in disgust!
         The wand hits the chest and you hear it unlock, that was weird.
       </itemcommand>
-      <item id="wand" initialdescription="init" collectable="true" synonyms="stick">
-        <statedescriptor id="init">
-          A wand.
+      <item id="transistors" initialdescription="init" collectable="true" synonyms="transistor,chips,capasitors">
+	<statedescriptor id="init">
+          Some transistors are strewn throughout the chest.
         </statedescriptor>
-        <itemcommand name="use" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none">
-          You use wand.
+	<statedescriptor id="have">
+          Some transistors are neatly piled in your hand.
+        </statedescriptor>
+        <statedescriptor id="dropped">
+          There are some transistors here.
+        </statedescriptor>
+        <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,collect">
+          You take the transistors.
+        </itemcommand>
+      </item>
+      <item id="wire" initialdescription="init" collectable="true" synonyms="conductor">
+	<statedescriptor id="init">
+          Some wire is tightly wound in the corner of the chest, as if to say un-wind me and die!
+        </statedescriptor>
+	<statedescriptor id="have">
+          Some wire bundled in your hand.
+        </statedescriptor>
+        <statedescriptor id="dropped">
+          There is some wire here.
+        </statedescriptor>
+        <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,collect">
+          You take the wire and un-wrap it immediately! You almost die but manage to pull yourself together.
         </itemcommand>
       </item>
     </item>
-    <item id="pot" initialdescription="open" collectable="false" synonyms="container" conatiner="true" locked="false">
+    <item id="pot" initialdescription="open" collectable="false" synonyms="container" container="true" locked="false">
       <statedescriptor id="closed">
         A locked chest sits directly opposite you. It is not locked by a key though, something more magical has control over it.
       </statedescriptor>
@@ -125,12 +154,16 @@
       <itemcommand name="look" statedescription="open" changecollectable="false" collectabledependent="false" areachange="none" synonyms="see">
         You look at the pot, it looks normal.
       </itemcommand>
-      <item id="dirt" initialdescription="init" collectable="true" synonyms="mud">
+      <item id="wand" initialdescription="init" collectable="true" synonyms="stick">
         <statedescriptor id="init">
-          Some dirty dirt.
+          A wand.
         </statedescriptor>
-        <itemcommand name="get" statedescription="init" changecollectable="true" collectabledependent="true" areachange="inventory">
-          You get dirt.
+        <statedescriptor id="dropped">
+          The wand is here.
+        </statedescriptor>
+        <itemcommand name="use" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" unlock="chest">
+          You wave the wand in a meaningless fashion above the chest. It did nothing. You throw the want at the chest in disgust!
+          The wand hits the chest and you hear it unlock, that was weird.
         </itemcommand>
       </item>
     </item>
@@ -140,29 +173,8 @@
       <itemcommand name="check" statedescription="none" changecollectable="false" collectabledependent="false" areachange="none" synonyms="look,feel,get,remove,grab,retrieve">
         You feel in your pocket and pull out a note. It reads: 
         'Welcome future me, this is a little hint from the past you, the room you are in is not surreal, you are actually in this realm and if you die you die.
-        The water is not magical but the plants might be. ps. You love vegimite! It has a yellow lid.' 
+        The water is not magical but the plants might be. ps. You love vegimite! It has a yellow lid.' You put the note back.
       </itemcommand>
-      <area id="inside" initialdescription="init">
-        <item id="gun" initialdescription="donthavegun" collectable="true">
-          <statedescriptor id="havegun">
-            Its ok, no one else knows its just a BB gun.
-          </statedescriptor>
-          <statedescriptor id="donthavegun">
-            Your trusty old sidearm is on the bench beside you just waiting to be wielded.
-          </statedescriptor>
-          <itemcommand name="get" statedescription="havegun" changecollectable="true" collectabledependent="true" areachange="inventory">
-            Sweet, theres heaps of BBs left and the hop up will own that
-            security guard.
-            &lt;a href="http://answers.yahoo.com/question/index?qid=20110105180224AAQBgB1"&gt;Clink here for more info&lt;/a&gt;
-          </itemcommand>
-          <itemcommand name="shoot" statedescription="havegun" changecollectable="false" collectabledependent="false" areachange="inventory">
-            You shoot the gun.
-          </itemcommand>
-          <itemcommand name="drop" statedescription="donthavegun" changecollectable="true" collectabledependent="false" areachange="cur_area">
-            You toss the gun aside like yesterdays jam. Bad move.
-          </itemcommand>
-        </item>
-      </area>
     </item>
     <item id="lid" initialdescription="none" collectable="false" synonyms="red">
       <statedescriptor id="none">
@@ -188,9 +200,15 @@
       <statedescriptor id="init">
         The smell of a warm, freshly cooked cookie catches you attention, you turn to see one sitting on a clean plate in the open cupboard behind where you entered from.
       </statedescriptor>
+      <statedescriptor id="dropped">
+        The cookie is here.
+      </statedescriptor>
       <statedescriptor id="have">
         You have one chocolate cookie.
       </statedescriptor>
+      <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="none" synonyms="throw,putdown">
+        You put the cookie back down.
+      </itemcommand>
       <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="eat,grab,devour">
         You take the cookie and start to devour it, but as you lift it towards your mouth, there where the cookie used to lie is a key.
       </itemcommand>

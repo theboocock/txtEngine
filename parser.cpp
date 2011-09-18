@@ -5,6 +5,7 @@
 #define AREA_ATTRIBUTES 2
 #define STATE_DESCRIPTION_ATTRIBUTES 1
 #define ITEM_ATTRIBUTES 3
+#define COMBINE_ATTRIBUTES 3
 #define PARSING_ERROR 2
 #define AREA_COMMAND_ATTRIBUTES 2
 #define ITEM_COMMAND_ATTRIBUTES 5
@@ -53,40 +54,53 @@ void string_explode(std::string str, std::string seperator, std::vector<std::str
 
 combine *make_combine(TiXmlNode * pCommand,const char *parent_id,  World *world ){
    TiXmlNode *pChild;
-   std::string first_id, second_id, combine_id;
+   std::string first_id, second_id, combine_id, combine_desc;
    std::string error_tag = MISSING_TAGS;
    combine *combine_var = NULL;
-   bool one = false, two = false, has_id = false;
+   bool one = false, two = false, has_id = false, has_desc = false;
    TiXmlElement *element = pCommand->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
+   int num_attributes = 0;
    while(attributes){
       if(!strcmp(attributes->Name(), "first_id")){
          first_id = attributes->Value();
          if(one){
             error_tag = "More than one first_id tag";
          }
+	 num_attributes++;
          one = true;
       } else if(!strcmp(attributes->Name() , "second_id")){
          second_id = attributes->Value();
          if(two){
             error_tag = "More than one second_id tag";
          }
+	 num_attributes++;
          two =  true;
       } else if(!strcmp(attributes->Name() , "id")){
          combine_id = attributes->Value();
          if(has_id){
             error_tag = "More than one id tag";
          }
+	 num_attributes++;
          has_id = true;
       }
 
    }
-   if(one && two && has_id){
+   if(one && two && has_id && num_attributes == COMBINE_ATTRIBUTES){
       combine_var = new combine(combine_id, first_id, second_id);
       for ( pChild = pCommand->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) {
          if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT) {
-            combine_var->set_combination(make_item(pChild,"combine",world ));
-         }  else {
+	    if(!strcmp(pChild->Value(), "statedescriptor")) {
+		combine_var->set_description(make_state_descriptor(pChild, combine_id, world));
+	    } else if(!strcmp(pChild->Value(), "item")){
+            	combine_var->set_combination(make_item(pChild,"combine",world ));
+	    } else {
+		error_tag = "Wrong element under combine: ";
+		error_tag.append(combine_id);
+		error_tag.append(" found ");
+		error_tag.append(pChild->Value());
+	    }
+        }  else {
             std::ostringstream sin;
             sin << "Under parent ";
             sin << parent_id;
@@ -95,6 +109,9 @@ combine *make_combine(TiXmlNode * pCommand,const char *parent_id,  World *world 
             std::string message = sin.str();
             error_parsing(message, world);
          }
+      }
+      if(!strcmp(error_tag, MISSING_TAGS)){
+	   error_parsing(error_tag, world);
       }
    } else {
       std::ostringstream sin;
