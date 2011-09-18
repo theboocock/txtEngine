@@ -7,6 +7,7 @@
   <!ATTLIST area id ID #REQUIRED>
   <!ATTLIST area initialdescription IDREF #REQUIRED>
   <!ATTLIST area status CDATA "none">
+  <!ATTLIST area CDATA (true|false) "false">
 <!ELEMENT statedescriptor (#CDATA)>
   <!ATTLIST statedescriptor id ID #REQUIRED>
 <!ELEMENT areacommand (#CDATA)>
@@ -16,12 +17,14 @@
   <!ATTLIST areacommand status CDATA "none">
   <!ATTLIST areacommand synonyms CDATA "none">
   <!ATTLIST areacommand locked (true|false) "false">
-<!ELEMENT item (statedescriptor*, itemcommand+)>
+<!ELEMENT item (statedescriptor+, itemcommand+)>
   <!ATTLIST item id ID #REQUIRED>
   <!ATTLIST item initialdescription IDREF #REQUIRED>
   <!ATTLIST item collectable CDATA (true|false) "false">
-  <!ATTLIST areacommand synonyms CDATA "none">
+  <!ATTLIST item synonyms CDATA "none">
   <!ATTLIST item depends IDREF #IMPLIED>
+  <!ATTLIST item locked CDATA (true|false) "false">
+  <!ATTLIST item container CDATA (true|false) "false">
 <!ELEMENT itemcommand (#CDATA)>
   <!ATTLIST itemcommand name CDATA>
   <!ATTLIST itemcommand depends IDREF #IMPLIED>
@@ -32,3 +35,7 @@
   <!ATTLIST itemcommand status CDATA "none">
   <!ATTLIST areacommand synonyms CDATA "none">
   <!ATTLIST itemcommand unlock CDATA "none">
+<!ELEMENT combine (item+)>
+  <!ATTLIST combine id ID #REQUIRED>
+  <!ATTLIST combine first_id IDREF #IMPLIED>
+  <!ATTLIST combine second_id IDREF #IMPLIED>
