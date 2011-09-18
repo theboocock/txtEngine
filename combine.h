@@ -17,9 +17,12 @@ class combine{
 	
 	public:
 
-		combine(std::string first_id, std::string second_id);
+		combine(std::string id,std::string first_id, std::string second_id);
 		~combine();
 		Item* get_combination();
+		std::string get_id();
+		std::string get_first_id();
+		std::string get_second_id();
 		void set_combination(Item * item);
 	private:
 		// First item_id 
@@ -28,7 +31,8 @@ class combine{
 		std::string second_id;
 		//The item that is the combination
 		Item * combination;
-
+		// combine
+		std::string id;
 };
 
 #endif 
