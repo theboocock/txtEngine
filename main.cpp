@@ -304,6 +304,16 @@ std::string two_word_command(std::string command1, std::string command2) {
                     temp_item->state_change(temp_item_command->get_state_change());
                     temp_item->change_collectable(temp_item_command->get_change_collect());
                     if(temp_item_command->unlocks()) {
+			if(find_first_of("/") == std:string.npos()){
+			   std::string temp_item_id = temp_item_command->unlock_area_string();
+			   if(world->get_active_area()->has_item(temp_item_id)){
+				world->get_active_area()->get_item(temp_item_id)->flip_locked();
+			   } else if(world->get_area(INVENTORY)->has_item(temp_item_id)){
+				world->get_area(INVENTORY)->get_item(temp_item_id)->flip_locked();
+			   } else {
+				std:: cout << "congrats you found a bug";
+			   }
+			} else {
                         if(!temp_item_command->unlock_area_string().compare(world->get_active_area()->get_id())) {
                             world->get_active_area()->unlock(temp_item_command->unlock_areacommand_string());
                             }
@@ -311,6 +321,7 @@ std::string two_word_command(std::string command1, std::string command2) {
                             return "You can't do that. \n";
                             }
                         }
+			}
                     if(world->get_area(temp_item_command->get_area_change()) != NULL) {
                         world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
                         }
@@ -350,13 +361,25 @@ std::string two_word_command(std::string command1, std::string command2) {
                 temp_item->state_change(temp_item_command->get_state_change());
                 temp_item->change_collectable(temp_item_command->get_change_collect());
                 if(temp_item_command->unlocks()) {
-                    if(!temp_item_command->unlock_area_string().compare(world->get_active_area()->get_id())) {
-                        world->get_active_area()->unlock(temp_item_command->unlock_areacommand_string());
-                        }
+			   if(find_first_of("/") == std:string.npos()){
+			    std::string temp_item_id = temp_item_command->unlock_area_string();
+			    if(world->get_active_area()->has_item(temp_item_id)){
+			 	world->get_active_area()->get_item(temp_item_id)->flip_locked();
+			    } else if(world->get_area(INVENTORY)->has_item(temp_item_id)){
+			 	world->get_area(INVENTORY)->get_item(temp_item_id)->flip_locked();
+			    } else {
+				std:: cout << "congrats you found a bug";
+			    }
+			} else {
+                    		if(!temp_item_command->unlock_area_string().compare(world->get_active_area()->get_id())) {
+                      	  world->get_active_area()->unlock(temp_item_command->unlock_areacommand_string());
+                      	  }
+				
                     else {
                         return "You can't do that. \n";
                         }
                     }
+		}
                 if( world->get_area(temp_item_command->get_area_change()) !=NULL) {
                     world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
                     }
