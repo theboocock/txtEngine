@@ -193,6 +193,8 @@ class ItemCommand {
 
         bool unlocks();
 
+	std::string get_unlockstring();
+
         std::string unlock_areacommand_string();
 
         std::string unlock_area_string();

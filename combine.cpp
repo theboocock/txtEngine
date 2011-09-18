@@ -1,8 +1,13 @@
-/*
+/**
+ * @file Combine.cpp
+ * 
+ * @brief Source file for Combine functionality.
  *
- * @file combine.cpp
- * @description cpp implementation of combine
- *
+ * @author Michael Abrams
+ * @author James Boocock
+ * @author Toby Herbert
+ * @author Tatai Nikora
+ * @version 0.3
  */
 
 #include "combine.h"
@@ -15,12 +20,12 @@ combine::combine(std::string id,std::string first, std::string second_id){
 	this->second_id = second_id;
 }
 
-void set_description(StateDescriptor * d){
+void combine::set_description(StateDescriptor * d){
 	this->description = d;
 }
 
-std::string get_description(){
-	return this->description;
+std::string combine::get_description(){
+	return this->description->get_description();
 }
 
 combine::~combine(){

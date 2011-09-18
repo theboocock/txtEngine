@@ -8,12 +8,15 @@ bool Area::has_description(std::string desc_id) {
    }
    return false;
 }
+
 std::string Area::get_status() {
    return status;
 }
+
 bool Area::has_current_desc() {
    return has_description(curr_desc_id);
 }
+
 int Area::get_num_items() {
    return num_items;
 }
@@ -26,31 +29,41 @@ std::string Area::get_description() {
    }
    return "";
 }
+
 void Area::remove_item(int index) {
    items.erase(items.begin()+index);
    num_items--;
 }
+
 void Area::remove_item(std::string item_id){
    for(unsigned int i=0; i < items.size(); i++){
-   	if(items[i]->item_id.compare(item_id)) items.erase(i);
-   }else if(items[i]->has_synonym(item_id)) {
-        items.erase(i);
+   	if(!items[i]->get_id().compare(item_id)){ items.erase(items.begin() + i);
+		num_items--;
+	}else if(items[i]->has_synonym(item_id)) {
+        items.erase(items.begin() + i);
+	num_items--;
       }else{
-	items->remove_item(item_id);
+	items[i]->remove_item(item_id);
       }
+
+   }
 }
+
 void Area::add_item(Item *new_item) {
    items.push_back(new_item);
    num_items++;
 }
+
 Item *Area::get_item(int index) {
    return items[index];
 }
+
 std::string Area::get_id() {
    return id;
 }
+
 bool Area::has_item(std::string item_to_find) {
-   for(unsigned int item_num = 0; item_num < items.size(); item_num++) {
+	for(unsigned int item_num = 0; item_num < items.size(); item_num++) {
       if(items[item_num]->get_id().compare(item_to_find) == 0) {
 
          return true;
@@ -61,8 +74,10 @@ bool Area::has_item(std::string item_to_find) {
    }
    return false;
 }
+
 Item * Area::get_item(std::string item_id, unsigned int &index) {
    for(unsigned int item_num = 0; item_num < items.size(); item_num++) {
+	 
       if(items[item_num]->get_id().compare(item_id) == 0) {
          index = item_num;
          return items[item_num];
@@ -71,6 +86,11 @@ Item * Area::get_item(std::string item_id, unsigned int &index) {
 
          index = item_num;
          return items[item_num];
+      }else if(items[item_num]->has_container() && !items[item_num]->is_locked()){
+	Item* temp_item = items[item_num]->get_item(item_id);
+	if(temp_item != NULL){
+		return temp_item;
+	}
       }
    }
    return NULL;
@@ -81,16 +101,20 @@ void Area::add_description(StateDescriptor *desc) {
    num_descriptions++;
 
 }
+
 void Area::add_command(AreaCommand *command_name) {
    commands.push_back(command_name);
    num_commands++;
 }
+
 int Area::get_num_commands() {
    return num_commands;
 }
+
 AreaCommand *Area::get_command(int index) {
    return commands[index];
 }
+
 AreaCommand *Area::has_command(std::string command_name) {
    for(unsigned int c_num = 0; c_num < commands.size(); c_num++) {
       if(!commands[c_num]->get_name().compare(command_name)) {
@@ -106,9 +130,11 @@ AreaCommand *Area::has_command(std::string command_name) {
 int Area::get_num_descriptions() {
    return num_descriptions;
 }
+
 StateDescriptor *Area::get_descriptor(int index) {
    return description[index];
 }
+
 Area::Area(const char *id, const char *desc_id, const char* status) {
    this->status = status;
    this->id = id;
@@ -117,6 +143,7 @@ Area::Area(const char *id, const char *desc_id, const char* status) {
    num_commands = 0;
    this->curr_desc_id = desc_id;
 }
+
 Area::~Area() {
    for(unsigned int item_num = 0; item_num < items.size(); item_num++) {
       delete items[item_num];
@@ -128,7 +155,6 @@ Area::~Area() {
       delete commands[command_num];
    }
 }
-
 
 void Area::unlock(std::string area_command_id) {
    for(unsigned int c_num = 0; c_num < commands.size(); c_num++) {

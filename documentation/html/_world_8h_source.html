@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -59,85 +60,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">/home/cshome/m/mabrams/345/txtEngine/World.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _WORLD_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _WORLD_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &quot;Area.h&quot;</span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00006"></a>00006 
-<a name="l00007"></a>00007 
-<a name="l00008"></a><a class="code" href="class_world.html">00008</a> <span class="keyword">class </span><a class="code" href="class_world.html">World</a>{
-<a name="l00009"></a>00009  <span class="keyword">protected</span>:
-<a name="l00010"></a>00010    std::string language;
-<a name="l00011"></a>00011    std::string author;
-<a name="l00012"></a>00012    std::vector&lt;Area*&gt; areas;
-<a name="l00013"></a>00013    std::string initial_area;
-<a name="l00014"></a>00014    <span class="keywordtype">int</span> num_areas;
-<a name="l00015"></a>00015    <a class="code" href="class_area.html">Area</a> *active_area;
-<a name="l00016"></a>00016  <span class="keyword">public</span>:
-<a name="l00017"></a>00017    std::string get_author(){<span class="keywordflow">return</span> author;}
-<a name="l00018"></a>00018    std::string get_language(){<span class="keywordflow">return</span> language;}
-<a name="l00019"></a>00019    <a class="code" href="class_area.html">Area</a>* get_active_area(){
-<a name="l00020"></a>00020       <span class="keywordflow">return</span> active_area;
-<a name="l00021"></a>00021    }
-<a name="l00022"></a>00022    <a class="code" href="class_area.html">Area</a> *get_area(<span class="keywordtype">int</span> index){
-<a name="l00023"></a>00023       <span class="keywordflow">return</span> areas[index];
-<a name="l00024"></a>00024    }
-<a name="l00025"></a>00025    <span class="keywordtype">void</span> add_area(<a class="code" href="class_area.html">Area</a> *new_area){
-<a name="l00026"></a>00026       areas.push_back(new_area);
-<a name="l00027"></a>00027       num_areas++;
-<a name="l00028"></a>00028    }
-<a name="l00029"></a>00029    <span class="keywordtype">int</span> get_num_areas(){
-<a name="l00030"></a>00030       <span class="keywordflow">return</span> num_areas;
-<a name="l00031"></a>00031    }
-<a name="l00032"></a>00032    <a class="code" href="class_area.html">Area</a> *get_area(std::string area_id){
-<a name="l00033"></a>00033       <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> area_num = 0; area_num &lt; areas.size(); area_num++){
-<a name="l00034"></a>00034          <span class="keywordflow">if</span>(areas[area_num]-&gt;get_id().compare(area_id) == 0){
-<a name="l00035"></a>00035             <span class="keywordflow">return</span> areas[area_num];
-<a name="l00036"></a>00036          }
-<a name="l00037"></a>00037       }
-<a name="l00038"></a>00038       <span class="keywordflow">return</span> NULL;
-<a name="l00039"></a>00039    }
-<a name="l00040"></a>00040    <span class="keywordtype">bool</span> init_active_area(){
-<a name="l00041"></a>00041       <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> area_num = 0; area_num &lt; areas.size(); area_num++){
-<a name="l00042"></a>00042          <span class="keywordflow">if</span>(areas[area_num]-&gt;get_id().compare(initial_area) == 0){
-<a name="l00043"></a>00043             active_area = areas[area_num];
-<a name="l00044"></a>00044             <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00045"></a>00045          }
-<a name="l00046"></a>00046       }
-<a name="l00047"></a>00047       <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00048"></a>00048    }
-<a name="l00049"></a>00049    <span class="keywordtype">void</span> change_area(std::string name){
-<a name="l00050"></a>00050       <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> area_num = 0; area_num &lt; areas.size(); area_num++){
-<a name="l00051"></a>00051          <span class="keywordflow">if</span>(areas[area_num]-&gt;get_id().compare(name) == 0){
-<a name="l00052"></a>00052             active_area = areas[area_num];
-<a name="l00053"></a>00053          }
-<a name="l00054"></a>00054       }
-<a name="l00055"></a>00055    }
-<a name="l00056"></a>00056    <span class="keywordtype">void</span> command(std::string command){
-<a name="l00057"></a>00057       <a class="code" href="class_item.html">Item</a>* item;
-<a name="l00058"></a>00058       <span class="keywordflow">if</span>(active_area-&gt;has_item(command)){
-<a name="l00059"></a>00059          item = active_area-&gt;get_item(command);
-<a name="l00060"></a>00060       }
-<a name="l00061"></a>00061    }
-<a name="l00062"></a>00062    <a class="code" href="class_world.html">World</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *lang, <span class="keyword">const</span> <span class="keywordtype">char</span> *auth, <span class="keyword">const</span> <span class="keywordtype">char</span> *init_area){
-<a name="l00063"></a>00063       language = lang;
-<a name="l00064"></a>00064       author = auth;
-<a name="l00065"></a>00065       initial_area = init_area;
-<a name="l00066"></a>00066       num_areas = 0;
-<a name="l00067"></a>00067       <a class="code" href="class_area.html">Area</a>* inventory = <span class="keyword">new</span> <a class="code" href="class_area.html">Area</a>(<span class="stringliteral">&quot;inventory&quot;</span>,<span class="stringliteral">&quot;&quot;</span>,<span class="stringliteral">&quot;&quot;</span>);
-<a name="l00068"></a>00068       add_area(inventory);
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070    }
-<a name="l00071"></a>00071    ~<a class="code" href="class_world.html">World</a>(){
-<a name="l00072"></a>00072       <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> area_num = 0; area_num &lt; areas.size(); area_num++){
-<a name="l00073"></a>00073           <span class="keyword">delete</span> areas[area_num];
-<a name="l00074"></a>00074       }
-<a name="l00075"></a>00075    }
-<a name="l00076"></a>00076    
-<a name="l00077"></a>00077 };
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079 <span class="preprocessor">#endif</span>
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// $Id$</span>
+<a name="l00014"></a>00014 <span class="comment"></span><span class="comment">// $Log$</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="preprocessor">#ifndef _WORLD_H</span>
+<a name="l00017"></a>00017 <span class="preprocessor"></span><span class="preprocessor">#define _WORLD_H</span>
+<a name="l00018"></a>00018 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_area_8h.html" title="Defines the Area class.">Area.h</a>&quot;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 
+<a name="l00023"></a><a class="code" href="class_world.html">00023</a> <span class="keyword">class </span><a class="code" href="class_world.html">World</a> {
+<a name="l00024"></a>00024     <span class="keyword">protected</span>:
+<a name="l00025"></a>00025         std::string language;
+<a name="l00026"></a>00026         std::string author;
+<a name="l00027"></a>00027         std::vector&lt;Area*&gt; areas;
+<a name="l00028"></a>00028         std::string initial_area;
+<a name="l00029"></a>00029         <span class="keywordtype">int</span> num_areas;
+<a name="l00030"></a>00030         <a class="code" href="class_area.html">Area</a> *active_area;
+<a name="l00031"></a>00031     <span class="keyword">public</span>:
+<a name="l00032"></a>00032 
+<a name="l00046"></a>00046         std::string <a class="code" href="class_world.html#a13598968c1b4061eb1529cdcb0755372">get_author</a>();
+<a name="l00047"></a>00047 
+<a name="l00061"></a>00061         std::string <a class="code" href="class_world.html#add6a887b9f085ec8d137b8f1f9e8de6c">get_language</a>();
+<a name="l00062"></a>00062 
+<a name="l00076"></a>00076         <a class="code" href="class_area.html">Area</a>* <a class="code" href="class_world.html#a8339c4c339f17bbea73ee0e9d32dc547">get_active_area</a>();
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078         <a class="code" href="class_area.html">Area</a> *get_area(<span class="keywordtype">int</span> index);
+<a name="l00079"></a>00079         <span class="keywordtype">void</span> add_area(<a class="code" href="class_area.html">Area</a> *new_area);
+<a name="l00080"></a>00080         <span class="keywordtype">int</span> get_num_areas();
+<a name="l00081"></a>00081         <a class="code" href="class_area.html">Area</a> *get_area(std::string area_id);
+<a name="l00082"></a>00082         <span class="keywordtype">bool</span> init_active_area();
+<a name="l00083"></a>00083         <span class="keywordtype">void</span> change_area(std::string name);
+<a name="l00084"></a>00084         <a class="code" href="class_world.html">World</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *lang, <span class="keyword">const</span> <span class="keywordtype">char</span> *auth, <span class="keyword">const</span> <span class="keywordtype">char</span> *init_area);
+<a name="l00085"></a>00085 
+<a name="l00099"></a>00099         <a class="code" href="class_world.html#a8c73fba541a5817fff65147ba47cd827">~World</a>();
+<a name="l00100"></a>00100     };
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -145,7 +105,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -154,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sat Aug 13 2011 14:54:08 for txtEngine by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Aug 15 2011 18:06:52 for txtEngine by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

@@ -23,8 +23,7 @@
 class Area {
     protected:
         std::vector<Item*> items;
-        int num_items;
-        int num_descriptions, num_commands;
+        int num_descriptions, num_commands, num_items;
         std::string status;
         std::string id;
         std::string curr_desc_id;
@@ -33,8 +32,7 @@ class Area {
     public:
 
         /**
-         Checks whether the description ID passed in is in the vector of
-         StateDescriptors for the area and returns true or false accordingly.
+         Checks if an area has this description.
 
          @param[in] desc_id A description ID.
          @return Returns true if 'description' holds desc_id, otherwise returns false.
@@ -42,8 +40,7 @@ class Area {
         bool has_description(std::string desc_id);
 
         /**
-         This accessor method returns a string representing the status of the area
-         from the protected 'status' member variable.
+         This accessor method returns the status of the area.
 
          @return The status of the Area.
          */
@@ -55,167 +52,88 @@ class Area {
          The function arguments listed with "param" will be compared
          to the declaration and verified.
 	 @see has_description();
-         @return
+         @return True if the area has the current description otherwise false.
          */
         bool has_current_desc();
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
-
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         Accessor for the number of items in the Area.
+        
+	 @return The number of items in the area.
          */
         int get_num_items();
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+         Get the area description.
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         @return String description of the area.
          */
         std::string get_description();
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+         Remove an item from the area by index.
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
+         @param[in] index The index of the item to remove.
          @return Description of returned value.
          */
         void remove_item(int index);
 
 	/**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+        Removes an item from the area by the item id.
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         @param[in] item_id The id of the item to be removed.
         */
         void remove_item(std::string item_id);
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+         Adds an item to the area.
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         @param[in] new_item A pointer to the item to add to the items vector.
          */
         void add_item(Item *new_item);
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+         Get the item in the area from items vector by index.
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         @param[in] index The index of the item in the vector.
+         @return A pointer to the item.
          */
         Item *get_item(int index);
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+         Get the area id.
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         @return The id of the area.
          */
         std::string get_id();
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+         Checks whether the area has an item.
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         @param[in] item_to_find
+         @return True if the area (items vector) contains the item.
          */
         bool has_item(std::string item_to_find);
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+         Gets a pointer to the item by item id and sets index to the
+	 index of the item in the vector.
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         @param[in] item_id The id of the item.
+         @param[out] index The address of the item's index member variable.
+         @return A pointer to the item.
          */
         Item *get_item(std::string item_id, unsigned int &item);
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+         Adds a StateDescriptor to an area.
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         @param[in] desc A pointer to a StateDescriptor object.
          */
         void add_description(StateDescriptor *desc);
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
-
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
+         Adds an AreaCommand to an area.
 
          @param[in]     _inArg1 Description of first function argument.
          @param[out]    _outArg2 Description of second function argument.
@@ -225,110 +143,61 @@ class Area {
         void add_command(AreaCommand *command_name);
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+         Get the number of commands for this area.
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         @return The number of AreaCommands for this area.
          */
         int get_num_commands();
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+         Get an AreaCommand for this area by index.
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         @param[in] index The index of the AreaCommand in the commands vector.
+         @return A pointer to the AreaCommand or null if it doesn't exist.
          */
         AreaCommand *get_command(int index);
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+         Gets an AreaCommand for this area by name.
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         @param[in] command_name The name of the command to get.
+         @return A pointer to the AreaCommand or null if it doesn't exist.
          */
         AreaCommand *has_command(std::string command_name);
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+         Get the number if descriptions for the area.
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         @return The number of descriptions for this area.
          */
         int get_num_descriptions();
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
-
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         Gets a StateDescriptor for the area by index.
+         
+         @param[in] index The index of the StateDescriptor in the description vector.
+         @return A pointer to the StateDescriptor or null if it doesn't exist.
          */
         StateDescriptor *get_descriptor(int index);
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
-
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         Unlocks an AreaCommand of this area.
+         
+         @param[in] area_command_id The id of an AreaCommand to unlock.
         */
-
         void unlock(std::string area_command_id);
 
+	/**
+         The constructor for an Area object.
+	 
+         @param[in] id The id of the area.
+	 @param[in] desc_id The id of the area description.
+	 @param[in] status The status of the area.
+         */
         Area(const char *id, const char *desc_id, const char* status);
 
         /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
-
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
+         Area Deconstructor.
          */
         ~Area();
     };
