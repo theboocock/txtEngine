@@ -39,10 +39,31 @@ class Item {
    std::string depends;
 
  public:
+   /**
+      Removes an item from inside this item by id.
+
+      @param A string - the id of the item to remove.
+   */
    void remove_item(std::string item_id);
+
+   /**
+      Flips the locked variable for this item..
+   */
    void flip_locked();
+
+   /**
+      Checks whether the the Item is locked.
+
+      @return True if the item is locked otherwise false.
+   */
    bool is_locked();
 
+   /**
+      Checks whether the the Item is a container for
+      other items.
+
+      @return True if the item is a container or false if not.
+   */
    bool has_container();
 
    /**
