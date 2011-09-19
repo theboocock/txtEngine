@@ -155,6 +155,8 @@ std::string input_filter(std::string input_string);
 */
 void read_filter_list(std::string str);
 
+bool process_input(std::string to_process, bool load);
+
 //------------------------------------------------------------------------------
 /* Method Definitions */
 //------------------------------------------------------------------------------
@@ -206,6 +208,42 @@ void print_world_tree() {
    fprintf(stderr, "Attempt at printing world.\n%s\n", message.c_str());
 }
 
+bool process_input(std::string line, bool load) {
+   bool look = false;
+   commandList.push_back(line);
+   std::ostringstream commandstream;
+   std::string command1 , command2, command3;
+   std::string checkmorewords;
+   std::istringstream iss(line);
+   if(iss >> command1) {
+      if (iss >> command2) {
+         if(!(iss >> command3)) {
+            commandstream << two_word_command(command1 ,command2);
+         }
+         else if(!(iss >> checkmorewords)){
+            std::stringstream s2;
+            s2 << command1 << " " << command2 << " " << command3;
+            checkmorewords = s2.str();
+            commandstream << three_word_command(checkmorewords);
+         } else {
+            std::cout << TOOMANYWORDS << std::endl;
+         }    
+      } else {
+         std::string from_one_word = one_word_command(command1);
+         if(!strcmp(from_one_word.c_str(), DEFAULT_VALUE)) {
+            look = true;
+         } else {
+            commandstream << from_one_word;
+         }
+      }
+   }
+   else {
+      std::cout << TOOMANYWORDS << std::endl;
+   }
+   if(!load)
+      std::cout << "\n" << word_wrap(commandstream.str());
+   return look;
+}
 
 void gameloop() {
    std::string last_area = DEFAULT_VALUE;
@@ -243,45 +281,12 @@ void gameloop() {
          std::string line;
          std::getline(std::cin, line);
          line = input_filter(line);
-         std::string command1 , command2, command3;
-         std::string checkmorewords;
-         std::istringstream iss(line);
-         commandList.push_back(line);
-         if(iss >> command1) {
-            if (iss >> command2) {
-               if(!(iss >> command3)) {
-                  commandstream << two_word_command(command1 ,command2);
-               }
-               else if(!(iss >> checkmorewords)){
-                  std::stringstream s2;
-                  s2 << command1 << " " << command2 << " " << command3;
-                  checkmorewords = s2.str();
-                  commandstream << three_word_command(checkmorewords);
-               } else {
-
-                  std::cout << TOOMANYWORDS << std::endl;
-               }    
-            }
-                   
-            else {
-               std::string from_one_word = one_word_command(command1);
-               if(!strcmp(from_one_word.c_str(), DEFAULT_VALUE)) {
-                  last_area = DEFAULT_VALUE;
-               }
-               else {
-                  commandstream << from_one_word;
-               }
-            }
-         }
-         else {
-            std::cout << TOOMANYWORDS << std::endl;
-         }
-         std::cout << "\n" << word_wrap(commandstream.str());
+         bool look = process_input(line, false);
+         if(look)
+            last_area = DEFAULT_VALUE;
       }
    }
 }
-
-
 
 std::string two_word_command(std::string command1, std::string command2) {
    std::ostringstream result;
@@ -289,6 +294,7 @@ std::string two_word_command(std::string command1, std::string command2) {
                   command1.begin(), ::tolower);
    std::transform(command2.begin(), command2.end(),
                   command2.begin(), ::tolower);
+   std::vector<std::string> containers_in_area;
    if(!strcmp(command1.c_str(), GO)) {
       return one_word_command(command2);
    }
@@ -312,7 +318,7 @@ std::string two_word_command(std::string command1, std::string command2) {
                   temp_item->state_change(temp_item_command->get_state_change());
                   temp_item->change_collectable(temp_item_command->get_change_collect());
                   if(temp_item_command->unlocks()) {
-                     if(temp_item_command->unlock_area_string().find_first_of("/") == std::string::npos){
+                     if(temp_item_command->get_unlock_string().find_first_of('/') == std::string::npos){
                         std::string temp_item_id = temp_item_command->unlock_area_string();
                         if(world->get_active_area()->has_item(temp_item_id)){
                            unsigned int this_is_pointless = 0;
@@ -371,7 +377,7 @@ std::string two_word_command(std::string command1, std::string command2) {
             temp_item->state_change(temp_item_command->get_state_change());
             temp_item->change_collectable(temp_item_command->get_change_collect());
             if(temp_item_command->unlocks()) {
-               if(temp_item_command->unlock_area_string().find_first_of("/") == std::string::npos){
+               if(temp_item_command->get_unlock_string().find_first_of('/') == std::string::npos){
                   std::string temp_item_id = temp_item_command->unlock_area_string();
                   unsigned int unknown = 0;
                   if(world->get_active_area()->has_item(temp_item_id)){
@@ -423,7 +429,7 @@ std::string three_word_command(std::string command){
    std::string second_id;
    std::string action;
    word >> action >>first_id >>second_id;
-   if(!action.compare(COMBINE) || !action.compare(MIX)){
+   if(!action.compare(COMBINE) || !action.compare(MIX)) {
       unsigned int item_1;
       unsigned int item_2;
       Item * have_item_1 = world->get_area(INVENTORY)->get_item(first_id,item_1);
@@ -457,7 +463,7 @@ std::string three_word_command(std::string command){
          } else {
             return "no combine information found for these two items\n";
          }
-      }else {
+      } else {
          return "One or more item names incorrect for combine \n";
       }
    } else if(!action.compare(PUT) || !action.compare(STORE)){
@@ -493,8 +499,9 @@ std::string three_word_command(std::string command){
       }		
       return "I don't understand that. \n";
    }
-   return "i don't understand that. \n";
+   return "I don't understand that. \n";
 }
+
 std::string one_word_command(std::string command) {
    std::transform(command.begin(), command.end(),
                   command.begin(), ::tolower);
@@ -606,20 +613,7 @@ void load(char* const file) {
             {
                std::string line;
                getline (myfile,line);
-               std::string command1 , command2;
-               std::string checkmorewords;
-               std::istringstream iss(line);
-               commandList.push_back(line);
-               if(iss >> command1) {
-                  if (iss >> command2) {
-                     if(!(iss >> checkmorewords)) {
-                        two_word_command(command1 ,command2);
-                     }
-                  }
-                  else {
-                     one_word_command(command1);
-                  }
-               }
+               process_input(line, true); // true because we are loading.
             }
          myfile.close();
       }
@@ -663,26 +657,18 @@ void read_filter_list(const char* file){
 
 int main(int argc, char** argv) {
    std::string userinput;
-   if (strstr(argv[1], "-exec") && argc == 5) {
+   if(argc == 1) {
+      std::cout << "Usage:\n./txtgame input/Filename" << std::endl;
+   } else if (strstr(argv[1], "-exec") && argc == 5) {
       world = read_file(argv[2], world);
         
       if(world != NULL) {
          load(argv[3]);
-         std::string command1 , command2;
-         std::string checkmorewords;
-         std::istringstream iss(argv[4]);
+         std::string command = argv[4];
+         process_input(command, false); // is meant to be false, leave alone!
          commandList.push_back(argv[4]);
          Area* check = world->get_active_area();
-         if(iss >> command1) {
-            if (iss >> command2) {
-               if(!(iss >> checkmorewords)) {
-                  std::cout << two_word_command(command1 ,command2);
-               }
-            }
-            else {
-               std::cout << one_word_command(command1);
-            }
-         }
+         
          if (check != world->get_active_area())
             std::cout << world->get_active_area()->get_description();
          std::ofstream saveFile;
@@ -714,7 +700,7 @@ int main(int argc, char** argv) {
             std::cout << "Would you like to play again? (please enter yes for affirmative)" << std::endl;
             std::getline (std::cin,userinput);
             game_over = true;
-            if(!userinput.compare("yes")) {
+            if(!userinput.compare("yes") || !userinput.compare("y")) {
                game_over = false;
             }
          }
@@ -722,8 +708,6 @@ int main(int argc, char** argv) {
             game_over = true;
          }
       } while (!game_over);
-   } else {
-      std::cout << "Usage: txtEngine Filename" << std::endl;
-   }
+   } 
    return 0;
 }
