@@ -1,3 +1,16 @@
+/**
+ * @file AreaCommand.cpp
+ * Provides the functionality for an AreaCommand in the game.
+ *
+ * @brief Source file for area command functionality.
+ *
+ * @author Michael Abrams
+ * @author James Boocock
+ * @author Toby Herbert
+ * @author Tatai Nikora
+ * @version 0.3
+ */
+
 #include "AreaCommand.h"
 
 AreaCommand::AreaCommand(const char * callmeby, const char * areatomoveto,

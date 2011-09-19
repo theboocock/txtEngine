@@ -1,105 +1,374 @@
 \hypertarget{class_item_command}{
-\section{ItemCommand Class Reference}
-\label{class_item_command}\index{ItemCommand@{ItemCommand}}
+\section{\-Item\-Command \-Class \-Reference}
+\label{class_item_command}\index{\-Item\-Command@{\-Item\-Command}}
 }
-\subsection*{Public Member Functions}
+\subsection*{\-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_item_command_a3ceac49250c95e48015f649e088e8650}{
-{\bfseries ItemCommand} (const char $\ast$callmeby, const char $\ast$state\_\-mutator, bool chng\_\-collec, bool collec\_\-dep, const char $\ast$area\_\-chng, const char $\ast$status\_\-command, const char $\ast$depends)}
-\label{class_item_command_a3ceac49250c95e48015f649e088e8650}
+\hypertarget{class_item_command_a71023af77dc1cae418995588e1fead9d}{
+bool {\bfseries is\-\_\-combine} ()}
+\label{class_item_command_a71023af77dc1cae418995588e1fead9d}
 
 \item 
-\hypertarget{class_item_command_aab2f239abd8e51eed941a7144c5a20f0}{
-std::string {\bfseries get\_\-depends} ()}
-\label{class_item_command_aab2f239abd8e51eed941a7144c5a20f0}
+\hypertarget{class_item_command_adb0c6cc33fce1d745c9da4b6d1796367}{
+{\bfseries \-Item\-Command} (const char $\ast$callmeby, const char $\ast$state\-\_\-mutator, bool chng\-\_\-collec, bool collec\-\_\-dep, const char $\ast$area\-\_\-chng, const char $\ast$status\-\_\-command, const char $\ast$depends, std\-::vector$<$ std\-::string $>$ $\ast$synonyms, std\-::string unlock, bool \hyperlink{classcombine}{combine})}
+\label{class_item_command_adb0c6cc33fce1d745c9da4b6d1796367}
 
 \item 
-\hypertarget{class_item_command_a076738abba7d76c8b5e28f42e11b6df5}{
-bool {\bfseries get\_\-change\_\-collect} ()}
-\label{class_item_command_a076738abba7d76c8b5e28f42e11b6df5}
+std\-::string \hyperlink{class_item_command_aab2f239abd8e51eed941a7144c5a20f0}{get\-\_\-depends} ()
+\item 
+bool \hyperlink{class_item_command_a076738abba7d76c8b5e28f42e11b6df5}{get\-\_\-change\-\_\-collect} ()
+\item 
+bool \hyperlink{class_item_command_a478d2e1a02ea0b44e41e3d15e59e2156}{get\-\_\-collect\-\_\-dependent} ()
+\item 
+std\-::string \hyperlink{class_item_command_ac40efb86e5eab9229d2c343b308b6fa5}{get\-\_\-area\-\_\-change} ()
+\item 
+std\-::string \hyperlink{class_item_command_ad0a8c59554e3d4a7a14299fd7df8dc70}{get\-\_\-status} ()
+\item 
+std\-::string \hyperlink{class_item_command_a81079b514b0785ce9c86f8618f096c18}{get\-\_\-message} ()
+\item 
+std\-::string \hyperlink{class_item_command_ad19f0634b23480fcae2f05ee1a0f13f1}{get\-\_\-name} ()
+\item 
+std\-::string \hyperlink{class_item_command_aad1e85e694f5cd16cc11ad5acda2884e}{get\-\_\-state\-\_\-change} ()
+\item 
+bool \hyperlink{class_item_command_a7e2827365e9a8521fded9334cb53fb7f}{check\-\_\-synonyms} (std\-::string command)
+\item 
+void \hyperlink{class_item_command_abe177c8696e00480a716959b335ebca8}{set\-\_\-message} (const char $\ast$to\-\_\-message)
+\item 
+\hypertarget{class_item_command_a74c82a6f88120d2ccaa6fbba4353fe17}{
+bool {\bfseries unlocks} ()}
+\label{class_item_command_a74c82a6f88120d2ccaa6fbba4353fe17}
 
 \item 
-\hypertarget{class_item_command_a478d2e1a02ea0b44e41e3d15e59e2156}{
-bool {\bfseries get\_\-collect\_\-dependent} ()}
-\label{class_item_command_a478d2e1a02ea0b44e41e3d15e59e2156}
+\hypertarget{class_item_command_a9d663365564ebb4c7ed39ce73d995631}{
+std\-::string {\bfseries unlock\-\_\-areacommand\-\_\-string} ()}
+\label{class_item_command_a9d663365564ebb4c7ed39ce73d995631}
 
 \item 
-\hypertarget{class_item_command_ac40efb86e5eab9229d2c343b308b6fa5}{
-std::string {\bfseries get\_\-area\_\-change} ()}
-\label{class_item_command_ac40efb86e5eab9229d2c343b308b6fa5}
+\hypertarget{class_item_command_a08a215a5fab2593301ca90ed794267d7}{
+std\-::string {\bfseries unlock\-\_\-area\-\_\-string} ()}
+\label{class_item_command_a08a215a5fab2593301ca90ed794267d7}
 
 \item 
-\hypertarget{class_item_command_ad0a8c59554e3d4a7a14299fd7df8dc70}{
-std::string {\bfseries get\_\-status} ()}
-\label{class_item_command_ad0a8c59554e3d4a7a14299fd7df8dc70}
-
-\item 
-\hypertarget{class_item_command_a81079b514b0785ce9c86f8618f096c18}{
-std::string {\bfseries get\_\-message} ()}
-\label{class_item_command_a81079b514b0785ce9c86f8618f096c18}
-
-\item 
-\hypertarget{class_item_command_ad19f0634b23480fcae2f05ee1a0f13f1}{
-std::string {\bfseries get\_\-name} ()}
-\label{class_item_command_ad19f0634b23480fcae2f05ee1a0f13f1}
-
-\item 
-\hypertarget{class_item_command_aad1e85e694f5cd16cc11ad5acda2884e}{
-std::string {\bfseries get\_\-state\_\-change} ()}
-\label{class_item_command_aad1e85e694f5cd16cc11ad5acda2884e}
-
-\item 
-\hypertarget{class_item_command_abe177c8696e00480a716959b335ebca8}{
-void {\bfseries set\_\-message} (const char $\ast$to\_\-message)}
-\label{class_item_command_abe177c8696e00480a716959b335ebca8}
+\hypertarget{class_item_command_ab13f510d664339b267fc721622ab671a}{
+std\-::string {\bfseries get\-\_\-unlock\-\_\-string} ()}
+\label{class_item_command_ab13f510d664339b267fc721622ab671a}
 
 \end{DoxyCompactItemize}
-\subsection*{Protected Attributes}
+\subsection*{\-Protected \-Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_item_command_ae79c7cdf02b170b78bc5967a334cdcf7}{
-std::string {\bfseries name}}
+std\-::string {\bfseries name}}
 \label{class_item_command_ae79c7cdf02b170b78bc5967a334cdcf7}
 
 \item 
 \hypertarget{class_item_command_a7aa339b7c9c54ca6d331b9729cf8c044}{
-std::string {\bfseries state\_\-change}}
+std\-::string {\bfseries state\-\_\-change}}
 \label{class_item_command_a7aa339b7c9c54ca6d331b9729cf8c044}
 
 \item 
 \hypertarget{class_item_command_a553f91c8eae8f25ba27ed0eb875e5e19}{
-std::string {\bfseries message}}
+std\-::string {\bfseries message}}
 \label{class_item_command_a553f91c8eae8f25ba27ed0eb875e5e19}
 
 \item 
 \hypertarget{class_item_command_ac5fe64207c12fbd50c3a8b92207acb40}{
-std::string {\bfseries area\_\-change}}
+std\-::string {\bfseries area\-\_\-change}}
 \label{class_item_command_ac5fe64207c12fbd50c3a8b92207acb40}
 
 \item 
 \hypertarget{class_item_command_a6da1ba48131d1f2c414ad4728e7bb4c2}{
-std::string {\bfseries depends}}
+std\-::string {\bfseries depends}}
 \label{class_item_command_a6da1ba48131d1f2c414ad4728e7bb4c2}
 
 \item 
 \hypertarget{class_item_command_a46091780df5b87f52db4e851deeb2aa1}{
-std::string {\bfseries status}}
+std\-::string {\bfseries status}}
 \label{class_item_command_a46091780df5b87f52db4e851deeb2aa1}
 
 \item 
+\hypertarget{class_item_command_ab48cc2be6ad392f61a4cc09d8ddaa061}{
+std\-::string {\bfseries unlock}}
+\label{class_item_command_ab48cc2be6ad392f61a4cc09d8ddaa061}
+
+\item 
+\hypertarget{class_item_command_a980a5aea68b7ace0a401561f81fc484e}{
+bool {\bfseries call\-\_\-combine}}
+\label{class_item_command_a980a5aea68b7ace0a401561f81fc484e}
+
+\item 
+\hypertarget{class_item_command_adc9ff7f20c2dec3f40bf5856d508cde2}{
+std\-::vector$<$ std\-::string $>$ $\ast$ {\bfseries synonyms}}
+\label{class_item_command_adc9ff7f20c2dec3f40bf5856d508cde2}
+
+\item 
 \hypertarget{class_item_command_a624650b662bbb506c74f943f40c9d9ea}{
-bool {\bfseries change\_\-collect}}
+bool {\bfseries change\-\_\-collect}}
 \label{class_item_command_a624650b662bbb506c74f943f40c9d9ea}
 
 \item 
 \hypertarget{class_item_command_a6d69129934e185fbe2e8be0db40b0f94}{
-bool {\bfseries collect\_\-dependent}}
+bool {\bfseries collect\-\_\-dependent}}
 \label{class_item_command_a6d69129934e185fbe2e8be0db40b0f94}
 
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_item_command_a7e2827365e9a8521fded9334cb53fb7f}{
+\index{\-Item\-Command@{\-Item\-Command}!check\-\_\-synonyms@{check\-\_\-synonyms}}
+\index{check\-\_\-synonyms@{check\-\_\-synonyms}!ItemCommand@{\-Item\-Command}}
+\subsubsection[{check\-\_\-synonyms}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Item\-Command\-::check\-\_\-synonyms (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{command}
+\end{DoxyParamCaption}
+)}}
+\label{class_item_command_a7e2827365e9a8521fded9334cb53fb7f}
+\-Write description of function here. \-The function should follow these comments. \-Use of \char`\"{}brief\char`\"{} tag is optional. (no point to it)
+
+\-The function arguments listed with \char`\"{}param\char`\"{} will be compared to the declaration and verified.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em \-\_\-in\-Arg1} & \-Description of first function argument. \\
+\hline
+\mbox{\tt out}  & {\em \-\_\-out\-Arg2} & \-Description of second function argument. \\
+\hline
+\mbox{\tt in,out}  & {\em \-\_\-inout\-Arg3} & \-Description of third function argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Description of returned value. 
+\end{DoxyReturn}
+\hypertarget{class_item_command_ac40efb86e5eab9229d2c343b308b6fa5}{
+\index{\-Item\-Command@{\-Item\-Command}!get\-\_\-area\-\_\-change@{get\-\_\-area\-\_\-change}}
+\index{get\-\_\-area\-\_\-change@{get\-\_\-area\-\_\-change}!ItemCommand@{\-Item\-Command}}
+\subsubsection[{get\-\_\-area\-\_\-change}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Item\-Command\-::get\-\_\-area\-\_\-change (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_item_command_ac40efb86e5eab9229d2c343b308b6fa5}
+\-Write description of function here. \-The function should follow these comments. \-Use of \char`\"{}brief\char`\"{} tag is optional. (no point to it)
+
+\-The function arguments listed with \char`\"{}param\char`\"{} will be compared to the declaration and verified.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em \-\_\-in\-Arg1} & \-Description of first function argument. \\
+\hline
+\mbox{\tt out}  & {\em \-\_\-out\-Arg2} & \-Description of second function argument. \\
+\hline
+\mbox{\tt in,out}  & {\em \-\_\-inout\-Arg3} & \-Description of third function argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Description of returned value. 
+\end{DoxyReturn}
+\hypertarget{class_item_command_a076738abba7d76c8b5e28f42e11b6df5}{
+\index{\-Item\-Command@{\-Item\-Command}!get\-\_\-change\-\_\-collect@{get\-\_\-change\-\_\-collect}}
+\index{get\-\_\-change\-\_\-collect@{get\-\_\-change\-\_\-collect}!ItemCommand@{\-Item\-Command}}
+\subsubsection[{get\-\_\-change\-\_\-collect}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Item\-Command\-::get\-\_\-change\-\_\-collect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_item_command_a076738abba7d76c8b5e28f42e11b6df5}
+\-Write description of function here. \-The function should follow these comments. \-Use of \char`\"{}brief\char`\"{} tag is optional. (no point to it)
+
+\-The function arguments listed with \char`\"{}param\char`\"{} will be compared to the declaration and verified.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em \-\_\-in\-Arg1} & \-Description of first function argument. \\
+\hline
+\mbox{\tt out}  & {\em \-\_\-out\-Arg2} & \-Description of second function argument. \\
+\hline
+\mbox{\tt in,out}  & {\em \-\_\-inout\-Arg3} & \-Description of third function argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Description of returned value. 
+\end{DoxyReturn}
+\hypertarget{class_item_command_a478d2e1a02ea0b44e41e3d15e59e2156}{
+\index{\-Item\-Command@{\-Item\-Command}!get\-\_\-collect\-\_\-dependent@{get\-\_\-collect\-\_\-dependent}}
+\index{get\-\_\-collect\-\_\-dependent@{get\-\_\-collect\-\_\-dependent}!ItemCommand@{\-Item\-Command}}
+\subsubsection[{get\-\_\-collect\-\_\-dependent}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Item\-Command\-::get\-\_\-collect\-\_\-dependent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_item_command_a478d2e1a02ea0b44e41e3d15e59e2156}
+\-Write description of function here. \-The function should follow these comments. \-Use of \char`\"{}brief\char`\"{} tag is optional. (no point to it)
+
+\-The function arguments listed with \char`\"{}param\char`\"{} will be compared to the declaration and verified.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em \-\_\-in\-Arg1} & \-Description of first function argument. \\
+\hline
+\mbox{\tt out}  & {\em \-\_\-out\-Arg2} & \-Description of second function argument. \\
+\hline
+\mbox{\tt in,out}  & {\em \-\_\-inout\-Arg3} & \-Description of third function argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Description of returned value. 
+\end{DoxyReturn}
+\hypertarget{class_item_command_aab2f239abd8e51eed941a7144c5a20f0}{
+\index{\-Item\-Command@{\-Item\-Command}!get\-\_\-depends@{get\-\_\-depends}}
+\index{get\-\_\-depends@{get\-\_\-depends}!ItemCommand@{\-Item\-Command}}
+\subsubsection[{get\-\_\-depends}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Item\-Command\-::get\-\_\-depends (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_item_command_aab2f239abd8e51eed941a7144c5a20f0}
+\-Write description of function here. \-The function should follow these comments. \-Use of \char`\"{}brief\char`\"{} tag is optional. (no point to it)
+
+\-The function arguments listed with \char`\"{}param\char`\"{} will be compared to the declaration and verified.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em \-\_\-in\-Arg1} & \-Description of first function argument. \\
+\hline
+\mbox{\tt out}  & {\em \-\_\-out\-Arg2} & \-Description of second function argument. \\
+\hline
+\mbox{\tt in,out}  & {\em \-\_\-inout\-Arg3} & \-Description of third function argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Description of returned value. 
+\end{DoxyReturn}
+\hypertarget{class_item_command_a81079b514b0785ce9c86f8618f096c18}{
+\index{\-Item\-Command@{\-Item\-Command}!get\-\_\-message@{get\-\_\-message}}
+\index{get\-\_\-message@{get\-\_\-message}!ItemCommand@{\-Item\-Command}}
+\subsubsection[{get\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Item\-Command\-::get\-\_\-message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_item_command_a81079b514b0785ce9c86f8618f096c18}
+\-Write description of function here. \-The function should follow these comments. \-Use of \char`\"{}brief\char`\"{} tag is optional. (no point to it)
+
+\-The function arguments listed with \char`\"{}param\char`\"{} will be compared to the declaration and verified.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em \-\_\-in\-Arg1} & \-Description of first function argument. \\
+\hline
+\mbox{\tt out}  & {\em \-\_\-out\-Arg2} & \-Description of second function argument. \\
+\hline
+\mbox{\tt in,out}  & {\em \-\_\-inout\-Arg3} & \-Description of third function argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Description of returned value. 
+\end{DoxyReturn}
+\hypertarget{class_item_command_ad19f0634b23480fcae2f05ee1a0f13f1}{
+\index{\-Item\-Command@{\-Item\-Command}!get\-\_\-name@{get\-\_\-name}}
+\index{get\-\_\-name@{get\-\_\-name}!ItemCommand@{\-Item\-Command}}
+\subsubsection[{get\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Item\-Command\-::get\-\_\-name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_item_command_ad19f0634b23480fcae2f05ee1a0f13f1}
+\-Write description of function here. \-The function should follow these comments. \-Use of \char`\"{}brief\char`\"{} tag is optional. (no point to it)
+
+\-The function arguments listed with \char`\"{}param\char`\"{} will be compared to the declaration and verified.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em \-\_\-in\-Arg1} & \-Description of first function argument. \\
+\hline
+\mbox{\tt out}  & {\em \-\_\-out\-Arg2} & \-Description of second function argument. \\
+\hline
+\mbox{\tt in,out}  & {\em \-\_\-inout\-Arg3} & \-Description of third function argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Description of returned value. 
+\end{DoxyReturn}
+\hypertarget{class_item_command_aad1e85e694f5cd16cc11ad5acda2884e}{
+\index{\-Item\-Command@{\-Item\-Command}!get\-\_\-state\-\_\-change@{get\-\_\-state\-\_\-change}}
+\index{get\-\_\-state\-\_\-change@{get\-\_\-state\-\_\-change}!ItemCommand@{\-Item\-Command}}
+\subsubsection[{get\-\_\-state\-\_\-change}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Item\-Command\-::get\-\_\-state\-\_\-change (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_item_command_aad1e85e694f5cd16cc11ad5acda2884e}
+\-Write description of function here. \-The function should follow these comments. \-Use of \char`\"{}brief\char`\"{} tag is optional. (no point to it)
+
+\-The function arguments listed with \char`\"{}param\char`\"{} will be compared to the declaration and verified.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em \-\_\-in\-Arg1} & \-Description of first function argument. \\
+\hline
+\mbox{\tt out}  & {\em \-\_\-out\-Arg2} & \-Description of second function argument. \\
+\hline
+\mbox{\tt in,out}  & {\em \-\_\-inout\-Arg3} & \-Description of third function argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Description of returned value. 
+\end{DoxyReturn}
+\hypertarget{class_item_command_ad0a8c59554e3d4a7a14299fd7df8dc70}{
+\index{\-Item\-Command@{\-Item\-Command}!get\-\_\-status@{get\-\_\-status}}
+\index{get\-\_\-status@{get\-\_\-status}!ItemCommand@{\-Item\-Command}}
+\subsubsection[{get\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Item\-Command\-::get\-\_\-status (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_item_command_ad0a8c59554e3d4a7a14299fd7df8dc70}
+\-Write description of function here. \-The function should follow these comments. \-Use of \char`\"{}brief\char`\"{} tag is optional. (no point to it)
+
+\-The function arguments listed with \char`\"{}param\char`\"{} will be compared to the declaration and verified.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em \-\_\-in\-Arg1} & \-Description of first function argument. \\
+\hline
+\mbox{\tt out}  & {\em \-\_\-out\-Arg2} & \-Description of second function argument. \\
+\hline
+\mbox{\tt in,out}  & {\em \-\_\-inout\-Arg3} & \-Description of third function argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Description of returned value. 
+\end{DoxyReturn}
+\hypertarget{class_item_command_abe177c8696e00480a716959b335ebca8}{
+\index{\-Item\-Command@{\-Item\-Command}!set\-\_\-message@{set\-\_\-message}}
+\index{set\-\_\-message@{set\-\_\-message}!ItemCommand@{\-Item\-Command}}
+\subsubsection[{set\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}void \-Item\-Command\-::set\-\_\-message (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{to\-\_\-message}
+\end{DoxyParamCaption}
+)}}
+\label{class_item_command_abe177c8696e00480a716959b335ebca8}
+\-Write description of function here. \-The function should follow these comments. \-Use of \char`\"{}brief\char`\"{} tag is optional. (no point to it)
+
+\-The function arguments listed with \char`\"{}param\char`\"{} will be compared to the declaration and verified.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em \-\_\-in\-Arg1} & \-Description of first function argument. \\
+\hline
+\mbox{\tt out}  & {\em \-\_\-out\-Arg2} & \-Description of second function argument. \\
+\hline
+\mbox{\tt in,out}  & {\em \-\_\-inout\-Arg3} & \-Description of third function argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Description of returned value. 
+\end{DoxyReturn}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-/home/cshome/m/mabrams/345/txtEngine/ItemCommand.h\end{DoxyCompactItemize}
+/home/cshome/m/mabrams/345/txt\-Engine/\hyperlink{_item_command_8h}{\-Item\-Command.\-h}\item 
+/home/cshome/m/mabrams/345/txt\-Engine/\hyperlink{_item_command_8cpp}{\-Item\-Command.\-cpp}\end{DoxyCompactItemize}

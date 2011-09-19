@@ -1,3 +1,16 @@
+/**
+ * @file World.cpp
+ * World.cpp provides the functionality for the game world.
+ *
+ * @brief Source file for a World.
+ *
+ * @author Michael Abrams
+ * @author James Boocock
+ * @author Toby Herbert
+ * @author Tatai Nikora
+ * @version 0.3
+ */
+
 #include "World.h"
 
 std::string World::get_author() {

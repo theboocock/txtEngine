@@ -1,8 +1,8 @@
 /**
- * @file Area.h
- * Area.h defines the methods for the Area.cpp source file.
+ * @file ItemCommand.h
+ * ItemCommand.h defines the methods for the ItemCommand.cpp source file.
  *
- * @brief Defines the Area class.
+ * @brief Defines the ItemCommand class.
  *
  * @author Michael Abrams
  * @author James Boocock

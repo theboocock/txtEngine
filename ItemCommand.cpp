@@ -1,3 +1,15 @@
+/**
+ * @file ItemCommand.cpp
+ * Provides the functionality for an ItemCommand.
+ *
+ * @brief Source file for an ItemCommand.
+ *
+ * @author Michael Abrams
+ * @author James Boocock
+ * @author Toby Herbert
+ * @author Tatai Nikora
+ * @version 0.3
+ */
 
 #include "ItemCommand.h"
 #include <iostream>

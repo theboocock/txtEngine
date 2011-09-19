@@ -1,6 +1,10 @@
 /**
  * @file Combine.cpp
- * 
+ * Provides combine functionality in the game.
+ * An object consists of its id, the id of the first
+ * item that can be combined, and the id of the second object
+ * that can be combined.
+ *
  * @brief Source file for Combine functionality.
  *
  * @author Michael Abrams

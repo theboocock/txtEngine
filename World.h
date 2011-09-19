@@ -1,9 +1,8 @@
-// $Id$
 /**
- * @file Area.h
- * Area.h defines the methods for the Area.cpp source file.
+ * @file World.h
+ * World.h defines the methods for the World.cpp source file.
  *
- * @brief Defines the Area class.
+ * @brief Defines the World class.
  *
  * @author Michael Abrams
  * @author James Boocock
@@ -11,7 +10,6 @@
  * @author Tatai Nikora
  * @version 0.3
  */
-// $Log$
 
 #ifndef _WORLD_H
 #define _WORLD_H

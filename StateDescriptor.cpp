@@ -1,3 +1,16 @@
+/**
+ * @file StateDescriptor.cpp
+ * Provides functionality for a StateDescriptor object.
+ *
+ * @brief Source file for a StateDescriptor.
+ *
+ * @author Michael Abrams
+ * @author James Boocock
+ * @author Toby Herbert
+ * @author Tatai Nikora
+ * @version 0.3
+ */
+
 #include "StateDescriptor.h"
 
 StateDescriptor::StateDescriptor(const char *identifier) {

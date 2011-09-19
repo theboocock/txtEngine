@@ -1,3 +1,16 @@
+/**
+ * @file parser.cpp
+ * Turns XML game files into C++ objects.
+ *
+ * @brief The source file for parser functionality.
+ *
+ * @author Michael Abrams
+ * @author James Boocock
+ * @author Toby Herbert
+ * @author Tatai Nikora
+ * @version 0.3
+ */
+
 #include "parser.h"
 #include "tinyxml.h"
 
@@ -46,13 +59,6 @@ void string_explode(std::string str, std::string seperator, std::vector<std::str
       (*result).push_back(str);
    }
 }
-
-/**
- *
- * @param pCommand the node containing the combine 
- * @pacam world the world object in which this is added
- *
- */
 
 combine *make_combine(TiXmlNode * pCommand,const char *parent_id,  World *world ){
    TiXmlNode *pChild;
@@ -127,7 +133,6 @@ combine *make_combine(TiXmlNode * pCommand,const char *parent_id,  World *world 
    return combine_var;
 
 }
-
 
 ItemCommand *make_item_command(TiXmlNode *pCommand, const char *parent_id, World *world) {
    TiXmlNode* pChild;

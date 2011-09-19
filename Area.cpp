@@ -1,3 +1,16 @@
+/**
+ * @file Area.cpp
+ * Provides the functionality for an area in a game.
+ *
+ * @brief Source file for Area functionality.
+ *
+ * @author Michael Abrams
+ * @author James Boocock
+ * @author Toby Herbert
+ * @author Tatai Nikora
+ * @version 0.3
+ */
+
 #include "Area.h"
 
 bool Area::has_description(std::string desc_id) {

@@ -1,3 +1,16 @@
+/**
+ * @file Item.cpp
+ * Item.cpp provides the functionality for an Item in the game.
+ *
+ * @brief Source file for Item functionality.
+ *
+ * @author Michael Abrams
+ * @author James Boocock
+ * @author Toby Herbert
+ * @author Tatai Nikora
+ * @version 0.3
+ */
+
 #include "Item.h"
 #include <iostream>
 
