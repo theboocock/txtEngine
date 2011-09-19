@@ -16,6 +16,8 @@
 #define SEPERATOR ","
 #define INSIDE_INDEX -1
 
+
+
 World *read_file(const char* pFilename, World *world) {
    TiXmlDocument doc(pFilename);
    bool loadOkay = doc.LoadFile();
@@ -84,7 +86,7 @@ combine *make_combine(TiXmlNode * pCommand,const char *parent_id,  World *world 
 	 num_attributes++;
          has_id = true;
       }
-
+      attributes = attributes->Next();
    }
    if(one && two && has_id && num_attributes == COMBINE_ATTRIBUTES){
       combine_var = new combine(combine_id, first_id, second_id);
@@ -110,7 +112,7 @@ combine *make_combine(TiXmlNode * pCommand,const char *parent_id,  World *world 
             error_parsing(message, world);
          }
       }
-      if(!strcmp(error_tag.c_str(), MISSING_TAGS)){
+      if(strcmp(error_tag.c_str(), MISSING_TAGS)){
 	   error_parsing(error_tag, world);
       }
    } else {

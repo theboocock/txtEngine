@@ -64,10 +64,10 @@
       <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,obtain,collect" depends="marmite">
         You have obtained the key, its shiney exterior gold coating penetrates your senses relieving your pain for a brief second. The pain returns but you seem less aware of it.
       </itemcommand>
-      <itemcommand name="use" statedescription="none" changecollectable="false" collectabledependent="false" areachange="none" synonyms="unlock" depends="key" unlock="room1/up">
+      <itemcommand name="use" statedescription="none" changecollectable="false" collectabledependent="false" areachange="inventory" synonyms="unlock" depends="key" unlock="room1/up">
         The key seems to pull from your hand into the lock, and twist itself. The trapdoor padlock plops open.
       </itemcommand>
-      <itemcommand name="drop" statedescription="droppped" changecollectable="true" collectabledependent="false" areachange="none" synonyms="throw,putdown">
+      <itemcommand name="drop" statedescription="droppped" changecollectable="true" collectabledependent="false" areachange="inventory" synonyms="throw,putdown">
         You put the key down.
       </itemcommand>
     </item>
@@ -108,10 +108,10 @@
       <statedescriptor id="closed">
         A locked chest sits directly opposite you. It is not locked by a key though, something more magical has control over it.
       </statedescriptor>
-      <statedescriptor id="open">
+      <statedescriptor id="opened">
         The chest of wonder lies in awe in front of you. Do you dare disturb this magnificent beast?
       </statedescriptor>
-      <itemcommand name="open" statedescription="open" changecollectable="false" collectabledependent="false" areachange="none" synonyms="unlock" depends="wand">
+      <itemcommand name="open" statedescription="opened" changecollectable="false" collectabledependent="false" areachange="none" synonyms="unlock" >
         You wave the wand in a meaningless fashion above the chest. It did nothing. You throw the want at the chest in disgust!
         The wand hits the chest and you hear the lock turn, that was weird.
       </itemcommand>
@@ -142,6 +142,22 @@
         <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,collect">
           You take the wire and un-wrap it immediately! You almost die but manage to pull yourself together.
         </itemcommand>
+        <combine id="wire_trans" first_id="wire" second_id="transistors">
+          <item id="computer" initialdescription="have" collectable="false" synonyms="cpu,pc">
+            <statedescriptor id="have">
+              You have a computer. 
+            </statedescriptor>
+            <statedescriptor id="dropped">
+              Here is a computer.
+            </statedescriptor>
+            <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="none">
+              You drop the pc.
+            </itemcommand>
+          </item>
+          <statedescriptor id="combine_desc">
+            you put the two together and make a compuer.
+          </statedescriptor>
+        </combine>
       </item>
     </item>
     <item id="pot" initialdescription="open" collectable="false" synonyms="container" container="true" locked="false">
@@ -161,7 +177,7 @@
         <statedescriptor id="dropped">
           The wand is here.
         </statedescriptor>
-        <itemcommand name="use" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" unlock="chest">
+        <itemcommand name="use" statedescription="init" changecollectable="false" collectabledependent="false" areachange="inventory" unlock="chest">
           You wave the wand in a meaningless fashion above the chest. It did nothing. You throw the want at the chest in disgust!
           The wand hits the chest and you hear the lock turn, that was weird.
         </itemcommand>

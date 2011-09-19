@@ -37,15 +37,15 @@ void Area::remove_item(int index) {
 
 void Area::remove_item(std::string item_id){
    for(unsigned int i=0; i < items.size(); i++){
-   	if(!items[i]->get_id().compare(item_id)){ items.erase(items.begin() + i);
-		num_items--;
-	}else if(items[i]->has_synonym(item_id)) {
-        items.erase(items.begin() + i);
-	num_items--;
+      if(!items[i]->get_id().compare(item_id)){
+         items.erase(items.begin() + i);
+         num_items--;
+      }else if(items[i]->has_synonym(item_id)) {
+         items.erase(items.begin() + i);
+         num_items--;
       }else{
-	items[i]->remove_item(item_id);
-      }
-
+         items[i]->remove_item(item_id);
+      }  
    }
 }
 
@@ -63,7 +63,7 @@ std::string Area::get_id() {
 }
 
 bool Area::has_item(std::string item_to_find) {
-	for(unsigned int item_num = 0; item_num < items.size(); item_num++) {
+   for(unsigned int item_num = 0; item_num < items.size(); item_num++) {
       if(items[item_num]->get_id().compare(item_to_find) == 0) {
 
          return true;
