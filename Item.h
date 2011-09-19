@@ -24,315 +24,209 @@ class Area;
 
 class Item {
 
-    protected:
-        bool collectable;
-        int num_descriptions, num_commands, num_items;
-        std::string id;
-        bool container;
-        bool locked;
-        combine * combine_var;
-        std::vector<Item *> contains;
-        std::string curr_desc_id;
-        std::vector<StateDescriptor*> description;
-        std::vector<ItemCommand*> commands;
-        std::vector<std::string> *synonyms;
-        std::string depends;
+ protected:
+   bool collectable;
+   int num_descriptions, num_commands, num_items;
+   std::string id;
+   bool container;
+   bool locked;
+   combine * combine_var;
+   std::vector<Item *> contains;
+   std::string curr_desc_id;
+   std::vector<StateDescriptor*> description;
+   std::vector<ItemCommand*> commands;
+   std::vector<std::string> *synonyms;
+   std::string depends;
 
-    public:
-	void remove_item(std::string item_id);
-	void flip_locked();
-	bool is_locked();
+ public:
+   void remove_item(std::string item_id);
+   void flip_locked();
+   bool is_locked();
 
-	bool has_container();
+   bool has_container();
 
-	/**
-           Returns a string with all items item contains.
-	   
-         */
-        std::string print_contained_items();
+   /**
+      Returns a string with all items the item contains.
 
-	/**
-           Returns a pointer to an item by id or null if
-	   
-         */
-        Item* get_item(std::string item_id);
+      @return A string of items this item contains.
+   */
+   std::string print_contained_items();
 
-	/**
-           Adds an item to the contains vector
-	   
-        */
-        void add_item(Item*);
+   /**
+      Returns a pointer to an item by id or null if
+      it does not exist.
+
+      @param item_id The id of the item to get.
+      @return A pointer to an item.
+   */
+   Item* get_item(std::string item_id);
+
+   /**
+      Adds an item to the contains vector.
+
+      @param The pointer to an item.
+   */
+   void add_item(Item*);
 
 
-        /**
-           Checks whether this Item can combine with another.
-         */
-        bool has_combine();
+   /**
+      Checks whether this Item can combine with another.
 
-	/**
-           Accessors and mutators for inside and combine.
-        */
-        combine * get_combine();
+      @return True if this item can be combined with another otherwise false.
+   */
+   bool has_combine();
+
+   /**
+      Accessor for a combine object.
+
+      @return A pointer to a combine object.
+           
+   */
+   combine * get_combine();
+
+   /**
+      A mutator for a combine object.
+
+      @param[in] c A pointer to a combine object.
+   */
+   void set_combine(combine * c);
 	
-        void set_combine(combine * c);
-	
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
+   /**
+      Check whether this item has a certain description id.
 
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
+      @param[in] desc_id A string of an item description id.
+      @return True if this item contains the discription otherwise false.
+   */
+   bool has_description(std::string desc_id);
 
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        bool has_description(std::string desc_id);
+   /**
+      Check whether this item has the current description.
+      Calls has_description method passing the curr_desc_id.
 
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
+      @return True if the item has the current description otherwise false.
+   */
+   bool has_current_desc();
 
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
+   /**
+      Checks whether this item has a particular synonym.
+     
+      @param[in] item A string that may be a synonym.
+      @return True if the item has the synonym otherwise false.
+   */
+   bool has_synonym(std::string item);
 
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        bool has_current_desc();
+   /**
+      Gets the item description.
+           
+      @return The description of the item.
+   */
+   std::string get_description();
 
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
+   /**
+      Add a StateDescriptor for this item.
 
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
+      @param[in] desc A pointer to a StateDescriptor object to add.
+   */
+   void add_description(StateDescriptor *desc);
 
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        bool has_synonym(std::string);
+   /**
+      Flip the value of collectable for this item.
 
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
+      @param[in] flip True flips the value, false leaves it unchanged.
+   */
+   void change_collectable(bool flip);
 
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
+   /**
+      Checks whether this item is collectable.
+       
+      @return Description of returned value.
+   */
+   bool is_collectable();
 
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        std::string get_description();
+   /**
+   Gets the id of the item.
 
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
+      @return A string - the id of the item.
+   */
+   std::string get_id();
 
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
+   /**
+      Gets the number of commands for this item.
+      
+      @return The number of commands this item has.
+   */
+   int get_num_commands();
 
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        void add_description(StateDescriptor *desc);
+   /**
+      Add a command to this item.
 
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
+      @param[in] command_name A pointer to an ItemCommand object.
+   */
+   void add_command(ItemCommand *command_name);
 
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
+   /**
+     Gets a command from the commands vector for this item by index.
 
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        void change_collectable(bool flip);
+      @param[in] index The index of the item in the vector.
+      @return An ItemCommand object at the specified index.
+   */
+   ItemCommand *get_command(int index);
 
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
+   /**
+      Gets a command from the commands vector of this item by command_name.
+     
+      @param[in] command_name A string - the name of the command.
+      @return An ItemCommand object with the specified name.
+   */
+   ItemCommand *get_command(std::string command_name);
 
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
+   /**
+      Get the number of descriptions for this item.
+     
+      @return The number of descriptions for this item.
+   */
+   int get_num_descriptions();
 
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        bool is_collectable();
+   /**
+      Get a StateDescriptor from the descriptions vector by index.
 
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
+      @param[in] index The index of the StateDescriptor in the vector.
+      @return A StateDescriptor at the specified index.
+   */
+   StateDescriptor *get_descriptor(int index);
 
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
+   /**
+      Changes the state of the item.
 
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        std::string get_id();
+      @return Returns a string - what the item depends on.
+   */
+   std::string get_depends();
+   
+   /**
+     Changes the state of the item.
 
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
+      @param[in] to_change A string - to change the state of the item to.
+   */
+   void state_change(std::string to_change);
 
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
+   /**
+     The constructor for an Item.
 
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        int get_num_commands();
+     @param[in] collect Whether this item is collectable or not.
+     @param[in] identifier An identifier for this item.
+     @param[in] initial_state The initial state of the item.
+     @param[in] synonyms A vector of synonyms for the name of this item.
+     @param[in] depends An item this item depends on.
+     @param[in] container Whether this item is a container.
+     @param[in] locked Whether this item is locked.
+   */
+   Item(bool collect, const char *identifier, const char *initial_state,
+        std::vector<std::string> *synonyms, const char * depends, bool container, bool locked);
 
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
-
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
-
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        void add_command(ItemCommand *command_name);
-
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
-
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
-
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        ItemCommand *get_command(int index);
-
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
-
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
-
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        ItemCommand *get_command(std::string command_name);
-
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
-
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
-
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        int get_num_descriptions();
-
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
-
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
-
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        StateDescriptor *get_descriptor(int index);
-
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
-
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
-
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        void state_change(std::string to_change);
-
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
-
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
-
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        Item(bool collect, const char *identifier, const char *initial_state,
-             std::vector<std::string> *synonyms, const char * depends, bool container, bool locked);
-
-        /**
-        Write description of function here.
-        The function should follow these comments.
-        Use of "brief" tag is optional. (no point to it)
-
-        The function arguments listed with "param" will be compared
-        to the declaration and verified.
-
-        @param[in]     _inArg1 Description of first function argument.
-        @param[out]    _outArg2 Description of second function argument.
-        @param[in,out] _inoutArg3 Description of third function argument.
-        @return Description of returned value.
-        */
-        ~Item();
-
-        std::string get_depends();
-    };
+   /**
+      The destructor for an Item.
+   */
+   ~Item();
+};
 
 #endif
