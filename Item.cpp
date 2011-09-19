@@ -2,31 +2,32 @@
 #include <iostream>
 
 void Item::remove_item(std::string item_id){
-	for(unsigned int i=0; i < contains.size(); i++){
-   		if(!contains[i]->get_id().compare(item_id)) {contains.erase(contains.begin() + i);
-			num_items--;
-		}else if(!contains[i]->has_synonym(item_id)) {
-			num_items--;
-       			 contains.erase(contains.begin() + i);
-     		 }//else{
-		//	items->remove_item(item_id);
-   	 //  }
-	}
+   for(unsigned int i=0; i < contains.size(); i++) {
+      if(!contains[i]->get_id().compare(item_id)) {
+         contains.erase(contains.begin() + i);
+         num_items--;
+      }else if(!contains[i]->has_synonym(item_id)) {
+         num_items--;
+         contains.erase(contains.begin() + i);
+      }//else{
+      //	items->remove_item(item_id);
+      //  }
+   }
 }
 
 void Item::flip_locked(){
-	locked = !locked;
+   locked = !locked;
 }
 bool Item::is_locked(){
-	return locked;
+   return locked;
 }
 
 bool Item::has_container(){
-	return container;
+   return container;
 }
 
 Item* Item::get_item(std::string item_id){
-for(int item_num = 0; item_num < num_items; item_num++) {
+   for(int item_num = 0; item_num < num_items; item_num++) {
       if(contains[item_num]->get_id().compare(item_id) == 0) {
          return contains[item_num];
       }
@@ -38,16 +39,16 @@ for(int item_num = 0; item_num < num_items; item_num++) {
 }
 
 void Item::add_item(Item* new_item){
-	contains.push_back(new_item);
-	num_items++;
+   contains.push_back(new_item);
+   num_items++;
 }
 
 std::string Item::print_contained_items(){
-	std::string str = this->get_description()+ " contains:" + "\n";
-	for(int i=0;i<num_items;i++){
-	    str += "\t-"+ contains[i]->get_description() +"\n";
-	}
-	return str;
+   std::string str = this->get_description()+ " contains:" + "\n";
+   for(int i=0;i<num_items;i++){
+      str += "\t-"+ contains[i]->get_description() +"\n";
+   }
+   return str;
 }
 
 bool Item::has_description(std::string desc_id) {
@@ -176,7 +177,7 @@ Item::~Item() {
       delete synonyms;
    }
    if(combine_var!=NULL){
-	delete combine_var;
+      delete combine_var;
    }
 }
 

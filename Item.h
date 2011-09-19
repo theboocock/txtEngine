@@ -46,7 +46,7 @@ class Item {
 	bool has_container();
 
 	/**
-           Returns a string with all items item contains.
+           Returns a string with all items this contains.
 	   
          */
         std::string print_contained_items();

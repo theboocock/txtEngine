@@ -97,6 +97,6 @@ std::string ItemCommand::unlock_areacommand_string() {
    return unlock.substr(found + 1, unlock.size());
 }
 
-std::string get_unlock_string(){
+std::string ItemCommand::get_unlock_string(){
    return unlock;
 }

@@ -472,7 +472,7 @@ std::string three_word_command(std::string command){
       Item * have_item = world->get_area(INVENTORY)->get_item(first_id,item);
       if(have_item != NULL){
          Item* box = world->get_area(INVENTORY)->get_item(second_id,item2);
-         if(box == NULL){
+         if(box == NULL) {
             box = world->get_active_area()->get_item(second_id,item2);
          }
          if(box != NULL){
@@ -484,12 +484,15 @@ std::string three_word_command(std::string command){
                   ItemCommand *temp_item_command = have_item->get_command("drop");
                   if(temp_item_command != NULL) {
                      have_item->state_change(temp_item_command->get_state_change());
-                     have_item->change_collectable(temp_item_command->get_change_collect());
-                     ss <<"You put the "<< first_id << " in the " << second_id << "\n"; 
-                     return ss.str();
 								
+                  } else {
+                     ss << "BUG: \n";
+                     ss << "There is no drop command in XML for that item.";
+                     ss << " so description hasn't changed. Item still moved.\n";
                   }
-                  return "known bug please specify drop command in XML";
+                  ss <<"You put the "<< first_id << " in the " << second_id << "\n"; 
+                  have_item->change_collectable(true);
+                  return ss.str();
                }
                return "The box is locked";
             }

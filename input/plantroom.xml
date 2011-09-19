@@ -142,6 +142,22 @@
         <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,collect">
           You take the wire and un-wrap it immediately! You almost die but manage to pull yourself together.
         </itemcommand>
+        <combine id="wire_trans" first_id="wire" second_id="transistors">
+          <item id="computer" initialdescription="have" collectable="false" synonyms="cpu,pc">
+            <statedescriptor id="have">
+              You have a computer. 
+            </statedescriptor>
+            <statedescriptor id="dropped">
+              Here is a computer.
+            </statedescriptor>
+            <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="none">
+              You drop the pc.
+            </itemcommand>
+          </item>
+          <statedescriptor id="combine_desc">
+            you put the two together and make a compuer.
+          </statedescriptor>
+        </combine>
       </item>
     </item>
     <item id="pot" initialdescription="open" collectable="false" synonyms="container" container="true" locked="false">
@@ -161,7 +177,7 @@
         <statedescriptor id="dropped">
           The wand is here.
         </statedescriptor>
-        <itemcommand name="use" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" unlock="chest">
+        <itemcommand name="use" statedescription="init" changecollectable="false" collectabledependent="false" areachange="inventory" unlock="chest">
           You wave the wand in a meaningless fashion above the chest. It did nothing. You throw the want at the chest in disgust!
           The wand hits the chest and you hear the lock turn, that was weird.
         </itemcommand>
