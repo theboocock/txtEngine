@@ -16,6 +16,8 @@
 #define SEPERATOR ","
 #define INSIDE_INDEX -1
 
+
+
 World *read_file(const char* pFilename, World *world) {
    TiXmlDocument doc(pFilename);
    bool loadOkay = doc.LoadFile();
@@ -62,7 +64,6 @@ combine *make_combine(TiXmlNode * pCommand,const char *parent_id,  World *world 
    TiXmlAttribute *attributes = element->FirstAttribute();
    int num_attributes = 0;
    while(attributes){
-      std::cout << "looping?" << std::endl;
       if(!strcmp(attributes->Name(), "first_id")){
          first_id = attributes->Value();
          if(one){

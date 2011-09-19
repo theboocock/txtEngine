@@ -155,7 +155,7 @@ std::string input_filter(std::string input_string);
 */
 void read_filter_list(std::string str);
 
-bool process_input(std::string to_process, bool load);
+void process_input(std::string to_process, bool load);
 
 //------------------------------------------------------------------------------
 /* Method Definitions */
@@ -208,8 +208,7 @@ void print_world_tree() {
    fprintf(stderr, "Attempt at printing world.\n%s\n", message.c_str());
 }
 
-bool process_input(std::string line, bool load) {
-   bool look = false;
+void process_input(std::string line, bool load) {
    commandList.push_back(line);
    std::ostringstream commandstream;
    std::string command1 , command2, command3;
@@ -230,19 +229,15 @@ bool process_input(std::string line, bool load) {
          }    
       } else {
          std::string from_one_word = one_word_command(command1);
-         if(!strcmp(from_one_word.c_str(), DEFAULT_VALUE)) {
-            look = true;
-         } else {
-            commandstream << from_one_word;
-         }
+         commandstream << from_one_word;
       }
    }
    else {
       std::cout << TOOMANYWORDS << std::endl;
    }
-   if(!load)
+   if(!load){
       std::cout << "\n" << word_wrap(commandstream.str());
-   return look;
+   }
 }
 
 void gameloop() {
@@ -281,9 +276,7 @@ void gameloop() {
          std::string line;
          std::getline(std::cin, line);
          line = input_filter(line);
-         bool look = process_input(line, false);
-         if(look)
-            last_area = DEFAULT_VALUE;
+         process_input(line, false);
       }
    }
 }
@@ -298,7 +291,6 @@ std::string two_word_command(std::string command1, std::string command2) {
    if(!strcmp(command1.c_str(), GO)) {
       return one_word_command(command2);
    }
-   std::cout << command2 << std::endl;
    unsigned int item =-1 ;
    Item *temp_item = world->get_active_area()->get_item(command2, item);
    if(temp_item != NULL) {
@@ -338,13 +330,13 @@ std::string two_word_command(std::string command1, std::string command2) {
                         }
                      }
                   }
+                  world->get_active_area()->remove_item(temp_item->get_id());
                   if(world->get_area(temp_item_command->get_area_change()) != NULL) {
                      world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
                   }
                   else {
                      world->get_active_area()->add_item(temp_item);
-                  }
-                  world->get_active_area()->remove_item(temp_item->get_id());
+                  }    
                   result << temp_item_command->get_message();
                   result << "\n";
                   return result.str();
@@ -397,13 +389,14 @@ std::string two_word_command(std::string command1, std::string command2) {
                   }
                }
             }
+            world->get_area(INVENTORY)->remove_item(temp_item->get_id());
             if( world->get_area(temp_item_command->get_area_change()) !=NULL) {
                world->get_area(temp_item_command->get_area_change())->add_item(temp_item);
             }
             else {
                world->get_active_area()->add_item(temp_item);
             }
-            world->get_area(INVENTORY)->remove_item(temp_item->get_id());
+          
             result << temp_item_command->get_message();
             result << "\n";
             return result.str();
@@ -442,20 +435,22 @@ std::string three_word_command(std::string command){
             if(!temp_combine->get_second_id().compare(id_combine)){
                world->get_area(GARBAGE)->add_item(have_item_2);
                world->get_area(GARBAGE)->add_item(have_item_1);
-               world->get_area(INVENTORY)->remove_item(item_2);
-               world->get_area(INVENTORY)->remove_item(item_1);
+               world->get_area(INVENTORY)->remove_item(have_item_2->get_id());
+               world->get_area(INVENTORY)->remove_item(have_item_1->get_id());
                world->get_area(INVENTORY)->add_item(temp_combine->get_combination());
+               return "combine worked";
             }
          } 
          else if(have_item_2->has_combine()){
             std::string id_combine = have_item_2->get_id();
             temp_combine = have_item_2->get_combine();
-            if(!temp_combine->get_second_id().compare(id_combine)){
+            if(!temp_combine->get_first_id().compare(id_combine)){
                world->get_area(GARBAGE)->add_item(have_item_2);
                world->get_area(GARBAGE)->add_item(have_item_1);
-               world->get_area(INVENTORY)->remove_item(item_2);
-               world->get_area(INVENTORY)->remove_item(item_1);
+               world->get_area(INVENTORY)->remove_item(have_item_1->get_id());
+               world->get_area(INVENTORY)->remove_item(have_item_2->get_id());
                world->get_area(INVENTORY)->add_item(temp_combine->get_combination());
+               return "combine works";
             }
             else {
                return	"no combine information found for these two items\n";
@@ -530,7 +525,25 @@ std::string one_word_command(std::string command) {
    }
     
    if(!command.compare(LOOK)) {
-      return DEFAULT_VALUE;
+      std::stringstream itemstream;
+      std::string combinelist;
+      for(int items = 0; items < world->get_active_area()->get_num_items(); items++) {
+         if(world->get_area(INVENTORY)->has_item(world->get_active_area()->get_item(items)->get_depends()) ||
+            !strcmp(world->get_active_area()->get_id().c_str(), world->get_active_area()->get_item(items)->get_depends().c_str()) ||
+            !strcmp(world->get_active_area()->get_item(items)->get_depends().c_str(), NONE)){
+            itemstream << world->get_active_area()->get_item(items)->get_description();
+            if(world->get_active_area()->get_item(items)->has_container() &&
+               !world->get_active_area()->get_item(items)->is_locked()){
+               combinelist+= ((world->get_active_area()->get_item(items)->print_contained_items()));
+
+               combinelist +="\n";
+            }
+            itemstream << "\n"; 
+         } 
+      }
+   std::stringstream sSs;
+   sSs << word_wrap(itemstream.str())<< std::endl << combinelist;
+   return sSs.str();
    }
    if (!command.compare(SAVE)) {
       std::ofstream saveFile;
@@ -559,7 +572,7 @@ std::string one_word_command(std::string command) {
          !strcmp(temp_area_command->get_depends().c_str(), NONE)) {
          if(!temp_area_command->is_locked()) {
             world->change_area(temp_area_command->get_area());
-            return temp_area_command->get_message();
+           return temp_area_command->get_message();
          }
          return "That way is locked";
       }

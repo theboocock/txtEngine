@@ -4,11 +4,9 @@
 void Item::remove_item(std::string item_id){
    for(unsigned int i=0; i < contains.size(); i++) {
       if(!contains[i]->get_id().compare(item_id)) {
-         std::cout << "You think you are removing item " << contains[i]->get_id() << std::endl;
          contains.erase(contains.begin() + i);
          num_items--;
       }else if(contains[i]->has_synonym(item_id)) {
-         std::cout << "You think you are removing item " << contains[i]->get_id() << std::endl;
          num_items--;
          contains.erase(contains.begin() + i);
       }//else{
@@ -31,11 +29,9 @@ bool Item::has_container(){
 Item* Item::get_item(std::string item_id){
    for(int item_num = 0; item_num < num_items; item_num++) {
       if(contains[item_num]->get_id().compare(item_id) == 0) {
-         std::cout << "You are getting item " << contains[item_num]->get_id() << std::endl;
          return contains[item_num];
       }
       else if(contains[item_num]->has_synonym(item_id)) {
-         std::cout << "You are getting item " << contains[item_num]->get_id() << std::endl;
          return contains[item_num];
       }
    }
