@@ -61,8 +61,8 @@ World::World(const char *lang, const char *auth, const char *init_area) {
     author = auth;
     initial_area = init_area;
     num_areas = 0;
-    Area* inventory = new Area("inventory","","");
-    Area* garbage = new Area("garbage","","");
+    Area* inventory = new Area("inventory","","","Inventory");
+    Area* garbage = new Area("garbage","","","Garbage");
     add_area(inventory);
     add_area(garbage);
 

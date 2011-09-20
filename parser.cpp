@@ -420,12 +420,12 @@ StateDescriptor *make_state_descriptor(TiXmlNode *pDescription, const char *pare
 Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world) {
    TiXmlNode* pChild;
    const char *item_id = "invalid", *error_tag = MISSING_TAGS,
-      *item_init_desc = INVALID, *synonyms = NONE, *depends = NONE;
+      *item_init_desc = INVALID, *synonyms = NONE, *depends = NONE, *name = NONE;
    int attributesFound =0;
    bool has_id = false, item_collectable = false, has_collec = false,
       has_init_desc = false, has_synonyms = false , has_depends = false,
       item_container = false, item_locked = false, has_locked = false,
-      has_container = false;
+      has_container = false, has_name = false;
    Item *item = NULL;
    std::vector<std::string> *synonyms_vec = NULL;
    TiXmlElement *element = pItem->ToElement();
@@ -501,7 +501,13 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world) {
             error_tag = "More than one container tag.";
          }
          has_container = true;           
-      } else {
+      } else if(!strcmp(attributes->Name(), "name")){
+		name = attributes->Value();
+		if(has_name){
+			error_tag = "More than one name tag";
+		}
+		has_name = true;
+      }else {
          error_tag = attributes->Name();
          fprintf(stderr, "found something but shouldnt have in make_item.\n");
          attributesFound++;
@@ -509,7 +515,8 @@ Item *make_item(TiXmlNode *pItem, const char *parent_id, World *world) {
       attributes = attributes->Next();
    }
    if(ITEM_ATTRIBUTES == attributesFound && has_id && has_init_desc && has_collec) {
-      item = new Item(item_collectable, item_id, item_init_desc, synonyms_vec ,depends, item_container, item_locked);
+      item = new Item(item_collectable, item_id, item_init_desc, synonyms_vec ,depends, item_container, 
+		      item_locked, name);
       for ( pChild = pItem->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) {
          if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT) {
             if(!strcmp(pChild->Value(), "statedescriptor")) {
@@ -551,8 +558,8 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
    TiXmlNode* pChild;
    int attributesFound = 0;
    const char *area_id = INVALID, *desc_id = INVALID,
-      *error_tag = MISSING_TAGS, *area_status = NONE;
-   bool has_id = false, has_desc = false, has_status = false;
+      *error_tag = MISSING_TAGS, *area_status = NONE, *name = NONE;
+   bool has_id = false, has_desc = false, has_status = false, has_name = false;
    Area *area = NULL;
    TiXmlElement *element = pArea->ToElement();
    TiXmlAttribute *attributes = element->FirstAttribute();
@@ -580,13 +587,19 @@ Area *make_area(TiXmlNode *pArea, int area_index, World *world) {
          }
          has_status = true;
       }
-      else {
+      else if(!strcmp(attributes->Name(), "name")){
+	name = attributes->Value();
+	if(has_name){
+		error_tag = "More than one name tag";
+	}
+	has_name = true;
+      } else {
          error_tag = attributes->Name();
       }
       attributes=attributes->Next();
    }
    if(attributesFound == AREA_ATTRIBUTES && has_desc && has_id) {
-      area = new Area(area_id, desc_id, area_status);
+      area = new Area(area_id, desc_id, area_status,name);
       for ( pChild = pArea->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) {
          if(pChild->Type() == TiXmlNode::TINYXML_ELEMENT) {
             if(!strcmp(pChild->Value(), "statedescriptor")) {

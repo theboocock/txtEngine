@@ -241,10 +241,19 @@ void process_input(std::string line, bool load) {
 }
 
 std::string php_output(){
-
+	std::stringstream print;
+	print << "+inventory\n";
+	for(int items = 0; items < world->get_area(INVENTORY)->get_num_items(); items++) {
+      		 print << "+" << world->get_area(INVENTORY)->get_item(items)->get_name() << std::endl;
+      		 print << world->get_area(INVENTORY)->get_item(items)->get_description() << std::endl;
+      }
+	print << "-inventory\n";
+	print << "+areaname " << world->get_active_area()->get_area_name() << std::endl;
+	print << world->get_active_area()->get_description() << std::endl;
+	print << "+commandlist\n";
+	print << "+output\n";
+	std::cout << print.str();
 	return "";
-
-
 }
 
 void gameloop() {
@@ -282,6 +291,7 @@ void gameloop() {
          std::cout << ">>";
          std::string line;
          std::getline(std::cin, line);
+	 php_output();
          line = input_filter(line);
          process_input(line, false);
       }
@@ -653,7 +663,6 @@ std::string input_filter(std::string str){
       }
       if(!contains) ret += word + " ";
    }
-   ret = ret.erase(ret.size()-1);
    return ret;
 }
 

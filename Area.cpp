@@ -167,7 +167,7 @@ Area::Area(const char *id, const char *desc_id, const char* status, const char* 
    num_commands = 0;
    this->curr_desc_id = desc_id;
    this->name = name;
-   if(!strcmp(name ,"NONE")){
+   if(!strcmp(name ,"none")){
 	this->name = id;
    }
 }

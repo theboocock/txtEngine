@@ -16,6 +16,7 @@
 
 #include <string>
 #include <vector>
+#include <cstring>
 #include "StateDescriptor.h"
 #include "ItemCommand.h"
 #include "combine.h"
@@ -37,7 +38,7 @@ class Item {
    std::vector<ItemCommand*> commands;
    std::vector<std::string> *synonyms;
    std::string depends;
-
+   std::string name;
  public:
    /**
       Removes an item from inside this item by id.
@@ -242,11 +243,12 @@ class Item {
      @param[in] locked Whether this item is locked.
    */
    Item(bool collect, const char *identifier, const char *initial_state,
-        std::vector<std::string> *synonyms, const char * depends, bool container, bool locked);
+        std::vector<std::string> *synonyms, const char * depends, bool container, bool locked, const char* name);
 
    /**
       The destructor for an Item.
    */
+   std::string get_name();
    ~Item();
 };
 
