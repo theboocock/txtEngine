@@ -16,6 +16,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <cstring>
 #include "Item.h"
 #include "StateDescriptor.h"
 #include "AreaCommand.h"
@@ -26,6 +27,7 @@ class Area {
    int num_descriptions, num_commands, num_items;
    std::string status;
    std::string id;
+   std::string name;
    std::string curr_desc_id;
    std::vector<StateDescriptor*> description;
    std::vector<AreaCommand*> commands;
@@ -191,12 +193,15 @@ class Area {
       @param[in] desc_id The id of the area description.
       @param[in] status The status of the area.
    */
-   Area(const char *id, const char *desc_id, const char* status);
+   Area(const char *id, const char *desc_id, const char* status, const char* name);
 
    /**
       Area Deconstructor.
    */
    ~Area();
+
+   std::string get_area_name();
+
 };
 
 #endif

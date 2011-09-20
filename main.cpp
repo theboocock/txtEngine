@@ -240,6 +240,13 @@ void process_input(std::string line, bool load) {
    }
 }
 
+std::string php_output(){
+
+	return "";
+
+
+}
+
 void gameloop() {
    std::string last_area = DEFAULT_VALUE;
    while(!game_over) {
