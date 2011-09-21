@@ -162,7 +162,7 @@ void Item::state_change(std::string to_change) {
    curr_desc_id = to_change;
 }
 
-Item::Item(bool collect, const char *identifier, const char *initial_state, std::vector<std::string> *synonyms, const char *depends, bool container, bool locked) {
+Item::Item(bool collect, const char *identifier, const char *initial_state, std::vector<std::string> *synonyms, const char *depends, bool container, bool locked, const char* name) {
    collectable = collect;
    id = identifier;
    num_descriptions = 0;
@@ -174,6 +174,15 @@ Item::Item(bool collect, const char *identifier, const char *initial_state, std:
    this->depends = depends;
    this->container = container;
    this->locked = locked;
+   this->name = name;
+   if(!strcmp(name,"none")){
+	this->name = id;	
+   }
+}
+
+
+std::string Item::get_name(){
+	return name;
 }
 
 Item::~Item() {

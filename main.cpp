@@ -240,6 +240,62 @@ void process_input(std::string line, bool load) {
    }
 }
 
+/* 
+ * Return all the possible commands availiable for the current stage the world
+ *
+ * @return string containing each availiable command on one line each
+ *
+ */
+
+std::string get_commands(){
+	std::string command_output;
+	for(int item = 0; item < world->get_area(INVENTORY)->get_num_items(); item++){
+		Item* temp_item = world->get_area(INVENTORY)->get_item(item);
+		assert(temp_item != NULL);
+		unsigned int whsh;
+		for(int i = 0; i < temp_item->get_num_commands(); i++){
+			ItemCommand * temp_item_command= temp_item->get_command(i);
+			assert(temp_item_command != NULL);
+			if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()) {
+				command_output += temp_item_command->get_name();
+				command_output +=" "; 
+				command_output += temp_item->get_id();
+				command_output += "\n";	
+			}
+		}
+	}
+	for(int items = 0; items < world->get_active_area->get_num_items(); items++){
+	       Item * temp_item = world->get_area()->	
+               if(world->get_area(INVENTORY)->has_item(world->get_active_area()->get_item(items)->get_depends()) ||
+                  !strcmp(world->get_active_area()->get_id().c_str(), world->get_active_area()->get_item(items)->get_depends().c_str()) ||
+                  !strcmp(world->get_active_area()->get_item(items)->get_depends().c_str(), NONE)){
+                  itemstream << world->get_active_area()->get_item(items)->get_description();
+
+	}
+	
+	return command_output;
+}
+
+
+
+
+std::string php_output(){
+	std::stringstream print;
+	print << "+inventory\n";
+	for(int items = 0; items < world->get_area(INVENTORY)->get_num_items(); items++) {
+      		 print << "+" << world->get_area(INVENTORY)->get_item(items)->get_name() << std::endl;
+      		 print << world->get_area(INVENTORY)->get_item(items)->get_description() << std::endl;
+	}
+	print << "-inventory\n";
+	print << "+areaname " << world->get_active_area()->get_area_name() << std::endl;
+	print << world->get_active_area()->get_description() << std::endl;
+	print << "+commandlist\n";
+	print << get_commands();
+	print << "+output\n";
+	std::cout << print.str();
+	return "";
+}
+
 void gameloop() {
    std::string last_area = DEFAULT_VALUE;
    while(!game_over) {
@@ -275,6 +331,7 @@ void gameloop() {
          std::cout << ">>";
          std::string line;
          std::getline(std::cin, line);
+	 php_output();
          line = input_filter(line);
          process_input(line, false);
       }
@@ -646,7 +703,6 @@ std::string input_filter(std::string str){
       }
       if(!contains) ret += word + " ";
    }
-   ret = ret.erase(ret.size()-1);
    return ret;
 }
 

@@ -13,6 +13,17 @@
 
 #include "Area.h"
 
+
+
+
+
+std::string Area::get_area_name(){
+	return name;
+}
+
+
+
+
 bool Area::has_description(std::string desc_id) {
    for(int desc = 0; desc < num_descriptions; desc++) {
       if(!description[desc]->get_id().compare(desc_id)) {
@@ -148,13 +159,17 @@ StateDescriptor *Area::get_descriptor(int index) {
    return description[index];
 }
 
-Area::Area(const char *id, const char *desc_id, const char* status) {
+Area::Area(const char *id, const char *desc_id, const char* status, const char* name) {
    this->status = status;
    this->id = id;
    num_descriptions = 0;
    num_items = 0;
    num_commands = 0;
    this->curr_desc_id = desc_id;
+   this->name = name;
+   if(!strcmp(name ,"none")){
+	this->name = id;
+   }
 }
 
 Area::~Area() {
