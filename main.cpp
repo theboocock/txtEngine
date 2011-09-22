@@ -405,38 +405,19 @@ void gameloop() {
    std::string last_area = DEFAULT_VALUE;
    while(!game_over) {
       std::ostringstream sin;
-      std::string combinelist; 
-      std::ostringstream commandstream;
-      std::ostringstream itemstream;
       if(last_area.compare(world->get_active_area()->get_id()) != 0) {
          last_area = world->get_active_area()->get_id();
          sin << world->get_active_area()->get_description();
          if(!strcmp(world->get_active_area()->get_status().c_str(), WIN) || !strcmp(world->get_active_area()->get_status().c_str(), DIE)) {
             game_over = true;
          }
-         else {
-            for(int items = 0; items < world->get_active_area()->get_num_items(); items++) {
-               if(world->get_area(INVENTORY)->has_item(world->get_active_area()->get_item(items)->get_depends()) ||
-                  !strcmp(world->get_active_area()->get_id().c_str(), world->get_active_area()->get_item(items)->get_depends().c_str()) ||
-                  !strcmp(world->get_active_area()->get_item(items)->get_depends().c_str(), NONE)){
-                  itemstream << world->get_active_area()->get_item(items)->get_description();
-                  if(world->get_active_area()->get_item(items)->has_container() &&
-                     !world->get_active_area()->get_item(items)->is_locked()){
-                     combinelist+= ((world->get_active_area()->get_item(items)->print_contained_items()));
-
-                     combinelist +="\n";
-                  }
-                  itemstream << "\n"; 
-               } 
-            }
-         }
-         std::cout << word_wrap(sin.str())<<word_wrap(itemstream.str())<< std::endl << combinelist;
+         std::cout << word_wrap(sin.str())<<std::endl;
       }
       if(!game_over) {
          std::cout << ">>";
          std::string line;
          std::getline(std::cin, line);
-	 php_output();
+	// php_output();
          line = input_filter(line);
          process_input(line, false);
       }
