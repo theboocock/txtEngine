@@ -29,7 +29,7 @@
 #define SEPERATOR ","
 #define INSIDE_INDEX -1
 
-
+void string_explode(std::string str, std::string seperator, std::vector<std::string> *&result);
 
 World *read_file(const char* pFilename, World *world) {
    TiXmlDocument doc(pFilename);
