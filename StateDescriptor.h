@@ -1,4 +1,3 @@
-// $Id$
 /**
  * @file StateDescriptor.h
  * Area.h defines the methods for StateDescriptor.cpp
@@ -11,91 +10,49 @@
  * @author Tatai Nikora
  * @version 0.3
  */
-// $Log$
 
 #ifndef _STATE_DESCRIPTOR_H
 #define _STATE_DESCRIPTOR_H
 #include <string>
 
 class StateDescriptor {
-    protected:
-        std::string id;
-        std::string description;
+ protected:
+   std::string id;
+   std::string description;
 
-    public:
-        /**
-          Write description of function here.
-          The function should follow these comments.
-          Use of "brief" tag is optional. (no point to it)
+ public:
+   /**
+      Constructor for a state descriptor.
+           
+      @param[in] The identifier of the descriptor.
+   */
+   StateDescriptor(const char *identifier);
+        
+   /**
+      Sets the description variable of the object.
 
-          The function arguments listed with "param" will be compared
-          to the declaration and verified.
+      @param[in] The description of the object.
+   */
+   void set_description(const char *desc);
 
-          @param[in]     _inArg1 Description of first function argument.
-          @param[out]    _outArg2 Description of second function argument.
-          @param[in,out] _inoutArg3 Description of third function argument.
-          @return Description of returned value.
-          */
-        StateDescriptor(const char *identifier);
-        /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
+   /**
+      StateDescriptor Destructor.
+   */
+   ~StateDescriptor();
 
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
+   /**
+      Gets the id of the object.
+     
+      @return The id of the object.
+   */
+   std::string get_id();
 
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
-         */
-        void set_description(const char *desc);
+   /**
+      Gets the description of the object.
 
-        /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
-
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
-         */
-        ~StateDescriptor();
-
-        /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
-
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
-         */
-        std::string get_id();
-
-        /**
-         Write description of function here.
-         The function should follow these comments.
-         Use of "brief" tag is optional. (no point to it)
-
-         The function arguments listed with "param" will be compared
-         to the declaration and verified.
-
-         @param[in]     _inArg1 Description of first function argument.
-         @param[out]    _outArg2 Description of second function argument.
-         @param[in,out] _inoutArg3 Description of third function argument.
-         @return Description of returned value.
-         */
-        std::string get_description();
-    };
+      @return The description of the object.
+   */
+   std::string get_description();
+};
 
 #endif
