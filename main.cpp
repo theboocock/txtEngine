@@ -397,8 +397,7 @@ std::string php_output(){
 	print << get_all_item_commands();
 	print << get_all_area_commands();
 	print << "+output\n";
-	std::cout << print.str();
-	return "";
+	return print.str();
 }
 
 void gameloop() {
