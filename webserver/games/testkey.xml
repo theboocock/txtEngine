@@ -1,0 +1,43 @@
+<?xml version ="1.0"?>
+<world initialarea="start" language=".txtFramework" author=".txtFramework Team">
+  <area id="start" initialdescription="start" >
+    <statedescriptor id="start">
+      In the first place. Use your own imagination, please :)
+
+      there is a door with a lock to the north
+    </statedescriptor>
+    <areacommand name="north" area="finish" locked="true">
+    </areacommand>
+    <item id="key" initialdescription="floor" collectable ="true" synonyms="bluekey,keys">
+      <statedescriptor id="floor">
+        The key lies on the floor.
+      </statedescriptor>
+      <statedescriptor id="onplayer">
+        You are holding the key.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
+        you go the key
+      </itemcommand>
+      <itemcommand name="use" statedescription="onplayer" changecollectable="false" collectabledependent="false" areachange="inventory" unlock="start/north">
+        you used the key to open the north door
+      </itemcommand>
+    </item>
+    <item id="key2" initialdescription="floor" collectable ="true" synonyms="bluekey,keys">
+      <statedescriptor id="floor">
+        The key2 lies on the floor.
+      </statedescriptor>
+      <statedescriptor id="onplayer">
+        You are holding the key.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="onplayer" changecollectable="true" collectabledependent="true" areachange="inventory">
+      </itemcommand>
+    </item>
+  </area>
+  <area id="finish" initialdescription="init">
+    <statedescriptor id="init">
+      You are in the finish area.
+    </statedescriptor>
+    <areacommand name="south" area="start">
+    </areacommand>
+  </area>
+</world>

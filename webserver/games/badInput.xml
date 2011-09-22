@@ -1,0 +1,10 @@
+<?xml version ="1.0"?>
+<world initialarea="bank_vault" language="english" author=".txtFramework Team">
+ <area id="bank_vault" initialdescription="bank_vault" status="NONE">
+   <statedescriptor id="bank_vault">
+     The alarm sound is piercing
+   </statedescriptor>
+   <areacommand name="north" area="room2" status="win">
+    </areacommand>
+ </area>
+</world>

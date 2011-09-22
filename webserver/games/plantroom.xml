@@ -1,0 +1,142 @@
+<?xml version ="1.0"?>
+<world initialarea="elevator" language=".txtFramework" author=".txtFramework Team">
+  <area id="elevator" initialdescription="init">
+    <statedescriptor id="init">
+      Your vision is blurry, slowly returning. You look around...
+      You are on the floor of a small metal walled box, there are buttons on one wall, an elevator!
+      There is no where you don't hurt, but no blood is visible. You stammer to your feet.
+    </statedescriptor>
+    <areacommand name="out" area="room1" synonyms="north,door,leave,east,south,west,outside">
+      You leave the elevator, only to hear a loud thud behind you. Dazed, you think nothing of it. 
+    </areacommand>
+    <item id="button" initialdescription="only" collectable="false" synonyms="knob,buttons,door">
+      <statedescriptor id="only">
+      </statedescriptor>
+      <itemcommand name="press" statedescription="only" changecollectable="false" collectabledependent="false" areachange="none" synonyms="use,touch,push">
+        You press the buttons only to hear sparks coming from behind the panels. The door looks like it could be opened by hand. (hint: try leave)
+      </itemcommand>
+    </item>
+    <item id="room" initialdescription="none" collectable="false" synonyms="elevator,door">
+      <statedescriptor id="none">
+      </statedescriptor>
+      <itemcommand name="leave" statedescription="none" changecollectable="false" collectabledependent="false" areachange="none" synonyms="move,through,open">
+        To leave the elevator type:
+        'go out'
+      </itemcommand>
+    </item>
+  </area>
+  <area id="room1" initialdescription="entry">
+    <statedescriptor id="entry">
+      Looking around you don't recognise anything, no one is around.
+      There are many things in this room, your head is spinning but you manage to put the pieces together.
+      You are in a growers room, many rare species of plant surround you. Its strange, the plants don't have any smell, in fact there is no smell at all around you. There seems to be a small stream of water ever so slowly, but surely, flowing around the plants in a never ending loop. A design unimaginable to you. 
+      The only exit you can see is a ladder leading to a trapdoor, in what you
+      can only guess is the north end of the room.
+    </statedescriptor>
+    <item id="plant" initialdescription="init" collectable="false" synonyms="flower,plants,flowers">
+      <statedescriptor id="init">
+        The plants are redish, yellow. No wait, they are green... You can't quite tell your eyes are still blurry, but colour doesn't matter right now. The species of plant life is unknown to you. There is no sign that a human has grown or even seen these plants before, better not touch them.
+      </statedescriptor>
+      <statedescriptor id="smell">
+        The plants are redish, yellow. No wait, they are green... You can't quite tell your eyes are still blurry, but colour doesn't matter right now. The species of plant life is unknown to you. There is no sign that a human has grown or even seen these plants before, better not touch them. The confusion of smell emmited by them still confuses you.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="touch,grab,move,use,eat">
+        The plant is just like any other plant on your fingers, but it seems to make you more dizzy. You leave it alone.
+      </itemcommand>
+       <itemcommand name="look" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="see,describe,examine,feel">
+        Hmm, your vision is still blurry, but the plant looks like it has rotated towards you...
+      </itemcommand>
+      <itemcommand name="smell" statedescription="smell" changecollectable="false" areachange="none" collectabledependent="false" synonyms="sniff,inhale" depends="marmite">
+        As you move your head really close the faintest smell of... time?? Theres no way a plant can smell like time, is there?
+        You must have hurt your head really bady.
+      </itemcommand>
+    </item>
+    <item id="key" initialdescription="none" collectable="true" depends="cookie">
+      <statedescriptor id="none">
+        The biscuit has been moved and reveals a key.
+      </statedescriptor>
+      <statedescriptor id="have">
+        Shiney gold key.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,obtain,collect" depends="marmite">
+        You have obtained the key, its shiney exterior gold coating penetrates your senses relieving your pain for a brief second. The pain returns but you seem less aware of it.
+      </itemcommand>
+      <itemcommand name="use" statedescription="none" changecollectable="false" collectabledependent="false" areachange="none" synonyms="unlock" depends="key" unlock="room1/up">
+        The key seems to pull from your hand into the lock, and twist itself. The trapdoor padlock plops open.
+      </itemcommand>
+    </item>
+    <item id="marmite" initialdescription="cansee" collectable="true">
+      <statedescriptor id="cansee">
+        You can see a small red lid behind one of the plants, if only you could remember what things had red lids...
+      </statedescriptor>
+      <statedescriptor id="have">
+        You are still holding the marmite, why?
+      </statedescriptor>
+      <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,collect">
+        You grab the marmite, and take a whiff. YUCK!
+        Hey You remembered something, you do not like marmite! And your smell is returning, maybe you should look around more.
+      </itemcommand>
+      <itemcommand name="drop" statedescription="cansee" changecollectable="true" collectabledependent="false" areachange="none" synonyms="throw,pudown">
+        You put the marmite down. You seem sadened by this, and your sense of smell depletes.
+      </itemcommand>
+    </item>
+    <areacommand name="up" area="room2" synonyms="north,ladder,climb,trapdoor" locked="true">
+      You cautiosly pull yourself out of the trapdoor.
+    </areacommand>
+    <areacommand name="back" area="room1" synonyms="elevator,door">
+      You force open the door from which you came, the elevator has gone. The shaft only seems to go up one level. You close the door and turn around.
+    </areacommand>
+    <item id="mirror" initialdescription="cansee" collectable="false">
+      <statedescriptor id="cansee">
+        There is a fully reflective surface, like a portrait. Oh its a mirror.
+      </statedescriptor>
+      <itemcommand name="look" statedescription="cansee" changecollectable="false" collectabledependent="false" areachange="none" synonyms="see,describe,examine">
+        You look at your reflection in the mirror. You are wearing brightly coloured parachute pants, atleast they seem brightly coloured, socks but no shoes, and a button up shirt. Hey theres seems to be something in your shirt pocket.
+      </itemcommand>
+    </item>
+    <item id="pocket" initialdescription="none" collectable="false" synonyms="shirt">
+      <statedescriptor id="none">
+      </statedescriptor>
+      <itemcommand name="check" statedescription="none" changecollectable="false" collectabledependent="false" areachange="none" synonyms="look,feel,get,remove,grab,retrieve">
+        You feel in your pocket and pull out a note. It reads: 
+        'Welcome future me, this is a little hint from the past you, the room you are in is not surreal, you are actually in this realm and if you die you die. The water is not magical but the plants might be. ps. You love vegimite! It has a yellow lid.' 
+      </itemcommand>
+    </item>
+    <item id="lid" initialdescription="none" collectable="false" synonyms="red">
+      <statedescriptor id="none">
+      </statedescriptor>
+      <itemcommand name="get" statedescription="none" changecollectable="false" collectabledependent="false" areachange="none">
+        The lid is attached to something, I have to find out what first, it is bugging me!
+      </itemcommand>
+      <itemcommand name="look" statedescription="none" changecollectable="fasle" collectabledependent="false" areachange="none" synonyms="examine">
+        The lid is still red. You cant see what it is attached too.
+      </itemcommand>
+    </item>
+    <item id="water" initialdescription="init" collectable="false" synonyms="stream,river">
+      <statedescriptor id="init">
+      </statedescriptor>
+      <itemcommand name="drink" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="take,sip,consume">
+        You try to drink from the stream of water, but your socks get a litlle wet and it distracts you.
+      </itemcommand>
+      <itemcommand name="look" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="watch,examine,see,stare">
+        Hours pass as you stare at the water flowing in an inifinte loop, how does it do that?
+      </itemcommand>
+    </item>
+    <item id="cookie" initialdescription="init" collectable="true" synonyms="biscuit,cake,chocolate" depends="marmite">
+      <statedescriptor id="init">
+        The smell of a warm, freshly cooked cookie catches you attention, you turn to see one sitting on a clean plate in the open cupboard behind where you entered from.
+      </statedescriptor>
+      <statedescriptor id="have">
+        You have one chocolate cookie.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="eat,grab,devour">
+        You take the cookie and start to devour it, but as you lift it towards your mouth, there where the cookie used to lie is a key.
+      </itemcommand>
+    </item>
+  </area>
+  <area id="room2" initialdescription="init" status="win">
+    <statedescriptor id="init">
+      You come up through the trapdoor into a wooden shed. There is a slowly dripping tap to your left, that drips into a small pipe feeding into the floor. Another door is to your right. It is tow metal doors meeting in the middle with an litlle light above them. The shed has a few bits and pieces, most notable there are many bags of potting mix, most empty, and garnng tools. This explains the room below. But why did the plants have unusual smells, and why were they unrecognisable? As you ponder this thought you see the sheds door is wide open to the world outside. You stammer out hoping to find more answers... 
+    </statedescriptor>
+  </area>
+</world>

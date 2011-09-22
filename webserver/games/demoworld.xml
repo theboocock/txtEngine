@@ -1,0 +1,184 @@
+<?xml version ="1.0"?>
+<world initialarea="bank_vault" language=".txtFramework" author=".txtFramework Team">
+  
+  <area id="bank_vault" initialdescription="bank_vault" status="NONE">
+    <statedescriptor id="bank_vault">
+      The alarm sound is piercing but unphased you continue to empty
+      the valuables from inside the bank's vault into a bag in
+      front of you... As sweat collects underneath the balaclava your
+      mum knitted you the realisation sinks in that you are a loser
+      and you live with your mum. Robbing the bank may impress a lot
+      of people... but for fucks sake, find your way out now or you'll
+      be living in prison! Don't forget to get your gun and bag...
+      Exit to the north.
+    </statedescriptor>
+    <areacommand name="north" area="room2" status="NONE" depends="bag">
+      You exit the banks vault into their not so secure store room.
+    </areacommand>
+    
+    <item id="gun" initialdescription="donthavegun" collectable="true">
+      <statedescriptor id="havegun">
+        Its ok, no one else knows its just a BB gun.
+      </statedescriptor>
+      <statedescriptor id="donthavegun">
+        Your trusty old sidearm is on the bench beside you just waiting to be wielded.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="havegun" changecollectable="true" collectabledependent="true" areachange="inventory">
+        Sweet, theres heaps of BBs left and the hop up will own that
+        security guard.
+        &lt;a href="http://answers.yahoo.com/question/index?qid=20110105180224AAQBgB1"&gt;Link&lt;/a&gt;
+      </itemcommand>
+      <itemcommand name="shoot" statedescription="havegun" changecollectable="false" collectabledependent="false" areachange="inventory">
+        You shoot the gun.
+      </itemcommand>
+      <itemcommand name="drop" statedescription="donthavegun" changecollectable="true" collectabledependent="false" areachange="cur_area">
+        You toss the gun aside like yesterdays jam. Bad move.
+      </itemcommand>
+    </item>
+    
+    <item id="bag" initialdescription="bag_hemp" collectable="true">
+      <statedescriptor id="bag_hemp">
+        A reasonably priced hemp bag you bought from army surplus for
+        your incence collection. Although second hand it has very little
+        signs of wear. All in all a fair purchase.
+      </statedescriptor>
+      <statedescriptor id="donthavebag">
+        A hemp bag
+      </statedescriptor>
+      <statedescriptor id="havebag">
+        A hemp bag
+      </statedescriptor>
+      <itemcommand name="get" statedescription="havebag" changecollectable="true" collectabledependent="true" areachange="inventory">
+        The bag is really heavy. You did good buddy.
+      </itemcommand>
+      <itemcommand name="drop" statedescription="donthavebag" changecollectable="true" collectabledependent="false" areachange="cur_area">
+        Money isn't everything, theres plenty more banks in the city and
+        with a keen pal like Robert you're bound to get the Street Cred
+        that you crave.
+      </itemcommand>
+    </item>
+  </area>
+  
+  <area id="room2" initialdescription="store_room" status="NONE">
+    <statedescriptor id="store_room">
+      This room used to be secure but on your way in (from the north)
+      you used RAGE and axed down the door. Thats funny, the axe isn't
+      here anymore. You become suspicious...  There is a exit to the
+      west
+    </statedescriptor>
+    <areacommand  name="west" area="room3" status="NONE">
+      Preceding with caution you make your way to the front of the bank.
+    </areacommand>
+    <areacommand name="south" area="bank_vault" status="NONE">
+      You go back into the vault.
+    </areacommand>
+  </area>
+  
+  <area id="room3" initialdescription="main_room" status="NONE">
+    <statedescriptor id="main_room">
+      People are huddled face down. There are fewer customers than you
+      had planned for but then again it is a Westpac bank. Your
+      partner in crime is watching over keeping control of the
+      situation. "Lets go Terrance!", he yells from his wheelchair,
+      pistol waving madly. Robert certainly is one crazy SOB.  There
+      is a exit to the north
+    </statedescriptor>
+    <areacommand  name="east" area="room2" status="NONE">
+      You go back to the store room.
+    </areacommand>
+    <areacommand name="north" area="room4" status="NONE">
+      You open the door for Robert and follow him out to the getaway van.
+    </areacommand>
+
+    <item id="pen" initialdescription="pen" collectable="true">
+      <statedescriptor id="pen">
+        Its a pen on a string. You know, the ones so that you can't
+        take because there's a physical link from the pen to a fixed
+        surface so bankers don't steal it. What a great invention.
+      </statedescriptor>
+      <statedescriptor id="havepen">
+        a pen
+      </statedescriptor>
+      <statedescriptor id="donthavepen">
+        a pen just lying on the ground and stuff
+      </statedescriptor>
+      <itemcommand name="get" statedescription="havepen" changecollectable="true" collectabledependent="true" areachange="inventory">
+        "Snap!" The chain broke and the pen is yours. +25 Street Cred Points
+      </itemcommand>
+      <itemcommand name="drop" statedescription="donthavepen" changecollectable="false" collectabledependent="false" areachange="cur_area">
+        Old butterfingers McGee here... One chance to get one of these
+        puppies and you screwed it up. -40 Street Cred Points.
+      </itemcommand>
+    </item>
+  </area>
+  
+  <area id="room4" initialdescription="outside" status="NONE">
+    <statedescriptor id="outside">
+      Fresh air slaps you in the face and you inhale the sweet smell
+      of freedom and money, oh and the stacks of Street Cred you're
+      gaining. It smells good! You can go east
+    </statedescriptor>
+    <areacommand name="south" area="room3" status="NONE">
+      You go back to the lobby.
+    </areacommand>
+
+    <areacommand name="east" area="room5" status="NONE">
+      The van is ready and waiting with wheelchair ramp down. Seconds
+      seem like hours as the ramp pulls Robert up inside the van. The
+      jobs not done yet, you lock the wheels on Roberts wheelchair and
+      make sure he is secure. Safety is paramount.
+    </areacommand>
+    <item id="guard" initialdescription="alive" collectable="false">
+      <statedescriptor id="alive">
+        Slight problem though - the security guard is coming at you
+        with *SURPRISE* an axe. Wow a weapon would come in handy about
+        now. Or try your feet.
+      </statedescriptor>
+      <statedescriptor id="shot">
+        The security guard is rolling around the ground crying,
+        holding his eye. You feel bad, but you're a hardening street
+        criminal, you'll get over it.
+      </statedescriptor>
+      <itemcommand name="shoot" statedescription="shot" changecollectable="true" collectabledependent="false" areachange="cur_area">
+        Congratulations! You hit his left eye and he crumples to the
+        ground. Surely an eye patch and a life of unsteady employment
+        is in order for this guy. Bravo! +40 Street Cred.
+      </itemcommand>
+      <itemcommand name="kick" statedescription="alive" changecollectable="false" collectabledependent="false" areachange="cur_area" status="die">
+        You run at the guard to kick him, he swings your own axe at
+        you. The axe and your foot meet and your foot comes out worse
+        off. You are crying in a ball on the ground and the guard has
+        no mercy. He lifts the axe above his head and brings it down
+        on your ass. You die.
+      </itemcommand>
+    </item>
+    <item id="holygrail" initialdescription="full" collectable="true">
+      <statedescriptor id="full">
+        There is a full holy grail.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="full" changecollectable="true" collectabledependent="true" areachange="inventory" status="win">
+        You pick up the holy grail.
+      </itemcommand>
+    </item>
+  </area>
+
+  <area id="room5" initialdescription="van" status="win">
+    <statedescriptor id="van">
+      With Robert safely inside the van you step on it. Tyres screech
+      and the bitumen and rubber flies. You're so hardcore. YOU WIN!
+      You have gained +1000 Street Cred. Because you win Robert
+      massages your shoulders from the back of the van. What a guy!
+      GAME_OVER!!!!!!!!!!!!!
+    </statedescriptor>
+  </area>
+
+  <area id="room6" initialdescription="secret_area" status="die">
+    <statedescriptor id="secret_area">
+      You may be curious or you may be stupid. In this case you were
+      stupid. Behind the mirrored glass door be dragons. YOU
+      DIED. +100 Street Creds for bravery -100 Street Creds for
+      stupidity.  GAME_OVER!!!!!!!!!!!!
+    </statedescriptor>
+  </area>
+  
+</world>

@@ -1,0 +1,32 @@
+txtEngine External API
+
+The textEngine API is a unique addition to the txtEngine family. The API is especially designed to externalize the GUI/CLI mechanisms so that custom implementations can be created. An example program is provided showing how one can fully utilize the API.
+
+To call the API provide the following parameters to the executable:
+.txtEngine -exec [game-file] [save-file] [command]
+
+The executable will provide output to stdout in the following format:
+The output is in provided in JSON format.
+
+{
+    "response": "string",
+    "inventory": ["string", "string", …],
+    "areaname": "string",
+    "areadescription": "string"
+}
+
+To use the example application, place a compiled copy of the app in the root directory of the web folder. The "webserver" directory requires complete placement into a server environment, for this requirement an apache server with php5 support will suffice.
+
+NOTE: The server only works where support for:
+- shellexec command under PHP is available
+- save folder is read/writeable
+- games folder is readable
+
+=========
+
+A precompiled binary for OSX is provided in the root directory of the web server for convenience purposes.
+
+Instructions for OSX:
+- Copy webserver folder to ~/Sites
+- Enable "Web Sharing" under System Preferences->Sharing
+- Open web browser to "http://localhost/webserver"
