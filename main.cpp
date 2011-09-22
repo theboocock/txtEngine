@@ -236,43 +236,147 @@ void process_input(std::string line, bool load) {
       std::cout << TOOMANYWORDS << std::endl;
    }
    if(!load){
-      std::cout << "\n" << word_wrap(commandstream.str());
+      std::cout << "\n" << commandstream.str() << std::endl;
    }
 }
 
-/* 
- * Return all the possible commands availiable for the current stage the world
- *
- * @return string containing each availiable command on one line each
- *
- */
 
-std::string get_commands(){
-	std::string command_output;
-	for(int item = 0; item < world->get_area(INVENTORY)->get_num_items(); item++){
-		Item* temp_item = world->get_area(INVENTORY)->get_item(item);
-		assert(temp_item != NULL);
-		unsigned int whsh;
+
+
+/* 
+ * Return all possible area commands availiable for the current state of the world
+ *
+ * @return string containing all availiable area commando on one line each
+ *
+ * */
+
+std::string get_all_area_commands(){
+	std::string commands;
+	for(int ac = 0; ac < world->get_active_area()->get_num_commands(); ac++){
+	AreaCommand *temp_area_command = world->get_active_area()->get_command(ac);
+	assert(temp_area_command != NULL);
+		if(world->get_area(INVENTORY)->has_item(temp_area_command->get_depends()) ||
+				!strcmp(temp_area_command->get_depends().c_str(), NONE)) {
+			if(!temp_area_command->is_locked()) {
+				commands += temp_area_command->get_name();
+				commands += "\n";
+			}
+		}
+
+	}
+	return commands;
+
+}
+
+std::string valid_item_command_inv(Item * temp_item, int item){
+		std::string command_output = "";
 		for(int i = 0; i < temp_item->get_num_commands(); i++){
 			ItemCommand * temp_item_command= temp_item->get_command(i);
 			assert(temp_item_command != NULL);
 			if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()) {
 				command_output += temp_item_command->get_name();
 				command_output +=" "; 
-				command_output += temp_item->get_id();
+				command_output += temp_item->get_name();
 				command_output += "\n";	
 			}
 		}
-	}
-	for(int items = 0; items < world->get_active_area->get_num_items(); items++){
-	       Item * temp_item = world->get_area()->	
-               if(world->get_area(INVENTORY)->has_item(world->get_active_area()->get_item(items)->get_depends()) ||
-                  !strcmp(world->get_active_area()->get_id().c_str(), world->get_active_area()->get_item(items)->get_depends().c_str()) ||
-                  !strcmp(world->get_active_area()->get_item(items)->get_depends().c_str(), NONE)){
-                  itemstream << world->get_active_area()->get_item(items)->get_description();
+	return command_output;
 
+
+}
+
+std::string valid_item_command_area(Item* temp_item, int items){
+	std::string command_output = "";
+	unsigned int pv;
+	if(world->get_area(INVENTORY)->has_item(world->get_active_area()->get_item(temp_item->get_id(),pv)->get_depends()) ||
+			!strcmp(world->get_active_area()->get_id().c_str(), world->get_active_area()->get_item(temp_item->get_id(),pv)->get_depends().c_str()) ||
+			!strcmp(world->get_active_area()->get_item(temp_item->get_id(),pv)->get_depends().c_str(), NONE)){
+		
+		for(int i = 0; i < temp_item->get_num_commands(); i++){
+			ItemCommand * temp_item_command = temp_item->get_command(i);
+			assert(temp_item_command != NULL);
+			if(world->get_area(INVENTORY)->has_item(temp_item_command->get_depends()) ||
+					!strcmp(world->get_active_area()->get_id().c_str(), temp_item_command->get_depends().c_str()) ||
+					!strcmp(temp_item_command->get_depends().c_str(), NONE)) {
+				if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()) {
+					if(temp_item_command->unlocks()) {
+						if(temp_item_command->get_unlock_string().find_first_of('/') == std::string::npos){
+							std::string temp_item_id = temp_item_command->unlock_area_string(); 
+							if(world->get_active_area()->has_item(temp_item_id) || 
+									world->get_area(INVENTORY)->has_item(temp_item_id)){
+								command_output += temp_item_command->get_name();
+								command_output += " ";
+								command_output += temp_item->get_name();
+								command_output += "\n";	 
+							}
+						}else if(!temp_item_command->unlock_area_string().compare(world->get_active_area()->get_id()))
+						{
+							command_output += temp_item_command->get_name();
+							command_output += " ";
+							command_output += temp_item->get_name();
+							command_output += "\n";	 
+						}
+					} else {
+						command_output += temp_item_command->get_name();
+						command_output += " ";
+						command_output += temp_item->get_name();
+						command_output += "\n";	 
+					}
+				}
+			}
+		}
 	}
-	
+	return command_output;
+}
+
+/* :
+ * Return all the possible commands availiable for the current stage the world
+ *
+ * @return string containing each availiable command on one line each
+ *
+ */
+
+std::string get_all_item_commands(){
+	std::stringstream itemstream;
+	std::string command_output = "";
+	for(int item = 0; item < world->get_area(INVENTORY)->get_num_items(); item++){
+		Item* temp_item = world->get_area(INVENTORY)->get_item(item);
+		assert(temp_item != NULL);
+		command_output += valid_item_command_inv(temp_item, item);
+	       if(!temp_item->is_locked() && temp_item->has_container()){
+		      	command_output += "put item ";
+			command_output += temp_item->get_name();
+			command_output += "\n";
+		       for(int item_in_item = 0; item_in_item < temp_item->get_num_items(); item_in_item++){
+				Item * within = temp_item->get_item(item_in_item);
+				command_output += valid_item_command_area(within,item_in_item);
+		       }
+	       } 
+	       combine * temp_combine = temp_item->get_combine();
+	       if(temp_combine != NULL){
+		       std::cout << temp_combine->get_first_id()<< "   " << temp_combine->get_second_id() << std::endl;
+		       command_output += "combine ";
+		       command_output +=  temp_combine->get_first_id();
+		       command_output += " ";
+			command_output +=  temp_combine->get_second_id();
+			command_output += "\n";
+
+	       
+	       }
+	}
+	for(int items = 0; items < world->get_active_area()->get_num_items(); items++){
+	        Item * temp_item = world->get_active_area()->get_item(items);
+		command_output += valid_item_command_area(temp_item, items);
+	       if(!temp_item->is_locked() && temp_item->has_container()){
+		      	command_output += "put item ";
+			command_output += temp_item->get_name();
+			command_output += "\n";
+		       for(int item_in_item = 0; item_in_item < temp_item->get_num_items(); item_in_item++){
+				Item * within = temp_item->get_item(item_in_item);
+				command_output += valid_item_command_area(within,item_in_item);
+		       }
+	       }
+	}
 	return command_output;
 }
 
@@ -290,7 +394,8 @@ std::string php_output(){
 	print << "+areaname " << world->get_active_area()->get_area_name() << std::endl;
 	print << world->get_active_area()->get_description() << std::endl;
 	print << "+commandlist\n";
-	print << get_commands();
+	print << get_all_item_commands();
+	print << get_all_area_commands();
 	print << "+output\n";
 	std::cout << print.str();
 	return "";
@@ -434,7 +539,7 @@ std::string two_word_command(std::string command1, std::string command2) {
                   } else if(world->get_area(INVENTORY)->has_item(temp_item_id)){
                      world->get_area(INVENTORY)->get_item(temp_item_id, unknown)->flip_locked();
                   } else {
-                     std:: cout << "congrats you found a bug";
+                     std:: cout << "You cant do that\n";
                   }
                } else {
                   if(!temp_item_command->unlock_area_string().compare(world->get_active_area()->get_id())) {
@@ -495,7 +600,7 @@ std::string three_word_command(std::string command){
                world->get_area(INVENTORY)->remove_item(have_item_2->get_id());
                world->get_area(INVENTORY)->remove_item(have_item_1->get_id());
                world->get_area(INVENTORY)->add_item(temp_combine->get_combination());
-               return "combine worked";
+               return temp_combine->get_description() + "\n";
             }
          } 
          else if(have_item_2->has_combine()){
@@ -507,7 +612,7 @@ std::string three_word_command(std::string command){
                world->get_area(INVENTORY)->remove_item(have_item_1->get_id());
                world->get_area(INVENTORY)->remove_item(have_item_2->get_id());
                world->get_area(INVENTORY)->add_item(temp_combine->get_combination());
-               return "combine works";
+               return temp_combine->get_description() + "\n";
             }
             else {
                return	"no combine information found for these two items\n";

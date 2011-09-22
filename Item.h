@@ -248,6 +248,8 @@ class Item {
    /**
       The destructor for an Item.
    */
+   int get_num_items();
+   Item * get_item(int index);
    std::string get_name();
    ~Item();
 };

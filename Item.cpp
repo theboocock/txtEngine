@@ -87,7 +87,7 @@ bool Item::has_synonym(std::string item) {
          return true;
       }
    }
-   return false;
+return false;
 }
 
 std::string Item::get_description() {
@@ -221,3 +221,13 @@ combine * Item::get_combine(){
 void Item::set_combine(combine * c){
    combine_var = c;
 }
+
+int Item::get_num_items(){
+	return (int) contains.size();
+}
+
+Item* Item::get_item(int index){
+	return contains[index];
+}
+
+

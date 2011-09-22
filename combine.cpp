@@ -20,7 +20,7 @@
 combine::combine(std::string id,std::string first, std::string second_id){
 	this->description = NULL;
 	this->id = id;	
-	this->first_id = first_id;
+	this->first_id = first;
 	this->second_id = second_id;
 }
 
