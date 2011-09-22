@@ -160,7 +160,7 @@ std::string get_all_area_commands();
 std::string valid_item_command_inv(Item * temp_item, int item);
 std::string valid_item_command_area(Item* temp_item, int items);
 std::string get_all_item_commands();
-std::string php_output();
+void external_output(std::string command);
 
 //------------------------------------------------------------------------------
 /* Method Definitions */
@@ -244,9 +244,6 @@ void process_input(std::string line, bool load) {
         std::cout << "\n" << commandstream.str() << std::endl;
     }
 }
-
-
-
 
 /* 
  * Return all possible area commands availiable for the current state of the world
@@ -385,24 +382,25 @@ std::string get_all_item_commands(){
 	return command_output;
 }
 
-
-
-
-std::string php_output(){
+void external_output(std::string command){
 	std::stringstream print;
-	print << "+inventory\n";
+    
+    std::cout << "{";
+    std::cout << "\"response\": \"";
+    process_input(command, false);
+    std::cout << "\",";
+	std::cout << "\"inventory\": [";
 	for(int items = 0; items < world->get_area(INVENTORY)->get_num_items(); items++) {
-        print << "+" << world->get_area(INVENTORY)->get_item(items)->get_name() << std::endl;
-        print << world->get_area(INVENTORY)->get_item(items)->get_description() << std::endl;
+        std::cout << "{\"name\":\"" << world->get_area(INVENTORY)->get_item(items)->get_name() << "\",";
+        std::cout << "\"description\":\"" << world->get_area(INVENTORY)->get_item(items)->get_description() << "\"},";
 	}
-	print << "-inventory\n";
-	print << "+areaname " << world->get_active_area()->get_area_name() << std::endl;
-	print << world->get_active_area()->get_description() << std::endl;
-	print << "+commandlist\n";
-	print << get_all_item_commands();
-	print << get_all_area_commands();
-	print << "+output\n";
-	return print.str();
+	std::cout << "],";
+	std::cout << "\"areaname\": \"" << world->get_active_area()->get_area_name() << "\",";
+	std::cout << "\"areadescription\": \"" << world->get_active_area()->get_description() << "\"";
+	//print << "\"commandlist\": [";
+	//print << get_all_item_commands();
+	//print << get_all_area_commands();
+	std::cout << "}";
 }
 
 void gameloop() {
@@ -421,7 +419,6 @@ void gameloop() {
             std::cout << ">>";
             std::string line;
             std::getline(std::cin, line);
-            // php_output();
             line = input_filter(line);
             process_input(line, false);
         }
@@ -824,26 +821,14 @@ void read_filter_list(const char* file){
 int main(int argc, char** argv) {
     std::string userinput;
     if(argc == 1) {
-        std::cout << "Usage:\n./txtgame input/Filename" << std::endl;
+        std::cout << "Usage:\n txtgame input-file [save-file]" << std::endl;
     } else if (strstr(argv[1], "-exec") && argc == 5) {
         world = read_file(argv[2], world);
         
         if(world != NULL) {
             load(argv[3]);
-            std::string command = argv[4];
-            process_input(command, false); // is meant to be false, leave alone!
-            Area* check = world->get_active_area();
-            
-            if (check != world->get_active_area())
-                std::cout << world->get_active_area()->get_description();
-            
+            external_output(argv[4]);
             save(argv[3]);
-        }
-    } else if (strstr(argv[1], "-stat") && argc == 4) {
-        world = read_file(argv[2], world);
-        if(world != NULL) {
-            load(argv[3]);
-            std::cout << world->get_active_area()->get_description();
         }
     } else if(argc > 1) {
         do {
