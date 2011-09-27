@@ -397,9 +397,9 @@ void external_output(std::string command){
 	std::cout << "],";
 	std::cout << "\"areaname\": \"" << world->get_active_area()->get_area_name() << "\",";
 	std::cout << "\"areadescription\": \"" << world->get_active_area()->get_description() << "\"";
-	//print << "\"commandlist\": [";
-	//print << get_all_item_commands();
-	//print << get_all_area_commands();
+        std::cout << "\"commandlist\": [";
+        std::cout << get_all_item_commands();
+        std::cout << get_all_area_commands();
 	std::cout << "}";
 }
 
