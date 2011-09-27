@@ -259,10 +259,11 @@ std::string get_all_area_commands(){
         assert(temp_area_command != NULL);
 		if(world->get_area(INVENTORY)->has_item(temp_area_command->get_depends()) ||
            !strcmp(temp_area_command->get_depends().c_str(), NONE)) {
-			if(!temp_area_command->is_locked()) {
-				commands += temp_area_command->get_name();
-				commands += "\n";
-			}
+                   if(!temp_area_command->is_locked()) {
+                      commands += "{\"";
+                      commands += temp_area_command->get_name();
+                      commands += "\"}";
+                   }
 		}
         
 	}
@@ -276,10 +277,11 @@ std::string valid_item_command_inv(Item * temp_item, int item){
         ItemCommand * temp_item_command= temp_item->get_command(i);
         assert(temp_item_command != NULL);
         if(temp_item_command->get_collect_dependent() == temp_item->is_collectable()) {
+           command_output += "{\"";
             command_output += temp_item_command->get_name();
             command_output +=" "; 
             command_output += temp_item->get_name();
-            command_output += "\n";	
+            command_output += "\"}";	
         }
     }
 	return command_output;
@@ -306,23 +308,30 @@ std::string valid_item_command_area(Item* temp_item, int items){
 							std::string temp_item_id = temp_item_command->unlock_area_string(); 
 							if(world->get_active_area()->has_item(temp_item_id) || 
                                world->get_area(INVENTORY)->has_item(temp_item_id)){
-								command_output += temp_item_command->get_name();
-								command_output += " ";
-								command_output += temp_item->get_name();
-								command_output += "\n";	 
+                                                           command_output += "{\"";
+                                                           command_output += temp_item_command->get_name();
+                                                           command_output += temp_item_command->get_name();
+								
+                                                           command_output += temp_item->get_name();
+                                                           command_output += "\"}";
+                                                           command_output+=",";	 	 
 							}
 						}else if(!temp_item_command->unlock_area_string().compare(world->get_active_area()->get_id()))
-						{
-							command_output += temp_item_command->get_name();
-							command_output += " ";
-							command_output += temp_item->get_name();
-							command_output += "\n";	 
-						}
+                                                   {
+                                                      command_output += "{\"";
+                                                      command_output += temp_item_command->get_name();
+                                                      command_output += " ";
+                                                      command_output += temp_item->get_name();
+                                                      command_output += "\"}";
+                                                      command_output+=",";	 	 
+                                                   }
 					} else {
-						command_output += temp_item_command->get_name();
-						command_output += " ";
-						command_output += temp_item->get_name();
-						command_output += "\n";	 
+                                           command_output += "{\"";
+                                           command_output += temp_item_command->get_name();
+                                           command_output += " ";
+                                           command_output += temp_item->get_name();
+                                           command_output += "\"}";
+                                           command_output+=",";	 
 					}
 				}
 			}
@@ -346,9 +355,9 @@ std::string get_all_item_commands(){
 		assert(temp_item != NULL);
 		command_output += valid_item_command_inv(temp_item, item);
         if(!temp_item->is_locked() && temp_item->has_container()){
-            command_output += "put item ";
+            command_output += "{ \"put item ";
 			command_output += temp_item->get_name();
-			command_output += "\n";
+			command_output += "\"},";
             for(int item_in_item = 0; item_in_item < temp_item->get_num_items(); item_in_item++){
 				Item * within = temp_item->get_item(item_in_item);
 				command_output += valid_item_command_area(within,item_in_item);
@@ -357,11 +366,11 @@ std::string get_all_item_commands(){
         combine * temp_combine = temp_item->get_combine();
         if(temp_combine != NULL){
             std::cout << temp_combine->get_first_id()<< "   " << temp_combine->get_second_id() << std::endl;
-            command_output += "combine ";
+            command_output += "{ \"combine ";
             command_output +=  temp_combine->get_first_id();
             command_output += " ";
 			command_output +=  temp_combine->get_second_id();
-			command_output += "\n";
+			command_output += "\"},";
             
             
         }
@@ -370,9 +379,9 @@ std::string get_all_item_commands(){
         Item * temp_item = world->get_active_area()->get_item(items);
 		command_output += valid_item_command_area(temp_item, items);
         if(!temp_item->is_locked() && temp_item->has_container()){
-            command_output += "put item ";
+            command_output += "{ \"put item ";
 			command_output += temp_item->get_name();
-			command_output += "\n";
+			command_output += "\"},";
             for(int item_in_item = 0; item_in_item < temp_item->get_num_items(); item_in_item++){
 				Item * within = temp_item->get_item(item_in_item);
 				command_output += valid_item_command_area(within,item_in_item);
@@ -398,8 +407,10 @@ void external_output(std::string command){
 	std::cout << "\"areaname\": \"" << world->get_active_area()->get_area_name() << "\",";
 	std::cout << "\"areadescription\": \"" << world->get_active_area()->get_description() << "\"";
         std::cout << "\"commandlist\": [";
+        std::cout << "{\"look\"},";
         std::cout << get_all_item_commands();
         std::cout << get_all_area_commands();
+        std::cout << "]";
 	std::cout << "}";
 }
 
@@ -420,6 +431,7 @@ void gameloop() {
             std::string line;
             std::getline(std::cin, line);
             line = input_filter(line);
+            //external_output("");
             process_input(line, false);
         }
     }
