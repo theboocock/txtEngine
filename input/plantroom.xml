@@ -40,10 +40,16 @@
       <statedescriptor id="smell">
         The plants are redish, yellow. No wait, they are green... You can't quite tell your eyes are still blurry, but colour doesn't matter right now. The species of plant life is unknown to you. There is no sign that a human has grown or even seen these plants before, better not touch them. The confusion of smell emmited by them still confuses you.
       </statedescriptor>
-      <itemcommand name="get" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="touch,grab,move,use,eat">
-        The plant is just like any other plant on your fingers, but it seems to make you more dizzy. You leave it alone.
+      <itemcommand name="touch" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="feel">
+        The plant feels just like any other plant to your fingers, but it seems to make you more dizzy. You leave it alone.
       </itemcommand>
-       <itemcommand name="look" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="see,describe,examine,feel">
+      <itemcommand name="get" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="grab,acquire,steal">
+        You put the plant into your bag. Its hideous but could make a thoughtful present for someone.
+      </itemcommand>
+      <itemcommand name="eat" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none">
+        You pull a leaf from the plant and begin to chew. A foam forms in your mouth - it tastes digusting! Now you're seeing funny colours...
+      </itemcommand>
+      <itemcommand name="look" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="see,describe,examine">
         Hmm, your vision is still blurry, but the plant looks like it has rotated towards you...
       </itemcommand>
       <itemcommand name="smell" statedescription="smell" changecollectable="false" areachange="none" collectabledependent="false" synonyms="sniff,inhale" depends="marmite">

@@ -1,7 +1,11 @@
 /**
  * @file Combine.h
- * Combine.h defines the methods for the Combine.cpp source file.
- * 
+ *
+ * Provides combine functionality in the game.
+ * An object consists of its id, the id of the first
+ * item that can be combined, and the id of the second object
+ * that can be combined.
+ *
  * @brief Defines the Combine class.
  *
  * @author Michael Abrams
@@ -14,6 +18,10 @@
 #ifndef COMBINE_H_
 #define COMBINE_H_
 
+
+//------------------------------------------------------------------------------
+/* Include */
+//------------------------------------------------------------------------------
 #include <iostream>
 #include <string>
 #include "StateDescriptor.h"
@@ -48,98 +56,51 @@ class combine{
    ~combine();
 
    /**
-      Get 
+      Get the item that is a combination.
 
-      @param[in]     _inArg1 Description of first function argument.
-      @param[out]    _outArg2 Description of second function argument.
-      @param[in,out] _inoutArg3 Description of third function argument.
-      @return Description of returned value.
+      @return A pointer to the combined item.
    */
    Item* get_combination();
 
    /**
-      Write description of function here.
-      The function should follow these comments.
-      Use of "brief" tag is optional. (no point to it)
+      Get the id of the combined item.
 
-      The function arguments listed with "param" will be compared
-      to the declaration and verified.
-
-      @param[in]     _inArg1 Description of first function argument.
-      @param[out]    _outArg2 Description of second function argument.
-      @param[in,out] _inoutArg3 Description of third function argument.
-      @return Description of returned value.
+      @return The id of the combined item.
    */
    std::string get_id();
+
    /**
-      Write description of function here.
-      The function should follow these comments.
-      Use of "brief" tag is optional. (no point to it)
+      Get the id of the first item that made this combined item.
 
-      The function arguments listed with "param" will be compared
-      to the declaration and verified.
-
-      @param[in]     _inArg1 Description of first function argument.
-      @param[out]    _outArg2 Description of second function argument.
-      @param[in,out] _inoutArg3 Description of third function argument.
-      @return Description of returned value.
+      @return The id of the first item.
    */
    std::string get_first_id();
+
    /**
-      Write description of function here.
-      The function should follow these comments.
-      Use of "brief" tag is optional. (no point to it)
+      Get the id of the second item that made this combined item.
 
-      The function arguments listed with "param" will be compared
-      to the declaration and verified.
-
-      @param[in]     _inArg1 Description of first function argument.
-      @param[out]    _outArg2 Description of second function argument.
-      @param[in,out] _inoutArg3 Description of third function argument.
-      @return Description of returned value.
+      @return The id of the second item.
    */
    std::string get_second_id();
+
    /**
-      Write description of function here.
-      The function should follow these comments.
-      Use of "brief" tag is optional. (no point to it)
+      Sets the combination class member to a new item.
 
-      The function arguments listed with "param" will be compared
-      to the declaration and verified.
-
-      @param[in]     _inArg1 Description of first function argument.
-      @param[out]    _outArg2 Description of second function argument.
-      @param[in,out] _inoutArg3 Description of third function argument.
-      @return Description of returned value.
+      @param[in] item A pointer to an item that is a combination of two items from inventory.
    */
    void set_combination(Item * item);
-   /**
-      Write description of function here.
-      The function should follow these comments.
-      Use of "brief" tag is optional. (no point to it)
+ 
+  /**
+     Sets the description of the combined item.
 
-      The function arguments listed with "param" will be compared
-      to the declaration and verified.
-
-      @param[in]     _inArg1 Description of first function argument.
-      @param[out]    _outArg2 Description of second function argument.
-      @param[in,out] _inoutArg3 Description of third function argument.
-      @return Description of returned value.
+      @param[in] d The description for the item.
    */
    void set_description(StateDescriptor * d);
 
    /**
-      Write description of function here.
-      The function should follow these comments.
-      Use of "brief" tag is optional. (no point to it)
+      Gets the description of the combined item.
 
-      The function arguments listed with "param" will be compared
-      to the declaration and verified.
-
-      @param[in]     _inArg1 Description of first function argument.
-      @param[out]    _outArg2 Description of second function argument.
-      @param[in,out] _inoutArg3 Description of third function argument.
-      @return Description of returned value.
+      @return The description of the combined item.
    */
    std::string get_description();
 };
