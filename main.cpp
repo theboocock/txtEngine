@@ -797,11 +797,6 @@ std::string input_filter(std::string str){
     return ret;
 }
 
-/**
- Reads in words from file to filterList
- vector.
- 
- */
 void read_filter_list(const char* file){
     std::ifstream myfile (file);
     if (myfile.is_open())
