@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  13 AUG 2011 14:59
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  19 SEP 2011 22:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**refman.tex
+**refman
 (./refman.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
@@ -36,6 +36,13 @@ File: bk10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 (/usr/local/texlive/2010/texmf-dist/tex/latex/base/makeidx.sty
 Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 )
+(/usr/local/texlive/2010/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2009/11/07 8.31a (PWD, AO)
+\bibhang=\skip43
+\bibsep=\skip44
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count88
+)
 (/usr/local/texlive/2010/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -56,27 +63,27 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2010/02/14 v0.04n Graphics/color for pdfTeX
-\Gread@gobject=\count88
+\Gread@gobject=\count89
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
 (/usr/local/texlive/2010/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
-\c@tracingmulticols=\count89
+\c@tracingmulticols=\count90
 \mult@box=\box26
 \multicol@leftmargin=\dimen105
-\c@unbalance=\count90
-\c@collectmore=\count91
-\doublecol@number=\count92
-\multicoltolerance=\count93
-\multicolpretolerance=\count94
+\c@unbalance=\count91
+\c@collectmore=\count92
+\doublecol@number=\count93
+\multicoltolerance=\count94
+\multicolpretolerance=\count95
 \full@width=\dimen106
 \page@free=\dimen107
 \premulticols=\dimen108
 \postmulticols=\dimen109
-\multicolsep=\skip43
-\multicolbaselineskip=\skip44
+\multicolsep=\skip45
+\multicolbaselineskip=\skip46
 \partial@page=\box27
 \last@line=\box28
 \mult@rightbox=\box29
@@ -100,8 +107,8 @@ Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
 \@tempa=\box47
 \@tempa=\box48
 \@tempa=\box49
-\c@columnbadness=\count95
-\c@finalcolumnbadness=\count96
+\c@columnbadness=\count96
+\c@finalcolumnbadness=\count97
 \last@try=\dimen110
 \multicolovershoot=\dimen111
 \multicolundershoot=\dimen112
@@ -110,30 +117,30 @@ Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
 )
 (/usr/local/texlive/2010/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count97
+\c@float@type=\count98
 \float@exts=\toks15
 \float@box=\box52
 \@float@everytoks=\toks16
 \@floatcapt=\box53
 )
 (/usr/local/texlive/2010/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count98
+\lst@mode=\count99
 \lst@gtempboxa=\box54
 \lst@token=\toks17
-\lst@length=\count99
+\lst@length=\count100
 \lst@currlwidth=\dimen113
-\lst@column=\count100
-\lst@pos=\count101
+\lst@column=\count101
+\lst@pos=\count102
 \lst@lostspace=\dimen114
 \lst@width=\dimen115
-\lst@newlines=\count102
-\lst@lineno=\count103
+\lst@newlines=\count103
+\lst@lineno=\count104
 \lst@maxwidth=\dimen116
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-\c@lstnumber=\count104
-\lst@skipnumbers=\count105
+\c@lstnumber=\count105
+\lst@skipnumbers=\count106
 \lst@framebox=\box55
 )
 (/usr/local/texlive/2010/texmf-dist/tex/latex/listings/listings.cfg
@@ -168,14 +175,14 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen117
 \extrarowheight=\dimen118
 \NC@list=\toks18
-\extratabsurround=\skip45
-\backup@length=\skip46
+\extratabsurround=\skip47
+\backup@length=\skip48
 )
 \everycr=\toks19
-\minrowclearance=\skip47
+\minrowclearance=\skip49
 )
 LaTeX Info: Redefining \color on input line 702.
-\rownum=\count106
+\rownum=\count107
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
 Package xcolor Info: Model `RGB' extended on input line 1353.
@@ -312,8 +319,8 @@ Package: xcolor-patch 2009/12/12 xcolor patch
 Package: letltxmacro 2008/06/24 v1.3 Let assignment for LaTeX macros (HO)
 )
 \@linkdim=\dimen119
-\Hy@linkcounter=\count107
-\Hy@pagecounter=\count108
+\Hy@linkcounter=\count108
+\Hy@pagecounter=\count109
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2010/06/18 v6.81g Hyperref: PDFDocEncoding definition (HO)
@@ -369,7 +376,7 @@ LaTeX Info: Redefining \url on input line 4159.
 (/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/bitset.sty
 Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
 )
-\Fld@menulength=\count109
+\Fld@menulength=\count110
 \Field@Width=\dimen120
 \Fld@charsize=\dimen121
 \Field@toks=\toks20
@@ -386,16 +393,16 @@ LaTeX Info: Redefining \pageref on input line 5211.
 (/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2010/03/25 v1.12 At begin shipout hook (HO)
 )
-\Hy@abspage=\count110
-\c@Item=\count111
-\c@Hfootnote=\count112
+\Hy@abspage=\count111
+\c@Item=\count112
+\c@Hfootnote=\count113
 )
 * hyperref using driver hpdftex *
 (/usr/local/texlive/2010/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2010/06/18 v6.81g Hyperref driver for pdfTeX
-\Fld@listcount=\count113
-\c@bookmark@seq@number=\count114
-\Hy@SectionHShift=\skip48
+\Fld@listcount=\count114
+\c@bookmark@seq@number=\count115
+\Hy@SectionHShift=\skip50
 )
 (/usr/local/texlive/2010/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
@@ -745,84 +752,84 @@ Package: tocloft 2009/09/04 v2.3d parameterised ToC, etc., typesetting
 
 Package tocloft Note: The document has chapter divisions.
 
-\cftparskip=\skip49
-\cftbeforetoctitleskip=\skip50
-\cftaftertoctitleskip=\skip51
-\cftbeforepartskip=\skip52
-\cftpartnumwidth=\skip53
-\cftpartindent=\skip54
-\cftbeforechapskip=\skip55
-\cftchapindent=\skip56
-\cftchapnumwidth=\skip57
-\cftbeforesecskip=\skip58
-\cftsecindent=\skip59
-\cftsecnumwidth=\skip60
-\cftbeforesubsecskip=\skip61
-\cftsubsecindent=\skip62
-\cftsubsecnumwidth=\skip63
-\cftbeforesubsubsecskip=\skip64
-\cftsubsubsecindent=\skip65
-\cftsubsubsecnumwidth=\skip66
-\cftbeforeparaskip=\skip67
-\cftparaindent=\skip68
-\cftparanumwidth=\skip69
-\cftbeforesubparaskip=\skip70
-\cftsubparaindent=\skip71
-\cftsubparanumwidth=\skip72
-\cftbeforeloftitleskip=\skip73
-\cftafterloftitleskip=\skip74
-\cftbeforefigskip=\skip75
-\cftfigindent=\skip76
-\cftfignumwidth=\skip77
-\c@lofdepth=\count115
-\c@lotdepth=\count116
-\cftbeforelottitleskip=\skip78
-\cftafterlottitleskip=\skip79
-\cftbeforetabskip=\skip80
-\cfttabindent=\skip81
-\cfttabnumwidth=\skip82
+\cftparskip=\skip51
+\cftbeforetoctitleskip=\skip52
+\cftaftertoctitleskip=\skip53
+\cftbeforepartskip=\skip54
+\cftpartnumwidth=\skip55
+\cftpartindent=\skip56
+\cftbeforechapskip=\skip57
+\cftchapindent=\skip58
+\cftchapnumwidth=\skip59
+\cftbeforesecskip=\skip60
+\cftsecindent=\skip61
+\cftsecnumwidth=\skip62
+\cftbeforesubsecskip=\skip63
+\cftsubsecindent=\skip64
+\cftsubsecnumwidth=\skip65
+\cftbeforesubsubsecskip=\skip66
+\cftsubsubsecindent=\skip67
+\cftsubsubsecnumwidth=\skip68
+\cftbeforeparaskip=\skip69
+\cftparaindent=\skip70
+\cftparanumwidth=\skip71
+\cftbeforesubparaskip=\skip72
+\cftsubparaindent=\skip73
+\cftsubparanumwidth=\skip74
+\cftbeforeloftitleskip=\skip75
+\cftafterloftitleskip=\skip76
+\cftbeforefigskip=\skip77
+\cftfigindent=\skip78
+\cftfignumwidth=\skip79
+\c@lofdepth=\count116
+\c@lotdepth=\count117
+\cftbeforelottitleskip=\skip80
+\cftafterlottitleskip=\skip81
+\cftbeforetabskip=\skip82
+\cfttabindent=\skip83
+\cfttabnumwidth=\skip84
 ) (./doxygen.sty
 Package: doxygen 
  (/usr/local/texlive/2010/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count117
-\calc@Bcount=\count118
+\calc@Acount=\count118
+\calc@Bcount=\count119
 \calc@Adimen=\dimen122
 \calc@Bdimen=\dimen123
-\calc@Askip=\skip83
-\calc@Bskip=\skip84
+\calc@Askip=\skip85
+\calc@Bskip=\skip86
 LaTeX Info: Redefining \setlength on input line 76.
 LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count119
-\calc@Cskip=\skip85
+\calc@Ccount=\count120
+\calc@Cskip=\skip87
 )
 (/usr/local/texlive/2010/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip86
-\f@ncyO@elh=\skip87
-\f@ncyO@erh=\skip88
-\f@ncyO@olh=\skip89
-\f@ncyO@orh=\skip90
-\f@ncyO@elf=\skip91
-\f@ncyO@erf=\skip92
-\f@ncyO@olf=\skip93
-\f@ncyO@orf=\skip94
+\fancy@headwidth=\skip88
+\f@ncyO@elh=\skip89
+\f@ncyO@erh=\skip90
+\f@ncyO@olh=\skip91
+\f@ncyO@orh=\skip92
+\f@ncyO@elf=\skip93
+\f@ncyO@erf=\skip94
+\f@ncyO@olf=\skip95
+\f@ncyO@orf=\skip96
 )
 (/usr/local/texlive/2010/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
-\LTleft=\skip95
-\LTright=\skip96
-\LTpre=\skip97
-\LTpost=\skip98
-\LTchunksize=\count120
+\LTleft=\skip97
+\LTright=\skip98
+\LTpre=\skip99
+\LTpost=\skip100
+\LTchunksize=\count121
 \LTcapwidth=\dimen124
 \LT@head=\box56
 \LT@firsthead=\box57
 \LT@foot=\box58
 \LT@lastfoot=\box59
-\LT@cols=\count121
-\LT@rows=\count122
-\c@LT@tables=\count123
-\c@LT@chunks=\count124
+\LT@cols=\count122
+\LT@rows=\count123
+\c@LT@tables=\count124
+\c@LT@chunks=\count125
 \LT@p@ftn=\toks23
 )
 (/usr/local/texlive/2010/texmf-dist/tex/latex/tools/verbatim.sty
@@ -831,7 +838,9 @@ Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks25
 \verbatim@in@stream=\read1
 )
-\tmplength=\skip99
+\tmplength=\skip101
+\xrefbox=\box60
+\xreflength=\skip102
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
@@ -857,47 +866,47 @@ Writing index file refman.idx
 (./refman.aux)
 \openout1 = `refman.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 41.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 46.
  (/usr/local/texlive/2010/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 41.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 46.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 41.
+(Font)              scaled to size 8.99994pt on input line 46.
 
 (/usr/local/texlive/2010/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count125
+\scratchcounter=\count126
 \scratchdimen=\dimen125
-\scratchbox=\box60
-\nofMPsegments=\count126
-\nofMParguments=\count127
+\scratchbox=\box61
+\nofMPsegments=\count127
+\nofMParguments=\count128
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count128
+\MPscratchCnt=\count129
 \MPscratchDim=\dimen126
-\MPnumerator=\count129
+\MPnumerator=\count130
 \everyMPtoPDFconversion=\toks27
 ) (/usr/local/texlive/2010/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -914,9 +923,10 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count130
-\AtBeginShipoutBox=\box61
-Package hyperref Info: Link coloring ON on input line 41.
+\c@lstlisting=\count131
+Package backref Info: ** backref set up for natbib ** on input line 46.
+\AtBeginShipoutBox=\box62
+Package hyperref Info: Link coloring ON on input line 46.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -927,24 +937,24 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 (/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2009/12/18 v1.3 Cleanup title references (HO)
 )
-\c@section@level=\count131
+\c@section@level=\count132
 )
-LaTeX Info: Redefining \ref on input line 41.
-LaTeX Info: Redefining \pageref on input line 41.
-LaTeX Info: Redefining \nameref on input line 41.
+LaTeX Info: Redefining \ref on input line 46.
+LaTeX Info: Redefining \pageref on input line 46.
+LaTeX Info: Redefining \nameref on input line 46.
 
 (./refman.out) (./refman.out)
 \@outlinefile=\write4
 \openout4 = `refman.out'.
 
 \big@size=\dimen127
-Package hyperref Info: Option `pageanchor' set `false' on input line 42.
+Package hyperref Info: Option `pageanchor' set `false' on input line 47.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 12.9599pt on input line 46.
+(Font)              scaled to size 12.9599pt on input line 51.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 46.
+(Font)              scaled to size 10.79993pt on input line 51.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 50.
+(Font)              scaled to size 8.09995pt on input line 55.
  [1
 
 
@@ -952,18 +962,18 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 22.39185pt on input line 55.
+(Font)              scaled to size 22.39185pt on input line 60.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 55.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 60.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 22.39185pt on input line 55.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 55.
+(Font)              scaled to size 22.39185pt on input line 60.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 60.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bc/n' will be
-(Font)              scaled to size 22.39185pt on input line 55.
+(Font)              scaled to size 22.39185pt on input line 60.
  (./refman.toc
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 1.
@@ -1012,49 +1022,108 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 59.
  [2]
-[3] [4])
+[3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 127--127
+ [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-Area-Command.
+cpp -File - 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+ [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-Area-Command.
+h -File - 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+ [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-Item-Command.
+cpp -File - 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
+ [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-Item-Command.
+h -File - 
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+ [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-State-Descrip
+tor.cpp -File - 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--183
+ [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-State-Descrip
+tor.h -File - 
+ []
+
+)
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
- [5] [6
+
+Underfull \vbox (badness 1590) has occurred while \output is active []
+
+ [6]
+[7] [8
 
 ]
-Package hyperref Info: Option `pageanchor' set `true' on input line 58.
+Package hyperref Info: Option `pageanchor' set `true' on input line 63.
 
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 18.66588pt on input line 59.
+(Font)              scaled to size 18.66588pt on input line 64.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 59.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 64.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 59.
+(Font)              scaled to size 18.66588pt on input line 64.
 LaTeX Font Info:    Font shape `OT1/phv/bc/n' will be
-(Font)              scaled to size 18.66588pt on input line 59.
-(./deprecated.tex
-Overfull \hbox (6.57443pt too wide) in paragraph at lines 5--6
-[]\T1/phv/m/n/10 use ToEle-ment. Re-turn the han-dle as a [][]TiXm-
- []
-
-) [1
-
-] [2
-
-]
-Chapter 2.
-(./hierarchy.tex
+(Font)              scaled to size 18.66588pt on input line 64.
+(./index.tex
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
 LaTeX Font Info:    Font shape `OT1/phv/bc/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
-) [3] [4
+LaTeX Font Info:    Try loading font information for TS1+phv on input line 6.
+ (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ts1phv.fd
+File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
+)
+LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 6.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 6.
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Overfull \hbox (77.10161pt too wide) in paragraph at lines 10--10
+[]\T1/phv/m/n/10 -Tiny-X-M-L -Documentation-: [][]\T1/pcr/m/n/10 http-://www.-g
+rinninglizard.-com/tinyxmldocs/index.-
+ []
+
+
+Underfull \hbox (badness 1533) in paragraph at lines 13--13
+\T1/phv/m/n/10 -Please re-port any bugs here-: [][]\T1/pcr/m/n/10 https-://gith
+ub.-com/smilefreak/txt-
+ []
+
+) [1
+
+] [2]
+Chapter 2.
+(./annotated.tex) [3
+
+] [4
 
 ]
 Chapter 3.
-(./annotated.tex) [5] [6
+(./files.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-]
+ [5])
+[6]
 Chapter 4.
 (./class_area.tex
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
@@ -1063,514 +1132,764 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 5.
 LaTeX Font Info:    Font shape `OT1/phv/bc/n' will be
 (Font)              scaled to size 10.79993pt on input line 5.
-LaTeX Font Info:    Try loading font information for TS1+phv on input line 8.
+ [7
 
-(/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ts1phv.fd
-File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
-)
-LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 8.
- [7])
-(./class_area_command.tex) (./class_item.tex [8]) (./class_item_command.tex
-[9]) (./class_state_descriptor.tex) (./class_ti_xml_attribute.tex
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 7.
-
-(/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Package epstopdf Info: Source file: <class_ti_xml_attribute.eps>
-(epstopdf)                    date: 2011-08-13 14:54:08
-(epstopdf)                    size: 3788 bytes
-(epstopdf)             Output file: <class_ti_xml_attribute-eps-converted-to.pd
-f>
-(epstopdf)                    date: 2011-08-13 14:59:23
-(epstopdf)                    size: 5322 bytes
-(epstopdf)             Command: <repstopdf --outfile=class_ti_xml_attribute-eps
--converted-to.pdf class_ti_xml_attribute.eps>
-(epstopdf)             \includegraphics on input line 12.
-Package epstopdf Info: Output file is already uptodate.
-
-<class_ti_xml_attribute-eps-converted-to.pdf, id=923, 501.875pt x 409.6906pt>
-File: class_ti_xml_attribute-eps-converted-to.pdf Graphic file (type pdf)
-
-<use class_ti_xml_attribute-eps-converted-to.pdf> [10 <./class_ti_xml_attribute
--eps-converted-to.pdf>]
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 22.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 22.
- [11]
+]
 LaTeX Font Info:    Font shape `OT1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 159.
+(Font)              scaled to size 8.99994pt on input line 112.
 LaTeX Font Info:    Font shape `OT1/phv/bc/it' in size <10> not available
-(Font)              Font shape `OT1/phv/bc/sl' tried instead on input line 159.
+(Font)              Font shape `OT1/phv/bc/sl' tried instead on input line 112.
 
 LaTeX Font Info:    Font shape `OT1/phv/bc/sl' will be
-(Font)              scaled to size 8.99994pt on input line 159.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 159.
+(Font)              scaled to size 8.99994pt on input line 112.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 118.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 8.99994pt on input line 118.
 
-
-(/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-
-LaTeX Font Warning: Font shape `OT1/pcr/bc/n' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 159.
-
-) (./class_ti_xml_attribute_set.tex [12]) (./class_ti_xml_base.tex
-Package epstopdf Info: Source file: <class_ti_xml_base.eps>
-(epstopdf)                    date: 2011-08-13 14:54:08
-(epstopdf)                    size: 4486 bytes
-(epstopdf)             Output file: <class_ti_xml_base-eps-converted-to.pdf>
-(epstopdf)                    date: 2011-08-13 14:59:23
-(epstopdf)                    size: 7145 bytes
-(epstopdf)             Command: <repstopdf --outfile=class_ti_xml_base-eps-conv
-erted-to.pdf class_ti_xml_base.eps>
-(epstopdf)             \includegraphics on input line 12.
-Package epstopdf Info: Output file is already uptodate.
-
-<class_ti_xml_base-eps-converted-to.pdf, id=1035, 501.875pt x 86.53328pt>
-File: class_ti_xml_base-eps-converted-to.pdf Graphic file (type pdf)
-
-<use class_ti_xml_base-eps-converted-to.pdf>
-Overfull \hbox (53.33012pt too wide) in paragraph at lines 11--13
- [] 
+Underfull \vbox (badness 10000) detected at line 124
  []
 
 
-Overfull \hbox (24.91154pt too wide) in paragraph at lines 24--28
-[]\T1/phv/b/n/10 TIXML_-NO_-ERROR \T1/phv/m/n/10 = 0, \T1/phv/b/n/10 TIXML_-ERR
-OR\T1/phv/m/n/10 , \T1/phv/b/n/10 TIXML_-ERROR_-OPENING_-FILE\T1/phv/m/n/10 , \
-T1/phv/b/n/10 TIXML_-
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 132.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sim' on input line 132.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 132.
+
+
+Underfull \vbox (badness 10000) detected at line 152
  []
 
 
-Overfull \hbox (31.48972pt too wide) in paragraph at lines 29--33
-[]\T1/phv/b/n/10 TIXML_-ERROR_-FAILED_-TO_-READ_-ELEMENT_-NAME\T1/phv/m/n/10 , 
-\T1/phv/b/n/10 TIXML_-ERROR_-READING_-
+Underfull \vbox (badness 10000) detected at line 168
  []
 
 
-Overfull \hbox (10.85303pt too wide) in paragraph at lines 29--33
-\T1/phv/b/n/10 ELEMENT_-VALUE\T1/phv/m/n/10 , \T1/phv/b/n/10 TIXML_-ERROR_-READ
-ING_-ATTRIBUTES\T1/phv/m/n/10 , \T1/phv/b/n/10 TIXML_-ERROR_-
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8]
+Underfull \vbox (badness 10000) detected at line 184
  []
 
 
-Overfull \hbox (6.45192pt too wide) in paragraph at lines 34--38
-[]\T1/phv/b/n/10 TIXML_-ERROR_-READING_-END_-TAG\T1/phv/m/n/10 , \T1/phv/b/n/10
- TIXML_-ERROR_-PARSING_-UNKNOWN\T1/phv/m/n/10 ,
+Underfull \vbox (badness 10000) detected at line 200
  []
 
 
-Overfull \hbox (26.95358pt too wide) in paragraph at lines 34--38
-\T1/phv/b/n/10 TIXML_-ERROR_-PARSING_-COMMENT\T1/phv/m/n/10 , \T1/phv/b/n/10 TI
-XML_-ERROR_-PARSING_-DECLARATION\T1/phv/m/n/10 , 
+Underfull \vbox (badness 10000) detected at line 233
+ []
+
+[9]
+Underfull \vbox (badness 10000) detected at line 266
  []
 
 
-Overfull \hbox (30.96767pt too wide) in paragraph at lines 39--43
-[]\T1/phv/b/n/10 TIXML_-ERROR_-DOCUMENT_-EMPTY\T1/phv/m/n/10 , \T1/phv/b/n/10 T
-IXML_-ERROR_-EMBEDDED_-NULL\T1/phv/m/n/10 , \T1/phv/b/n/10 TIXML_-
+Underfull \vbox (badness 10000) detected at line 288
  []
 
-[13 <./class_ti_xml_base-eps-converted-to.pdf>] [14]
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 202.
- [15] [16]
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 303--303
-[]        \T1/pcr/m/n/8 "Error when TiXmlDocument added to document, because Ti
-XmlDocument can on[] 
+[10]
+Underfull \vbox (badness 10000) detected at line 363
+ []
+
+[11]
+Underfull \vbox (badness 10000) detected at line 399
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 317--317
-[]                \T1/pcr/m/n/8 1,      1,      1,      1,      1,      1,     
- 1,      1,      1[] 
+Underfull \vbox (badness 10000) detected at line 418
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 319--319
-[]                \T1/pcr/m/n/8 1,      1,      1,      1,      1,      1,     
- 1,      1,      1[] 
+Underfull \vbox (badness 10000) detected at line 437
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 321--321
-[]                \T1/pcr/m/n/8 1,      1,      1,      1,      1,      1,     
- 1,      1,      1[] 
+Underfull \vbox (badness 10000) detected at line 456
+ []
+
+[12]
+Underfull \vbox (badness 10000) detected at line 472
+ []
+
+) (./class_area_command.tex [13]
+Underfull \vbox (badness 10000) detected at line 103
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 323--323
-[]                \T1/pcr/m/n/8 1,      1,      1,      1,      1,      1,     
- 1,      1,      1[] 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 111.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sim' on input line 111.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 111.
+
+
+Underfull \vbox (badness 10000) detected at line 131
+ []
+
+[14]
+Underfull \vbox (badness 10000) detected at line 220
+ []
+
+[15]
+Underfull \vbox (badness 10000) detected at line 253
+ []
+
+) (./classcombine.tex
+Underfull \vbox (badness 10000) detected at line 50
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 325--325
-[]                \T1/pcr/m/n/8 1,      1,      1,      1,      1,      1,     
- 1,      1,      1[] 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 58.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sim' on input line 58.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 58.
+
+
+Underfull \vbox (badness 1975) has occurred while \output is active []
+
+ [16]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 80--80
+ []|[]| 
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 327--327
-[]                \T1/pcr/m/n/8 1,      1,      1,      1,      1,      1,     
- 1,      1,      1[] 
+Underfull \vbox (badness 10000) detected at line 82
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 329--329
-[]                \T1/pcr/m/n/8 1,      1,      1,      1,      1,      1,     
- 1,      1,      1[] 
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 105--105
+ []|[]| 
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 331--331
-[]                \T1/pcr/m/n/8 1,      1,      1,      1,      1,      1,     
- 1,      1,      1[] 
+Underfull \vbox (badness 10000) detected at line 107
+ []
+
+[17]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 130--130
+ []|[]| 
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 333--333
-[]                \T1/pcr/m/n/8 1,      1,      1,      1,      1,      1,     
- 1,      1,      1[] 
+Underfull \vbox (badness 10000) detected at line 132
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 335--335
-[]                \T1/pcr/m/n/8 1,      1,      1,      1,      1,      1,     
- 1,      1,      1[] 
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 155--155
+ []|[]| 
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 337--337
-[]                \T1/pcr/m/n/8 1,      1,      1,      1,      1,      1,     
- 1,      1,      1[] 
+Underfull \vbox (badness 10000) detected at line 157
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 339--339
-[]                \T1/pcr/m/n/8 1,      1,      1,      1,      1,      1,     
- 1,      1,      1[] 
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 180--180
+ []|[]| 
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 341--341
-[]                \T1/pcr/m/n/8 1,      1,      2,      2,      2,      2,     
- 2,      2,      2[] 
+Underfull \vbox (badness 10000) detected at line 182
+ []
+
+[18]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 205--205
+ []|[]| 
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 343--343
-[]                \T1/pcr/m/n/8 2,      2,      2,      2,      2,      2,     
- 2,      2,      2[] 
+Underfull \vbox (badness 10000) detected at line 207
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 345--345
-[]                \T1/pcr/m/n/8 3,      3,      3,      3,      3,      3,     
- 3,      3,      3[] 
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 230--230
+ []|[]| 
  []
 
 
-Overfull \hbox (43.80025pt too wide) in paragraph at lines 347--347
-[]                \T1/pcr/m/n/8 4,      4,      4,      4,      4,      1,     
- 1,      1,      1[] 
+Underfull \vbox (badness 10000) detected at line 232
  []
 
-[17]) (./class_ti_xml_comment.tex
-Package epstopdf Info: Source file: <class_ti_xml_comment.eps>
-(epstopdf)                    date: 2011-08-13 14:54:09
-(epstopdf)                    size: 3893 bytes
-(epstopdf)             Output file: <class_ti_xml_comment-eps-converted-to.pdf>
-
-(epstopdf)                    date: 2011-08-13 14:59:24
-(epstopdf)                    size: 5466 bytes
-(epstopdf)             Command: <repstopdf --outfile=class_ti_xml_comment-eps-c
-onverted-to.pdf class_ti_xml_comment.eps>
-(epstopdf)             \includegraphics on input line 12.
-Package epstopdf Info: Output file is already uptodate.
-
-<class_ti_xml_comment-eps-converted-to.pdf, id=1139, 501.875pt x 590.44589pt>
-File: class_ti_xml_comment-eps-converted-to.pdf Graphic file (type pdf)
-
-<use class_ti_xml_comment-eps-converted-to.pdf> [18 <./class_ti_xml_comment-eps
--converted-to.pdf>]) (./struct_ti_xml_cursor.tex)
-(./class_ti_xml_declaration.tex
-Package epstopdf Info: Source file: <class_ti_xml_declaration.eps>
-(epstopdf)                    date: 2011-08-13 14:54:09
-(epstopdf)                    size: 3901 bytes
-(epstopdf)             Output file: <class_ti_xml_declaration-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2011-08-13 14:59:25
-(epstopdf)                    size: 5655 bytes
-(epstopdf)             Command: <repstopdf --outfile=class_ti_xml_declaration-e
-ps-converted-to.pdf class_ti_xml_declaration.eps>
-(epstopdf)             \includegraphics on input line 12.
-Package epstopdf Info: Output file is already uptodate.
-
-<class_ti_xml_declaration-eps-converted-to.pdf, id=1180, 501.875pt x 519.17964p
-t>
-File: class_ti_xml_declaration-eps-converted-to.pdf Graphic file (type pdf)
- <use class_ti_xml_declaration-eps-converted-to.pdf> [19] [20 <./class_ti_xml_d
-eclaration-eps-converted-to.pdf>]) (./class_ti_xml_document.tex
-Package epstopdf Info: Source file: <class_ti_xml_document.eps>
-(epstopdf)                    date: 2011-08-13 14:54:09
-(epstopdf)                    size: 3895 bytes
-(epstopdf)             Output file: <class_ti_xml_document-eps-converted-to.pdf
->
-(epstopdf)                    date: 2011-08-13 14:59:25
-(epstopdf)                    size: 5670 bytes
-(epstopdf)             Command: <repstopdf --outfile=class_ti_xml_document-eps-
-converted-to.pdf class_ti_xml_document.eps>
-(epstopdf)             \includegraphics on input line 12.
-Package epstopdf Info: Output file is already uptodate.
-
-<class_ti_xml_document-eps-converted-to.pdf, id=1239, 501.875pt x 562.85281pt>
-File: class_ti_xml_document-eps-converted-to.pdf Graphic file (type pdf)
-
-<use class_ti_xml_document-eps-converted-to.pdf>
-Underfull \vbox (badness 2334) has occurred while \output is active []
-
- [21]
-Overfull \hbox (7.12448pt too wide) in paragraph at lines 46--48
-[]\T1/phv/m/n/10 bool [][]Load-File[][] (const char $\OMS/ztmcm/m/n/10 ^^C$\T1/
-phv/m/n/10 filename, TiXm-lEn-cod-ing encoding=TIXML_-DEFAULT_-
- []
-
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 61.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 61.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 61.
-[22 <./class_ti_xml_document-eps-converted-to.pdf>] [23]
-
-LaTeX Font Warning: Font shape `OT1/pcr/bc/it' undefined
-(Font)              using `OT1/pcr/bc/n' instead on input line 210.
-
-[24]) (./class_ti_xml_element.tex
-Package epstopdf Info: Source file: <class_ti_xml_element.eps>
-(epstopdf)                    date: 2011-08-13 14:54:09
-(epstopdf)                    size: 3893 bytes
-(epstopdf)             Output file: <class_ti_xml_element-eps-converted-to.pdf>
-
-(epstopdf)                    date: 2011-08-13 14:59:26
-(epstopdf)                    size: 5479 bytes
-(epstopdf)             Command: <repstopdf --outfile=class_ti_xml_element-eps-c
-onverted-to.pdf class_ti_xml_element.eps>
-(epstopdf)             \includegraphics on input line 12.
-Package epstopdf Info: Output file is already uptodate.
-
-<class_ti_xml_element-eps-converted-to.pdf, id=1342, 501.875pt x 633.94844pt>
-File: class_ti_xml_element-eps-converted-to.pdf Graphic file (type pdf)
-
-<use class_ti_xml_element-eps-converted-to.pdf> [25 <./class_ti_xml_element-eps
--converted-to.pdf>] [26] [27] [28]) (./class_ti_xml_handle.tex [29]
-Overfull \hbox (202.20035pt too wide) in paragraph at lines 109--109
-[]\T1/pcr/m/n/8 TiXmlElement* child2 = docHandle.FirstChild( "Document" ).First
-Child( "Element" ).Child( "Child", 1 ).ToElement();[] 
+) (./class_item.tex [19] [20]
+Underfull \vbox (badness 10000) detected at line 173
  []
 
 
-Overfull \hbox (197.40034pt too wide) in paragraph at lines 129--129
-[]\T1/pcr/m/n/8 TiXmlElement* child = docHandle.FirstChild( "Document" ).FirstC
-hild( "Element" ).Child( "Child", i ).ToElement();[] 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 181.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sim' on input line 181.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 181.
+
+
+Underfull \vbox (badness 10000) detected at line 201
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 217
+ []
+
+[21]
+Underfull \vbox (badness 10000) detected at line 233
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 249
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 288
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 307
+ []
+
+[22]
+Underfull \vbox (badness 10000) detected at line 354
+ []
+
+[23]
+Underfull \vbox (badness 10000) detected at line 387
+ []
+
+[24]
+Underfull \vbox (badness 10000) detected at line 476
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 495
+ []
+
+[25]
+Underfull \vbox (badness 10000) detected at line 556
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 572
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 588
+ []
+
+) (./class_item_command.tex [26]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 138--138
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 140
+ []
+
+[27]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 163--163
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 165
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 188--188
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 190
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 213--213
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 215
+ []
+
+[28]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 238--238
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 240
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 263--263
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 265
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 288--288
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 290
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 313--313
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 315
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 338--338
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 340
  []
 
 [30]
-Overfull \hbox (207.00035pt too wide) in paragraph at lines 141--141
-[]\T1/pcr/m/n/8 TiXmlElement* child = docHandle.FirstChild( "Document" ).FirstC
-hild( "Element" ).FirstChild( "Child" ).ToElement(); 
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 363--363
+ []|[]| 
  []
 
-[31]) (./class_ti_xml_node.tex
-Package epstopdf Info: Source file: <class_ti_xml_node.eps>
-(epstopdf)                    date: 2011-08-13 14:54:09
-(epstopdf)                    size: 4359 bytes
-(epstopdf)             Output file: <class_ti_xml_node-eps-converted-to.pdf>
-(epstopdf)                    date: 2011-08-13 14:59:27
-(epstopdf)                    size: 6893 bytes
-(epstopdf)             Command: <repstopdf --outfile=class_ti_xml_node-eps-conv
-erted-to.pdf class_ti_xml_node.eps>
-(epstopdf)             \includegraphics on input line 12.
-Package epstopdf Info: Output file is already uptodate.
 
-<class_ti_xml_node-eps-converted-to.pdf, id=1536, 501.875pt x 86.53328pt>
-File: class_ti_xml_node-eps-converted-to.pdf Graphic file (type pdf)
+Underfull \vbox (badness 10000) detected at line 365
+ []
 
-<use class_ti_xml_node-eps-converted-to.pdf>
-Overfull \hbox (53.33012pt too wide) in paragraph at lines 11--13
- [] 
+) (./class_state_descriptor.tex
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 53--53
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 55
+ []
+
+[31]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 66.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sim' on input line 66.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 66.
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 78--78
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 80
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 106--106
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 108
  []
 
 [32]
-Overfull \hbox (15.73073pt too wide) in paragraph at lines 19--23
-[]\T1/phv/b/n/10 TINYXML_-DOCUMENT\T1/phv/m/n/10 , \T1/phv/b/n/10 TINYXML_-ELEM
-ENT\T1/phv/m/n/10 , \T1/phv/b/n/10 TINYXML_-COMMENT\T1/phv/m/n/10 , \T1/phv/b/n
-/10 TINYXML_-
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 131--131
+ []|[]| 
  []
 
 
-Overfull \hbox (5.64952pt too wide) in paragraph at lines 101--103
-[]\T1/phv/m/n/10 const [][]TiXmlN-ode[][] $\OMS/ztmcm/m/n/10 ^^C$ [][]\T1/phv/m
-/n/10 It-er-at-e-Chil-dren[][] (const char $\OMS/ztmcm/m/n/10 ^^C$\T1/phv/m/n/1
-0 value, const [][]TiXmlN-ode[][] $\OMS/ztmcm/m/n/10 ^^C$\T1/phv/m/n/10 previou
-s)
+Underfull \vbox (badness 10000) detected at line 133
  []
 
-[33 <./class_ti_xml_node-eps-converted-to.pdf>]
-Overfull \hbox (2.26024pt too wide) in paragraph at lines 116--118
-[][][]\T1/phv/m/n/10 TiXmlNode[][] $\OMS/ztmcm/m/n/10 ^^C$ [][]\T1/phv/m/n/10 I
-n-sertAfter-Child[][] ([][]TiXmlN-ode[][] $\OMS/ztmcm/m/n/10 ^^C$\T1/phv/m/n/10
- afterThis, const [][]TiXmlN-ode[][] &ad-dThis) 
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 156--156
+ []|[]| 
  []
 
-[34] [35] [36]
-Overfull \hbox (0.60022pt too wide) in paragraph at lines 462--462
-[]\T1/pcr/m/n/8 for( child = parent->FirstChild(); child; child = child->NextSi
-bling() ) 
+
+Underfull \vbox (badness 10000) detected at line 158
  []
 
-[37]
-Overfull \hbox (31.74297pt too wide) in paragraph at lines 541--548
-\T1/phv/m/n/10 TINYXML_-DOCUMENT, TINYXML_-ELEMENT, TINYXML_-COMMENT, TINYXML_-
-UNKNOWN,
+) (./class_world.tex [33]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 94.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sim' on input line 94.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 94.
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 106--106
+ []|[]| 
  []
 
-[38]) (./class_ti_xml_out_stream.tex
-Package epstopdf Info: Source file: <class_ti_xml_out_stream.eps>
-(epstopdf)                    date: 2011-08-13 14:54:09
-(epstopdf)                    size: 3792 bytes
-(epstopdf)             Output file: <class_ti_xml_out_stream-eps-converted-to.p
-df>
-(epstopdf)                    date: 2011-08-13 14:59:27
-(epstopdf)                    size: 5346 bytes
-(epstopdf)             Command: <repstopdf --outfile=class_ti_xml_out_stream-ep
-s-converted-to.pdf class_ti_xml_out_stream.eps>
-(epstopdf)             \includegraphics on input line 8.
-Package epstopdf Info: Output file is already uptodate.
 
-<class_ti_xml_out_stream-eps-converted-to.pdf, id=1790, 501.875pt x 365.00366pt
->
-File: class_ti_xml_out_stream-eps-converted-to.pdf Graphic file (type pdf)
- <use class_ti_xml_out_stream-eps-converted-to.pdf>)
-(./class_ti_xml_parsing_data.tex) (./class_ti_xml_printer.tex
-Package epstopdf Info: Source file: <class_ti_xml_printer.eps>
-(epstopdf)                    date: 2011-08-13 14:54:09
-(epstopdf)                    size: 3790 bytes
-(epstopdf)             Output file: <class_ti_xml_printer-eps-converted-to.pdf>
-
-(epstopdf)                    date: 2011-08-13 14:59:28
-(epstopdf)                    size: 5060 bytes
-(epstopdf)             Command: <repstopdf --outfile=class_ti_xml_printer-eps-c
-onverted-to.pdf class_ti_xml_printer.eps>
-(epstopdf)             \includegraphics on input line 12.
-Package epstopdf Info: Output file is already uptodate.
-
-<class_ti_xml_printer-eps-converted-to.pdf, id=1796, 501.875pt x 451.1254pt>
-File: class_ti_xml_printer-eps-converted-to.pdf Graphic file (type pdf)
-
-<use class_ti_xml_printer-eps-converted-to.pdf> [39 <./class_ti_xml_out_stream-
-eps-converted-to.pdf>]
-Overfull \hbox (30.23482pt too wide) in paragraph at lines 29--31
-[]\T1/phv/m/n/10 virtual bool [][]Vis-i-tEn-ter[][] (const [][]TiXm-lEle-ment[]
-[] &el-e-ment, const [][]TiXm-lAt-tribute[][] $\OMS/ztmcm/m/n/10 ^^C$\T1/phv/m/
-n/10 firstAttribute)
+Underfull \vbox (badness 10000) detected at line 108
  []
 
-[40 <./class_ti_xml_printer-eps-converted-to.pdf>]) (./class_ti_xml_string.tex
-Package epstopdf Info: Source file: <class_ti_xml_string.eps>
-(epstopdf)                    date: 2011-08-13 14:54:09
-(epstopdf)                    size: 3792 bytes
-(epstopdf)             Output file: <class_ti_xml_string-eps-converted-to.pdf>
-(epstopdf)                    date: 2011-08-13 14:59:29
-(epstopdf)                    size: 5349 bytes
-(epstopdf)             Command: <repstopdf --outfile=class_ti_xml_string-eps-co
-nverted-to.pdf class_ti_xml_string.eps>
-(epstopdf)             \includegraphics on input line 8.
-Package epstopdf Info: Output file is already uptodate.
 
-<class_ti_xml_string-eps-converted-to.pdf, id=1871, 501.875pt x 365.00366pt>
-File: class_ti_xml_string-eps-converted-to.pdf Graphic file (type pdf)
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 134--134
+ []|[]| 
+ []
 
-<use class_ti_xml_string-eps-converted-to.pdf> [41 <./class_ti_xml_string-eps-c
-onverted-to.pdf>]) (./class_ti_xml_text.tex
-Package epstopdf Info: Source file: <class_ti_xml_text.eps>
-(epstopdf)                    date: 2011-08-13 14:54:09
-(epstopdf)                    size: 3887 bytes
-(epstopdf)             Output file: <class_ti_xml_text-eps-converted-to.pdf>
-(epstopdf)                    date: 2011-08-13 14:59:29
-(epstopdf)                    size: 5376 bytes
-(epstopdf)             Command: <repstopdf --outfile=class_ti_xml_text-eps-conv
-erted-to.pdf class_ti_xml_text.eps>
-(epstopdf)             \includegraphics on input line 12.
-Package epstopdf Info: Output file is already uptodate.
 
-<class_ti_xml_text-eps-converted-to.pdf, id=1894, 501.875pt x 743.51776pt>
-File: class_ti_xml_text-eps-converted-to.pdf Graphic file (type pdf)
+Underfull \vbox (badness 10000) detected at line 136
+ []
 
-<use class_ti_xml_text-eps-converted-to.pdf> [42] [43 <./class_ti_xml_text-eps-
-converted-to.pdf>]) (./class_ti_xml_unknown.tex
-Package epstopdf Info: Source file: <class_ti_xml_unknown.eps>
-(epstopdf)                    date: 2011-08-13 14:54:09
-(epstopdf)                    size: 3893 bytes
-(epstopdf)             Output file: <class_ti_xml_unknown-eps-converted-to.pdf>
+[34]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 159--159
+ []|[]| 
+ []
 
-(epstopdf)                    date: 2011-08-13 14:59:30
-(epstopdf)                    size: 5663 bytes
-(epstopdf)             Command: <repstopdf --outfile=class_ti_xml_unknown-eps-c
-onverted-to.pdf class_ti_xml_unknown.eps>
-(epstopdf)             \includegraphics on input line 12.
-Package epstopdf Info: Output file is already uptodate.
 
-<class_ti_xml_unknown-eps-converted-to.pdf, id=1975, 501.875pt x 590.44589pt>
-File: class_ti_xml_unknown-eps-converted-to.pdf Graphic file (type pdf)
+Underfull \vbox (badness 10000) detected at line 161
+ []
 
-<use class_ti_xml_unknown-eps-converted-to.pdf> [44] [45 <./class_ti_xml_unknow
-n-eps-converted-to.pdf>]) (./class_ti_xml_visitor.tex
-Package epstopdf Info: Source file: <class_ti_xml_visitor.eps>
-(epstopdf)                    date: 2011-08-13 14:54:09
-(epstopdf)                    size: 3790 bytes
-(epstopdf)             Output file: <class_ti_xml_visitor-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2011-08-13 14:59:31
-(epstopdf)                    size: 5060 bytes
-(epstopdf)             Command: <repstopdf --outfile=class_ti_xml_visitor-eps-c
-onverted-to.pdf class_ti_xml_visitor.eps>
-(epstopdf)             \includegraphics on input line 12.
-Package epstopdf Info: Output file is already uptodate.
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 184--184
+ []|[]| 
+ []
 
-<class_ti_xml_visitor-eps-converted-to.pdf, id=2014, 501.875pt x 451.1254pt>
-File: class_ti_xml_visitor-eps-converted-to.pdf Graphic file (type pdf)
 
-<use class_ti_xml_visitor-eps-converted-to.pdf> [46 <./class_ti_xml_visitor-eps
--converted-to.pdf>]) (./class_world.tex [47]) (./refman.ind [48] [49
+Underfull \vbox (badness 10000) detected at line 186
+ []
 
-] [50]
-[51
+) [35] [36
 
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 92.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 92.
+]
+Chapter 5.
+(./_area_8cpp.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-Area.cpp -File -
+ []
+
+) (./_area_8h.tex [37]) (./_area_command_8cpp.tex) (./_area_command_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-Area-Command.h -
+ []
+
+[38]) (./combine_8cpp.tex
+Underfull \hbox (badness 3668) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/combine.cpp -File -
+ []
+
+) (./combine_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/combine.h -File -
+ []
+
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 10--13
+[]\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 iostream$\OML/zt
+mcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10
+ <$\T1/pcr/m/n/10 string$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n
+/10 #include "-State-
+ []
+
+) (./_constants_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-Constants.h -File -
+
+ []
+
+[40]) (./_item_8cpp.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-Item.cpp -File -
+ []
+
+[41]) (./_item_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
+[]\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 string$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 vector$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/1
+0 #include "-State-
+ []
+
+) (./_item_command_8cpp.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-Item-Command.cpp
+ []
+
+[42]) (./_item_command_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-Item-Command.h -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--13
+
+ []
+
+) (./main_8cpp.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/main.cpp -File -
+ []
+
+[43]
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 24.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 8.09995pt on input line 24.
+ [44]
+Underfull \vbox (badness 10000) detected at line 131
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 161
+ []
+
+[45]
+Underfull \vbox (badness 10000) detected at line 198
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 236--236
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 238
+ []
+
+[46]
+Underfull \vbox (badness 10000) detected at line 260
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 279
+ []
+
+) (./parser_8cpp.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/parser.cpp -File -
+ []
+
+[47] [48]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 159--159
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 161
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 186--186
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 188
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 213--213
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 215
+ []
+
+[49]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 240--240
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 242
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 266--266
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 268
+ []
+
+[50]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 293--293
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 295
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 319--319
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 321
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 345--345
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 347
+ []
+
+) (./parser_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/parser.h -File -
+ []
+
+[51] [52]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 84--84
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 86
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 111--111
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 113
+ []
+
+[53]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 138--138
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 140
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 165--165
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 167
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 191--191
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 193
+ []
+
+[54]
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 218--218
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 220
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 244--244
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 246
+ []
+
+
+Overfull \hbox (1.4979pt too wide) in paragraph at lines 270--270
+ []|[]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 272
+ []
+
+
+Overfull \vbox (9.53172pt too high) has occurred while \output is active []
+
+
+[55]) (./_state_descriptor_8cpp.tex) (./_state_descriptor_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-State-Descriptor.h
+ []
+
+[56]) (./_world_8cpp.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-World.cpp -File -
+ []
+
+) (./_world_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-World.h -File -
+ []
+
+[57]) (./refman.ind)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 98.
+ [58]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
  (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 92.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 98.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 5942A9D46779F1A4C3B79549F7A4775F;18979.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
+(rerunfilecheck)             Checksum: E0D16A143DCA64521AE7EEA3DD9E311D;32140.
  ) 
 Here is how much of TeX's memory you used:
- 11354 strings out of 493747
- 195267 string characters out of 3143546
- 276570 words of memory out of 3000000
- 13656 multiletter control sequences out of 15000+200000
- 69048 words of font info for 99 fonts, out of 3000000 for 9000
+ 11466 strings out of 493747
+ 177019 string characters out of 3143546
+ 260323 words of memory out of 3000000
+ 13841 multiletter control sequences out of 15000+200000
+ 59531 words of font info for 75 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 42i,12n,58p,658b,518s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,13n,58p,458b,435s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
@@ -1580,10 +1899,10 @@ live/2010/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/201
 fonts/type1/urw/helvetic/uhvbo8ac.pfb></usr/local/texlive/2010/texmf-dist/fonts
 /type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/
 urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (59 pages, 281017 bytes).
+Output written on refman.pdf (68 pages, 221412 bytes).
 PDF statistics:
- 2430 PDF objects out of 2487 (max. 8388607)
- 2311 compressed objects within 24 object streams
- 682 named destinations out of 1000 (max. 500000)
- 1082 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2156 PDF objects out of 2487 (max. 8388607)
+ 2057 compressed objects within 21 object streams
+ 623 named destinations out of 1000 (max. 500000)
+ 1505 words of extra memory for PDF output out of 10000 (max. 10000000)
 

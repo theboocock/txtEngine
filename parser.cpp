@@ -749,7 +749,7 @@ World *make_objects( TiXmlNode* pParent, World *world) {
             return make_world(pParent, world);
          }
          else {
-            error_parsing("xml document element not found", world);
+            error_parsing("XML document element not found", world);
          }
       }
       else {

@@ -1,127 +1,188 @@
-\contentsline {chapter}{\numberline {1}Deprecated List}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}Class Hierarchy}{3}{section.2.1}
-\contentsline {chapter}{\numberline {3}Class Index}{5}{chapter.3}
-\contentsline {section}{\numberline {3.1}Class List}{5}{section.3.1}
-\contentsline {chapter}{\numberline {4}Class Documentation}{7}{chapter.4}
-\contentsline {section}{\numberline {4.1}Area Class Reference}{7}{section.4.1}
-\contentsline {section}{\numberline {4.2}AreaCommand Class Reference}{8}{section.4.2}
-\contentsline {section}{\numberline {4.3}Item Class Reference}{8}{section.4.3}
-\contentsline {section}{\numberline {4.4}ItemCommand Class Reference}{9}{section.4.4}
-\contentsline {section}{\numberline {4.5}StateDescriptor Class Reference}{10}{section.4.5}
-\contentsline {section}{\numberline {4.6}TiXmlAttribute Class Reference}{10}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{12}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}Member Function Documentation}{12}{subsection.4.6.2}
-\contentsline {subsubsection}{\numberline {4.6.2.1}Print}{12}{subsubsection.4.6.2.1}
-\contentsline {subsubsection}{\numberline {4.6.2.2}QueryIntValue}{12}{subsubsection.4.6.2.2}
-\contentsline {section}{\numberline {4.7}TiXmlAttributeSet Class Reference}{12}{section.4.7}
-\contentsline {section}{\numberline {4.8}TiXmlBase Class Reference}{13}{section.4.8}
-\contentsline {subsection}{\numberline {4.8.1}Detailed Description}{15}{subsection.4.8.1}
-\contentsline {subsection}{\numberline {4.8.2}Member Function Documentation}{15}{subsection.4.8.2}
-\contentsline {subsubsection}{\numberline {4.8.2.1}EncodeString}{15}{subsubsection.4.8.2.1}
-\contentsline {subsubsection}{\numberline {4.8.2.2}Print}{16}{subsubsection.4.8.2.2}
-\contentsline {subsubsection}{\numberline {4.8.2.3}Row}{16}{subsubsection.4.8.2.3}
-\contentsline {subsubsection}{\numberline {4.8.2.4}SetCondenseWhiteSpace}{16}{subsubsection.4.8.2.4}
-\contentsline {subsection}{\numberline {4.8.3}Member Data Documentation}{16}{subsection.4.8.3}
-\contentsline {subsubsection}{\numberline {4.8.3.1}errorString}{16}{subsubsection.4.8.3.1}
-\contentsline {subsubsection}{\numberline {4.8.3.2}utf8ByteTable}{17}{subsubsection.4.8.3.2}
-\contentsline {section}{\numberline {4.9}TiXmlComment Class Reference}{18}{section.4.9}
-\contentsline {subsection}{\numberline {4.9.1}Detailed Description}{18}{subsection.4.9.1}
-\contentsline {subsection}{\numberline {4.9.2}Member Function Documentation}{19}{subsection.4.9.2}
-\contentsline {subsubsection}{\numberline {4.9.2.1}Accept}{19}{subsubsection.4.9.2.1}
-\contentsline {subsubsection}{\numberline {4.9.2.2}Print}{19}{subsubsection.4.9.2.2}
-\contentsline {section}{\numberline {4.10}TiXmlCursor Struct Reference}{19}{section.4.10}
-\contentsline {section}{\numberline {4.11}TiXmlDeclaration Class Reference}{19}{section.4.11}
-\contentsline {subsection}{\numberline {4.11.1}Detailed Description}{21}{subsection.4.11.1}
-\contentsline {subsection}{\numberline {4.11.2}Member Function Documentation}{21}{subsection.4.11.2}
-\contentsline {subsubsection}{\numberline {4.11.2.1}Accept}{21}{subsubsection.4.11.2.1}
-\contentsline {subsubsection}{\numberline {4.11.2.2}Print}{21}{subsubsection.4.11.2.2}
-\contentsline {section}{\numberline {4.12}TiXmlDocument Class Reference}{21}{section.4.12}
-\contentsline {subsection}{\numberline {4.12.1}Detailed Description}{23}{subsection.4.12.1}
-\contentsline {subsection}{\numberline {4.12.2}Member Function Documentation}{23}{subsection.4.12.2}
-\contentsline {subsubsection}{\numberline {4.12.2.1}Accept}{23}{subsubsection.4.12.2.1}
-\contentsline {subsubsection}{\numberline {4.12.2.2}ClearError}{23}{subsubsection.4.12.2.2}
-\contentsline {subsubsection}{\numberline {4.12.2.3}Clone}{23}{subsubsection.4.12.2.3}
-\contentsline {subsubsection}{\numberline {4.12.2.4}Error}{23}{subsubsection.4.12.2.4}
-\contentsline {subsubsection}{\numberline {4.12.2.5}ErrorId}{24}{subsubsection.4.12.2.5}
-\contentsline {subsubsection}{\numberline {4.12.2.6}ErrorRow}{24}{subsubsection.4.12.2.6}
-\contentsline {subsubsection}{\numberline {4.12.2.7}LoadFile}{24}{subsubsection.4.12.2.7}
-\contentsline {subsubsection}{\numberline {4.12.2.8}LoadFile}{24}{subsubsection.4.12.2.8}
-\contentsline {subsubsection}{\numberline {4.12.2.9}Parse}{24}{subsubsection.4.12.2.9}
-\contentsline {subsubsection}{\numberline {4.12.2.10}Print}{24}{subsubsection.4.12.2.10}
-\contentsline {subsubsection}{\numberline {4.12.2.11}RootElement}{25}{subsubsection.4.12.2.11}
-\contentsline {subsubsection}{\numberline {4.12.2.12}SetTabSize}{25}{subsubsection.4.12.2.12}
-\contentsline {section}{\numberline {4.13}TiXmlElement Class Reference}{25}{section.4.13}
-\contentsline {subsection}{\numberline {4.13.1}Detailed Description}{27}{subsection.4.13.1}
-\contentsline {subsection}{\numberline {4.13.2}Member Function Documentation}{27}{subsection.4.13.2}
-\contentsline {subsubsection}{\numberline {4.13.2.1}Accept}{27}{subsubsection.4.13.2.1}
-\contentsline {subsubsection}{\numberline {4.13.2.2}Attribute}{27}{subsubsection.4.13.2.2}
-\contentsline {subsubsection}{\numberline {4.13.2.3}Attribute}{27}{subsubsection.4.13.2.3}
-\contentsline {subsubsection}{\numberline {4.13.2.4}Attribute}{27}{subsubsection.4.13.2.4}
-\contentsline {subsubsection}{\numberline {4.13.2.5}GetText}{27}{subsubsection.4.13.2.5}
-\contentsline {subsubsection}{\numberline {4.13.2.6}Print}{28}{subsubsection.4.13.2.6}
-\contentsline {subsubsection}{\numberline {4.13.2.7}QueryBoolAttribute}{28}{subsubsection.4.13.2.7}
-\contentsline {subsubsection}{\numberline {4.13.2.8}QueryIntAttribute}{28}{subsubsection.4.13.2.8}
-\contentsline {subsubsection}{\numberline {4.13.2.9}RemoveAttribute}{28}{subsubsection.4.13.2.9}
-\contentsline {subsubsection}{\numberline {4.13.2.10}SetAttribute}{28}{subsubsection.4.13.2.10}
-\contentsline {subsubsection}{\numberline {4.13.2.11}SetAttribute}{29}{subsubsection.4.13.2.11}
-\contentsline {subsubsection}{\numberline {4.13.2.12}SetDoubleAttribute}{29}{subsubsection.4.13.2.12}
-\contentsline {section}{\numberline {4.14}TiXmlHandle Class Reference}{29}{section.4.14}
-\contentsline {subsection}{\numberline {4.14.1}Detailed Description}{30}{subsection.4.14.1}
-\contentsline {subsection}{\numberline {4.14.2}Member Function Documentation}{31}{subsection.4.14.2}
-\contentsline {subsubsection}{\numberline {4.14.2.1}Child}{31}{subsubsection.4.14.2.1}
-\contentsline {subsubsection}{\numberline {4.14.2.2}Child}{31}{subsubsection.4.14.2.2}
-\contentsline {subsubsection}{\numberline {4.14.2.3}ChildElement}{31}{subsubsection.4.14.2.3}
-\contentsline {subsubsection}{\numberline {4.14.2.4}ChildElement}{31}{subsubsection.4.14.2.4}
-\contentsline {subsubsection}{\numberline {4.14.2.5}Element}{31}{subsubsection.4.14.2.5}
-\contentsline {subsubsection}{\numberline {4.14.2.6}Node}{32}{subsubsection.4.14.2.6}
-\contentsline {subsubsection}{\numberline {4.14.2.7}Text}{32}{subsubsection.4.14.2.7}
-\contentsline {subsubsection}{\numberline {4.14.2.8}ToElement}{32}{subsubsection.4.14.2.8}
-\contentsline {subsubsection}{\numberline {4.14.2.9}ToNode}{32}{subsubsection.4.14.2.9}
-\contentsline {subsubsection}{\numberline {4.14.2.10}ToText}{32}{subsubsection.4.14.2.10}
-\contentsline {subsubsection}{\numberline {4.14.2.11}ToUnknown}{32}{subsubsection.4.14.2.11}
-\contentsline {subsubsection}{\numberline {4.14.2.12}Unknown}{32}{subsubsection.4.14.2.12}
-\contentsline {section}{\numberline {4.15}TiXmlNode Class Reference}{32}{section.4.15}
-\contentsline {subsection}{\numberline {4.15.1}Detailed Description}{35}{subsection.4.15.1}
-\contentsline {subsection}{\numberline {4.15.2}Member Enumeration Documentation}{36}{subsection.4.15.2}
-\contentsline {subsubsection}{\numberline {4.15.2.1}NodeType}{36}{subsubsection.4.15.2.1}
-\contentsline {subsection}{\numberline {4.15.3}Member Function Documentation}{36}{subsection.4.15.3}
-\contentsline {subsubsection}{\numberline {4.15.3.1}Accept}{36}{subsubsection.4.15.3.1}
-\contentsline {subsubsection}{\numberline {4.15.3.2}Clone}{36}{subsubsection.4.15.3.2}
-\contentsline {subsubsection}{\numberline {4.15.3.3}FirstChild}{36}{subsubsection.4.15.3.3}
-\contentsline {subsubsection}{\numberline {4.15.3.4}GetDocument}{37}{subsubsection.4.15.3.4}
-\contentsline {subsubsection}{\numberline {4.15.3.5}InsertAfterChild}{37}{subsubsection.4.15.3.5}
-\contentsline {subsubsection}{\numberline {4.15.3.6}InsertBeforeChild}{37}{subsubsection.4.15.3.6}
-\contentsline {subsubsection}{\numberline {4.15.3.7}InsertEndChild}{37}{subsubsection.4.15.3.7}
-\contentsline {subsubsection}{\numberline {4.15.3.8}IterateChildren}{37}{subsubsection.4.15.3.8}
-\contentsline {subsubsection}{\numberline {4.15.3.9}LinkEndChild}{37}{subsubsection.4.15.3.9}
-\contentsline {subsubsection}{\numberline {4.15.3.10}NextSiblingElement}{38}{subsubsection.4.15.3.10}
-\contentsline {subsubsection}{\numberline {4.15.3.11}NextSiblingElement}{38}{subsubsection.4.15.3.11}
-\contentsline {subsubsection}{\numberline {4.15.3.12}ReplaceChild}{38}{subsubsection.4.15.3.12}
-\contentsline {subsubsection}{\numberline {4.15.3.13}SetValue}{38}{subsubsection.4.15.3.13}
-\contentsline {subsubsection}{\numberline {4.15.3.14}Type}{38}{subsubsection.4.15.3.14}
-\contentsline {subsubsection}{\numberline {4.15.3.15}Value}{38}{subsubsection.4.15.3.15}
-\contentsline {section}{\numberline {4.16}TiXmlOutStream Class Reference}{39}{section.4.16}
-\contentsline {section}{\numberline {4.17}TiXmlParsingData Class Reference}{39}{section.4.17}
-\contentsline {section}{\numberline {4.18}TiXmlPrinter Class Reference}{39}{section.4.18}
-\contentsline {subsection}{\numberline {4.18.1}Detailed Description}{40}{subsection.4.18.1}
-\contentsline {subsection}{\numberline {4.18.2}Member Function Documentation}{41}{subsection.4.18.2}
-\contentsline {subsubsection}{\numberline {4.18.2.1}SetIndent}{41}{subsubsection.4.18.2.1}
-\contentsline {subsubsection}{\numberline {4.18.2.2}SetLineBreak}{41}{subsubsection.4.18.2.2}
-\contentsline {subsubsection}{\numberline {4.18.2.3}SetStreamPrinting}{41}{subsubsection.4.18.2.3}
-\contentsline {section}{\numberline {4.19}TiXmlString Class Reference}{41}{section.4.19}
-\contentsline {section}{\numberline {4.20}TiXmlText Class Reference}{43}{section.4.20}
-\contentsline {subsection}{\numberline {4.20.1}Detailed Description}{44}{subsection.4.20.1}
-\contentsline {subsection}{\numberline {4.20.2}Constructor \& Destructor Documentation}{44}{subsection.4.20.2}
-\contentsline {subsubsection}{\numberline {4.20.2.1}TiXmlText}{44}{subsubsection.4.20.2.1}
-\contentsline {subsection}{\numberline {4.20.3}Member Function Documentation}{44}{subsection.4.20.3}
-\contentsline {subsubsection}{\numberline {4.20.3.1}Accept}{44}{subsubsection.4.20.3.1}
-\contentsline {subsubsection}{\numberline {4.20.3.2}Print}{44}{subsubsection.4.20.3.2}
-\contentsline {section}{\numberline {4.21}TiXmlUnknown Class Reference}{44}{section.4.21}
-\contentsline {subsection}{\numberline {4.21.1}Detailed Description}{45}{subsection.4.21.1}
-\contentsline {subsection}{\numberline {4.21.2}Member Function Documentation}{45}{subsection.4.21.2}
-\contentsline {subsubsection}{\numberline {4.21.2.1}Accept}{45}{subsubsection.4.21.2.1}
-\contentsline {subsubsection}{\numberline {4.21.2.2}Print}{46}{subsubsection.4.21.2.2}
-\contentsline {section}{\numberline {4.22}TiXmlVisitor Class Reference}{46}{section.4.22}
-\contentsline {subsection}{\numberline {4.22.1}Detailed Description}{47}{subsection.4.22.1}
-\contentsline {section}{\numberline {4.23}World Class Reference}{47}{section.4.23}
+\contentsline {chapter}{\numberline {1}\discretionary {-}{}{}Documentation for the txt\discretionary {-}{}{}Engine \discretionary {-}{}{}Project}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}\discretionary {-}{}{}Date Updated\discretionary {-}{}{}:}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}\discretionary {-}{}{}What is txt\discretionary {-}{}{}Engine?}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}\discretionary {-}{}{}Links\discretionary {-}{}{}:}{1}{section.1.3}
+\contentsline {section}{\numberline {1.4}\discretionary {-}{}{}Report Bugs\discretionary {-}{}{}:}{1}{section.1.4}
+\contentsline {section}{\numberline {1.5}\discretionary {-}{}{}Authors\discretionary {-}{}{}:}{2}{section.1.5}
+\contentsline {chapter}{\numberline {2}\discretionary {-}{}{}Class \discretionary {-}{}{}Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}\discretionary {-}{}{}Class \discretionary {-}{}{}List}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}\discretionary {-}{}{}File \discretionary {-}{}{}Index}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}\discretionary {-}{}{}File \discretionary {-}{}{}List}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}\discretionary {-}{}{}Class \discretionary {-}{}{}Documentation}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}\discretionary {-}{}{}Area \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{7}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{8}{subsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.1.1}\discretionary {-}{}{}Area}{8}{subsubsection.4.1.1.1}
+\contentsline {subsubsection}{\numberline {4.1.1.2}$\sim $\discretionary {-}{}{}Area}{8}{subsubsection.4.1.1.2}
+\contentsline {subsection}{\numberline {4.1.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{8}{subsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}add\discretionary {-}{}{}\_\discretionary {-}{}{}command}{8}{subsubsection.4.1.2.1}
+\contentsline {subsubsection}{\numberline {4.1.2.2}add\discretionary {-}{}{}\_\discretionary {-}{}{}description}{8}{subsubsection.4.1.2.2}
+\contentsline {subsubsection}{\numberline {4.1.2.3}add\discretionary {-}{}{}\_\discretionary {-}{}{}item}{9}{subsubsection.4.1.2.3}
+\contentsline {subsubsection}{\numberline {4.1.2.4}get\discretionary {-}{}{}\_\discretionary {-}{}{}command}{9}{subsubsection.4.1.2.4}
+\contentsline {subsubsection}{\numberline {4.1.2.5}get\discretionary {-}{}{}\_\discretionary {-}{}{}description}{9}{subsubsection.4.1.2.5}
+\contentsline {subsubsection}{\numberline {4.1.2.6}get\discretionary {-}{}{}\_\discretionary {-}{}{}descriptor}{9}{subsubsection.4.1.2.6}
+\contentsline {subsubsection}{\numberline {4.1.2.7}get\discretionary {-}{}{}\_\discretionary {-}{}{}id}{9}{subsubsection.4.1.2.7}
+\contentsline {subsubsection}{\numberline {4.1.2.8}get\discretionary {-}{}{}\_\discretionary {-}{}{}item}{10}{subsubsection.4.1.2.8}
+\contentsline {subsubsection}{\numberline {4.1.2.9}get\discretionary {-}{}{}\_\discretionary {-}{}{}item}{10}{subsubsection.4.1.2.9}
+\contentsline {subsubsection}{\numberline {4.1.2.10}get\discretionary {-}{}{}\_\discretionary {-}{}{}num\discretionary {-}{}{}\_\discretionary {-}{}{}commands}{10}{subsubsection.4.1.2.10}
+\contentsline {subsubsection}{\numberline {4.1.2.11}get\discretionary {-}{}{}\_\discretionary {-}{}{}num\discretionary {-}{}{}\_\discretionary {-}{}{}descriptions}{10}{subsubsection.4.1.2.11}
+\contentsline {subsubsection}{\numberline {4.1.2.12}get\discretionary {-}{}{}\_\discretionary {-}{}{}num\discretionary {-}{}{}\_\discretionary {-}{}{}items}{11}{subsubsection.4.1.2.12}
+\contentsline {subsubsection}{\numberline {4.1.2.13}get\discretionary {-}{}{}\_\discretionary {-}{}{}status}{11}{subsubsection.4.1.2.13}
+\contentsline {subsubsection}{\numberline {4.1.2.14}has\discretionary {-}{}{}\_\discretionary {-}{}{}command}{11}{subsubsection.4.1.2.14}
+\contentsline {subsubsection}{\numberline {4.1.2.15}has\discretionary {-}{}{}\_\discretionary {-}{}{}current\discretionary {-}{}{}\_\discretionary {-}{}{}desc}{11}{subsubsection.4.1.2.15}
+\contentsline {subsubsection}{\numberline {4.1.2.16}has\discretionary {-}{}{}\_\discretionary {-}{}{}description}{11}{subsubsection.4.1.2.16}
+\contentsline {subsubsection}{\numberline {4.1.2.17}has\discretionary {-}{}{}\_\discretionary {-}{}{}item}{12}{subsubsection.4.1.2.17}
+\contentsline {subsubsection}{\numberline {4.1.2.18}remove\discretionary {-}{}{}\_\discretionary {-}{}{}item}{12}{subsubsection.4.1.2.18}
+\contentsline {subsubsection}{\numberline {4.1.2.19}remove\discretionary {-}{}{}\_\discretionary {-}{}{}item}{12}{subsubsection.4.1.2.19}
+\contentsline {subsubsection}{\numberline {4.1.2.20}unlock}{12}{subsubsection.4.1.2.20}
+\contentsline {section}{\numberline {4.2}\discretionary {-}{}{}Area\discretionary {-}{}{}Command \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{13}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{13}{subsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.1.1}\discretionary {-}{}{}Area\discretionary {-}{}{}Command}{13}{subsubsection.4.2.1.1}
+\contentsline {subsubsection}{\numberline {4.2.1.2}$\sim $\discretionary {-}{}{}Area\discretionary {-}{}{}Command}{14}{subsubsection.4.2.1.2}
+\contentsline {subsection}{\numberline {4.2.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{14}{subsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.2.1}find}{14}{subsubsection.4.2.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}area}{14}{subsubsection.4.2.2.2}
+\contentsline {subsubsection}{\numberline {4.2.2.3}get\discretionary {-}{}{}\_\discretionary {-}{}{}depends}{14}{subsubsection.4.2.2.3}
+\contentsline {subsubsection}{\numberline {4.2.2.4}get\discretionary {-}{}{}\_\discretionary {-}{}{}message}{15}{subsubsection.4.2.2.4}
+\contentsline {subsubsection}{\numberline {4.2.2.5}get\discretionary {-}{}{}\_\discretionary {-}{}{}name}{15}{subsubsection.4.2.2.5}
+\contentsline {subsubsection}{\numberline {4.2.2.6}get\discretionary {-}{}{}\_\discretionary {-}{}{}status}{15}{subsubsection.4.2.2.6}
+\contentsline {subsubsection}{\numberline {4.2.2.7}has\discretionary {-}{}{}\_\discretionary {-}{}{}synonym}{15}{subsubsection.4.2.2.7}
+\contentsline {subsubsection}{\numberline {4.2.2.8}is\discretionary {-}{}{}\_\discretionary {-}{}{}locked}{15}{subsubsection.4.2.2.8}
+\contentsline {subsubsection}{\numberline {4.2.2.9}set\discretionary {-}{}{}\_\discretionary {-}{}{}message}{16}{subsubsection.4.2.2.9}
+\contentsline {subsubsection}{\numberline {4.2.2.10}unlock}{16}{subsubsection.4.2.2.10}
+\contentsline {section}{\numberline {4.3}combine \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{16}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{16}{subsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.1.1}combine}{16}{subsubsection.4.3.1.1}
+\contentsline {subsubsection}{\numberline {4.3.1.2}$\sim $combine}{17}{subsubsection.4.3.1.2}
+\contentsline {subsection}{\numberline {4.3.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{17}{subsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.2.1}get\discretionary {-}{}{}\_\discretionary {-}{}{}combination}{17}{subsubsection.4.3.2.1}
+\contentsline {subsubsection}{\numberline {4.3.2.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}description}{17}{subsubsection.4.3.2.2}
+\contentsline {subsubsection}{\numberline {4.3.2.3}get\discretionary {-}{}{}\_\discretionary {-}{}{}first\discretionary {-}{}{}\_\discretionary {-}{}{}id}{17}{subsubsection.4.3.2.3}
+\contentsline {subsubsection}{\numberline {4.3.2.4}get\discretionary {-}{}{}\_\discretionary {-}{}{}id}{18}{subsubsection.4.3.2.4}
+\contentsline {subsubsection}{\numberline {4.3.2.5}get\discretionary {-}{}{}\_\discretionary {-}{}{}second\discretionary {-}{}{}\_\discretionary {-}{}{}id}{18}{subsubsection.4.3.2.5}
+\contentsline {subsubsection}{\numberline {4.3.2.6}set\discretionary {-}{}{}\_\discretionary {-}{}{}combination}{19}{subsubsection.4.3.2.6}
+\contentsline {subsubsection}{\numberline {4.3.2.7}set\discretionary {-}{}{}\_\discretionary {-}{}{}description}{19}{subsubsection.4.3.2.7}
+\contentsline {section}{\numberline {4.4}\discretionary {-}{}{}Item \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{19}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{21}{subsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.1.1}\discretionary {-}{}{}Item}{21}{subsubsection.4.4.1.1}
+\contentsline {subsubsection}{\numberline {4.4.1.2}$\sim $\discretionary {-}{}{}Item}{21}{subsubsection.4.4.1.2}
+\contentsline {subsection}{\numberline {4.4.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{21}{subsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.2.1}add\discretionary {-}{}{}\_\discretionary {-}{}{}command}{21}{subsubsection.4.4.2.1}
+\contentsline {subsubsection}{\numberline {4.4.2.2}add\discretionary {-}{}{}\_\discretionary {-}{}{}description}{21}{subsubsection.4.4.2.2}
+\contentsline {subsubsection}{\numberline {4.4.2.3}add\discretionary {-}{}{}\_\discretionary {-}{}{}item}{21}{subsubsection.4.4.2.3}
+\contentsline {subsubsection}{\numberline {4.4.2.4}change\discretionary {-}{}{}\_\discretionary {-}{}{}collectable}{22}{subsubsection.4.4.2.4}
+\contentsline {subsubsection}{\numberline {4.4.2.5}flip\discretionary {-}{}{}\_\discretionary {-}{}{}locked}{22}{subsubsection.4.4.2.5}
+\contentsline {subsubsection}{\numberline {4.4.2.6}get\discretionary {-}{}{}\_\discretionary {-}{}{}combine}{22}{subsubsection.4.4.2.6}
+\contentsline {subsubsection}{\numberline {4.4.2.7}get\discretionary {-}{}{}\_\discretionary {-}{}{}command}{22}{subsubsection.4.4.2.7}
+\contentsline {subsubsection}{\numberline {4.4.2.8}get\discretionary {-}{}{}\_\discretionary {-}{}{}command}{22}{subsubsection.4.4.2.8}
+\contentsline {subsubsection}{\numberline {4.4.2.9}get\discretionary {-}{}{}\_\discretionary {-}{}{}depends}{23}{subsubsection.4.4.2.9}
+\contentsline {subsubsection}{\numberline {4.4.2.10}get\discretionary {-}{}{}\_\discretionary {-}{}{}description}{23}{subsubsection.4.4.2.10}
+\contentsline {subsubsection}{\numberline {4.4.2.11}get\discretionary {-}{}{}\_\discretionary {-}{}{}descriptor}{23}{subsubsection.4.4.2.11}
+\contentsline {subsubsection}{\numberline {4.4.2.12}get\discretionary {-}{}{}\_\discretionary {-}{}{}id}{23}{subsubsection.4.4.2.12}
+\contentsline {subsubsection}{\numberline {4.4.2.13}get\discretionary {-}{}{}\_\discretionary {-}{}{}item}{23}{subsubsection.4.4.2.13}
+\contentsline {subsubsection}{\numberline {4.4.2.14}get\discretionary {-}{}{}\_\discretionary {-}{}{}num\discretionary {-}{}{}\_\discretionary {-}{}{}commands}{24}{subsubsection.4.4.2.14}
+\contentsline {subsubsection}{\numberline {4.4.2.15}get\discretionary {-}{}{}\_\discretionary {-}{}{}num\discretionary {-}{}{}\_\discretionary {-}{}{}descriptions}{24}{subsubsection.4.4.2.15}
+\contentsline {subsubsection}{\numberline {4.4.2.16}has\discretionary {-}{}{}\_\discretionary {-}{}{}combine}{24}{subsubsection.4.4.2.16}
+\contentsline {subsubsection}{\numberline {4.4.2.17}has\discretionary {-}{}{}\_\discretionary {-}{}{}container}{24}{subsubsection.4.4.2.17}
+\contentsline {subsubsection}{\numberline {4.4.2.18}has\discretionary {-}{}{}\_\discretionary {-}{}{}current\discretionary {-}{}{}\_\discretionary {-}{}{}desc}{24}{subsubsection.4.4.2.18}
+\contentsline {subsubsection}{\numberline {4.4.2.19}has\discretionary {-}{}{}\_\discretionary {-}{}{}description}{25}{subsubsection.4.4.2.19}
+\contentsline {subsubsection}{\numberline {4.4.2.20}has\discretionary {-}{}{}\_\discretionary {-}{}{}synonym}{25}{subsubsection.4.4.2.20}
+\contentsline {subsubsection}{\numberline {4.4.2.21}is\discretionary {-}{}{}\_\discretionary {-}{}{}collectable}{25}{subsubsection.4.4.2.21}
+\contentsline {subsubsection}{\numberline {4.4.2.22}is\discretionary {-}{}{}\_\discretionary {-}{}{}locked}{25}{subsubsection.4.4.2.22}
+\contentsline {subsubsection}{\numberline {4.4.2.23}print\discretionary {-}{}{}\_\discretionary {-}{}{}contained\discretionary {-}{}{}\_\discretionary {-}{}{}items}{25}{subsubsection.4.4.2.23}
+\contentsline {subsubsection}{\numberline {4.4.2.24}remove\discretionary {-}{}{}\_\discretionary {-}{}{}item}{26}{subsubsection.4.4.2.24}
+\contentsline {subsubsection}{\numberline {4.4.2.25}set\discretionary {-}{}{}\_\discretionary {-}{}{}combine}{26}{subsubsection.4.4.2.25}
+\contentsline {subsubsection}{\numberline {4.4.2.26}state\discretionary {-}{}{}\_\discretionary {-}{}{}change}{26}{subsubsection.4.4.2.26}
+\contentsline {section}{\numberline {4.5}\discretionary {-}{}{}Item\discretionary {-}{}{}Command \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{26}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{27}{subsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.1.1}check\discretionary {-}{}{}\_\discretionary {-}{}{}synonyms}{27}{subsubsection.4.5.1.1}
+\contentsline {subsubsection}{\numberline {4.5.1.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}area\discretionary {-}{}{}\_\discretionary {-}{}{}change}{27}{subsubsection.4.5.1.2}
+\contentsline {subsubsection}{\numberline {4.5.1.3}get\discretionary {-}{}{}\_\discretionary {-}{}{}change\discretionary {-}{}{}\_\discretionary {-}{}{}collect}{28}{subsubsection.4.5.1.3}
+\contentsline {subsubsection}{\numberline {4.5.1.4}get\discretionary {-}{}{}\_\discretionary {-}{}{}collect\discretionary {-}{}{}\_\discretionary {-}{}{}dependent}{28}{subsubsection.4.5.1.4}
+\contentsline {subsubsection}{\numberline {4.5.1.5}get\discretionary {-}{}{}\_\discretionary {-}{}{}depends}{29}{subsubsection.4.5.1.5}
+\contentsline {subsubsection}{\numberline {4.5.1.6}get\discretionary {-}{}{}\_\discretionary {-}{}{}message}{29}{subsubsection.4.5.1.6}
+\contentsline {subsubsection}{\numberline {4.5.1.7}get\discretionary {-}{}{}\_\discretionary {-}{}{}name}{29}{subsubsection.4.5.1.7}
+\contentsline {subsubsection}{\numberline {4.5.1.8}get\discretionary {-}{}{}\_\discretionary {-}{}{}state\discretionary {-}{}{}\_\discretionary {-}{}{}change}{30}{subsubsection.4.5.1.8}
+\contentsline {subsubsection}{\numberline {4.5.1.9}get\discretionary {-}{}{}\_\discretionary {-}{}{}status}{30}{subsubsection.4.5.1.9}
+\contentsline {subsubsection}{\numberline {4.5.1.10}set\discretionary {-}{}{}\_\discretionary {-}{}{}message}{30}{subsubsection.4.5.1.10}
+\contentsline {section}{\numberline {4.6}\discretionary {-}{}{}State\discretionary {-}{}{}Descriptor \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{31}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{31}{subsection.4.6.1}
+\contentsline {subsubsection}{\numberline {4.6.1.1}\discretionary {-}{}{}State\discretionary {-}{}{}Descriptor}{31}{subsubsection.4.6.1.1}
+\contentsline {subsubsection}{\numberline {4.6.1.2}$\sim $\discretionary {-}{}{}State\discretionary {-}{}{}Descriptor}{32}{subsubsection.4.6.1.2}
+\contentsline {subsection}{\numberline {4.6.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{32}{subsection.4.6.2}
+\contentsline {subsubsection}{\numberline {4.6.2.1}get\discretionary {-}{}{}\_\discretionary {-}{}{}description}{32}{subsubsection.4.6.2.1}
+\contentsline {subsubsection}{\numberline {4.6.2.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}id}{32}{subsubsection.4.6.2.2}
+\contentsline {subsubsection}{\numberline {4.6.2.3}set\discretionary {-}{}{}\_\discretionary {-}{}{}description}{33}{subsubsection.4.6.2.3}
+\contentsline {section}{\numberline {4.7}\discretionary {-}{}{}World \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{33}{section.4.7}
+\contentsline {subsection}{\numberline {4.7.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{34}{subsection.4.7.1}
+\contentsline {subsubsection}{\numberline {4.7.1.1}$\sim $\discretionary {-}{}{}World}{34}{subsubsection.4.7.1.1}
+\contentsline {subsection}{\numberline {4.7.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{34}{subsection.4.7.2}
+\contentsline {subsubsection}{\numberline {4.7.2.1}get\discretionary {-}{}{}\_\discretionary {-}{}{}active\discretionary {-}{}{}\_\discretionary {-}{}{}area}{34}{subsubsection.4.7.2.1}
+\contentsline {subsubsection}{\numberline {4.7.2.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}author}{35}{subsubsection.4.7.2.2}
+\contentsline {subsubsection}{\numberline {4.7.2.3}get\discretionary {-}{}{}\_\discretionary {-}{}{}language}{35}{subsubsection.4.7.2.3}
+\contentsline {chapter}{\numberline {5}\discretionary {-}{}{}File \discretionary {-}{}{}Documentation}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/\discretionary {-}{}{}Area.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{37}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{37}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/\discretionary {-}{}{}Area.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{37}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{38}{subsection.5.2.1}
+\contentsline {section}{\numberline {5.3}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/\discretionary {-}{}{}Area\discretionary {-}{}{}Command.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{38}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{38}{subsection.5.3.1}
+\contentsline {section}{\numberline {5.4}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/\discretionary {-}{}{}Area\discretionary {-}{}{}Command.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{38}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{39}{subsection.5.4.1}
+\contentsline {section}{\numberline {5.5}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/combine.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{39}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{39}{subsection.5.5.1}
+\contentsline {section}{\numberline {5.6}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/combine.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{40}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{40}{subsection.5.6.1}
+\contentsline {section}{\numberline {5.7}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/\discretionary {-}{}{}Constants.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{40}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{41}{subsection.5.7.1}
+\contentsline {section}{\numberline {5.8}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/\discretionary {-}{}{}Item.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{41}{section.5.8}
+\contentsline {subsection}{\numberline {5.8.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{42}{subsection.5.8.1}
+\contentsline {section}{\numberline {5.9}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/\discretionary {-}{}{}Item.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{42}{section.5.9}
+\contentsline {subsection}{\numberline {5.9.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{42}{subsection.5.9.1}
+\contentsline {section}{\numberline {5.10}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/\discretionary {-}{}{}Item\discretionary {-}{}{}Command.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{42}{section.5.10}
+\contentsline {subsection}{\numberline {5.10.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{43}{subsection.5.10.1}
+\contentsline {section}{\numberline {5.11}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/\discretionary {-}{}{}Item\discretionary {-}{}{}Command.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{43}{section.5.11}
+\contentsline {subsection}{\numberline {5.11.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{43}{subsection.5.11.1}
+\contentsline {section}{\numberline {5.12}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/main.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{44}{section.5.12}
+\contentsline {subsection}{\numberline {5.12.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{44}{subsection.5.12.1}
+\contentsline {subsection}{\numberline {5.12.2}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{45}{subsection.5.12.2}
+\contentsline {subsubsection}{\numberline {5.12.2.1}input\discretionary {-}{}{}\_\discretionary {-}{}{}filter}{45}{subsubsection.5.12.2.1}
+\contentsline {subsubsection}{\numberline {5.12.2.2}load\discretionary {-}{}{}\_\discretionary {-}{}{}game}{45}{subsubsection.5.12.2.2}
+\contentsline {subsubsection}{\numberline {5.12.2.3}one\discretionary {-}{}{}\_\discretionary {-}{}{}word\discretionary {-}{}{}\_\discretionary {-}{}{}command}{45}{subsubsection.5.12.2.3}
+\contentsline {subsubsection}{\numberline {5.12.2.4}print\discretionary {-}{}{}\_\discretionary {-}{}{}inventory}{46}{subsubsection.5.12.2.4}
+\contentsline {subsubsection}{\numberline {5.12.2.5}print\discretionary {-}{}{}\_\discretionary {-}{}{}world\discretionary {-}{}{}\_\discretionary {-}{}{}tree}{46}{subsubsection.5.12.2.5}
+\contentsline {subsubsection}{\numberline {5.12.2.6}read\discretionary {-}{}{}\_\discretionary {-}{}{}filter\discretionary {-}{}{}\_\discretionary {-}{}{}list}{46}{subsubsection.5.12.2.6}
+\contentsline {subsubsection}{\numberline {5.12.2.7}read\discretionary {-}{}{}\_\discretionary {-}{}{}filter\discretionary {-}{}{}\_\discretionary {-}{}{}list}{46}{subsubsection.5.12.2.7}
+\contentsline {subsubsection}{\numberline {5.12.2.8}save\discretionary {-}{}{}\_\discretionary {-}{}{}game}{46}{subsubsection.5.12.2.8}
+\contentsline {subsubsection}{\numberline {5.12.2.9}three\discretionary {-}{}{}\_\discretionary {-}{}{}word\discretionary {-}{}{}\_\discretionary {-}{}{}command}{46}{subsubsection.5.12.2.9}
+\contentsline {subsubsection}{\numberline {5.12.2.10}two\discretionary {-}{}{}\_\discretionary {-}{}{}word\discretionary {-}{}{}\_\discretionary {-}{}{}command}{47}{subsubsection.5.12.2.10}
+\contentsline {subsubsection}{\numberline {5.12.2.11}word\discretionary {-}{}{}\_\discretionary {-}{}{}wrap}{47}{subsubsection.5.12.2.11}
+\contentsline {section}{\numberline {5.13}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/parser.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{47}{section.5.13}
+\contentsline {subsection}{\numberline {5.13.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{48}{subsection.5.13.1}
+\contentsline {subsection}{\numberline {5.13.2}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{48}{subsection.5.13.2}
+\contentsline {subsubsection}{\numberline {5.13.2.1}error\discretionary {-}{}{}\_\discretionary {-}{}{}parsing}{48}{subsubsection.5.13.2.1}
+\contentsline {subsubsection}{\numberline {5.13.2.2}make\discretionary {-}{}{}\_\discretionary {-}{}{}area}{49}{subsubsection.5.13.2.2}
+\contentsline {subsubsection}{\numberline {5.13.2.3}make\discretionary {-}{}{}\_\discretionary {-}{}{}area\discretionary {-}{}{}\_\discretionary {-}{}{}command}{49}{subsubsection.5.13.2.3}
+\contentsline {subsubsection}{\numberline {5.13.2.4}make\discretionary {-}{}{}\_\discretionary {-}{}{}item\discretionary {-}{}{}\_\discretionary {-}{}{}command}{50}{subsubsection.5.13.2.4}
+\contentsline {subsubsection}{\numberline {5.13.2.5}make\discretionary {-}{}{}\_\discretionary {-}{}{}objects}{50}{subsubsection.5.13.2.5}
+\contentsline {subsubsection}{\numberline {5.13.2.6}make\discretionary {-}{}{}\_\discretionary {-}{}{}state\discretionary {-}{}{}\_\discretionary {-}{}{}descriptor}{50}{subsubsection.5.13.2.6}
+\contentsline {subsubsection}{\numberline {5.13.2.7}make\discretionary {-}{}{}\_\discretionary {-}{}{}world}{51}{subsubsection.5.13.2.7}
+\contentsline {subsubsection}{\numberline {5.13.2.8}read\discretionary {-}{}{}\_\discretionary {-}{}{}file}{51}{subsubsection.5.13.2.8}
+\contentsline {section}{\numberline {5.14}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/parser.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{52}{section.5.14}
+\contentsline {subsection}{\numberline {5.14.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{52}{subsection.5.14.1}
+\contentsline {subsection}{\numberline {5.14.2}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{53}{subsection.5.14.2}
+\contentsline {subsubsection}{\numberline {5.14.2.1}error\discretionary {-}{}{}\_\discretionary {-}{}{}parsing}{53}{subsubsection.5.14.2.1}
+\contentsline {subsubsection}{\numberline {5.14.2.2}make\discretionary {-}{}{}\_\discretionary {-}{}{}area}{53}{subsubsection.5.14.2.2}
+\contentsline {subsubsection}{\numberline {5.14.2.3}make\discretionary {-}{}{}\_\discretionary {-}{}{}area\discretionary {-}{}{}\_\discretionary {-}{}{}command}{53}{subsubsection.5.14.2.3}
+\contentsline {subsubsection}{\numberline {5.14.2.4}make\discretionary {-}{}{}\_\discretionary {-}{}{}item\discretionary {-}{}{}\_\discretionary {-}{}{}command}{54}{subsubsection.5.14.2.4}
+\contentsline {subsubsection}{\numberline {5.14.2.5}make\discretionary {-}{}{}\_\discretionary {-}{}{}objects}{54}{subsubsection.5.14.2.5}
+\contentsline {subsubsection}{\numberline {5.14.2.6}make\discretionary {-}{}{}\_\discretionary {-}{}{}state\discretionary {-}{}{}\_\discretionary {-}{}{}descriptor}{55}{subsubsection.5.14.2.6}
+\contentsline {subsubsection}{\numberline {5.14.2.7}make\discretionary {-}{}{}\_\discretionary {-}{}{}world}{55}{subsubsection.5.14.2.7}
+\contentsline {subsubsection}{\numberline {5.14.2.8}read\discretionary {-}{}{}\_\discretionary {-}{}{}file}{55}{subsubsection.5.14.2.8}
+\contentsline {section}{\numberline {5.15}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/\discretionary {-}{}{}State\discretionary {-}{}{}Descriptor.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{56}{section.5.15}
+\contentsline {subsection}{\numberline {5.15.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{56}{subsection.5.15.1}
+\contentsline {section}{\numberline {5.16}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/\discretionary {-}{}{}State\discretionary {-}{}{}Descriptor.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{56}{section.5.16}
+\contentsline {subsection}{\numberline {5.16.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{56}{subsection.5.16.1}
+\contentsline {section}{\numberline {5.17}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/\discretionary {-}{}{}World.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{57}{section.5.17}
+\contentsline {subsection}{\numberline {5.17.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{57}{subsection.5.17.1}
+\contentsline {section}{\numberline {5.18}/home/cshome/m/mabrams/345/txt\discretionary {-}{}{}Engine/\discretionary {-}{}{}World.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{57}{section.5.18}
+\contentsline {subsection}{\numberline {5.18.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{58}{subsection.5.18.1}
