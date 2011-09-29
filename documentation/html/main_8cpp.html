@@ -6,9 +6,14 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -24,12 +29,14 @@
  <tbody>
  <tr style="height: 56px;">
   
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">txtEngine
    &#160;<span id="projectnumber">v4.0</span>
    </div>
-   
+   <div id="projectbrief">A Text Adventure Language Implementation</div>
   </td>
   
   
@@ -73,6 +80,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('main_8cpp.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a> &#124;
@@ -105,29 +125,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a49bc6a99aec6057c90704d156828f768">print_inventory</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a76854ad6d49ea67c89cc36d45dc6d5f9">word_wrap</a> (std::string input_string)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a375accd99cb784704a708e4a3c20e2be">print_world_tree</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ab7a3b4a2f1b227a103c8fe5c79779bfc">load_game</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a080f5ef7e7f8a73a4e49e5ea040391c3">save_game</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a38302911b14bffa078921d2bf3760e63">load</a> (char *const file)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a993239dd1ea5b81c9bf332a1fec35798">save</a> (char *const file)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a4872b17f4ae9b5f4bc6f4edf84cbaf90">input_filter</a> (std::string input_string)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a7a521022440460f394f76c6faeede846">read_filter_list</a> (std::string str)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac6f1ba000217f4225d8b8a9257134bf"></a><!-- doxytag: member="main.cpp::process_input" ref="aac6f1ba000217f4225d8b8a9257134bf" args="(std::string to_process, bool load)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>process_input</b> (std::string to_process, bool load)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38302911b14bffa078921d2bf3760e63"></a><!-- doxytag: member="main.cpp::load" ref="a38302911b14bffa078921d2bf3760e63" args="(char *const file)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (char *const file)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aac6f1ba000217f4225d8b8a9257134bf">process_input</a> (std::string to_process, bool load)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae7d6d3b42473462bb8393562b6d8b597">read_filter_list</a> (const char *file)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a><!-- doxytag: member="main.cpp::main" ref="a3c04138a5bfe5d72780bb7e82a18e627" args="(int argc, char **argv)" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, char **argv)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a63b0477801507022813544b97ad16d3f">get_all_area_commands</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a1c1802834e6c5ce287c4739896b626d0">valid_item_command_inv</a> (<a class="el" href="class_item.html">Item</a> *temp_item, int item)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a57cef49fd47fd70cac47fec53f67de02">valid_item_command_area</a> (<a class="el" href="class_item.html">Item</a> *temp_item, int items)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae6233847923348a5774175a568187207">get_all_item_commands</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ab7fcf68261b32de6ac9464c82d7c6763">external_output</a> (std::string command)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38026b801fec560c0322d4e5b6cab8be"></a><!-- doxytag: member="main.cpp::world" ref="a38026b801fec560c0322d4e5b6cab8be" args="" -->
-<a class="el" href="class_world.html">World</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>world</b></td></tr>
+<a class="el" href="class_world.html">World</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a38026b801fec560c0322d4e5b6cab8be">world</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The world object. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a217b738e11033b8ebfb179f8c7e72e1f"></a><!-- doxytag: member="main.cpp::game_over" ref="a217b738e11033b8ebfb179f8c7e72e1f" args="" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>game_over</b> = false</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a217b738e11033b8ebfb179f8c7e72e1f">game_over</a> = false</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag to end a game. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae78162cab0d48cc5e46307ccb20bf12"></a><!-- doxytag: member="main.cpp::commandList" ref="aae78162cab0d48cc5e46307ccb20bf12" args="" -->
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>commandList</b></td></tr>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aae78162cab0d48cc5e46307ccb20bf12">commandList</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">List of commands used. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78e5f93c25774ed2075a6380fc56d57c"></a><!-- doxytag: member="main.cpp::filterList" ref="a78e5f93c25774ed2075a6380fc56d57c" args="" -->
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>filterList</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeeef66d827efd93a89631e9c5da5a308"></a><!-- doxytag: member="main.cpp::save" ref="aeeef66d827efd93a89631e9c5da5a308" args="" -->
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>save</b></td></tr>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a78e5f93c25774ed2075a6380fc56d57c">filterList</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">List of words to filter from input. <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>The main file for txtEngine. </p>
@@ -144,6 +167,66 @@ Tatai Nikora </dd></dl>
 <dl class="version"><dt><b>Version:</b></dt><dd>0.3 </dd></dl>
 <dl class="remark"><dt><b>Remarks:</b></dt><dd>Parser code is freely distributed TinyXML library </dd></dl>
 </div><hr/><h2>Function Documentation</h2>
+<a class="anchor" id="ab7fcf68261b32de6ac9464c82d7c6763"></a><!-- doxytag: member="main.cpp::external_output" ref="ab7fcf68261b32de6ac9464c82d7c6763" args="(std::string command)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void external_output </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>External output method used by web interface.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">command</td><td>Input commands to be processed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a63b0477801507022813544b97ad16d3f"></a><!-- doxytag: member="main.cpp::get_all_area_commands" ref="a63b0477801507022813544b97ad16d3f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string get_all_area_commands </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Get all of the area commands for the current area.</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A string containing all of the area commands. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae6233847923348a5774175a568187207"></a><!-- doxytag: member="main.cpp::get_all_item_commands" ref="ae6233847923348a5774175a568187207" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string get_all_item_commands </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Reads words from a specified file into the filterList vector.</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A string of a file path to a list of words to ignore. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a4872b17f4ae9b5f4bc6f4edf84cbaf90"></a><!-- doxytag: member="main.cpp::input_filter" ref="a4872b17f4ae9b5f4bc6f4edf84cbaf90" args="(std::string input_string)" -->
 <div class="memitem">
 <div class="memproto">
@@ -169,20 +252,57 @@ Tatai Nikora </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ab7a3b4a2f1b227a103c8fe5c79779bfc"></a><!-- doxytag: member="main.cpp::load_game" ref="ab7a3b4a2f1b227a103c8fe5c79779bfc" args="()" -->
+<a class="anchor" id="a38302911b14bffa078921d2bf3760e63"></a><!-- doxytag: member="main.cpp::load" ref="a38302911b14bffa078921d2bf3760e63" args="(char *const file)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void load_game </td>
+          <td class="memname">void load </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">char *const&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <p>Loads a game from a .sav file. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a><!-- doxytag: member="main.cpp::main" ref="a3c04138a5bfe5d72780bb7e82a18e627" args="(int argc, char **argv)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The main method of the program.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">argc</td><td>The number of command line args. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">argv</td><td>Char* array of command line args. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>An integer. </dd></dl>
 
 </div>
 </div>
@@ -246,6 +366,41 @@ Tatai Nikora </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="aac6f1ba000217f4225d8b8a9257134bf"></a><!-- doxytag: member="main.cpp::process_input" ref="aac6f1ba000217f4225d8b8a9257134bf" args="(std::string to_process, bool load)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void process_input </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>to_process</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>load</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Processes input and calls the appropriate method for the number of words in the command. Commands are stored in the commandList and if too many words are in the string a feedback message is output. If the game is in load mode then no output is displayed.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">to_process</td><td>An input string to process. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">load</td><td>A flag for whether the game is in load mode. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a7a521022440460f394f76c6faeede846"></a><!-- doxytag: member="main.cpp::read_filter_list" ref="a7a521022440460f394f76c6faeede846" args="(std::string str)" -->
 <div class="memitem">
 <div class="memproto">
@@ -284,18 +439,25 @@ Tatai Nikora </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>Reads in words from file to filterList vector. </p>
+<p>Reads words from a specified file into the filterList vector.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">file</td><td>A char array - the file path to a list of words to ignore. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="a080f5ef7e7f8a73a4e49e5ea040391c3"></a><!-- doxytag: member="main.cpp::save_game" ref="a080f5ef7e7f8a73a4e49e5ea040391c3" args="()" -->
+<a class="anchor" id="a993239dd1ea5b81c9bf332a1fec35798"></a><!-- doxytag: member="main.cpp::save" ref="a993239dd1ea5b81c9bf332a1fec35798" args="(char *const file)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void save_game </td>
+          <td class="memname">void save </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">char *const&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -319,17 +481,14 @@ Tatai Nikora </dd></dl>
       </table>
 </div>
 <div class="memdoc">
-<p>Write description of function here. The function should follow these comments. Use of "brief" tag is optional. (no point to it)</p>
-<p>The function arguments listed with "param" will be compared to the declaration and verified.</p>
+<p>A method for handling three word commands. For example: combine pen paper.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_inArg1</td><td>Description of first function argument. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">_outArg2</td><td>Description of second function argument. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">_inoutArg3</td><td>Description of third function argument. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">command</td><td>The three word command. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Description of returned value. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A string to output. </dd></dl>
 
 </div>
 </div>
@@ -361,11 +520,84 @@ Tatai Nikora </dd></dl>
 <p>A method to handle two word commands. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">command</td><td>A two word command in the form of a string. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">command1</td><td>First command in the form of a string. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">command2</td><td>Second command in the form of a string. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Output of the command. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a57cef49fd47fd70cac47fec53f67de02"></a><!-- doxytag: member="main.cpp::valid_item_command_area" ref="a57cef49fd47fd70cac47fec53f67de02" args="(Item *temp_item, int items)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string valid_item_command_area </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_item.html">Item</a> *&#160;</td>
+          <td class="paramname"><em>temp_item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>items</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Gets the valid area commands for items in the current area.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">temp_item</td><td>A pointer to the item. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">items</td><td>Number of items. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The valid item commands for items in the area. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1c1802834e6c5ce287c4739896b626d0"></a><!-- doxytag: member="main.cpp::valid_item_command_inv" ref="a1c1802834e6c5ce287c4739896b626d0" args="(Item *temp_item, int item)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string valid_item_command_inv </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_item.html">Item</a> *&#160;</td>
+          <td class="paramname"><em>temp_item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>item</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Gets all valid item commands for an inventory item.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">temp_item</td><td>A pointer to an item. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td>An integer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The valid item commands. </dd></dl>
 
 </div>
 </div>
@@ -395,12 +627,16 @@ Tatai Nikora </dd></dl>
 </div>
 </div>
 </div>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a>      </li>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -410,12 +646,12 @@ Tatai Nikora </dd></dl>
 </div>
 
 
+    <li class="footer">Generated on Thu Sep 29 2011 22:51:22 for txtEngine by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 19 2011 22:22:28 for txtEngine by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.5.1
-</small></address>
 
 </body>
 </html>

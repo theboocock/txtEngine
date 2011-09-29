@@ -1,0 +1,11 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="TiXmlElement::Attribute",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="TiXmlAttribute::Value",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ti_xml_attribute.html#a0f874490eac8ca00ee0070765d0e97e3"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="TiXmlAttribute::QueryDoubleValue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ti_xml_attribute.html#ac87b2a8489906a5d7aa2875f20be3513",tooltip="QueryDoubleValue examines the value string. See QueryIntValue()."];
+}

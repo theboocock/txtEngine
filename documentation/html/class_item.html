@@ -6,9 +6,14 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -24,12 +29,14 @@
  <tbody>
  <tr style="height: 56px;">
   
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">txtEngine
    &#160;<span id="projectnumber">v4.0</span>
    </div>
-   
+   <div id="projectbrief">A Text Adventure Language Implementation</div>
   </td>
   
   
@@ -74,6 +81,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('class_item.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -93,7 +113,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#aa2b2218512e8d1735043a95dfc30c719">has_container</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#aeacd2dfc86786b52c8362f9551e75b51">print_contained_items</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_item.html">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a27bb6d69a3c174f6c1815d9ed8ac6fde">get_item</a> (std::string item_id)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a9edf14d98665b133106339442b972837">add_item</a> (<a class="el" href="class_item.html">Item</a> *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#ab65ff31499eefb2b32c6d26712295396">add_item</a> (<a class="el" href="class_item.html">Item</a> *new_item)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a8789a6edd90c43516317f414adba3797">has_combine</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcombine.html">combine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a51176c036075d9d01da030a32911acea">get_combine</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a183a0ec19bfd51e8af5f24d57880ccd1">set_combine</a> (<a class="el" href="classcombine.html">combine</a> *c)</td></tr>
@@ -113,41 +133,61 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_state_descriptor.html">StateDescriptor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a53ca85af0ed1581f08b7cb143ea9474c">get_descriptor</a> (int index)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#abccfd47cb27c2631d90e44a7341bb3b3">get_depends</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a3ec1f16ad405a8ddf9ae82a48de551ff">state_change</a> (std::string to_change)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#ae9685a7de5cdc12e508e8cf4fea89463">Item</a> (bool collect, const char *identifier, const char *initial_state, std::vector&lt; std::string &gt; *synonyms, const char *depends, bool container, bool locked)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a434bfe64181261c9e4b69db7863b947e">Item</a> (bool collect, const char *identifier, const char *initial_state, std::vector&lt; std::string &gt; *<a class="el" href="class_item.html#a7194157fbfb03b0f18a26c9653bb5ece">synonyms</a>, const char *<a class="el" href="class_item.html#a921cd9db367f9d02a79667add82b2e04">depends</a>, bool <a class="el" href="class_item.html#a7f22375d075c99d1ecfc3f535f74d43f">container</a>, bool <a class="el" href="class_item.html#ad83d99679394b23a06681d21eacd312e">locked</a>, const char *<a class="el" href="class_item.html#a342b7a351c9ae1c5430aa3ef65b670bd">name</a>)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a11663c84075b78c3ae5e30fdfcd7c458">~Item</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a5c0702ac713015d393aa00304ac56dd6">get_num_items</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_item.html">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#ac60146c5a0b1dfc8147607cdce6fc7de">get_item</a> (int index)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a2ba411f27235d4061d28569d59b74d41">get_name</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6bdb6d40e682e1cac093a786cb51d1d1"></a><!-- doxytag: member="Item::collectable" ref="a6bdb6d40e682e1cac093a786cb51d1d1" args="" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>collectable</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a6bdb6d40e682e1cac093a786cb51d1d1">collectable</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag, whether item can be collected. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0bedf3dd3801688ca197958b4ed82cd7"></a><!-- doxytag: member="Item::num_descriptions" ref="a0bedf3dd3801688ca197958b4ed82cd7" args="" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><b>num_descriptions</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a0bedf3dd3801688ca197958b4ed82cd7">num_descriptions</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of descriptions for the item. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac9e4624443be051800792a7f37014373"></a><!-- doxytag: member="Item::num_commands" ref="ac9e4624443be051800792a7f37014373" args="" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><b>num_commands</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#ac9e4624443be051800792a7f37014373">num_commands</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of commands for this item. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab09c4bcd4d8d1d4626c38e230610df42"></a><!-- doxytag: member="Item::num_items" ref="ab09c4bcd4d8d1d4626c38e230610df42" args="" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><b>num_items</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#ab09c4bcd4d8d1d4626c38e230610df42">num_items</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of items contained inside this item. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c8acc0ec062f69ccc65faf2a3a44bdb"></a><!-- doxytag: member="Item::id" ref="a1c8acc0ec062f69ccc65faf2a3a44bdb" args="" -->
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a1c8acc0ec062f69ccc65faf2a3a44bdb">id</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The item's id. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f22375d075c99d1ecfc3f535f74d43f"></a><!-- doxytag: member="Item::container" ref="a7f22375d075c99d1ecfc3f535f74d43f" args="" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>container</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a7f22375d075c99d1ecfc3f535f74d43f">container</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not item is a container. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad83d99679394b23a06681d21eacd312e"></a><!-- doxytag: member="Item::locked" ref="ad83d99679394b23a06681d21eacd312e" args="" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>locked</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#ad83d99679394b23a06681d21eacd312e">locked</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not the item is locked. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7dc399a5ff88b8f2f9bfef1871dfd0a0"></a><!-- doxytag: member="Item::combine_var" ref="a7dc399a5ff88b8f2f9bfef1871dfd0a0" args="" -->
-<a class="el" href="classcombine.html">combine</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>combine_var</b></td></tr>
+<a class="el" href="classcombine.html">combine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a7dc399a5ff88b8f2f9bfef1871dfd0a0">combine_var</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to a combine object. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a226a0752ee3d4218d44f6de2f787a3c9"></a><!-- doxytag: member="Item::contains" ref="a226a0752ee3d4218d44f6de2f787a3c9" args="" -->
-std::vector&lt; <a class="el" href="class_item.html">Item</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>contains</b></td></tr>
+std::vector&lt; <a class="el" href="class_item.html">Item</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a226a0752ee3d4218d44f6de2f787a3c9">contains</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of items contained in this item. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c36a19c6fae89b169cc1acf555532dd"></a><!-- doxytag: member="Item::curr_desc_id" ref="a3c36a19c6fae89b169cc1acf555532dd" args="" -->
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>curr_desc_id</b></td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a3c36a19c6fae89b169cc1acf555532dd">curr_desc_id</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The current description of this item. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab27e598cd37ca13b26c40d929d85400d"></a><!-- doxytag: member="Item::description" ref="ab27e598cd37ca13b26c40d929d85400d" args="" -->
-std::vector&lt; <a class="el" href="class_state_descriptor.html">StateDescriptor</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>description</b></td></tr>
+std::vector&lt; <a class="el" href="class_state_descriptor.html">StateDescriptor</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#ab27e598cd37ca13b26c40d929d85400d">description</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of descriptions. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add7e6704ad626679f70ff8f2ae76698c"></a><!-- doxytag: member="Item::commands" ref="add7e6704ad626679f70ff8f2ae76698c" args="" -->
-std::vector&lt; <a class="el" href="class_item_command.html">ItemCommand</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>commands</b></td></tr>
+std::vector&lt; <a class="el" href="class_item_command.html">ItemCommand</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#add7e6704ad626679f70ff8f2ae76698c">commands</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of commands for item. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7194157fbfb03b0f18a26c9653bb5ece"></a><!-- doxytag: member="Item::synonyms" ref="a7194157fbfb03b0f18a26c9653bb5ece" args="" -->
-std::vector&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>synonyms</b></td></tr>
+std::vector&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a7194157fbfb03b0f18a26c9653bb5ece">synonyms</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of synonyms for the item. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a921cd9db367f9d02a79667add82b2e04"></a><!-- doxytag: member="Item::depends" ref="a921cd9db367f9d02a79667add82b2e04" args="" -->
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>depends</b></td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a921cd9db367f9d02a79667add82b2e04">depends</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">What this item depends on (key). <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a342b7a351c9ae1c5430aa3ef65b670bd"></a><!-- doxytag: member="Item::name" ref="a342b7a351c9ae1c5430aa3ef65b670bd" args="" -->
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_item.html#a342b7a351c9ae1c5430aa3ef65b670bd">name</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the item. <br/></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae9685a7de5cdc12e508e8cf4fea89463"></a><!-- doxytag: member="Item::Item" ref="ae9685a7de5cdc12e508e8cf4fea89463" args="(bool collect, const char *identifier, const char *initial_state, std::vector&lt; std::string &gt; *synonyms, const char *depends, bool container, bool locked)" -->
+<a class="anchor" id="a434bfe64181261c9e4b69db7863b947e"></a><!-- doxytag: member="Item::Item" ref="a434bfe64181261c9e4b69db7863b947e" args="(bool collect, const char *identifier, const char *initial_state, std::vector&lt; std::string &gt; *synonyms, const char *depends, bool container, bool locked, const char *name)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -191,7 +231,13 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>depends</b></t
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>locked</em>&#160;</td>
+          <td class="paramname"><em>locked</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -211,6 +257,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>depends</b></t
     <tr><td class="paramdir">[in]</td><td class="paramname">depends</td><td>An item this item depends on. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">container</td><td>Whether this item is a container. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">locked</td><td>Whether this item is locked. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name of the item. </td></tr>
   </table>
   </dd>
 </dl>
@@ -283,7 +330,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>depends</b></t
 
 </div>
 </div>
-<a class="anchor" id="a9edf14d98665b133106339442b972837"></a><!-- doxytag: member="Item::add_item" ref="a9edf14d98665b133106339442b972837" args="(Item *)" -->
+<a class="anchor" id="ab65ff31499eefb2b32c6d26712295396"></a><!-- doxytag: member="Item::add_item" ref="ab65ff31499eefb2b32c6d26712295396" args="(Item *new_item)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -300,7 +347,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>depends</b></t
 <p>Adds an item to the contains vector.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">The</td><td>pointer to an item. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">new_item</td><td>The pointer to an item. </td></tr>
   </table>
   </dd>
 </dl>
@@ -520,6 +567,49 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>depends</b></t
 
 </div>
 </div>
+<a class="anchor" id="ac60146c5a0b1dfc8147607cdce6fc7de"></a><!-- doxytag: member="Item::get_item" ref="ac60146c5a0b1dfc8147607cdce6fc7de" args="(int index)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_item.html">Item</a> * Item::get_item </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Get the item inside this item by index.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the item in the vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Pointer to an item. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2ba411f27235d4061d28569d59b74d41"></a><!-- doxytag: member="Item::get_name" ref="a2ba411f27235d4061d28569d59b74d41" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Item::get_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Get the name of the item.</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The name of the item. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a9f09c704274546d5bd0903d0cddfd194"></a><!-- doxytag: member="Item::get_num_commands" ref="a9f09c704274546d5bd0903d0cddfd194" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -553,6 +643,24 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>depends</b></t
 <div class="memdoc">
 <p>Get the number of descriptions for this item.</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The number of descriptions for this item. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5c0702ac713015d393aa00304ac56dd6"></a><!-- doxytag: member="Item::get_num_items" ref="a5c0702ac713015d393aa00304ac56dd6" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Item::get_num_items </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Get the number of items inside this item.</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The number of items inside this item. </dd></dl>
 
 </div>
 </div>
@@ -731,7 +839,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>depends</b></t
 <p>Removes an item from inside this item by id.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">A</td><td>string - the id of the item to remove. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">item_id</td><td>A string - the id of the item to remove. </td></tr>
   </table>
   </dd>
 </dl>
@@ -791,12 +899,16 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>depends</b></t
 <li>/home/cshome/m/mabrams/345/txtEngine/<a class="el" href="_item_8cpp.html">Item.cpp</a></li>
 </ul>
 </div>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="class_item.html">Item</a>      </li>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -806,12 +918,12 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>depends</b></t
 </div>
 
 
+    <li class="footer">Generated on Thu Sep 29 2011 22:51:22 for txtEngine by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 19 2011 22:22:28 for txtEngine by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.5.1
-</small></address>
 
 </body>
 </html>

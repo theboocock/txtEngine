@@ -1,0 +1,47 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="three_word_command",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="World::get_area",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_world.html#ac7e22e2323d311975c288496ca755bff"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Area::get_item",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_area.html#a11b2c96e1abfc4146e6d8c2a8da83d34"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Item::has_combine",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a8789a6edd90c43516317f414adba3797"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Item::get_id",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a7a3aedd7ab7f81327f57343dcb55d42d"];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Item::get_combine",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a51176c036075d9d01da030a32911acea"];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="combine::get_second_id",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcombine.html#a5b73b411fb673d706d22d3a9d2293a14"];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="Area::add_item",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_area.html#a8f4693277743a9dbc6ac0212fc02c86f"];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="Area::remove_item",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_area.html#a687234da51ac6da40d2aee426926dfcd"];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="combine::get_combination",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcombine.html#a1761e219d5744cf3fd25bd7dcb72810c"];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="combine::get_description",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcombine.html#afc2afe2513d348d4c1eb8976c889f013"];
+  Node11 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="StateDescriptor::get_description",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_state_descriptor.html#affa74bf68afccd61d263bbbb4b9419ea"];
+  Node1 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="combine::get_first_id",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcombine.html#ac61120ec645ad7d07cb5fe27d981ec75"];
+  Node1 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="World::get_active_area",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_world.html#a8339c4c339f17bbea73ee0e9d32dc547"];
+  Node1 -> Node15 [color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="Item::has_container",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#aa2b2218512e8d1735043a95dfc30c719"];
+  Node1 -> Node16 [color="midnightblue",fontsize="10",style="solid"];
+  Node16 [label="Item::is_locked",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a2618bb10b850279603a202e7480f0b78"];
+  Node1 -> Node17 [color="midnightblue",fontsize="10",style="solid"];
+  Node17 [label="Item::add_item",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a9edf14d98665b133106339442b972837"];
+  Node1 -> Node18 [color="midnightblue",fontsize="10",style="solid"];
+  Node18 [label="Item::get_command",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a2d460d0ac5130e9fd5c05bd3d823a224"];
+  Node1 -> Node19 [color="midnightblue",fontsize="10",style="solid"];
+  Node19 [label="Item::state_change",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a3ec1f16ad405a8ddf9ae82a48de551ff"];
+  Node1 -> Node20 [color="midnightblue",fontsize="10",style="solid"];
+  Node20 [label="ItemCommand::get_state_change",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item_command.html#aad1e85e694f5cd16cc11ad5acda2884e"];
+  Node1 -> Node21 [color="midnightblue",fontsize="10",style="solid"];
+  Node21 [label="Item::change_collectable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#ab8c43c172fbff161c8c2ca765ded9537"];
+}

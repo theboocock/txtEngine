@@ -1,0 +1,45 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="print_world_tree",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="World::get_num_areas",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_world.html#a85cfec55f3135621a8a4a1f438f5cb93"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="World::get_area",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_world.html#ac7e22e2323d311975c288496ca755bff"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Area::get_id",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_area.html#a19d6622fb6fb95f6ba5fb212e26728e6"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Area::get_num_descriptions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_area.html#a917fe473912d321f631be8e1b30e5edf"];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Area::get_descriptor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_area.html#a117aebce322e62d7402e5c36de7475c6"];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="StateDescriptor::get_description",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_state_descriptor.html#affa74bf68afccd61d263bbbb4b9419ea"];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Area::get_num_commands",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_area.html#a4ba46fedbf3da57ca8bc6de3f50de0a4"];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Area::get_command",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_area.html#ad76c8c8174738e806b85b1eb21f89d54"];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="AreaCommand::get_name",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_area_command.html#ad61a6fb1db17d07a2e214c7c2267581d"];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="AreaCommand::get_message",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_area_command.html#a594ec5125fc0467ee001064ff73a1632"];
+  Node1 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="Area::get_num_items",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_area.html#aee8135f25247d5e06dc0b28bf8cabcba"];
+  Node1 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="Area::get_item",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_area.html#a11b2c96e1abfc4146e6d8c2a8da83d34"];
+  Node1 -> Node14 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="Item::get_id",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a7a3aedd7ab7f81327f57343dcb55d42d"];
+  Node1 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="Item::get_num_descriptions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a41e3300333fa679000fa94f6d5073268"];
+  Node1 -> Node16 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="Item::get_descriptor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a53ca85af0ed1581f08b7cb143ea9474c"];
+  Node1 -> Node17 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="Item::get_num_commands",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a9f09c704274546d5bd0903d0cddfd194"];
+  Node1 -> Node18 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="Item::get_command",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a2d460d0ac5130e9fd5c05bd3d823a224"];
+  Node1 -> Node19 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node19 [label="ItemCommand::get_name",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item_command.html#ad19f0634b23480fcae2f05ee1a0f13f1"];
+  Node1 -> Node20 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node20 [label="ItemCommand::get_message",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item_command.html#a81079b514b0785ce9c86f8618f096c18"];
+}

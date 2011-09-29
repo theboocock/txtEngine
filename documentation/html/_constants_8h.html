@@ -6,9 +6,14 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -24,12 +29,14 @@
  <tbody>
  <tr style="height: 56px;">
   
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">txtEngine
    &#160;<span id="projectnumber">v4.0</span>
    </div>
-   
+   <div id="projectbrief">A Text Adventure Language Implementation</div>
   </td>
   
   
@@ -73,6 +80,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_constants_8h.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#define-members">Defines</a>  </div>
@@ -88,66 +108,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="define-members"></a>
 Defines</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1683cf20cb6e91b381579ff93b309714"></a><!-- doxytag: member="Constants.h::DEFAULT_VALUE" ref="a1683cf20cb6e91b381579ff93b309714" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_VALUE</b>&#160;&#160;&#160;&quot;default_value&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a089c5a4ee53ccfb141b74516a7f84782"></a><!-- doxytag: member="Constants.h::MAX_CHARACTERS_PER_LINE" ref="a089c5a4ee53ccfb141b74516a7f84782" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_CHARACTERS_PER_LINE</b>&#160;&#160;&#160;80</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43105771f16e2da3078149f0de528e9b"></a><!-- doxytag: member="Constants.h::WIN" ref="a43105771f16e2da3078149f0de528e9b" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>WIN</b>&#160;&#160;&#160;&quot;win&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a01ac216e7992570d72253b609fcbd67f"></a><!-- doxytag: member="Constants.h::DIE" ref="a01ac216e7992570d72253b609fcbd67f" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>DIE</b>&#160;&#160;&#160;&quot;die&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a655c84af1b0034986ff56e12e84f983d"></a><!-- doxytag: member="Constants.h::NONE" ref="a655c84af1b0034986ff56e12e84f983d" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NONE</b>&#160;&#160;&#160;&quot;none&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d13af6430ff1d6f44ece076ff35b04f"></a><!-- doxytag: member="Constants.h::LOOK" ref="a6d13af6430ff1d6f44ece076ff35b04f" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOOK</b>&#160;&#160;&#160;&quot;look&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5e92e10a100fc82aaf4dcc76cfed15a"></a><!-- doxytag: member="Constants.h::BAG" ref="ac5e92e10a100fc82aaf4dcc76cfed15a" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BAG</b>&#160;&#160;&#160;&quot;bag&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a277a950c725b69e43a1dae2993119fd4"></a><!-- doxytag: member="Constants.h::GO" ref="a277a950c725b69e43a1dae2993119fd4" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>GO</b>&#160;&#160;&#160;&quot;go&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5573640a440bc8047751f26ff0468d7"></a><!-- doxytag: member="Constants.h::INVENTORY" ref="ab5573640a440bc8047751f26ff0468d7" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>INVENTORY</b>&#160;&#160;&#160;&quot;inventory&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad24e2b54375e12474e65ebf7175988fb"></a><!-- doxytag: member="Constants.h::QUIT" ref="ad24e2b54375e12474e65ebf7175988fb" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>QUIT</b>&#160;&#160;&#160;&quot;quit&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1711232abf72723b5216c206e6bbb175"></a><!-- doxytag: member="Constants.h::NORTH" ref="a1711232abf72723b5216c206e6bbb175" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NORTH</b>&#160;&#160;&#160;&quot;north&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0240ac851181b84ac374872dc5434ee4"></a><!-- doxytag: member="Constants.h::N" ref="a0240ac851181b84ac374872dc5434ee4" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>N</b>&#160;&#160;&#160;&quot;n&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3830320fe6287f717dca9669f417950"></a><!-- doxytag: member="Constants.h::SOUTH" ref="af3830320fe6287f717dca9669f417950" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SOUTH</b>&#160;&#160;&#160;&quot;south&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af933676109efed7ab34cea71d748a517"></a><!-- doxytag: member="Constants.h::S" ref="af933676109efed7ab34cea71d748a517" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>S</b>&#160;&#160;&#160;&quot;s&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a072a1ef1143314441742097b799be322"></a><!-- doxytag: member="Constants.h::EAST" ref="a072a1ef1143314441742097b799be322" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>EAST</b>&#160;&#160;&#160;&quot;east&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a07484107e6d9fdf38b53edf631d6511d"></a><!-- doxytag: member="Constants.h::E" ref="a07484107e6d9fdf38b53edf631d6511d" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>E</b>&#160;&#160;&#160;&quot;e&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a755da365a2f771fdb9e15af22fee7d74"></a><!-- doxytag: member="Constants.h::WEST" ref="a755da365a2f771fdb9e15af22fee7d74" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>WEST</b>&#160;&#160;&#160;&quot;west&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a649b8f01fd6c0f47ff3cbddaeba63bfb"></a><!-- doxytag: member="Constants.h::W" ref="a649b8f01fd6c0f47ff3cbddaeba63bfb" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>W</b>&#160;&#160;&#160;&quot;w&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8a798ec5e0449028e485688e8241b5e"></a><!-- doxytag: member="Constants.h::HELP" ref="ae8a798ec5e0449028e485688e8241b5e" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>HELP</b>&#160;&#160;&#160;&quot;help&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a71d7e1dda8fcdb39e7777ab60d6c7f18"></a><!-- doxytag: member="Constants.h::HELP_COMMAND" ref="a71d7e1dda8fcdb39e7777ab60d6c7f18" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>HELP_COMMAND</b>&#160;&#160;&#160;&quot;Schrodinger says the cat is both dead and alive.&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab2868d85c8a74e3ee08bdc44580e2235"></a><!-- doxytag: member="Constants.h::SAVE" ref="ab2868d85c8a74e3ee08bdc44580e2235" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SAVE</b>&#160;&#160;&#160;&quot;save&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b674752cca6d434a1a69f40877eb2be"></a><!-- doxytag: member="Constants.h::LOAD" ref="a0b674752cca6d434a1a69f40877eb2be" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOAD</b>&#160;&#160;&#160;&quot;load&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ac6e7a58170c0390b7d5ca578825f7b"></a><!-- doxytag: member="Constants.h::IGNORELIST" ref="a6ac6e7a58170c0390b7d5ca578825f7b" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>IGNORELIST</b>&#160;&#160;&#160;&quot;input/ignorewords.txt&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa97f58fd76f614c0c35ea5d1e8af6cb3"></a><!-- doxytag: member="Constants.h::IGNORELISTERROR" ref="aa97f58fd76f614c0c35ea5d1e8af6cb3" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>IGNORELISTERROR</b>&#160;&#160;&#160;&quot;\n\nERROR: Filter List not found!\n\n&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3875dec75fda04d17bc92918549234f9"></a><!-- doxytag: member="Constants.h::TOOMANYWORDS" ref="a3875dec75fda04d17bc92918549234f9" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>TOOMANYWORDS</b>&#160;&#160;&#160;&quot;Please use fewer words for commands&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a525df5e3d42d2b89710bca5e52e7b5"></a><!-- doxytag: member="Constants.h::COMBINE" ref="a3a525df5e3d42d2b89710bca5e52e7b5" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>COMBINE</b>&#160;&#160;&#160;&quot;combine&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2fa975ab3c002cee7fc36722a3fa3ad5"></a><!-- doxytag: member="Constants.h::PUT" ref="a2fa975ab3c002cee7fc36722a3fa3ad5" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>PUT</b>&#160;&#160;&#160;&quot;put&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac677e3bf428ab129e0cc9153ad7f23c7"></a><!-- doxytag: member="Constants.h::STORE" ref="ac677e3bf428ab129e0cc9153ad7f23c7" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>STORE</b>&#160;&#160;&#160;&quot;store&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec754b6a0eb1ae4af7188422d5ae9d40"></a><!-- doxytag: member="Constants.h::MIX" ref="aec754b6a0eb1ae4af7188422d5ae9d40" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MIX</b>&#160;&#160;&#160;&quot;mix&quot;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abefe9ab967bfcc8cdb62368c45b46c48"></a><!-- doxytag: member="Constants.h::GARBAGE" ref="abefe9ab967bfcc8cdb62368c45b46c48" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>GARBAGE</b>&#160;&#160;&#160;&quot;garbage&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a1683cf20cb6e91b381579ff93b309714">DEFAULT_VALUE</a>&#160;&#160;&#160;&quot;default_value&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a089c5a4ee53ccfb141b74516a7f84782">MAX_CHARACTERS_PER_LINE</a>&#160;&#160;&#160;80</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a43105771f16e2da3078149f0de528e9b">WIN</a>&#160;&#160;&#160;&quot;win&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a01ac216e7992570d72253b609fcbd67f">DIE</a>&#160;&#160;&#160;&quot;die&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a655c84af1b0034986ff56e12e84f983d">NONE</a>&#160;&#160;&#160;&quot;none&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a6d13af6430ff1d6f44ece076ff35b04f">LOOK</a>&#160;&#160;&#160;&quot;look&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#ac5e92e10a100fc82aaf4dcc76cfed15a">BAG</a>&#160;&#160;&#160;&quot;bag&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a277a950c725b69e43a1dae2993119fd4">GO</a>&#160;&#160;&#160;&quot;go&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#ab5573640a440bc8047751f26ff0468d7">INVENTORY</a>&#160;&#160;&#160;&quot;inventory&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#ad24e2b54375e12474e65ebf7175988fb">QUIT</a>&#160;&#160;&#160;&quot;quit&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a1711232abf72723b5216c206e6bbb175">NORTH</a>&#160;&#160;&#160;&quot;north&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a>&#160;&#160;&#160;&quot;n&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#af3830320fe6287f717dca9669f417950">SOUTH</a>&#160;&#160;&#160;&quot;south&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#af933676109efed7ab34cea71d748a517">S</a>&#160;&#160;&#160;&quot;s&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a072a1ef1143314441742097b799be322">EAST</a>&#160;&#160;&#160;&quot;east&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a07484107e6d9fdf38b53edf631d6511d">E</a>&#160;&#160;&#160;&quot;e&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a755da365a2f771fdb9e15af22fee7d74">WEST</a>&#160;&#160;&#160;&quot;west&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a649b8f01fd6c0f47ff3cbddaeba63bfb">W</a>&#160;&#160;&#160;&quot;w&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#ae8a798ec5e0449028e485688e8241b5e">HELP</a>&#160;&#160;&#160;&quot;help&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a71d7e1dda8fcdb39e7777ab60d6c7f18">HELP_COMMAND</a>&#160;&#160;&#160;&quot;Schrodinger says the cat is both dead and alive.&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#ab2868d85c8a74e3ee08bdc44580e2235">SAVE</a>&#160;&#160;&#160;&quot;save&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a0b674752cca6d434a1a69f40877eb2be">LOAD</a>&#160;&#160;&#160;&quot;load&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a6ac6e7a58170c0390b7d5ca578825f7b">IGNORELIST</a>&#160;&#160;&#160;&quot;input/ignorewords.txt&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#aa97f58fd76f614c0c35ea5d1e8af6cb3">IGNORELISTERROR</a>&#160;&#160;&#160;&quot;\n\nERROR: Filter List not found!\n\n&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a3875dec75fda04d17bc92918549234f9">TOOMANYWORDS</a>&#160;&#160;&#160;&quot;Please use fewer words for commands&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a3a525df5e3d42d2b89710bca5e52e7b5">COMBINE</a>&#160;&#160;&#160;&quot;combine&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#a2fa975ab3c002cee7fc36722a3fa3ad5">PUT</a>&#160;&#160;&#160;&quot;put&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#ac677e3bf428ab129e0cc9153ad7f23c7">STORE</a>&#160;&#160;&#160;&quot;store&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#aec754b6a0eb1ae4af7188422d5ae9d40">MIX</a>&#160;&#160;&#160;&quot;mix&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_constants_8h.html#abefe9ab967bfcc8cdb62368c45b46c48">GARBAGE</a>&#160;&#160;&#160;&quot;garbage&quot;</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Defines the constants for the game. </p>
@@ -159,13 +149,438 @@ Toby Herbert </dd>
 <dd>
 Tatai Nikora </dd></dl>
 <dl class="version"><dt><b>Version:</b></dt><dd>0.3 </dd></dl>
-</div></div>
+</div><hr/><h2>Define Documentation</h2>
+<a class="anchor" id="ac5e92e10a100fc82aaf4dcc76cfed15a"></a><!-- doxytag: member="Constants.h::BAG" ref="ac5e92e10a100fc82aaf4dcc76cfed15a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BAG&#160;&#160;&#160;&quot;bag&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define bag command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3a525df5e3d42d2b89710bca5e52e7b5"></a><!-- doxytag: member="Constants.h::COMBINE" ref="a3a525df5e3d42d2b89710bca5e52e7b5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COMBINE&#160;&#160;&#160;&quot;combine&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define combine command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1683cf20cb6e91b381579ff93b309714"></a><!-- doxytag: member="Constants.h::DEFAULT_VALUE" ref="a1683cf20cb6e91b381579ff93b309714" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFAULT_VALUE&#160;&#160;&#160;&quot;default_value&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The default value for a tag. </p>
+
+</div>
+</div>
+<a class="anchor" id="a01ac216e7992570d72253b609fcbd67f"></a><!-- doxytag: member="Constants.h::DIE" ref="a01ac216e7992570d72253b609fcbd67f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIE&#160;&#160;&#160;&quot;die&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define die tag value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a07484107e6d9fdf38b53edf631d6511d"></a><!-- doxytag: member="Constants.h::E" ref="a07484107e6d9fdf38b53edf631d6511d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define E&#160;&#160;&#160;&quot;e&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define e command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a072a1ef1143314441742097b799be322"></a><!-- doxytag: member="Constants.h::EAST" ref="a072a1ef1143314441742097b799be322" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EAST&#160;&#160;&#160;&quot;east&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define east command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="abefe9ab967bfcc8cdb62368c45b46c48"></a><!-- doxytag: member="Constants.h::GARBAGE" ref="abefe9ab967bfcc8cdb62368c45b46c48" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GARBAGE&#160;&#160;&#160;&quot;garbage&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define garbage tag value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a277a950c725b69e43a1dae2993119fd4"></a><!-- doxytag: member="Constants.h::GO" ref="a277a950c725b69e43a1dae2993119fd4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GO&#160;&#160;&#160;&quot;go&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define go command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae8a798ec5e0449028e485688e8241b5e"></a><!-- doxytag: member="Constants.h::HELP" ref="ae8a798ec5e0449028e485688e8241b5e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HELP&#160;&#160;&#160;&quot;help&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define help command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a71d7e1dda8fcdb39e7777ab60d6c7f18"></a><!-- doxytag: member="Constants.h::HELP_COMMAND" ref="a71d7e1dda8fcdb39e7777ab60d6c7f18" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HELP_COMMAND&#160;&#160;&#160;&quot;Schrodinger says the cat is both dead and alive.&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Defines the help command message. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6ac6e7a58170c0390b7d5ca578825f7b"></a><!-- doxytag: member="Constants.h::IGNORELIST" ref="a6ac6e7a58170c0390b7d5ca578825f7b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IGNORELIST&#160;&#160;&#160;&quot;input/ignorewords.txt&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define path to the ignore list. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa97f58fd76f614c0c35ea5d1e8af6cb3"></a><!-- doxytag: member="Constants.h::IGNORELISTERROR" ref="aa97f58fd76f614c0c35ea5d1e8af6cb3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IGNORELISTERROR&#160;&#160;&#160;&quot;\n\nERROR: Filter List not found!\n\n&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define error message when the ignore list is not found. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab5573640a440bc8047751f26ff0468d7"></a><!-- doxytag: member="Constants.h::INVENTORY" ref="ab5573640a440bc8047751f26ff0468d7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INVENTORY&#160;&#160;&#160;&quot;inventory&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define inventory command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0b674752cca6d434a1a69f40877eb2be"></a><!-- doxytag: member="Constants.h::LOAD" ref="a0b674752cca6d434a1a69f40877eb2be" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOAD&#160;&#160;&#160;&quot;load&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define load command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6d13af6430ff1d6f44ece076ff35b04f"></a><!-- doxytag: member="Constants.h::LOOK" ref="a6d13af6430ff1d6f44ece076ff35b04f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOOK&#160;&#160;&#160;&quot;look&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define look command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a089c5a4ee53ccfb141b74516a7f84782"></a><!-- doxytag: member="Constants.h::MAX_CHARACTERS_PER_LINE" ref="a089c5a4ee53ccfb141b74516a7f84782" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_CHARACTERS_PER_LINE&#160;&#160;&#160;80</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The maximum characters per line for terminal output. </p>
+
+</div>
+</div>
+<a class="anchor" id="aec754b6a0eb1ae4af7188422d5ae9d40"></a><!-- doxytag: member="Constants.h::MIX" ref="aec754b6a0eb1ae4af7188422d5ae9d40" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MIX&#160;&#160;&#160;&quot;mix&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define mix command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0240ac851181b84ac374872dc5434ee4"></a><!-- doxytag: member="Constants.h::N" ref="a0240ac851181b84ac374872dc5434ee4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define N&#160;&#160;&#160;&quot;n&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define n command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a655c84af1b0034986ff56e12e84f983d"></a><!-- doxytag: member="Constants.h::NONE" ref="a655c84af1b0034986ff56e12e84f983d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NONE&#160;&#160;&#160;&quot;none&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define none tag value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1711232abf72723b5216c206e6bbb175"></a><!-- doxytag: member="Constants.h::NORTH" ref="a1711232abf72723b5216c206e6bbb175" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NORTH&#160;&#160;&#160;&quot;north&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define north command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2fa975ab3c002cee7fc36722a3fa3ad5"></a><!-- doxytag: member="Constants.h::PUT" ref="a2fa975ab3c002cee7fc36722a3fa3ad5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PUT&#160;&#160;&#160;&quot;put&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define put command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad24e2b54375e12474e65ebf7175988fb"></a><!-- doxytag: member="Constants.h::QUIT" ref="ad24e2b54375e12474e65ebf7175988fb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QUIT&#160;&#160;&#160;&quot;quit&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define quit command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="af933676109efed7ab34cea71d748a517"></a><!-- doxytag: member="Constants.h::S" ref="af933676109efed7ab34cea71d748a517" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define S&#160;&#160;&#160;&quot;s&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define s command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab2868d85c8a74e3ee08bdc44580e2235"></a><!-- doxytag: member="Constants.h::SAVE" ref="ab2868d85c8a74e3ee08bdc44580e2235" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SAVE&#160;&#160;&#160;&quot;save&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define save command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="af3830320fe6287f717dca9669f417950"></a><!-- doxytag: member="Constants.h::SOUTH" ref="af3830320fe6287f717dca9669f417950" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SOUTH&#160;&#160;&#160;&quot;south&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define south command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac677e3bf428ab129e0cc9153ad7f23c7"></a><!-- doxytag: member="Constants.h::STORE" ref="ac677e3bf428ab129e0cc9153ad7f23c7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STORE&#160;&#160;&#160;&quot;store&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define store command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3875dec75fda04d17bc92918549234f9"></a><!-- doxytag: member="Constants.h::TOOMANYWORDS" ref="a3875dec75fda04d17bc92918549234f9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TOOMANYWORDS&#160;&#160;&#160;&quot;Please use fewer words for commands&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define error message when commands have too many words. </p>
+
+</div>
+</div>
+<a class="anchor" id="a649b8f01fd6c0f47ff3cbddaeba63bfb"></a><!-- doxytag: member="Constants.h::W" ref="a649b8f01fd6c0f47ff3cbddaeba63bfb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define W&#160;&#160;&#160;&quot;w&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define w command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a755da365a2f771fdb9e15af22fee7d74"></a><!-- doxytag: member="Constants.h::WEST" ref="a755da365a2f771fdb9e15af22fee7d74" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WEST&#160;&#160;&#160;&quot;west&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define west command value. </p>
+
+</div>
+</div>
+<a class="anchor" id="a43105771f16e2da3078149f0de528e9b"></a><!-- doxytag: member="Constants.h::WIN" ref="a43105771f16e2da3078149f0de528e9b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WIN&#160;&#160;&#160;&quot;win&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Define win tag value. </p>
+
+</div>
+</div>
+</div>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_constants_8h.html">Constants.h</a>      </li>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -175,12 +590,12 @@ Tatai Nikora </dd></dl>
 </div>
 
 
+    <li class="footer">Generated on Thu Sep 29 2011 22:51:22 for txtEngine by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 19 2011 22:22:27 for txtEngine by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.5.1
-</small></address>
 
 </body>
 </html>

@@ -1,0 +1,369 @@
+\hypertarget{parser_8cpp}{
+\section{/home/cshome/m/mabrams/345/txt\-Engine/parser.cpp \-File \-Reference}
+\label{parser_8cpp}\index{/home/cshome/m/mabrams/345/txt\-Engine/parser.\-cpp@{/home/cshome/m/mabrams/345/txt\-Engine/parser.\-cpp}}
+}
+
+
+\-The source file for parser functionality.  
+
+
+{\ttfamily \#include \char`\"{}parser.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}tinyxml.\-h\char`\"{}}\*
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{parser_8cpp_a6a4d762bc03b53831b005597289e6376}{
+\#define {\bfseries \-W\-O\-R\-L\-D\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-S}~3}
+\label{parser_8cpp_a6a4d762bc03b53831b005597289e6376}
+
+\item 
+\hypertarget{parser_8cpp_a5b6b3307d2dc3f8a6497460bea1fd463}{
+\#define {\bfseries \-A\-R\-E\-A\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-S}~2}
+\label{parser_8cpp_a5b6b3307d2dc3f8a6497460bea1fd463}
+
+\item 
+\hypertarget{parser_8cpp_aeecd525819e22dc1536f46399dbcbcca}{
+\#define {\bfseries \-S\-T\-A\-T\-E\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-S}~1}
+\label{parser_8cpp_aeecd525819e22dc1536f46399dbcbcca}
+
+\item 
+\hypertarget{parser_8cpp_a962a8b1121f07d92c060ca3dbd66d5dc}{
+\#define {\bfseries \-I\-T\-E\-M\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-S}~3}
+\label{parser_8cpp_a962a8b1121f07d92c060ca3dbd66d5dc}
+
+\item 
+\hypertarget{parser_8cpp_ae746edf93907747cb3fc03f4182be47e}{
+\#define {\bfseries \-C\-O\-M\-B\-I\-N\-E\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-S}~3}
+\label{parser_8cpp_ae746edf93907747cb3fc03f4182be47e}
+
+\item 
+\hypertarget{parser_8cpp_ad95da581a5e1feab264640272b7396a6}{
+\#define {\bfseries \-P\-A\-R\-S\-I\-N\-G\-\_\-\-E\-R\-R\-O\-R}~2}
+\label{parser_8cpp_ad95da581a5e1feab264640272b7396a6}
+
+\item 
+\hypertarget{parser_8cpp_a98feb6c5ab4177e4298242b0bfe20b23}{
+\#define {\bfseries \-A\-R\-E\-A\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-S}~2}
+\label{parser_8cpp_a98feb6c5ab4177e4298242b0bfe20b23}
+
+\item 
+\hypertarget{parser_8cpp_a30e77ac71787742a021678e117fa14a0}{
+\#define {\bfseries \-I\-T\-E\-M\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-S}~5}
+\label{parser_8cpp_a30e77ac71787742a021678e117fa14a0}
+
+\item 
+\hypertarget{parser_8cpp_adf770fe2eec438e3758ffe905dbae208}{
+\#define {\bfseries \-I\-N\-V\-A\-L\-I\-D}~\char`\"{}invalid\char`\"{}}
+\label{parser_8cpp_adf770fe2eec438e3758ffe905dbae208}
+
+\item 
+\hypertarget{parser_8cpp_a655c84af1b0034986ff56e12e84f983d}{
+\#define {\bfseries \-N\-O\-N\-E}~\char`\"{}none\char`\"{}}
+\label{parser_8cpp_a655c84af1b0034986ff56e12e84f983d}
+
+\item 
+\hypertarget{parser_8cpp_a927d8ff579c4c15542282ddecce1ad63}{
+\#define {\bfseries \-M\-I\-S\-S\-I\-N\-G\-\_\-\-T\-A\-G\-S}~\char`\"{}missing tags\char`\"{}}
+\label{parser_8cpp_a927d8ff579c4c15542282ddecce1ad63}
+
+\item 
+\hypertarget{parser_8cpp_a1c40bd922e1aa6ca004ebdfab1d8b0ad}{
+\#define {\bfseries \-U\-N\-D\-E\-R\-\_\-\-P\-A\-R\-E\-N\-T}~\char`\"{}under tag with id\-: \char`\"{}}
+\label{parser_8cpp_a1c40bd922e1aa6ca004ebdfab1d8b0ad}
+
+\item 
+\hypertarget{parser_8cpp_a68d53e0284a38baa1aaedfbbdf797f13}{
+\#define {\bfseries \-S\-E\-P\-E\-R\-A\-T\-O\-R}~\char`\"{},\char`\"{}}
+\label{parser_8cpp_a68d53e0284a38baa1aaedfbbdf797f13}
+
+\item 
+\hypertarget{parser_8cpp_ad6a7e6cde982950c1bad90931cc539e8}{
+\#define {\bfseries \-I\-N\-S\-I\-D\-E\-\_\-\-I\-N\-D\-E\-X}~-\/1}
+\label{parser_8cpp_ad6a7e6cde982950c1bad90931cc539e8}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{parser_8cpp_a75fa20ec7d490152af52e6af7465907e}{
+void {\bfseries string\-\_\-explode} (std\-::string str, std\-::string seperator, std\-::vector$<$ std\-::string $>$ $\ast$\&result)}
+\label{parser_8cpp_a75fa20ec7d490152af52e6af7465907e}
+
+\item 
+\hyperlink{class_world}{\-World} $\ast$ \hyperlink{parser_8cpp_a56cad0ffafea1cb6e859d550e423d599}{read\-\_\-file} (const char $\ast$p\-Filename, \hyperlink{class_world}{\-World} $\ast$world)
+\item 
+\hyperlink{classcombine}{combine} $\ast$ \hyperlink{parser_8cpp_a36b388b045cfd98000bb0a66df600421}{make\-\_\-combine} (\hyperlink{class_ti_xml_node}{\-Ti\-Xml\-Node} $\ast$p\-Command, const char $\ast$parent\-\_\-id, \hyperlink{class_world}{\-World} $\ast$world)
+\item 
+\hyperlink{class_item_command}{\-Item\-Command} $\ast$ \hyperlink{parser_8cpp_a2a662ae71857af8d6b9546479a6877ed}{make\-\_\-item\-\_\-command} (\hyperlink{class_ti_xml_node}{\-Ti\-Xml\-Node} $\ast$p\-Command, const char $\ast$parent\-\_\-id, \hyperlink{class_world}{\-World} $\ast$world)
+\item 
+\hyperlink{class_area_command}{\-Area\-Command} $\ast$ \hyperlink{parser_8cpp_a26bb113d0e19c9b78379bbde522c7e76}{make\-\_\-area\-\_\-command} (\hyperlink{class_ti_xml_node}{\-Ti\-Xml\-Node} $\ast$p\-Command, const char $\ast$parent\-\_\-id, \hyperlink{class_world}{\-World} $\ast$world)
+\item 
+\hyperlink{class_state_descriptor}{\-State\-Descriptor} $\ast$ \hyperlink{parser_8cpp_a77cd775cd350280b4e707ba439f01e07}{make\-\_\-state\-\_\-descriptor} (\hyperlink{class_ti_xml_node}{\-Ti\-Xml\-Node} $\ast$p\-Description, const char $\ast$parent\-\_\-id, \hyperlink{class_world}{\-World} $\ast$world)
+\item 
+\hyperlink{class_item}{\-Item} $\ast$ \hyperlink{parser_8cpp_a3421b449747c2e99c3fa10aa82670030}{make\-\_\-item} (\hyperlink{class_ti_xml_node}{\-Ti\-Xml\-Node} $\ast$p\-Item, const char $\ast$parent\-\_\-id, \hyperlink{class_world}{\-World} $\ast$world)
+\item 
+\hyperlink{class_area}{\-Area} $\ast$ \hyperlink{parser_8cpp_aa0a2a8e7e35261c36a5268b099b972c0}{make\-\_\-area} (\hyperlink{class_ti_xml_node}{\-Ti\-Xml\-Node} $\ast$p\-Area, int area\-\_\-index, \hyperlink{class_world}{\-World} $\ast$world)
+\item 
+\hyperlink{class_world}{\-World} $\ast$ \hyperlink{parser_8cpp_aa822a7164b884d2b057604a10a69f160}{make\-\_\-world} (\hyperlink{class_ti_xml_node}{\-Ti\-Xml\-Node} $\ast$p\-Parent, \hyperlink{class_world}{\-World} $\ast$world)
+\item 
+void \hyperlink{parser_8cpp_ab94991fee08560fa7428d41c2ead929f}{error\-\_\-parsing} (std\-::string message, \hyperlink{class_world}{\-World} $\ast$world)
+\item 
+\hyperlink{class_world}{\-World} $\ast$ \hyperlink{parser_8cpp_a0770bb1cd7b266aa1bdaca961380244c}{make\-\_\-objects} (\hyperlink{class_ti_xml_node}{\-Ti\-Xml\-Node} $\ast$p\-Parent, \hyperlink{class_world}{\-World} $\ast$world)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-The source file for parser functionality. \-Turns \-X\-M\-L game files into \-C++ objects.
+
+\begin{DoxyAuthor}{\-Author}
+\-Michael \-Abrams 
+
+\-James \-Boocock 
+
+\-Toby \-Herbert 
+
+\-Tatai \-Nikora 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{\-Version}
+0.\-3 
+\end{DoxyVersion}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{parser_8cpp_ab94991fee08560fa7428d41c2ead929f}{
+\index{parser.\-cpp@{parser.\-cpp}!error\-\_\-parsing@{error\-\_\-parsing}}
+\index{error\-\_\-parsing@{error\-\_\-parsing}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{error\-\_\-parsing}]{\setlength{\rightskip}{0pt plus 5cm}void error\-\_\-parsing (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{error\-\_\-string, }
+\item[{{\bf \-World} $\ast$}]{world}
+\end{DoxyParamCaption}
+)}}
+\label{parser_8cpp_ab94991fee08560fa7428d41c2ead929f}
+\-Write description of function here. \-The function should follow these comments. \-Use of \char`\"{}brief\char`\"{} tag is optional. (no point to it)
+
+\-The function arguments listed with \char`\"{}param\char`\"{} will be compared to the declaration and verified.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em error\-\_\-string} & \-An error message to be displayed. \\
+\hline
+\mbox{\tt in}  & {\em world} & \-A pointer to \-T\-H\-E world object. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8cpp_aa0a2a8e7e35261c36a5268b099b972c0}{
+\index{parser.\-cpp@{parser.\-cpp}!make\-\_\-area@{make\-\_\-area}}
+\index{make\-\_\-area@{make\-\_\-area}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{make\-\_\-area}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Area}$\ast$ make\-\_\-area (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Ti\-Xml\-Node} $\ast$}]{p\-Area, }
+\item[{int}]{area\-\_\-index, }
+\item[{{\bf \-World} $\ast$}]{world}
+\end{DoxyParamCaption}
+)}}
+\label{parser_8cpp_aa0a2a8e7e35261c36a5268b099b972c0}
+\-Creates an \hyperlink{class_area}{\-Area} object from \-X\-M\-L.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em p\-Area} & \-Pointer to a \-Tiny\-X\-M\-L \-Node. \\
+\hline
+\mbox{\tt in}  & {\em area\-\_\-index} & \-The index of the area inside world's vector of areas. \\
+\hline
+\mbox{\tt in}  & {\em world} & \-A pointer to \-T\-H\-E world object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-An \hyperlink{class_area}{\-Area} object. 
+\end{DoxyReturn}
+\hypertarget{parser_8cpp_a26bb113d0e19c9b78379bbde522c7e76}{
+\index{parser.\-cpp@{parser.\-cpp}!make\-\_\-area\-\_\-command@{make\-\_\-area\-\_\-command}}
+\index{make\-\_\-area\-\_\-command@{make\-\_\-area\-\_\-command}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{make\-\_\-area\-\_\-command}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Area\-Command}$\ast$ make\-\_\-area\-\_\-command (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Ti\-Xml\-Node} $\ast$}]{p\-Command, }
+\item[{const char $\ast$}]{parent\-\_\-id, }
+\item[{{\bf \-World} $\ast$}]{world}
+\end{DoxyParamCaption}
+)}}
+\label{parser_8cpp_a26bb113d0e19c9b78379bbde522c7e76}
+\-Creates an \hyperlink{class_area_command}{\-Area\-Command} object from \-X\-M\-L.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em p\-Command} & \-Pointer to a \-Tiny\-X\-M\-L \-Node. \\
+\hline
+\mbox{\tt in}  & {\em parent\-\_\-id} & \-A pointer to the parent id of the parent node. \\
+\hline
+\mbox{\tt in}  & {\em world} & \-A pointer to \-T\-H\-E world object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-An \hyperlink{class_area_command}{\-Area\-Command} object. 
+\end{DoxyReturn}
+\hypertarget{parser_8cpp_a36b388b045cfd98000bb0a66df600421}{
+\index{parser.\-cpp@{parser.\-cpp}!make\-\_\-combine@{make\-\_\-combine}}
+\index{make\-\_\-combine@{make\-\_\-combine}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{make\-\_\-combine}]{\setlength{\rightskip}{0pt plus 5cm}{\bf combine}$\ast$ make\-\_\-combine (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Ti\-Xml\-Node} $\ast$}]{p\-Command, }
+\item[{const char $\ast$}]{parent\-\_\-id, }
+\item[{{\bf \-World} $\ast$}]{world}
+\end{DoxyParamCaption}
+)}}
+\label{parser_8cpp_a36b388b045cfd98000bb0a66df600421}
+\-Creates a combine object for the game.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em p\-Command} & \-Pointer to a \-Tiny\-X\-M\-L node. \\
+\hline
+\mbox{\tt in}  & {\em parent\-\_\-id} & \-The id of the parent node. \\
+\hline
+\mbox{\tt in}  & {\em \-Pointer} & to the world object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A combine object. 
+\end{DoxyReturn}
+\hypertarget{parser_8cpp_a3421b449747c2e99c3fa10aa82670030}{
+\index{parser.\-cpp@{parser.\-cpp}!make\-\_\-item@{make\-\_\-item}}
+\index{make\-\_\-item@{make\-\_\-item}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{make\-\_\-item}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Item}$\ast$ make\-\_\-item (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Ti\-Xml\-Node} $\ast$}]{p\-Item, }
+\item[{const char $\ast$}]{parent\-\_\-id, }
+\item[{{\bf \-World} $\ast$}]{world}
+\end{DoxyParamCaption}
+)}}
+\label{parser_8cpp_a3421b449747c2e99c3fa10aa82670030}
+\-Creates an item ovject for the game.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em p\-Item} & \-Pointer to a \-Tiny\-X\-M\-L node. \\
+\hline
+\mbox{\tt in}  & {\em parent\-\_\-id} & \-The id of the parent node. \\
+\hline
+\mbox{\tt in}  & {\em world} & \-Pointer to the world object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-An \hyperlink{class_item}{\-Item} object. 
+\end{DoxyReturn}
+\hypertarget{parser_8cpp_a2a662ae71857af8d6b9546479a6877ed}{
+\index{parser.\-cpp@{parser.\-cpp}!make\-\_\-item\-\_\-command@{make\-\_\-item\-\_\-command}}
+\index{make\-\_\-item\-\_\-command@{make\-\_\-item\-\_\-command}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{make\-\_\-item\-\_\-command}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Item\-Command}$\ast$ make\-\_\-item\-\_\-command (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Ti\-Xml\-Node} $\ast$}]{p\-Command, }
+\item[{const char $\ast$}]{parent\-\_\-id, }
+\item[{{\bf \-World} $\ast$}]{world}
+\end{DoxyParamCaption}
+)}}
+\label{parser_8cpp_a2a662ae71857af8d6b9546479a6877ed}
+\-Creates an item command object from \-X\-M\-L.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em p\-Command} & \-Pointer to a \-Tiny\-X\-M\-L \-Node. \\
+\hline
+\mbox{\tt in}  & {\em parent\-\_\-id} & \-A pointer to the parent id of the parent node. \\
+\hline
+\mbox{\tt in}  & {\em world} & \-A pointer to \-T\-H\-E world object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-An \hyperlink{class_item_command}{\-Item\-Command} object. 
+\end{DoxyReturn}
+\hypertarget{parser_8cpp_a0770bb1cd7b266aa1bdaca961380244c}{
+\index{parser.\-cpp@{parser.\-cpp}!make\-\_\-objects@{make\-\_\-objects}}
+\index{make\-\_\-objects@{make\-\_\-objects}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{make\-\_\-objects}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-World}$\ast$ make\-\_\-objects (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Ti\-Xml\-Node} $\ast$}]{p\-Parent, }
+\item[{{\bf \-World} $\ast$}]{world}
+\end{DoxyParamCaption}
+)}}
+\label{parser_8cpp_a0770bb1cd7b266aa1bdaca961380244c}
+\-Starts making the objects for the game.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em p\-Parent} & \-Pointert to a \-Tiny\-X\-M\-L \-Node. \\
+\hline
+\mbox{\tt in}  & {\em world} & \-Pointer to \-T\-H\-E world object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \hyperlink{class_world}{\-World} object. 
+\end{DoxyReturn}
+\hypertarget{parser_8cpp_a77cd775cd350280b4e707ba439f01e07}{
+\index{parser.\-cpp@{parser.\-cpp}!make\-\_\-state\-\_\-descriptor@{make\-\_\-state\-\_\-descriptor}}
+\index{make\-\_\-state\-\_\-descriptor@{make\-\_\-state\-\_\-descriptor}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{make\-\_\-state\-\_\-descriptor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-State\-Descriptor}$\ast$ make\-\_\-state\-\_\-descriptor (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Ti\-Xml\-Node} $\ast$}]{p\-Description, }
+\item[{const char $\ast$}]{parent\-\_\-id, }
+\item[{{\bf \-World} $\ast$}]{world}
+\end{DoxyParamCaption}
+)}}
+\label{parser_8cpp_a77cd775cd350280b4e707ba439f01e07}
+\-Creates a \hyperlink{class_state_descriptor}{\-State\-Descriptor} object from \-X\-M\-L.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em p\-Description} & \-Pointer to a \-Tiny\-X\-M\-L \-Node. \\
+\hline
+\mbox{\tt in}  & {\em parent\-\_\-id} & \-A pointer to the parent id of the parent node. \\
+\hline
+\mbox{\tt in}  & {\em world} & \-A pointer to \-T\-H\-E world object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \hyperlink{class_state_descriptor}{\-State\-Descriptor} object. 
+\end{DoxyReturn}
+\hypertarget{parser_8cpp_aa822a7164b884d2b057604a10a69f160}{
+\index{parser.\-cpp@{parser.\-cpp}!make\-\_\-world@{make\-\_\-world}}
+\index{make\-\_\-world@{make\-\_\-world}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{make\-\_\-world}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-World}$\ast$ make\-\_\-world (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Ti\-Xml\-Node} $\ast$}]{p\-Parent, }
+\item[{{\bf \-World} $\ast$}]{world}
+\end{DoxyParamCaption}
+)}}
+\label{parser_8cpp_aa822a7164b884d2b057604a10a69f160}
+\-Creates a \hyperlink{class_world}{\-World} object from \-X\-M\-L.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em p\-Parent} & \-Pointer to a \-Tiny\-X\-M\-L \-Node. \\
+\hline
+\mbox{\tt in}  & {\em parent\-\_\-id} & \-A pointer to the parent id of the parent node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \hyperlink{class_world}{\-World} object. 
+\end{DoxyReturn}
+\hypertarget{parser_8cpp_a56cad0ffafea1cb6e859d550e423d599}{
+\index{parser.\-cpp@{parser.\-cpp}!read\-\_\-file@{read\-\_\-file}}
+\index{read\-\_\-file@{read\-\_\-file}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{read\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-World}$\ast$ read\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\-Filename, }
+\item[{{\bf \-World} $\ast$}]{world}
+\end{DoxyParamCaption}
+)}}
+\label{parser_8cpp_a56cad0ffafea1cb6e859d550e423d599}
+\-Method to handle reading in the \-X\-M\-L game file.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em p\-Filename} & \-Path and file name of the game file to read. \\
+\hline
+\mbox{\tt in}  & {\em world} & \-A pointer to a world object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A world object. 
+\end{DoxyReturn}

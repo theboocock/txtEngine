@@ -6,9 +6,14 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -24,12 +29,14 @@
  <tbody>
  <tr style="height: 56px;">
   
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">txtEngine
    &#160;<span id="projectnumber">v4.0</span>
    </div>
-   
+   <div id="projectbrief">A Text Adventure Language Implementation</div>
   </td>
   
   
@@ -74,18 +81,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('class_item_command.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">ItemCommand Member List</div>  </div>
 </div>
 <div class="contents">
 This is the complete list of members for <a class="el" href="class_item_command.html">ItemCommand</a>, including all inherited members.<table>
-  <tr bgcolor="#f0f0f0"><td><b>area_change</b> (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>call_combine</b> (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>change_collect</b> (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#ac5fe64207c12fbd50c3a8b92207acb40">area_change</a></td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#a980a5aea68b7ace0a401561f81fc484e">call_combine</a></td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#a624650b662bbb506c74f943f40c9d9ea">change_collect</a></td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item_command.html#a7e2827365e9a8521fded9334cb53fb7f">check_synonyms</a>(std::string command)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>collect_dependent</b> (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>depends</b> (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#a6d69129934e185fbe2e8be0db40b0f94">collect_dependent</a></td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#a6da1ba48131d1f2c414ad4728e7bb4c2">depends</a></td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item_command.html#ac40efb86e5eab9229d2c343b308b6fa5">get_area_change</a>()</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item_command.html#a076738abba7d76c8b5e28f42e11b6df5">get_change_collect</a>()</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item_command.html#a478d2e1a02ea0b44e41e3d15e59e2156">get_collect_dependent</a>()</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
@@ -94,27 +114,30 @@ This is the complete list of members for <a class="el" href="class_item_command.
   <tr class="memlist"><td><a class="el" href="class_item_command.html#ad19f0634b23480fcae2f05ee1a0f13f1">get_name</a>()</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item_command.html#aad1e85e694f5cd16cc11ad5acda2884e">get_state_change</a>()</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item_command.html#ad0a8c59554e3d4a7a14299fd7df8dc70">get_status</a>()</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>get_unlock_string</b>() (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>is_combine</b>() (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>ItemCommand</b>(const char *callmeby, const char *state_mutator, bool chng_collec, bool collec_dep, const char *area_chng, const char *status_command, const char *depends, std::vector&lt; std::string &gt; *synonyms, std::string unlock, bool combine) (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>message</b> (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>name</b> (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#ab13f510d664339b267fc721622ab671a">get_unlock_string</a>()</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#a71023af77dc1cae418995588e1fead9d">is_combine</a>()</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#adb0c6cc33fce1d745c9da4b6d1796367">ItemCommand</a>(const char *callmeby, const char *state_mutator, bool chng_collec, bool collec_dep, const char *area_chng, const char *status_command, const char *depends, std::vector&lt; std::string &gt; *synonyms, std::string unlock, bool combine)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#a553f91c8eae8f25ba27ed0eb875e5e19">message</a></td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#ae79c7cdf02b170b78bc5967a334cdcf7">name</a></td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item_command.html#abe177c8696e00480a716959b335ebca8">set_message</a>(const char *to_message)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>state_change</b> (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>status</b> (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>synonyms</b> (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>unlock</b> (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>unlock_area_string</b>() (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>unlock_areacommand_string</b>() (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>unlocks</b>() (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>~ItemCommand</b>() (defined in <a class="el" href="class_item_command.html">ItemCommand</a>)</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#a7aa339b7c9c54ca6d331b9729cf8c044">state_change</a></td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#a46091780df5b87f52db4e851deeb2aa1">status</a></td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#adc9ff7f20c2dec3f40bf5856d508cde2">synonyms</a></td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#ab48cc2be6ad392f61a4cc09d8ddaa061">unlock</a></td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#a08a215a5fab2593301ca90ed794267d7">unlock_area_string</a>()</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#a9d663365564ebb4c7ed39ce73d995631">unlock_areacommand_string</a>()</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#a74c82a6f88120d2ccaa6fbba4353fe17">unlocks</a>()</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item_command.html#a3a7504fb83dbb0b1d708d80aa2c6cc47">~ItemCommand</a>()</td><td><a class="el" href="class_item_command.html">ItemCommand</a></td><td></td></tr>
 </table></div>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -124,12 +147,12 @@ This is the complete list of members for <a class="el" href="class_item_command.
 </div>
 
 
+    <li class="footer">Generated on Thu Sep 29 2011 22:51:22 for txtEngine by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 19 2011 22:22:28 for txtEngine by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.5.1
-</small></address>
 
 </body>
 </html>

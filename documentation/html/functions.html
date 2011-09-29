@@ -6,9 +6,14 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -24,12 +29,14 @@
  <tbody>
  <tr style="height: 56px;">
   
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">txtEngine
    &#160;<span id="projectnumber">v4.0</span>
    </div>
-   
+   <div id="projectbrief">A Text Adventure Language Implementation</div>
   </td>
   
   
@@ -77,58 +84,138 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
+      <li><a href="functions_vars.html"><span>Variables</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
       <li><a href="#index_a"><span>a</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_n"><span>n</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_u"><span>u</span></a></li>
+      <li><a href="#index_w"><span>w</span></a></li>
       <li><a href="#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('functions.html','');
+</script>
+<div id="doc-content">
 <div class="contents">
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>active_area
+: <a class="el" href="class_world.html#ab668d926b2c0fc6503ddc14974c79a81">World</a>
+</li>
+<li>add_area()
+: <a class="el" href="class_world.html#a64eb27a4ea7aaf9d36178e902676e8fe">World</a>
+</li>
 <li>add_command()
-: <a class="el" href="class_area.html#a61f8a73da43dbfa8259a308cb61a28f0">Area</a>
-, <a class="el" href="class_item.html#ab78d891c3aed983ea7b2e5311b0da68c">Item</a>
+: <a class="el" href="class_item.html#ab78d891c3aed983ea7b2e5311b0da68c">Item</a>
+, <a class="el" href="class_area.html#a61f8a73da43dbfa8259a308cb61a28f0">Area</a>
 </li>
 <li>add_description()
-: <a class="el" href="class_item.html#af6e0efea4346f669ac5479b258511e68">Item</a>
-, <a class="el" href="class_area.html#a27101dd552a05cebb467f108a5246278">Area</a>
+: <a class="el" href="class_area.html#a27101dd552a05cebb467f108a5246278">Area</a>
+, <a class="el" href="class_item.html#af6e0efea4346f669ac5479b258511e68">Item</a>
 </li>
 <li>add_item()
-: <a class="el" href="class_area.html#a8f4693277743a9dbc6ac0212fc02c86f">Area</a>
-, <a class="el" href="class_item.html#a9edf14d98665b133106339442b972837">Item</a>
+: <a class="el" href="class_item.html#ab65ff31499eefb2b32c6d26712295396">Item</a>
+, <a class="el" href="class_area.html#a8f4693277743a9dbc6ac0212fc02c86f">Area</a>
 </li>
 <li>Area()
-: <a class="el" href="class_area.html#afa6f67fe88559c8dbc5fbd1fbc73d8a2">Area</a>
+: <a class="el" href="class_area.html#aebf5c02afaa711ee4a2d13be7c92b421">Area</a>
+</li>
+<li>area_change
+: <a class="el" href="class_item_command.html#ac5fe64207c12fbd50c3a8b92207acb40">ItemCommand</a>
 </li>
 <li>AreaCommand()
 : <a class="el" href="class_area_command.html#a638e3a777d9c8e3810212835b979eff0">AreaCommand</a>
+</li>
+<li>areas
+: <a class="el" href="class_world.html#a981e5ee0065f8bdafd268747873e0c6b">World</a>
+</li>
+<li>author
+: <a class="el" href="class_world.html#a44a5680fc460f4b34d3ceaa66dded268">World</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>call_combine
+: <a class="el" href="class_item_command.html#a980a5aea68b7ace0a401561f81fc484e">ItemCommand</a>
+</li>
+<li>change_area()
+: <a class="el" href="class_world.html#a2a47dcf3eb1e54a2da3729018c34d53f">World</a>
+</li>
+<li>change_collect
+: <a class="el" href="class_item_command.html#a624650b662bbb506c74f943f40c9d9ea">ItemCommand</a>
+</li>
 <li>change_collectable()
 : <a class="el" href="class_item.html#ab8c43c172fbff161c8c2ca765ded9537">Item</a>
 </li>
 <li>check_synonyms()
 : <a class="el" href="class_item_command.html#a7e2827365e9a8521fded9334cb53fb7f">ItemCommand</a>
 </li>
+<li>collect_dependent
+: <a class="el" href="class_item_command.html#a6d69129934e185fbe2e8be0db40b0f94">ItemCommand</a>
+</li>
+<li>collectable
+: <a class="el" href="class_item.html#a6bdb6d40e682e1cac093a786cb51d1d1">Item</a>
+</li>
 <li>combine()
 : <a class="el" href="classcombine.html#af6bb699bcfbed642208d7457b9eadacd">combine</a>
+</li>
+<li>combine_var
+: <a class="el" href="class_item.html#a7dc399a5ff88b8f2f9bfef1871dfd0a0">Item</a>
+</li>
+<li>commands
+: <a class="el" href="class_area.html#a5679c7f10791af2545d6853cf0f31ce1">Area</a>
+, <a class="el" href="class_item.html#add7e6704ad626679f70ff8f2ae76698c">Item</a>
+</li>
+<li>container
+: <a class="el" href="class_item.html#a7f22375d075c99d1ecfc3f535f74d43f">Item</a>
+</li>
+<li>contains
+: <a class="el" href="class_item.html#a226a0752ee3d4218d44f6de2f787a3c9">Item</a>
+</li>
+<li>curr_desc_id
+: <a class="el" href="class_item.html#a3c36a19c6fae89b169cc1acf555532dd">Item</a>
+, <a class="el" href="class_area.html#a21fb316841238b230f351620ec97e3a6">Area</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>depends
+: <a class="el" href="class_area_command.html#afab48cca59ca37d72e39f24a17fb7c0c">AreaCommand</a>
+, <a class="el" href="class_item.html#a921cd9db367f9d02a79667add82b2e04">Item</a>
+, <a class="el" href="class_item_command.html#a6da1ba48131d1f2c414ad4728e7bb4c2">ItemCommand</a>
+</li>
+<li>description
+: <a class="el" href="class_area.html#af699bd40b15954f8403309672f01d44b">Area</a>
+, <a class="el" href="class_item.html#ab27e598cd37ca13b26c40d929d85400d">Item</a>
+, <a class="el" href="class_state_descriptor.html#ae1f4cb2426dd97e0afe6d036c9cd9913">StateDescriptor</a>
 </li>
 </ul>
 
@@ -149,9 +236,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>get_area()
 : <a class="el" href="class_area_command.html#a9f558f5ce36040a51401924af9781402">AreaCommand</a>
+, <a class="el" href="class_world.html#af31d16d13344c6f61b6aab34b34fab4b">World</a>
 </li>
 <li>get_area_change()
 : <a class="el" href="class_item_command.html#ac40efb86e5eab9229d2c343b308b6fa5">ItemCommand</a>
+</li>
+<li>get_area_name()
+: <a class="el" href="class_area.html#aadb3e4eb71211a2bcd495a1b98a0a9d4">Area</a>
 </li>
 <li>get_author()
 : <a class="el" href="class_world.html#a13598968c1b4061eb1529cdcb0755372">World</a>
@@ -169,22 +260,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_item.html#a51176c036075d9d01da030a32911acea">Item</a>
 </li>
 <li>get_command()
-: <a class="el" href="class_area.html#ae7ee0c8526f4b18b9aca41faf7570e8d">Area</a>
+: <a class="el" href="class_area.html#ad76c8c8174738e806b85b1eb21f89d54">Area</a>
 , <a class="el" href="class_item.html#a2d460d0ac5130e9fd5c05bd3d823a224">Item</a>
 </li>
 <li>get_depends()
-: <a class="el" href="class_area_command.html#a7c24cd88b6913494bfed3b6f6b0fe7f6">AreaCommand</a>
-, <a class="el" href="class_item.html#abccfd47cb27c2631d90e44a7341bb3b3">Item</a>
+: <a class="el" href="class_item.html#abccfd47cb27c2631d90e44a7341bb3b3">Item</a>
 , <a class="el" href="class_item_command.html#aab2f239abd8e51eed941a7144c5a20f0">ItemCommand</a>
+, <a class="el" href="class_area_command.html#a7c24cd88b6913494bfed3b6f6b0fe7f6">AreaCommand</a>
 </li>
 <li>get_description()
-: <a class="el" href="classcombine.html#afc2afe2513d348d4c1eb8976c889f013">combine</a>
+: <a class="el" href="class_area.html#acab405d06547438ee02b3d8b9a2ff013">Area</a>
+, <a class="el" href="classcombine.html#afc2afe2513d348d4c1eb8976c889f013">combine</a>
 , <a class="el" href="class_item.html#a8652cab970af5b7ff68bf960a4e98fa2">Item</a>
 , <a class="el" href="class_state_descriptor.html#affa74bf68afccd61d263bbbb4b9419ea">StateDescriptor</a>
-, <a class="el" href="class_area.html#acab405d06547438ee02b3d8b9a2ff013">Area</a>
 </li>
 <li>get_descriptor()
-: <a class="el" href="class_area.html#a94b7cf6ce69e92cddbd4a2a4ec92fbfd">Area</a>
+: <a class="el" href="class_area.html#a117aebce322e62d7402e5c36de7475c6">Area</a>
 , <a class="el" href="class_item.html#a53ca85af0ed1581f08b7cb143ea9474c">Item</a>
 </li>
 <li>get_first_id()
@@ -197,8 +288,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="class_state_descriptor.html#a86c0070f308c636a19693a009f0a5464">StateDescriptor</a>
 </li>
 <li>get_item()
-: <a class="el" href="class_area.html#a8c7af01c18c103932be5d22cddd30299">Area</a>
-, <a class="el" href="class_item.html#a27bb6d69a3c174f6c1815d9ed8ac6fde">Item</a>
+: <a class="el" href="class_item.html#ac60146c5a0b1dfc8147607cdce6fc7de">Item</a>
+, <a class="el" href="class_area.html#a11b2c96e1abfc4146e6d8c2a8da83d34">Area</a>
 </li>
 <li>get_language()
 : <a class="el" href="class_world.html#add6a887b9f085ec8d137b8f1f9e8de6c">World</a>
@@ -210,17 +301,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>get_name()
 : <a class="el" href="class_area_command.html#ad61a6fb1db17d07a2e214c7c2267581d">AreaCommand</a>
 , <a class="el" href="class_item_command.html#ad19f0634b23480fcae2f05ee1a0f13f1">ItemCommand</a>
+, <a class="el" href="class_item.html#a2ba411f27235d4061d28569d59b74d41">Item</a>
+</li>
+<li>get_num_areas()
+: <a class="el" href="class_world.html#a85cfec55f3135621a8a4a1f438f5cb93">World</a>
 </li>
 <li>get_num_commands()
-: <a class="el" href="class_item.html#a9f09c704274546d5bd0903d0cddfd194">Item</a>
-, <a class="el" href="class_area.html#a4ba46fedbf3da57ca8bc6de3f50de0a4">Area</a>
+: <a class="el" href="class_area.html#a4ba46fedbf3da57ca8bc6de3f50de0a4">Area</a>
+, <a class="el" href="class_item.html#a9f09c704274546d5bd0903d0cddfd194">Item</a>
 </li>
 <li>get_num_descriptions()
-: <a class="el" href="class_area.html#a917fe473912d321f631be8e1b30e5edf">Area</a>
-, <a class="el" href="class_item.html#a41e3300333fa679000fa94f6d5073268">Item</a>
+: <a class="el" href="class_item.html#a41e3300333fa679000fa94f6d5073268">Item</a>
+, <a class="el" href="class_area.html#a917fe473912d321f631be8e1b30e5edf">Area</a>
 </li>
 <li>get_num_items()
-: <a class="el" href="class_area.html#aee8135f25247d5e06dc0b28bf8cabcba">Area</a>
+: <a class="el" href="class_item.html#a5c0702ac713015d393aa00304ac56dd6">Item</a>
+, <a class="el" href="class_area.html#aee8135f25247d5e06dc0b28bf8cabcba">Area</a>
 </li>
 <li>get_second_id()
 : <a class="el" href="classcombine.html#a5b73b411fb673d706d22d3a9d2293a14">combine</a>
@@ -229,9 +325,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_item_command.html#aad1e85e694f5cd16cc11ad5acda2884e">ItemCommand</a>
 </li>
 <li>get_status()
-: <a class="el" href="class_area_command.html#adc3423bc66eba73317cd941632026b85">AreaCommand</a>
-, <a class="el" href="class_item_command.html#ad0a8c59554e3d4a7a14299fd7df8dc70">ItemCommand</a>
+: <a class="el" href="class_item_command.html#ad0a8c59554e3d4a7a14299fd7df8dc70">ItemCommand</a>
 , <a class="el" href="class_area.html#ac3f89059fe2ef23610dc3a5650c94c0d">Area</a>
+, <a class="el" href="class_area_command.html#adc3423bc66eba73317cd941632026b85">AreaCommand</a>
+</li>
+<li>get_unlock_string()
+: <a class="el" href="class_item_command.html#ab13f510d664339b267fc721622ab671a">ItemCommand</a>
 </li>
 </ul>
 
@@ -241,7 +340,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_item.html#a8789a6edd90c43516317f414adba3797">Item</a>
 </li>
 <li>has_command()
-: <a class="el" href="class_area.html#a7ed668f761ab79669ad6fb23419b22b2">Area</a>
+: <a class="el" href="class_area.html#a698117843155cede5e11bbe3ff2e20e4">Area</a>
 </li>
 <li>has_container()
 : <a class="el" href="class_item.html#aa2b2218512e8d1735043a95dfc30c719">Item</a>
@@ -265,15 +364,82 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>id
+: <a class="el" href="class_area.html#a71dbaaeab0c2f2d0ba296593e59b22ce">Area</a>
+, <a class="el" href="class_item.html#a1c8acc0ec062f69ccc65faf2a3a44bdb">Item</a>
+, <a class="el" href="class_state_descriptor.html#a6e9e403fcf97cda1dc40bda6428af294">StateDescriptor</a>
+</li>
+<li>init_active_area()
+: <a class="el" href="class_world.html#a8dadd0ff476194c1c6de68338d2012cf">World</a>
+</li>
+<li>initial_area
+: <a class="el" href="class_world.html#a966a1049b9bc8c1c184a840da8817ab8">World</a>
+</li>
 <li>is_collectable()
 : <a class="el" href="class_item.html#a91f14a96cab681bc02dee3f9c9e6af5d">Item</a>
 </li>
+<li>is_combine()
+: <a class="el" href="class_item_command.html#a71023af77dc1cae418995588e1fead9d">ItemCommand</a>
+</li>
 <li>is_locked()
-: <a class="el" href="class_area_command.html#a34eba7b250e50210e2da7faf07754ff6">AreaCommand</a>
-, <a class="el" href="class_item.html#a2618bb10b850279603a202e7480f0b78">Item</a>
+: <a class="el" href="class_item.html#a2618bb10b850279603a202e7480f0b78">Item</a>
+, <a class="el" href="class_area_command.html#a34eba7b250e50210e2da7faf07754ff6">AreaCommand</a>
 </li>
 <li>Item()
-: <a class="el" href="class_item.html#ae9685a7de5cdc12e508e8cf4fea89463">Item</a>
+: <a class="el" href="class_item.html#a434bfe64181261c9e4b69db7863b947e">Item</a>
+</li>
+<li>ItemCommand()
+: <a class="el" href="class_item_command.html#adb0c6cc33fce1d745c9da4b6d1796367">ItemCommand</a>
+</li>
+<li>items
+: <a class="el" href="class_area.html#a8fcfd7b9f54f722a6bf8c68ac26ea4f6">Area</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>language
+: <a class="el" href="class_world.html#a910a48419528575e44eac36d7b517057">World</a>
+</li>
+<li>locked
+: <a class="el" href="class_item.html#ad83d99679394b23a06681d21eacd312e">Item</a>
+, <a class="el" href="class_area_command.html#a23a6e53dfc6f1d8988f41b9fc48c3048">AreaCommand</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>message
+: <a class="el" href="class_area_command.html#af98d35c3cc1789af861eb8c2511a3d2a">AreaCommand</a>
+, <a class="el" href="class_item_command.html#a553f91c8eae8f25ba27ed0eb875e5e19">ItemCommand</a>
+</li>
+<li>move_to_area
+: <a class="el" href="class_area_command.html#a5ade0f6aabc1891270b1538a3e028f2f">AreaCommand</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
+<li>name
+: <a class="el" href="class_area.html#a24201719de9d9dfef7a720c036529dd7">Area</a>
+, <a class="el" href="class_area_command.html#a3295a37db88c72813df17dd9b4db060f">AreaCommand</a>
+, <a class="el" href="class_item_command.html#ae79c7cdf02b170b78bc5967a334cdcf7">ItemCommand</a>
+, <a class="el" href="class_item.html#a342b7a351c9ae1c5430aa3ef65b670bd">Item</a>
+</li>
+<li>num_areas
+: <a class="el" href="class_world.html#a5a190c6f7aed9fa156e4a2a78ddfafdb">World</a>
+</li>
+<li>num_commands
+: <a class="el" href="class_item.html#ac9e4624443be051800792a7f37014373">Item</a>
+, <a class="el" href="class_area.html#a698aec5d64c6990033fd3b029c40c117">Area</a>
+</li>
+<li>num_descriptions
+: <a class="el" href="class_area.html#a4ec123111d0eb0346cc3fa55ee7328e9">Area</a>
+, <a class="el" href="class_item.html#a0bedf3dd3801688ca197958b4ed82cd7">Item</a>
+</li>
+<li>num_items
+: <a class="el" href="class_item.html#ab09c4bcd4d8d1d4626c38e230610df42">Item</a>
+, <a class="el" href="class_area.html#a29d6271cf822fe3c7865e249643b0728">Area</a>
 </li>
 </ul>
 
@@ -311,17 +477,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>state_change()
 : <a class="el" href="class_item.html#a3ec1f16ad405a8ddf9ae82a48de551ff">Item</a>
+, <a class="el" href="class_item_command.html#a7aa339b7c9c54ca6d331b9729cf8c044">ItemCommand</a>
 </li>
 <li>StateDescriptor()
 : <a class="el" href="class_state_descriptor.html#afc148468d8cd45e8a109a9ed887ef729">StateDescriptor</a>
+</li>
+<li>status
+: <a class="el" href="class_area_command.html#a4ba177c6d8cc7f074d0642e4fd343f14">AreaCommand</a>
+, <a class="el" href="class_area.html#ab5b23c6cefb5ff678f5544d7b5900b7b">Area</a>
+, <a class="el" href="class_item_command.html#a46091780df5b87f52db4e851deeb2aa1">ItemCommand</a>
+</li>
+<li>synonyms
+: <a class="el" href="class_item.html#a7194157fbfb03b0f18a26c9653bb5ece">Item</a>
+, <a class="el" href="class_item_command.html#adc9ff7f20c2dec3f40bf5856d508cde2">ItemCommand</a>
+, <a class="el" href="class_area_command.html#a2d89a68dd223fefde961b443caec9153">AreaCommand</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
-<li>unlock()
-: <a class="el" href="class_area.html#a6e38f449666617680d0aee968c5c9f57">Area</a>
+<li>unlock
+: <a class="el" href="class_item_command.html#ab48cc2be6ad392f61a4cc09d8ddaa061">ItemCommand</a>
+, <a class="el" href="class_area.html#a6e38f449666617680d0aee968c5c9f57">Area</a>
 , <a class="el" href="class_area_command.html#a0a5c63d57a821d2f3d833e7a826afa4a">AreaCommand</a>
+</li>
+<li>unlock_area_string()
+: <a class="el" href="class_item_command.html#a08a215a5fab2593301ca90ed794267d7">ItemCommand</a>
+</li>
+<li>unlock_areacommand_string()
+: <a class="el" href="class_item_command.html#a9d663365564ebb4c7ed39ce73d995631">ItemCommand</a>
+</li>
+<li>unlocks()
+: <a class="el" href="class_item_command.html#a74c82a6f88120d2ccaa6fbba4353fe17">ItemCommand</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
+<li>World()
+: <a class="el" href="class_world.html#a5d24f8974db6e08f1938389ad8937c3e">World</a>
 </li>
 </ul>
 
@@ -339,6 +533,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>~Item()
 : <a class="el" href="class_item.html#a11663c84075b78c3ae5e30fdfcd7c458">Item</a>
 </li>
+<li>~ItemCommand()
+: <a class="el" href="class_item_command.html#a3a7504fb83dbb0b1d708d80aa2c6cc47">ItemCommand</a>
+</li>
 <li>~StateDescriptor()
 : <a class="el" href="class_state_descriptor.html#a2d9dfc3ddc8c8c4f609f4ff42e8e2bea">StateDescriptor</a>
 </li>
@@ -347,12 +544,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 </ul>
 </div>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -362,12 +562,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
+    <li class="footer">Generated on Thu Sep 29 2011 22:51:22 for txtEngine by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 19 2011 22:22:28 for txtEngine by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.5.1
-</small></address>
 
 </body>
 </html>

@@ -1,0 +1,268 @@
+\hypertarget{class_area_command}{
+\section{\-Area\-Command \-Class \-Reference}
+\label{class_area_command}\index{\-Area\-Command@{\-Area\-Command}}
+}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_area_command_a638e3a777d9c8e3810212835b979eff0}{\-Area\-Command} (const char $\ast$callmeby, const char $\ast$areatomoveto, const char $\ast$status\-\_\-command, const char $\ast$depends\-\_\-command, std\-::vector$<$ std\-::string $>$ $\ast$synonyms, bool locked)
+\item 
+\hyperlink{class_area_command_aa978468c6b9bcc165d70437273623950}{$\sim$\-Area\-Command} ()
+\item 
+std\-::string \hyperlink{class_area_command_a7c24cd88b6913494bfed3b6f6b0fe7f6}{get\-\_\-depends} ()
+\item 
+std\-::string \hyperlink{class_area_command_adc3423bc66eba73317cd941632026b85}{get\-\_\-status} ()
+\item 
+std\-::string \hyperlink{class_area_command_ad61a6fb1db17d07a2e214c7c2267581d}{get\-\_\-name} ()
+\item 
+std\-::string \hyperlink{class_area_command_a9f558f5ce36040a51401924af9781402}{get\-\_\-area} ()
+\item 
+std\-::string \hyperlink{class_area_command_a594ec5125fc0467ee001064ff73a1632}{get\-\_\-message} ()
+\item 
+void \hyperlink{class_area_command_a1a081291614ee6ff8c5841d2753b3b1b}{set\-\_\-message} (const char $\ast$to\-\_\-message)
+\item 
+bool \hyperlink{class_area_command_a317a22131f031bbc4f364b1199261829}{find} (std\-::string to\-\_\-find)
+\item 
+void \hyperlink{class_area_command_a0a5c63d57a821d2f3d833e7a826afa4a}{unlock} ()
+\item 
+bool \hyperlink{class_area_command_a34eba7b250e50210e2da7faf07754ff6}{is\-\_\-locked} ()
+\item 
+bool \hyperlink{class_area_command_ab5fef6aab4c7efd6767eacafc1994e96}{has\-\_\-synonym} (std\-::string item)
+\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_area_command_a23a6e53dfc6f1d8988f41b9fc48c3048}{
+bool {\bfseries locked}}
+\label{class_area_command_a23a6e53dfc6f1d8988f41b9fc48c3048}
+
+\item 
+\hypertarget{class_area_command_a3295a37db88c72813df17dd9b4db060f}{
+std\-::string {\bfseries name}}
+\label{class_area_command_a3295a37db88c72813df17dd9b4db060f}
+
+\item 
+\hypertarget{class_area_command_a4ba177c6d8cc7f074d0642e4fd343f14}{
+std\-::string {\bfseries status}}
+\label{class_area_command_a4ba177c6d8cc7f074d0642e4fd343f14}
+
+\item 
+\hypertarget{class_area_command_af98d35c3cc1789af861eb8c2511a3d2a}{
+std\-::string {\bfseries message}}
+\label{class_area_command_af98d35c3cc1789af861eb8c2511a3d2a}
+
+\item 
+\hypertarget{class_area_command_afab48cca59ca37d72e39f24a17fb7c0c}{
+std\-::string {\bfseries depends}}
+\label{class_area_command_afab48cca59ca37d72e39f24a17fb7c0c}
+
+\item 
+\hypertarget{class_area_command_a5ade0f6aabc1891270b1538a3e028f2f}{
+std\-::string {\bfseries move\-\_\-to\-\_\-area}}
+\label{class_area_command_a5ade0f6aabc1891270b1538a3e028f2f}
+
+\item 
+\hypertarget{class_area_command_a2d89a68dd223fefde961b443caec9153}{
+std\-::vector$<$ std\-::string $>$ $\ast$ {\bfseries synonyms}}
+\label{class_area_command_a2d89a68dd223fefde961b443caec9153}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_area_command_a638e3a777d9c8e3810212835b979eff0}{
+\index{\-Area\-Command@{\-Area\-Command}!\-Area\-Command@{\-Area\-Command}}
+\index{\-Area\-Command@{\-Area\-Command}!AreaCommand@{\-Area\-Command}}
+\subsubsection[{\-Area\-Command}]{\setlength{\rightskip}{0pt plus 5cm}\-Area\-Command\-::\-Area\-Command (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{callmeby, }
+\item[{const char $\ast$}]{areatomoveto, }
+\item[{const char $\ast$}]{status\-\_\-command, }
+\item[{const char $\ast$}]{depends\-\_\-command, }
+\item[{std\-::vector$<$ std\-::string $>$ $\ast$}]{synonyms, }
+\item[{bool}]{locked}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_command_a638e3a777d9c8e3810212835b979eff0}
+\-The constructor for an \hyperlink{class_area_command}{\-Area\-Command}.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em callmeby} & \-The name of this command. \\
+\hline
+\mbox{\tt in}  & {\em areamoveto} & \-The area to move to when this command is called. \\
+\hline
+\mbox{\tt in}  & {\em status\-\_\-command} & \-The status id to change to. \\
+\hline
+\mbox{\tt in}  & {\em depends\-\_\-command} & \\
+\hline
+\mbox{\tt in}  & {\em synonyms} & \-A vector containing synonyms of 'callmeby'. \\
+\hline
+\mbox{\tt in}  & {\em locked} & \-If true command cannot be called. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_area_command_aa978468c6b9bcc165d70437273623950}{
+\index{\-Area\-Command@{\-Area\-Command}!$\sim$\-Area\-Command@{$\sim$\-Area\-Command}}
+\index{$\sim$\-Area\-Command@{$\sim$\-Area\-Command}!AreaCommand@{\-Area\-Command}}
+\subsubsection[{$\sim$\-Area\-Command}]{\setlength{\rightskip}{0pt plus 5cm}\-Area\-Command\-::$\sim$\-Area\-Command (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_command_aa978468c6b9bcc165d70437273623950}
+\-The \hyperlink{class_area_command}{\-Area\-Command} \-Destructor 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_area_command_a317a22131f031bbc4f364b1199261829}{
+\index{\-Area\-Command@{\-Area\-Command}!find@{find}}
+\index{find@{find}!AreaCommand@{\-Area\-Command}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Area\-Command\-::find (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{to\-\_\-find}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_command_a317a22131f031bbc4f364b1199261829}
+\-Compares the name of the command with a string.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em to\-\_\-find} & \-A string to compare with the command name. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-True if the strings match otherwise false. 
+\end{DoxyReturn}
+\hypertarget{class_area_command_a9f558f5ce36040a51401924af9781402}{
+\index{\-Area\-Command@{\-Area\-Command}!get\-\_\-area@{get\-\_\-area}}
+\index{get\-\_\-area@{get\-\_\-area}!AreaCommand@{\-Area\-Command}}
+\subsubsection[{get\-\_\-area}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Area\-Command\-::get\-\_\-area (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_command_a9f558f5ce36040a51401924af9781402}
+\-Get the name of the area to move to when this command is used.
+
+\begin{DoxyReturn}{\-Returns}
+\-The name of the area to move to. 
+\end{DoxyReturn}
+\hypertarget{class_area_command_a7c24cd88b6913494bfed3b6f6b0fe7f6}{
+\index{\-Area\-Command@{\-Area\-Command}!get\-\_\-depends@{get\-\_\-depends}}
+\index{get\-\_\-depends@{get\-\_\-depends}!AreaCommand@{\-Area\-Command}}
+\subsubsection[{get\-\_\-depends}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Area\-Command\-::get\-\_\-depends (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_command_a7c24cd88b6913494bfed3b6f6b0fe7f6}
+\-Returns what the \hyperlink{class_area_command}{\-Area\-Command} depends on.
+
+\begin{DoxyReturn}{\-Returns}
+\-An id of an item the command depends on. 
+\end{DoxyReturn}
+\hypertarget{class_area_command_a594ec5125fc0467ee001064ff73a1632}{
+\index{\-Area\-Command@{\-Area\-Command}!get\-\_\-message@{get\-\_\-message}}
+\index{get\-\_\-message@{get\-\_\-message}!AreaCommand@{\-Area\-Command}}
+\subsubsection[{get\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Area\-Command\-::get\-\_\-message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_command_a594ec5125fc0467ee001064ff73a1632}
+\-Get the message to print when this command is used.
+
+\begin{DoxyReturn}{\-Returns}
+\-A message to print for this command. 
+\end{DoxyReturn}
+\hypertarget{class_area_command_ad61a6fb1db17d07a2e214c7c2267581d}{
+\index{\-Area\-Command@{\-Area\-Command}!get\-\_\-name@{get\-\_\-name}}
+\index{get\-\_\-name@{get\-\_\-name}!AreaCommand@{\-Area\-Command}}
+\subsubsection[{get\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Area\-Command\-::get\-\_\-name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_command_ad61a6fb1db17d07a2e214c7c2267581d}
+\-Get the name of the \hyperlink{class_area_command}{\-Area\-Command}.
+
+\begin{DoxyReturn}{\-Returns}
+\-The name of the \hyperlink{class_area_command}{\-Area\-Command}. 
+\end{DoxyReturn}
+\hypertarget{class_area_command_adc3423bc66eba73317cd941632026b85}{
+\index{\-Area\-Command@{\-Area\-Command}!get\-\_\-status@{get\-\_\-status}}
+\index{get\-\_\-status@{get\-\_\-status}!AreaCommand@{\-Area\-Command}}
+\subsubsection[{get\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Area\-Command\-::get\-\_\-status (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_command_adc3423bc66eba73317cd941632026b85}
+\-Get the status of the \hyperlink{class_area_command}{\-Area\-Command}
+
+\begin{DoxyReturn}{\-Returns}
+\-The status of the \hyperlink{class_area_command}{\-Area\-Command}. 
+\end{DoxyReturn}
+\hypertarget{class_area_command_ab5fef6aab4c7efd6767eacafc1994e96}{
+\index{\-Area\-Command@{\-Area\-Command}!has\-\_\-synonym@{has\-\_\-synonym}}
+\index{has\-\_\-synonym@{has\-\_\-synonym}!AreaCommand@{\-Area\-Command}}
+\subsubsection[{has\-\_\-synonym}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Area\-Command\-::has\-\_\-synonym (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{item}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_command_ab5fef6aab4c7efd6767eacafc1994e96}
+\-Checks if the area command has a synonym matching a string.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em item} & \-The name to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-True if the synonym list has the string or false if not. 
+\end{DoxyReturn}
+\hypertarget{class_area_command_a34eba7b250e50210e2da7faf07754ff6}{
+\index{\-Area\-Command@{\-Area\-Command}!is\-\_\-locked@{is\-\_\-locked}}
+\index{is\-\_\-locked@{is\-\_\-locked}!AreaCommand@{\-Area\-Command}}
+\subsubsection[{is\-\_\-locked}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Area\-Command\-::is\-\_\-locked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_command_a34eba7b250e50210e2da7faf07754ff6}
+\-Checks whether this area command is locked.
+
+\begin{DoxyReturn}{\-Returns}
+\-True if the command is locked or false if it is unlocked. 
+\end{DoxyReturn}
+\hypertarget{class_area_command_a1a081291614ee6ff8c5841d2753b3b1b}{
+\index{\-Area\-Command@{\-Area\-Command}!set\-\_\-message@{set\-\_\-message}}
+\index{set\-\_\-message@{set\-\_\-message}!AreaCommand@{\-Area\-Command}}
+\subsubsection[{set\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}void \-Area\-Command\-::set\-\_\-message (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{to\-\_\-message}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_command_a1a081291614ee6ff8c5841d2753b3b1b}
+\-Change the message for this command.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em to\-\_\-message} & \-The new message for this command. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_area_command_a0a5c63d57a821d2f3d833e7a826afa4a}{
+\index{\-Area\-Command@{\-Area\-Command}!unlock@{unlock}}
+\index{unlock@{unlock}!AreaCommand@{\-Area\-Command}}
+\subsubsection[{unlock}]{\setlength{\rightskip}{0pt plus 5cm}void \-Area\-Command\-::unlock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_command_a0a5c63d57a821d2f3d833e7a826afa4a}
+\-Unlocks the command so it can be called. 
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/cshome/m/mabrams/345/txt\-Engine/\hyperlink{_area_command_8h}{\-Area\-Command.\-h}\item 
+/home/cshome/m/mabrams/345/txt\-Engine/\hyperlink{_area_command_8cpp}{\-Area\-Command.\-cpp}\end{DoxyCompactItemize}

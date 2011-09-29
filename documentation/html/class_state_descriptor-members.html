@@ -6,9 +6,14 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -24,12 +29,14 @@
  <tbody>
  <tr style="height: 56px;">
   
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">txtEngine
    &#160;<span id="projectnumber">v4.0</span>
    </div>
-   
+   <div id="projectbrief">A Text Adventure Language Implementation</div>
   </td>
   
   
@@ -74,26 +81,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('class_state_descriptor.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">StateDescriptor Member List</div>  </div>
 </div>
 <div class="contents">
 This is the complete list of members for <a class="el" href="class_state_descriptor.html">StateDescriptor</a>, including all inherited members.<table>
-  <tr bgcolor="#f0f0f0"><td><b>description</b> (defined in <a class="el" href="class_state_descriptor.html">StateDescriptor</a>)</td><td><a class="el" href="class_state_descriptor.html">StateDescriptor</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_state_descriptor.html#ae1f4cb2426dd97e0afe6d036c9cd9913">description</a></td><td><a class="el" href="class_state_descriptor.html">StateDescriptor</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_state_descriptor.html#affa74bf68afccd61d263bbbb4b9419ea">get_description</a>()</td><td><a class="el" href="class_state_descriptor.html">StateDescriptor</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_state_descriptor.html#a86c0070f308c636a19693a009f0a5464">get_id</a>()</td><td><a class="el" href="class_state_descriptor.html">StateDescriptor</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>id</b> (defined in <a class="el" href="class_state_descriptor.html">StateDescriptor</a>)</td><td><a class="el" href="class_state_descriptor.html">StateDescriptor</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_state_descriptor.html#a6e9e403fcf97cda1dc40bda6428af294">id</a></td><td><a class="el" href="class_state_descriptor.html">StateDescriptor</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_state_descriptor.html#a58265248efa7a27af7e6bbddeab1d74a">set_description</a>(const char *desc)</td><td><a class="el" href="class_state_descriptor.html">StateDescriptor</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_state_descriptor.html#afc148468d8cd45e8a109a9ed887ef729">StateDescriptor</a>(const char *identifier)</td><td><a class="el" href="class_state_descriptor.html">StateDescriptor</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_state_descriptor.html#a2d9dfc3ddc8c8c4f609f4ff42e8e2bea">~StateDescriptor</a>()</td><td><a class="el" href="class_state_descriptor.html">StateDescriptor</a></td><td></td></tr>
 </table></div>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -103,12 +126,12 @@ This is the complete list of members for <a class="el" href="class_state_descrip
 </div>
 
 
+    <li class="footer">Generated on Thu Sep 29 2011 22:51:22 for txtEngine by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 19 2011 22:22:28 for txtEngine by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.5.1
-</small></address>
 
 </body>
 </html>

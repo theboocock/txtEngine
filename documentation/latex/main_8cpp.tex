@@ -34,59 +34,53 @@ std\-::string \hyperlink{main_8cpp_a76854ad6d49ea67c89cc36d45dc6d5f9}{word\-\_\-
 \item 
 void \hyperlink{main_8cpp_a375accd99cb784704a708e4a3c20e2be}{print\-\_\-world\-\_\-tree} ()
 \item 
-void \hyperlink{main_8cpp_ab7a3b4a2f1b227a103c8fe5c79779bfc}{load\-\_\-game} ()
+void \hyperlink{main_8cpp_a38302911b14bffa078921d2bf3760e63}{load} (char $\ast$const file)
 \item 
-void \hyperlink{main_8cpp_a080f5ef7e7f8a73a4e49e5ea040391c3}{save\-\_\-game} ()
+void \hyperlink{main_8cpp_a993239dd1ea5b81c9bf332a1fec35798}{save} (char $\ast$const file)
 \item 
 std\-::string \hyperlink{main_8cpp_a4872b17f4ae9b5f4bc6f4edf84cbaf90}{input\-\_\-filter} (std\-::string input\-\_\-string)
 \item 
 void \hyperlink{main_8cpp_a7a521022440460f394f76c6faeede846}{read\-\_\-filter\-\_\-list} (std\-::string str)
 \item 
-\hypertarget{main_8cpp_aac6f1ba000217f4225d8b8a9257134bf}{
-void {\bfseries process\-\_\-input} (std\-::string to\-\_\-process, bool load)}
-\label{main_8cpp_aac6f1ba000217f4225d8b8a9257134bf}
-
-\item 
-\hypertarget{main_8cpp_a38302911b14bffa078921d2bf3760e63}{
-void {\bfseries load} (char $\ast$const file)}
-\label{main_8cpp_a38302911b14bffa078921d2bf3760e63}
-
+void \hyperlink{main_8cpp_aac6f1ba000217f4225d8b8a9257134bf}{process\-\_\-input} (std\-::string to\-\_\-process, bool load)
 \item 
 void \hyperlink{main_8cpp_ae7d6d3b42473462bb8393562b6d8b597}{read\-\_\-filter\-\_\-list} (const char $\ast$file)
 \item 
-\hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{
-int {\bfseries main} (int argc, char $\ast$$\ast$argv)}
-\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
-
+std\-::string \hyperlink{main_8cpp_a63b0477801507022813544b97ad16d3f}{get\-\_\-all\-\_\-area\-\_\-commands} ()
+\item 
+std\-::string \hyperlink{main_8cpp_a1c1802834e6c5ce287c4739896b626d0}{valid\-\_\-item\-\_\-command\-\_\-inv} (\hyperlink{class_item}{\-Item} $\ast$temp\-\_\-item, int item)
+\item 
+std\-::string \hyperlink{main_8cpp_a57cef49fd47fd70cac47fec53f67de02}{valid\-\_\-item\-\_\-command\-\_\-area} (\hyperlink{class_item}{\-Item} $\ast$temp\-\_\-item, int items)
+\item 
+std\-::string \hyperlink{main_8cpp_ae6233847923348a5774175a568187207}{get\-\_\-all\-\_\-item\-\_\-commands} ()
+\item 
+void \hyperlink{main_8cpp_ab7fcf68261b32de6ac9464c82d7c6763}{external\-\_\-output} (std\-::string command)
+\item 
+int \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
 \end{DoxyCompactItemize}
 \subsection*{\-Variables}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{main_8cpp_a38026b801fec560c0322d4e5b6cab8be}{
-\hyperlink{class_world}{\-World} $\ast$ {\bfseries world}}
+\hyperlink{class_world}{\-World} $\ast$ \hyperlink{main_8cpp_a38026b801fec560c0322d4e5b6cab8be}{world}}
 \label{main_8cpp_a38026b801fec560c0322d4e5b6cab8be}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-The world object. \end{DoxyCompactList}\item 
 \hypertarget{main_8cpp_a217b738e11033b8ebfb179f8c7e72e1f}{
-bool {\bfseries game\-\_\-over} = false}
+bool \hyperlink{main_8cpp_a217b738e11033b8ebfb179f8c7e72e1f}{game\-\_\-over} = false}
 \label{main_8cpp_a217b738e11033b8ebfb179f8c7e72e1f}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-Flag to end a game. \end{DoxyCompactList}\item 
 \hypertarget{main_8cpp_aae78162cab0d48cc5e46307ccb20bf12}{
-std\-::vector$<$ std\-::string $>$ {\bfseries command\-List}}
+std\-::vector$<$ std\-::string $>$ \hyperlink{main_8cpp_aae78162cab0d48cc5e46307ccb20bf12}{command\-List}}
 \label{main_8cpp_aae78162cab0d48cc5e46307ccb20bf12}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-List of commands used. \end{DoxyCompactList}\item 
 \hypertarget{main_8cpp_a78e5f93c25774ed2075a6380fc56d57c}{
-std\-::vector$<$ std\-::string $>$ {\bfseries filter\-List}}
+std\-::vector$<$ std\-::string $>$ \hyperlink{main_8cpp_a78e5f93c25774ed2075a6380fc56d57c}{filter\-List}}
 \label{main_8cpp_a78e5f93c25774ed2075a6380fc56d57c}
 
-\item 
-\hypertarget{main_8cpp_aeeef66d827efd93a89631e9c5da5a308}{
-std\-::string {\bfseries save}}
-\label{main_8cpp_aeeef66d827efd93a89631e9c5da5a308}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-List of words to filter from input. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Detailed \-Description}
@@ -113,6 +107,50 @@ std\-::string {\bfseries save}}
 
 
 \subsection{\-Function \-Documentation}
+\hypertarget{main_8cpp_ab7fcf68261b32de6ac9464c82d7c6763}{
+\index{main.\-cpp@{main.\-cpp}!external\-\_\-output@{external\-\_\-output}}
+\index{external\-\_\-output@{external\-\_\-output}!main.cpp@{main.\-cpp}}
+\subsubsection[{external\-\_\-output}]{\setlength{\rightskip}{0pt plus 5cm}void external\-\_\-output (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{command}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_ab7fcf68261b32de6ac9464c82d7c6763}
+\-External output method used by web interface.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em command} & \-Input commands to be processed. \\
+\hline
+\end{DoxyParams}
+\hypertarget{main_8cpp_a63b0477801507022813544b97ad16d3f}{
+\index{main.\-cpp@{main.\-cpp}!get\-\_\-all\-\_\-area\-\_\-commands@{get\-\_\-all\-\_\-area\-\_\-commands}}
+\index{get\-\_\-all\-\_\-area\-\_\-commands@{get\-\_\-all\-\_\-area\-\_\-commands}!main.cpp@{main.\-cpp}}
+\subsubsection[{get\-\_\-all\-\_\-area\-\_\-commands}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string get\-\_\-all\-\_\-area\-\_\-commands (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a63b0477801507022813544b97ad16d3f}
+\-Get all of the area commands for the current area.
+
+\begin{DoxyReturn}{\-Returns}
+\-A string containing all of the area commands. 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_ae6233847923348a5774175a568187207}{
+\index{main.\-cpp@{main.\-cpp}!get\-\_\-all\-\_\-item\-\_\-commands@{get\-\_\-all\-\_\-item\-\_\-commands}}
+\index{get\-\_\-all\-\_\-item\-\_\-commands@{get\-\_\-all\-\_\-item\-\_\-commands}!main.cpp@{main.\-cpp}}
+\subsubsection[{get\-\_\-all\-\_\-item\-\_\-commands}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string get\-\_\-all\-\_\-item\-\_\-commands (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_ae6233847923348a5774175a568187207}
+\-Reads words from a specified file into the filter\-List vector.
+
+\begin{DoxyReturn}{\-Returns}
+\-A string of a file path to a list of words to ignore. 
+\end{DoxyReturn}
 \hypertarget{main_8cpp_a4872b17f4ae9b5f4bc6f4edf84cbaf90}{
 \index{main.\-cpp@{main.\-cpp}!input\-\_\-filter@{input\-\_\-filter}}
 \index{input\-\_\-filter@{input\-\_\-filter}!main.cpp@{main.\-cpp}}
@@ -132,16 +170,38 @@ std\-::string {\bfseries save}}
 \begin{DoxyReturn}{\-Returns}
 \-A string with words from filter\-List removed. 
 \end{DoxyReturn}
-\hypertarget{main_8cpp_ab7a3b4a2f1b227a103c8fe5c79779bfc}{
-\index{main.\-cpp@{main.\-cpp}!load\-\_\-game@{load\-\_\-game}}
-\index{load\-\_\-game@{load\-\_\-game}!main.cpp@{main.\-cpp}}
-\subsubsection[{load\-\_\-game}]{\setlength{\rightskip}{0pt plus 5cm}void load\-\_\-game (
+\hypertarget{main_8cpp_a38302911b14bffa078921d2bf3760e63}{
+\index{main.\-cpp@{main.\-cpp}!load@{load}}
+\index{load@{load}!main.cpp@{main.\-cpp}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}void load (
 \begin{DoxyParamCaption}
-{}
+\item[{char $\ast$const}]{file}
 \end{DoxyParamCaption}
 )}}
-\label{main_8cpp_ab7a3b4a2f1b227a103c8fe5c79779bfc}
-\-Loads a game from a .sav file. \hypertarget{main_8cpp_a78152184f4ebdaba37bb689445028c31}{
+\label{main_8cpp_a38302911b14bffa078921d2bf3760e63}
+\-Loads a game from a .sav file. \hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{
+\index{main.\-cpp@{main.\-cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+\-The main method of the program.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em argc} & \-The number of command line args. \\
+\hline
+\mbox{\tt in}  & {\em argv} & \-Char$\ast$ array of command line args. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-An integer. 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_a78152184f4ebdaba37bb689445028c31}{
 \index{main.\-cpp@{main.\-cpp}!one\-\_\-word\-\_\-command@{one\-\_\-word\-\_\-command}}
 \index{one\-\_\-word\-\_\-command@{one\-\_\-word\-\_\-command}!main.cpp@{main.\-cpp}}
 \subsubsection[{one\-\_\-word\-\_\-command}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string one\-\_\-word\-\_\-command (
@@ -180,7 +240,26 @@ std\-::string {\bfseries save}}
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a375accd99cb784704a708e4a3c20e2be}
-\-This method is used for debug purposes only\-: \-Prints out the parsed \-X\-M\-L file in a tree structure. \hypertarget{main_8cpp_a7a521022440460f394f76c6faeede846}{
+\-This method is used for debug purposes only\-: \-Prints out the parsed \-X\-M\-L file in a tree structure. \hypertarget{main_8cpp_aac6f1ba000217f4225d8b8a9257134bf}{
+\index{main.\-cpp@{main.\-cpp}!process\-\_\-input@{process\-\_\-input}}
+\index{process\-\_\-input@{process\-\_\-input}!main.cpp@{main.\-cpp}}
+\subsubsection[{process\-\_\-input}]{\setlength{\rightskip}{0pt plus 5cm}void process\-\_\-input (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{to\-\_\-process, }
+\item[{bool}]{load}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_aac6f1ba000217f4225d8b8a9257134bf}
+\-Processes input and calls the appropriate method for the number of words in the command. \-Commands are stored in the command\-List and if too many words are in the string a feedback message is output. \-If the game is in load mode then no output is displayed.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em to\-\_\-process} & \-An input string to process. \\
+\hline
+\mbox{\tt in}  & {\em load} & \-A flag for whether the game is in load mode. \\
+\hline
+\end{DoxyParams}
+\hypertarget{main_8cpp_a7a521022440460f394f76c6faeede846}{
 \index{main.\-cpp@{main.\-cpp}!read\-\_\-filter\-\_\-list@{read\-\_\-filter\-\_\-list}}
 \index{read\-\_\-filter\-\_\-list@{read\-\_\-filter\-\_\-list}!main.cpp@{main.\-cpp}}
 \subsubsection[{read\-\_\-filter\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}void read\-\_\-filter\-\_\-list (
@@ -205,15 +284,22 @@ std\-::string {\bfseries save}}
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_ae7d6d3b42473462bb8393562b6d8b597}
-\-Reads in words from file to filter\-List vector. \hypertarget{main_8cpp_a080f5ef7e7f8a73a4e49e5ea040391c3}{
-\index{main.\-cpp@{main.\-cpp}!save\-\_\-game@{save\-\_\-game}}
-\index{save\-\_\-game@{save\-\_\-game}!main.cpp@{main.\-cpp}}
-\subsubsection[{save\-\_\-game}]{\setlength{\rightskip}{0pt plus 5cm}void save\-\_\-game (
+\-Reads words from a specified file into the filter\-List vector.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em file} & \-A char array -\/ the file path to a list of words to ignore. \\
+\hline
+\end{DoxyParams}
+\hypertarget{main_8cpp_a993239dd1ea5b81c9bf332a1fec35798}{
+\index{main.\-cpp@{main.\-cpp}!save@{save}}
+\index{save@{save}!main.cpp@{main.\-cpp}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}void save (
 \begin{DoxyParamCaption}
-{}
+\item[{char $\ast$const}]{file}
 \end{DoxyParamCaption}
 )}}
-\label{main_8cpp_a080f5ef7e7f8a73a4e49e5ea040391c3}
+\label{main_8cpp_a993239dd1ea5b81c9bf332a1fec35798}
 \-Saves a game to a .sav file by dumping the command list vector to a file. \hypertarget{main_8cpp_a47fd8dc4fa23701e1d3c6d9c33f9f675}{
 \index{main.\-cpp@{main.\-cpp}!three\-\_\-word\-\_\-command@{three\-\_\-word\-\_\-command}}
 \index{three\-\_\-word\-\_\-command@{three\-\_\-word\-\_\-command}!main.cpp@{main.\-cpp}}
@@ -223,21 +309,15 @@ std\-::string {\bfseries save}}
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a47fd8dc4fa23701e1d3c6d9c33f9f675}
-\-Write description of function here. \-The function should follow these comments. \-Use of \char`\"{}brief\char`\"{} tag is optional. (no point to it)
-
-\-The function arguments listed with \char`\"{}param\char`\"{} will be compared to the declaration and verified.
+\-A method for handling three word commands. \-For example\-: combine pen paper.
 
 
 \begin{DoxyParams}[1]{\-Parameters}
-\mbox{\tt in}  & {\em \-\_\-in\-Arg1} & \-Description of first function argument. \\
-\hline
-\mbox{\tt out}  & {\em \-\_\-out\-Arg2} & \-Description of second function argument. \\
-\hline
-\mbox{\tt in,out}  & {\em \-\_\-inout\-Arg3} & \-Description of third function argument. \\
+\mbox{\tt in}  & {\em command} & \-The three word command. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{\-Returns}
-\-Description of returned value. 
+\-A string to output. 
 \end{DoxyReturn}
 \hypertarget{main_8cpp_a5671b7ea75581d5f7eb4a801d7c10919}{
 \index{main.\-cpp@{main.\-cpp}!two\-\_\-word\-\_\-command@{two\-\_\-word\-\_\-command}}
@@ -255,11 +335,57 @@ std\-::string {\bfseries save}}
 
 
 \begin{DoxyParams}[1]{\-Parameters}
-\mbox{\tt in}  & {\em command} & \-A two word command in the form of a string. \\
+\mbox{\tt in}  & {\em command1} & \-First command in the form of a string. \\
+\hline
+\mbox{\tt in}  & {\em command2} & \-Second command in the form of a string. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{\-Returns}
 \-Output of the command. 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_a57cef49fd47fd70cac47fec53f67de02}{
+\index{main.\-cpp@{main.\-cpp}!valid\-\_\-item\-\_\-command\-\_\-area@{valid\-\_\-item\-\_\-command\-\_\-area}}
+\index{valid\-\_\-item\-\_\-command\-\_\-area@{valid\-\_\-item\-\_\-command\-\_\-area}!main.cpp@{main.\-cpp}}
+\subsubsection[{valid\-\_\-item\-\_\-command\-\_\-area}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string valid\-\_\-item\-\_\-command\-\_\-area (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Item} $\ast$}]{temp\-\_\-item, }
+\item[{int}]{items}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a57cef49fd47fd70cac47fec53f67de02}
+\-Gets the valid area commands for items in the current area.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em temp\-\_\-item} & \-A pointer to the item. \\
+\hline
+\mbox{\tt in}  & {\em items} & \-Number of items. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-The valid item commands for items in the area. 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_a1c1802834e6c5ce287c4739896b626d0}{
+\index{main.\-cpp@{main.\-cpp}!valid\-\_\-item\-\_\-command\-\_\-inv@{valid\-\_\-item\-\_\-command\-\_\-inv}}
+\index{valid\-\_\-item\-\_\-command\-\_\-inv@{valid\-\_\-item\-\_\-command\-\_\-inv}!main.cpp@{main.\-cpp}}
+\subsubsection[{valid\-\_\-item\-\_\-command\-\_\-inv}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string valid\-\_\-item\-\_\-command\-\_\-inv (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Item} $\ast$}]{temp\-\_\-item, }
+\item[{int}]{item}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a1c1802834e6c5ce287c4739896b626d0}
+\-Gets all valid item commands for an inventory item.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em temp\-\_\-item} & \-A pointer to an item. \\
+\hline
+\mbox{\tt in}  & {\em item} & \-An integer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-The valid item commands. 
 \end{DoxyReturn}
 \hypertarget{main_8cpp_a76854ad6d49ea67c89cc36d45dc6d5f9}{
 \index{main.\-cpp@{main.\-cpp}!word\-\_\-wrap@{word\-\_\-wrap}}

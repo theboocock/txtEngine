@@ -30,16 +30,12 @@ class Item;
 
 class combine{
  private:
-   // the description when you combine the things
-   StateDescriptor * description;
-   // First item_id 
-   std::string first_id;
-   // Second item_id
-   std::string second_id;
-   // The item that is the combination
-   Item * combination;
-   // combine id
-   std::string id;	
+   StateDescriptor * description; ///< The description when you
+                                  ///< combine the things.
+   std::string first_id; ///< First item_id.
+   std::string second_id; ///< Second item_id.
+   Item * combination; ///< The item that is the combination.
+   std::string id; ///< Combine id.	
  public:
    /**
       Constructor for a combine object.
@@ -90,8 +86,8 @@ class combine{
    */
    void set_combination(Item * item);
  
-  /**
-     Sets the description of the combined item.
+   /**
+      Sets the description of the combined item.
 
       @param[in] d The description for the item.
    */

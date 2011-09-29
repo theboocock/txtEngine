@@ -30,24 +30,26 @@ class Area;
 class Item {
 
  protected:
-   bool collectable;
-   int num_descriptions, num_commands, num_items;
-   std::string id;
-   bool container;
-   bool locked;
-   combine * combine_var;
-   std::vector<Item *> contains;
-   std::string curr_desc_id;
-   std::vector<StateDescriptor*> description;
-   std::vector<ItemCommand*> commands;
-   std::vector<std::string> *synonyms;
-   std::string depends;
-   std::string name;
+   bool collectable; ///< Flag, whether item can be collected.
+   int num_descriptions; ///< Number of descriptions for the item.
+   int num_commands; ///< Number of commands for this item.
+   int num_items; ///< Number of items contained inside this item.
+   std::string id; ///< The item's id.
+   bool container; ///< Whether or not item is a container.
+   bool locked; ///< Whether or not the item is locked.
+   combine * combine_var; ///< Pointer to a combine object.
+   std::vector<Item *> contains; ///< Vector of items contained in this item.
+   std::string curr_desc_id; ///< The current description of this item.
+   std::vector<StateDescriptor*> description; ///< Vector of descriptions.
+   std::vector<ItemCommand*> commands; ///< Vector of commands for item.
+   std::vector<std::string> *synonyms; ///< Vector of synonyms for the item.
+   std::string depends; ///< What this item depends on (key).
+   std::string name; ///< The name of the item.
  public:
    /**
       Removes an item from inside this item by id.
 
-      @param A string - the id of the item to remove.
+      @param[in] item_id A string - the id of the item to remove.
    */
    void remove_item(std::string item_id);
 
@@ -90,9 +92,9 @@ class Item {
    /**
       Adds an item to the contains vector.
 
-      @param The pointer to an item.
+      @param[in] new_item The pointer to an item.
    */
-   void add_item(Item*);
+   void add_item(Item* new_item);
 
 
    /**
@@ -170,7 +172,7 @@ class Item {
    bool is_collectable();
 
    /**
-   Gets the id of the item.
+      Gets the id of the item.
 
       @return A string - the id of the item.
    */
@@ -191,7 +193,7 @@ class Item {
    void add_command(ItemCommand *command_name);
 
    /**
-     Gets a command from the commands vector for this item by index.
+      Gets a command from the commands vector for this item by index.
 
       @param[in] index The index of the item in the vector.
       @return An ItemCommand object at the specified index.
@@ -229,22 +231,23 @@ class Item {
    std::string get_depends();
    
    /**
-     Changes the state of the item.
+      Changes the state of the item.
 
       @param[in] to_change A string - to change the state of the item to.
    */
    void state_change(std::string to_change);
 
    /**
-     The constructor for an Item.
+      The constructor for an Item.
 
-     @param[in] collect Whether this item is collectable or not.
-     @param[in] identifier An identifier for this item.
-     @param[in] initial_state The initial state of the item.
-     @param[in] synonyms A vector of synonyms for the name of this item.
-     @param[in] depends An item this item depends on.
-     @param[in] container Whether this item is a container.
-     @param[in] locked Whether this item is locked.
+      @param[in] collect Whether this item is collectable or not.
+      @param[in] identifier An identifier for this item.
+      @param[in] initial_state The initial state of the item.
+      @param[in] synonyms A vector of synonyms for the name of this item.
+      @param[in] depends An item this item depends on.
+      @param[in] container Whether this item is a container.
+      @param[in] locked Whether this item is locked.
+      @param[in] name The name of the item.
    */
    Item(bool collect, const char *identifier, const char *initial_state,
         std::vector<std::string> *synonyms, const char * depends, bool container, bool locked, const char* name);
@@ -252,10 +255,30 @@ class Item {
    /**
       The destructor for an Item.
    */
-   int get_num_items();
-   Item * get_item(int index);
-   std::string get_name();
    ~Item();
+
+   /**
+      Get the number of items inside this item.
+      
+      @return The number of items inside this item.
+   */
+   int get_num_items();
+
+   /**
+      Get the item inside this item by index.
+
+      @param[in] index The index of the item in the vector.
+      @return Pointer to an item.
+   */
+   Item * get_item(int index);
+
+   /**
+      Get the name of the item.
+
+      @return The name of the item.
+   */
+   std::string get_name();
+
 };
 
 #endif

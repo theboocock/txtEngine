@@ -6,9 +6,14 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -24,12 +29,14 @@
  <tbody>
  <tr style="height: 56px;">
   
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">txtEngine
    &#160;<span id="projectnumber">v4.0</span>
    </div>
-   
+   <div id="projectbrief">A Text Adventure Language Implementation</div>
   </td>
   
   
@@ -72,6 +79,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_constants_8h.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">/home/cshome/m/mabrams/345/txtEngine/Constants.h</div>  </div>
@@ -81,46 +102,79 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00013"></a>00013 <span class="preprocessor">#ifndef _CONSTANTS_H</span>
 <a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#define _CONSTANTS_H</span>
 <a name="l00015"></a>00015 <span class="preprocessor"></span>
-<a name="l00016"></a>00016 <span class="preprocessor">#define DEFAULT_VALUE &quot;default_value&quot;</span>
-<a name="l00017"></a>00017 <span class="preprocessor"></span><span class="preprocessor">#define MAX_CHARACTERS_PER_LINE 80</span>
-<a name="l00018"></a>00018 <span class="preprocessor"></span><span class="preprocessor">#define WIN &quot;win&quot;</span>
-<a name="l00019"></a>00019 <span class="preprocessor"></span><span class="preprocessor">#define DIE &quot;die&quot;</span>
-<a name="l00020"></a>00020 <span class="preprocessor"></span><span class="preprocessor">#define NONE &quot;none&quot;</span>
-<a name="l00021"></a>00021 <span class="preprocessor"></span><span class="preprocessor">#define LOOK &quot;look&quot;</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define BAG &quot;bag&quot;</span>
-<a name="l00023"></a>00023 <span class="preprocessor"></span><span class="preprocessor">#define GO &quot;go&quot;</span>
-<a name="l00024"></a>00024 <span class="preprocessor"></span><span class="preprocessor">#define INVENTORY &quot;inventory&quot;</span>
-<a name="l00025"></a>00025 <span class="preprocessor"></span><span class="preprocessor">#define QUIT &quot;quit&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#define NORTH &quot;north&quot;</span>
-<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#define N &quot;n&quot;</span>
-<a name="l00028"></a>00028 <span class="preprocessor"></span><span class="preprocessor">#define SOUTH &quot;south&quot;</span>
-<a name="l00029"></a>00029 <span class="preprocessor"></span><span class="preprocessor">#define S &quot;s&quot;</span>
-<a name="l00030"></a>00030 <span class="preprocessor"></span><span class="preprocessor">#define EAST &quot;east&quot;</span>
-<a name="l00031"></a>00031 <span class="preprocessor"></span><span class="preprocessor">#define E &quot;e&quot;</span>
-<a name="l00032"></a>00032 <span class="preprocessor"></span><span class="preprocessor">#define WEST &quot;west&quot;</span>
-<a name="l00033"></a>00033 <span class="preprocessor"></span><span class="preprocessor">#define W &quot;w&quot;</span>
-<a name="l00034"></a>00034 <span class="preprocessor"></span><span class="preprocessor">#define HELP &quot;help&quot;</span>
-<a name="l00035"></a>00035 <span class="preprocessor"></span><span class="preprocessor">#define HELP_COMMAND &quot;Schrodinger says the cat is both dead and alive.&quot;</span>
-<a name="l00036"></a>00036 <span class="preprocessor"></span><span class="preprocessor">#define SAVE &quot;save&quot;</span>
-<a name="l00037"></a>00037 <span class="preprocessor"></span><span class="preprocessor">#define LOAD &quot;load&quot;</span>
-<a name="l00038"></a>00038 <span class="preprocessor"></span><span class="preprocessor">#define IGNORELIST &quot;input/ignorewords.txt&quot;</span>
-<a name="l00039"></a>00039 <span class="preprocessor"></span><span class="preprocessor">#define IGNORELISTERROR &quot;\n\nERROR: Filter List not found!\n\n&quot;</span>
-<a name="l00040"></a>00040 <span class="preprocessor"></span><span class="preprocessor">#define TOOMANYWORDS &quot;Please use fewer words for commands&quot;</span>
-<a name="l00041"></a>00041 <span class="preprocessor"></span><span class="preprocessor">#define COMBINE &quot;combine&quot;</span>
-<a name="l00042"></a>00042 <span class="preprocessor"></span><span class="preprocessor">#define PUT &quot;put&quot;</span>
-<a name="l00043"></a>00043 <span class="preprocessor"></span><span class="preprocessor">#define STORE &quot;store&quot;</span>
-<a name="l00044"></a>00044 <span class="preprocessor"></span><span class="preprocessor">#define MIX &quot;mix&quot;</span>
-<a name="l00045"></a>00045 <span class="preprocessor"></span><span class="preprocessor">#define GARBAGE &quot;garbage&quot;</span>
-<a name="l00046"></a>00046 <span class="preprocessor"></span>
-<a name="l00047"></a>00047 <span class="preprocessor">#endif //_CONSTANTS_H</span>
+<a name="l00021"></a><a class="code" href="_constants_8h.html#a1683cf20cb6e91b381579ff93b309714">00021</a> <span class="preprocessor">#define DEFAULT_VALUE &quot;default_value&quot;</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span>
+<a name="l00028"></a><a class="code" href="_constants_8h.html#a089c5a4ee53ccfb141b74516a7f84782">00028</a> <span class="preprocessor">#define MAX_CHARACTERS_PER_LINE 80</span>
+<a name="l00029"></a>00029 <span class="preprocessor"></span>
+<a name="l00035"></a><a class="code" href="_constants_8h.html#a43105771f16e2da3078149f0de528e9b">00035</a> <span class="preprocessor">#define WIN &quot;win&quot;</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span>
+<a name="l00042"></a><a class="code" href="_constants_8h.html#a01ac216e7992570d72253b609fcbd67f">00042</a> <span class="preprocessor">#define DIE &quot;die&quot;</span>
+<a name="l00043"></a>00043 <span class="preprocessor"></span>
+<a name="l00049"></a><a class="code" href="_constants_8h.html#a655c84af1b0034986ff56e12e84f983d">00049</a> <span class="preprocessor">#define NONE &quot;none&quot;</span>
+<a name="l00050"></a>00050 <span class="preprocessor"></span>
+<a name="l00056"></a><a class="code" href="_constants_8h.html#a6d13af6430ff1d6f44ece076ff35b04f">00056</a> <span class="preprocessor">#define LOOK &quot;look&quot;</span>
+<a name="l00057"></a>00057 <span class="preprocessor"></span>
+<a name="l00063"></a><a class="code" href="_constants_8h.html#ac5e92e10a100fc82aaf4dcc76cfed15a">00063</a> <span class="preprocessor">#define BAG &quot;bag&quot;</span>
+<a name="l00064"></a>00064 <span class="preprocessor"></span>
+<a name="l00070"></a><a class="code" href="_constants_8h.html#a277a950c725b69e43a1dae2993119fd4">00070</a> <span class="preprocessor">#define GO &quot;go&quot;</span>
+<a name="l00071"></a>00071 <span class="preprocessor"></span>
+<a name="l00077"></a><a class="code" href="_constants_8h.html#ab5573640a440bc8047751f26ff0468d7">00077</a> <span class="preprocessor">#define INVENTORY &quot;inventory&quot;</span>
+<a name="l00078"></a>00078 <span class="preprocessor"></span>
+<a name="l00084"></a><a class="code" href="_constants_8h.html#ad24e2b54375e12474e65ebf7175988fb">00084</a> <span class="preprocessor">#define QUIT &quot;quit&quot;</span>
+<a name="l00085"></a>00085 <span class="preprocessor"></span>
+<a name="l00086"></a>00086 
+<a name="l00092"></a><a class="code" href="_constants_8h.html#a1711232abf72723b5216c206e6bbb175">00092</a> <span class="preprocessor">#define NORTH &quot;north&quot;</span>
+<a name="l00093"></a>00093 <span class="preprocessor"></span>
+<a name="l00099"></a><a class="code" href="_constants_8h.html#a0240ac851181b84ac374872dc5434ee4">00099</a> <span class="preprocessor">#define N &quot;n&quot;</span>
+<a name="l00100"></a>00100 <span class="preprocessor"></span>
+<a name="l00106"></a><a class="code" href="_constants_8h.html#af3830320fe6287f717dca9669f417950">00106</a> <span class="preprocessor">#define SOUTH &quot;south&quot;</span>
+<a name="l00107"></a>00107 <span class="preprocessor"></span>
+<a name="l00113"></a><a class="code" href="_constants_8h.html#af933676109efed7ab34cea71d748a517">00113</a> <span class="preprocessor">#define S &quot;s&quot;</span>
+<a name="l00114"></a>00114 <span class="preprocessor"></span>
+<a name="l00120"></a><a class="code" href="_constants_8h.html#a072a1ef1143314441742097b799be322">00120</a> <span class="preprocessor">#define EAST &quot;east&quot;</span>
+<a name="l00121"></a>00121 <span class="preprocessor"></span>
+<a name="l00127"></a><a class="code" href="_constants_8h.html#a07484107e6d9fdf38b53edf631d6511d">00127</a> <span class="preprocessor">#define E &quot;e&quot;</span>
+<a name="l00128"></a>00128 <span class="preprocessor"></span>
+<a name="l00134"></a><a class="code" href="_constants_8h.html#a755da365a2f771fdb9e15af22fee7d74">00134</a> <span class="preprocessor">#define WEST &quot;west&quot;</span>
+<a name="l00135"></a>00135 <span class="preprocessor"></span>
+<a name="l00141"></a><a class="code" href="_constants_8h.html#a649b8f01fd6c0f47ff3cbddaeba63bfb">00141</a> <span class="preprocessor">#define W &quot;w&quot;</span>
+<a name="l00142"></a>00142 <span class="preprocessor"></span>
+<a name="l00148"></a><a class="code" href="_constants_8h.html#ae8a798ec5e0449028e485688e8241b5e">00148</a> <span class="preprocessor">#define HELP &quot;help&quot;</span>
+<a name="l00149"></a>00149 <span class="preprocessor"></span>
+<a name="l00155"></a><a class="code" href="_constants_8h.html#a71d7e1dda8fcdb39e7777ab60d6c7f18">00155</a> <span class="preprocessor">#define HELP_COMMAND &quot;Schrodinger says the cat is both dead and alive.&quot;</span>
+<a name="l00156"></a>00156 <span class="preprocessor"></span>
+<a name="l00162"></a><a class="code" href="_constants_8h.html#ab2868d85c8a74e3ee08bdc44580e2235">00162</a> <span class="preprocessor">#define SAVE &quot;save&quot;</span>
+<a name="l00163"></a>00163 <span class="preprocessor"></span>
+<a name="l00169"></a><a class="code" href="_constants_8h.html#a0b674752cca6d434a1a69f40877eb2be">00169</a> <span class="preprocessor">#define LOAD &quot;load&quot;</span>
+<a name="l00170"></a>00170 <span class="preprocessor"></span>
+<a name="l00176"></a><a class="code" href="_constants_8h.html#a6ac6e7a58170c0390b7d5ca578825f7b">00176</a> <span class="preprocessor">#define IGNORELIST &quot;input/ignorewords.txt&quot;</span>
+<a name="l00177"></a>00177 <span class="preprocessor"></span>
+<a name="l00183"></a><a class="code" href="_constants_8h.html#aa97f58fd76f614c0c35ea5d1e8af6cb3">00183</a> <span class="preprocessor">#define IGNORELISTERROR &quot;\n\nERROR: Filter List not found!\n\n&quot;</span>
+<a name="l00184"></a>00184 <span class="preprocessor"></span>
+<a name="l00190"></a><a class="code" href="_constants_8h.html#a3875dec75fda04d17bc92918549234f9">00190</a> <span class="preprocessor">#define TOOMANYWORDS &quot;Please use fewer words for commands&quot;</span>
+<a name="l00191"></a>00191 <span class="preprocessor"></span>
+<a name="l00197"></a><a class="code" href="_constants_8h.html#a3a525df5e3d42d2b89710bca5e52e7b5">00197</a> <span class="preprocessor">#define COMBINE &quot;combine&quot;</span>
+<a name="l00198"></a>00198 <span class="preprocessor"></span>
+<a name="l00204"></a><a class="code" href="_constants_8h.html#a2fa975ab3c002cee7fc36722a3fa3ad5">00204</a> <span class="preprocessor">#define PUT &quot;put&quot;</span>
+<a name="l00205"></a>00205 <span class="preprocessor"></span>
+<a name="l00211"></a><a class="code" href="_constants_8h.html#ac677e3bf428ab129e0cc9153ad7f23c7">00211</a> <span class="preprocessor">#define STORE &quot;store&quot;</span>
+<a name="l00212"></a>00212 <span class="preprocessor"></span>
+<a name="l00218"></a><a class="code" href="_constants_8h.html#aec754b6a0eb1ae4af7188422d5ae9d40">00218</a> <span class="preprocessor">#define MIX &quot;mix&quot;</span>
+<a name="l00219"></a>00219 <span class="preprocessor"></span>
+<a name="l00225"></a><a class="code" href="_constants_8h.html#abefe9ab967bfcc8cdb62368c45b46c48">00225</a> <span class="preprocessor">#define GARBAGE &quot;garbage&quot;</span>
+<a name="l00226"></a>00226 <span class="preprocessor"></span>
+<a name="l00227"></a>00227 <span class="preprocessor">#endif //_CONSTANTS_H</span>
 </pre></div></div>
 </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_constants_8h.html">Constants.h</a>      </li>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -130,12 +184,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
+    <li class="footer">Generated on Thu Sep 29 2011 22:51:22 for txtEngine by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 19 2011 22:22:27 for txtEngine by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.5.1
-</small></address>
 
 </body>
 </html>

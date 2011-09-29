@@ -1,0 +1,22 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="TiXmlNode::GetDocument",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="TiXmlNode::LinkEndChild",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ti_xml_node.html#a1a881212554b759865f6cac79a851d38"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="TiXmlNode::InsertEndChild",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ti_xml_node.html#af287a913ce46d8dbf7ef24fec69bbaf0"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="TiXmlDocument::Parse",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ti_xml_document.html#a789ad2f06f93d52bdb5570b2f3670289"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="TiXmlDocument::LoadFile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ti_xml_document.html#a41f6fe7200864d1dca663d230caf8db6"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="TiXmlNode::InsertBeforeChild",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ti_xml_node.html#a71e54e393336382bc9875f64aab5cb15"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="TiXmlNode::InsertAfterChild",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ti_xml_node.html#a274db3292218202805c093f66a964cb5"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="TiXmlNode::ReplaceChild",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ti_xml_node.html#a543208c2c801c84a213529541e904b9f"];
+}

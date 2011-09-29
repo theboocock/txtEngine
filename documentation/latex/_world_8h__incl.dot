@@ -1,0 +1,42 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="/home/cshome/m/mabrams/345/txtEngine/World.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Area.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_area_8h.html",tooltip="Defines the Area class."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="string",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="vector",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="iostream",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node2 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="cstring",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node2 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="Item.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_item_8h.html",tooltip="Defines the Item class."];
+  Node7 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="StateDescriptor.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_state_descriptor_8h.html",tooltip="Dscribes the StateDescriptor class."];
+  Node8 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="ItemCommand.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_item_command_8h.html",tooltip="Defines the ItemCommand class."];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="Constants.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_constants_8h.html",tooltip="Defines the constants for the game."];
+  Node9 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="combine.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$combine_8h.html",tooltip="Defines the Combine class."];
+  Node11 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="AreaCommand.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_area_command_8h.html",tooltip="Defines the AreaCommand class."];
+  Node12 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+}

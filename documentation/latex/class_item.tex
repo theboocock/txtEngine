@@ -17,7 +17,7 @@ std\-::string \hyperlink{class_item_aeacd2dfc86786b52c8362f9551e75b51}{print\-\_
 \item 
 \hyperlink{class_item}{\-Item} $\ast$ \hyperlink{class_item_a27bb6d69a3c174f6c1815d9ed8ac6fde}{get\-\_\-item} (std\-::string item\-\_\-id)
 \item 
-void \hyperlink{class_item_a9edf14d98665b133106339442b972837}{add\-\_\-item} (\hyperlink{class_item}{\-Item} $\ast$)
+void \hyperlink{class_item_ab65ff31499eefb2b32c6d26712295396}{add\-\_\-item} (\hyperlink{class_item}{\-Item} $\ast$new\-\_\-item)
 \item 
 bool \hyperlink{class_item_a8789a6edd90c43516317f414adba3797}{has\-\_\-combine} ()
 \item 
@@ -57,87 +57,98 @@ std\-::string \hyperlink{class_item_abccfd47cb27c2631d90e44a7341bb3b3}{get\-\_\-
 \item 
 void \hyperlink{class_item_a3ec1f16ad405a8ddf9ae82a48de551ff}{state\-\_\-change} (std\-::string to\-\_\-change)
 \item 
-\hyperlink{class_item_ae9685a7de5cdc12e508e8cf4fea89463}{\-Item} (bool collect, const char $\ast$identifier, const char $\ast$initial\-\_\-state, std\-::vector$<$ std\-::string $>$ $\ast$synonyms, const char $\ast$depends, bool container, bool locked)
+\hyperlink{class_item_a434bfe64181261c9e4b69db7863b947e}{\-Item} (bool collect, const char $\ast$identifier, const char $\ast$initial\-\_\-state, std\-::vector$<$ std\-::string $>$ $\ast$\hyperlink{class_item_a7194157fbfb03b0f18a26c9653bb5ece}{synonyms}, const char $\ast$\hyperlink{class_item_a921cd9db367f9d02a79667add82b2e04}{depends}, bool \hyperlink{class_item_a7f22375d075c99d1ecfc3f535f74d43f}{container}, bool \hyperlink{class_item_ad83d99679394b23a06681d21eacd312e}{locked}, const char $\ast$\hyperlink{class_item_a342b7a351c9ae1c5430aa3ef65b670bd}{name})
 \item 
 \hyperlink{class_item_a11663c84075b78c3ae5e30fdfcd7c458}{$\sim$\-Item} ()
+\item 
+int \hyperlink{class_item_a5c0702ac713015d393aa00304ac56dd6}{get\-\_\-num\-\_\-items} ()
+\item 
+\hyperlink{class_item}{\-Item} $\ast$ \hyperlink{class_item_ac60146c5a0b1dfc8147607cdce6fc7de}{get\-\_\-item} (int index)
+\item 
+std\-::string \hyperlink{class_item_a2ba411f27235d4061d28569d59b74d41}{get\-\_\-name} ()
 \end{DoxyCompactItemize}
 \subsection*{\-Protected \-Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_item_a6bdb6d40e682e1cac093a786cb51d1d1}{
-bool {\bfseries collectable}}
+bool \hyperlink{class_item_a6bdb6d40e682e1cac093a786cb51d1d1}{collectable}}
 \label{class_item_a6bdb6d40e682e1cac093a786cb51d1d1}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-Flag, whether item can be collected. \end{DoxyCompactList}\item 
 \hypertarget{class_item_a0bedf3dd3801688ca197958b4ed82cd7}{
-int {\bfseries num\-\_\-descriptions}}
+int \hyperlink{class_item_a0bedf3dd3801688ca197958b4ed82cd7}{num\-\_\-descriptions}}
 \label{class_item_a0bedf3dd3801688ca197958b4ed82cd7}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-Number of descriptions for the item. \end{DoxyCompactList}\item 
 \hypertarget{class_item_ac9e4624443be051800792a7f37014373}{
-int {\bfseries num\-\_\-commands}}
+int \hyperlink{class_item_ac9e4624443be051800792a7f37014373}{num\-\_\-commands}}
 \label{class_item_ac9e4624443be051800792a7f37014373}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-Number of commands for this item. \end{DoxyCompactList}\item 
 \hypertarget{class_item_ab09c4bcd4d8d1d4626c38e230610df42}{
-int {\bfseries num\-\_\-items}}
+int \hyperlink{class_item_ab09c4bcd4d8d1d4626c38e230610df42}{num\-\_\-items}}
 \label{class_item_ab09c4bcd4d8d1d4626c38e230610df42}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-Number of items contained inside this item. \end{DoxyCompactList}\item 
 \hypertarget{class_item_a1c8acc0ec062f69ccc65faf2a3a44bdb}{
-std\-::string {\bfseries id}}
+std\-::string \hyperlink{class_item_a1c8acc0ec062f69ccc65faf2a3a44bdb}{id}}
 \label{class_item_a1c8acc0ec062f69ccc65faf2a3a44bdb}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-The item's id. \end{DoxyCompactList}\item 
 \hypertarget{class_item_a7f22375d075c99d1ecfc3f535f74d43f}{
-bool {\bfseries container}}
+bool \hyperlink{class_item_a7f22375d075c99d1ecfc3f535f74d43f}{container}}
 \label{class_item_a7f22375d075c99d1ecfc3f535f74d43f}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-Whether or not item is a container. \end{DoxyCompactList}\item 
 \hypertarget{class_item_ad83d99679394b23a06681d21eacd312e}{
-bool {\bfseries locked}}
+bool \hyperlink{class_item_ad83d99679394b23a06681d21eacd312e}{locked}}
 \label{class_item_ad83d99679394b23a06681d21eacd312e}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-Whether or not the item is locked. \end{DoxyCompactList}\item 
 \hypertarget{class_item_a7dc399a5ff88b8f2f9bfef1871dfd0a0}{
-\hyperlink{classcombine}{combine} $\ast$ {\bfseries combine\-\_\-var}}
+\hyperlink{classcombine}{combine} $\ast$ \hyperlink{class_item_a7dc399a5ff88b8f2f9bfef1871dfd0a0}{combine\-\_\-var}}
 \label{class_item_a7dc399a5ff88b8f2f9bfef1871dfd0a0}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-Pointer to a combine object. \end{DoxyCompactList}\item 
 \hypertarget{class_item_a226a0752ee3d4218d44f6de2f787a3c9}{
-std\-::vector$<$ \hyperlink{class_item}{\-Item} $\ast$ $>$ {\bfseries contains}}
+std\-::vector$<$ \hyperlink{class_item}{\-Item} $\ast$ $>$ \hyperlink{class_item_a226a0752ee3d4218d44f6de2f787a3c9}{contains}}
 \label{class_item_a226a0752ee3d4218d44f6de2f787a3c9}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-Vector of items contained in this item. \end{DoxyCompactList}\item 
 \hypertarget{class_item_a3c36a19c6fae89b169cc1acf555532dd}{
-std\-::string {\bfseries curr\-\_\-desc\-\_\-id}}
+std\-::string \hyperlink{class_item_a3c36a19c6fae89b169cc1acf555532dd}{curr\-\_\-desc\-\_\-id}}
 \label{class_item_a3c36a19c6fae89b169cc1acf555532dd}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-The current description of this item. \end{DoxyCompactList}\item 
 \hypertarget{class_item_ab27e598cd37ca13b26c40d929d85400d}{
-std\-::vector$<$ \hyperlink{class_state_descriptor}{\-State\-Descriptor} $\ast$ $>$ {\bfseries description}}
+std\-::vector$<$ \hyperlink{class_state_descriptor}{\-State\-Descriptor} $\ast$ $>$ \hyperlink{class_item_ab27e598cd37ca13b26c40d929d85400d}{description}}
 \label{class_item_ab27e598cd37ca13b26c40d929d85400d}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-Vector of descriptions. \end{DoxyCompactList}\item 
 \hypertarget{class_item_add7e6704ad626679f70ff8f2ae76698c}{
-std\-::vector$<$ \hyperlink{class_item_command}{\-Item\-Command} $\ast$ $>$ {\bfseries commands}}
+std\-::vector$<$ \hyperlink{class_item_command}{\-Item\-Command} $\ast$ $>$ \hyperlink{class_item_add7e6704ad626679f70ff8f2ae76698c}{commands}}
 \label{class_item_add7e6704ad626679f70ff8f2ae76698c}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-Vector of commands for item. \end{DoxyCompactList}\item 
 \hypertarget{class_item_a7194157fbfb03b0f18a26c9653bb5ece}{
-std\-::vector$<$ std\-::string $>$ $\ast$ {\bfseries synonyms}}
+std\-::vector$<$ std\-::string $>$ $\ast$ \hyperlink{class_item_a7194157fbfb03b0f18a26c9653bb5ece}{synonyms}}
 \label{class_item_a7194157fbfb03b0f18a26c9653bb5ece}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \-Vector of synonyms for the item. \end{DoxyCompactList}\item 
 \hypertarget{class_item_a921cd9db367f9d02a79667add82b2e04}{
-std\-::string {\bfseries depends}}
+std\-::string \hyperlink{class_item_a921cd9db367f9d02a79667add82b2e04}{depends}}
 \label{class_item_a921cd9db367f9d02a79667add82b2e04}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-What this item depends on (key). \end{DoxyCompactList}\item 
+\hypertarget{class_item_a342b7a351c9ae1c5430aa3ef65b670bd}{
+std\-::string \hyperlink{class_item_a342b7a351c9ae1c5430aa3ef65b670bd}{name}}
+\label{class_item_a342b7a351c9ae1c5430aa3ef65b670bd}
+
+\begin{DoxyCompactList}\small\item\em \-The name of the item. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Constructor \& \-Destructor \-Documentation}
-\hypertarget{class_item_ae9685a7de5cdc12e508e8cf4fea89463}{
+\hypertarget{class_item_a434bfe64181261c9e4b69db7863b947e}{
 \index{\-Item@{\-Item}!\-Item@{\-Item}}
 \index{\-Item@{\-Item}!Item@{\-Item}}
 \subsubsection[{\-Item}]{\setlength{\rightskip}{0pt plus 5cm}\-Item\-::\-Item (
@@ -148,10 +159,11 @@ std\-::string {\bfseries depends}}
 \item[{std\-::vector$<$ std\-::string $>$ $\ast$}]{synonyms, }
 \item[{const char $\ast$}]{depends, }
 \item[{bool}]{container, }
-\item[{bool}]{locked}
+\item[{bool}]{locked, }
+\item[{const char $\ast$}]{name}
 \end{DoxyParamCaption}
 )}}
-\label{class_item_ae9685a7de5cdc12e508e8cf4fea89463}
+\label{class_item_a434bfe64181261c9e4b69db7863b947e}
 \-The constructor for an \hyperlink{class_item}{\-Item}.
 
 
@@ -169,6 +181,8 @@ std\-::string {\bfseries depends}}
 \mbox{\tt in}  & {\em container} & \-Whether this item is a container. \\
 \hline
 \mbox{\tt in}  & {\em locked} & \-Whether this item is locked. \\
+\hline
+\mbox{\tt in}  & {\em name} & \-The name of the item. \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_item_a11663c84075b78c3ae5e30fdfcd7c458}{
@@ -215,7 +229,7 @@ std\-::string {\bfseries depends}}
 \mbox{\tt in}  & {\em desc} & \-A pointer to a \hyperlink{class_state_descriptor}{\-State\-Descriptor} object to add. \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_item_a9edf14d98665b133106339442b972837}{
+\hypertarget{class_item_ab65ff31499eefb2b32c6d26712295396}{
 \index{\-Item@{\-Item}!add\-\_\-item@{add\-\_\-item}}
 \index{add\-\_\-item@{add\-\_\-item}!Item@{\-Item}}
 \subsubsection[{add\-\_\-item}]{\setlength{\rightskip}{0pt plus 5cm}void \-Item\-::add\-\_\-item (
@@ -223,12 +237,12 @@ std\-::string {\bfseries depends}}
 \item[{{\bf \-Item} $\ast$}]{new\-\_\-item}
 \end{DoxyParamCaption}
 )}}
-\label{class_item_a9edf14d98665b133106339442b972837}
+\label{class_item_ab65ff31499eefb2b32c6d26712295396}
 \-Adds an item to the contains vector.
 
 
-\begin{DoxyParams}{\-Parameters}
-{\em \-The} & pointer to an item. \\
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em new\-\_\-item} & \-The pointer to an item. \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_item_ab8c43c172fbff161c8c2ca765ded9537}{
@@ -388,6 +402,39 @@ std\-::string {\bfseries depends}}
 \begin{DoxyReturn}{\-Returns}
 \-A pointer to an item. 
 \end{DoxyReturn}
+\hypertarget{class_item_ac60146c5a0b1dfc8147607cdce6fc7de}{
+\index{\-Item@{\-Item}!get\-\_\-item@{get\-\_\-item}}
+\index{get\-\_\-item@{get\-\_\-item}!Item@{\-Item}}
+\subsubsection[{get\-\_\-item}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Item} $\ast$ \-Item\-::get\-\_\-item (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}}
+\label{class_item_ac60146c5a0b1dfc8147607cdce6fc7de}
+\-Get the item inside this item by index.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em index} & \-The index of the item in the vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Pointer to an item. 
+\end{DoxyReturn}
+\hypertarget{class_item_a2ba411f27235d4061d28569d59b74d41}{
+\index{\-Item@{\-Item}!get\-\_\-name@{get\-\_\-name}}
+\index{get\-\_\-name@{get\-\_\-name}!Item@{\-Item}}
+\subsubsection[{get\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Item\-::get\-\_\-name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_item_a2ba411f27235d4061d28569d59b74d41}
+\-Get the name of the item.
+
+\begin{DoxyReturn}{\-Returns}
+\-The name of the item. 
+\end{DoxyReturn}
 \hypertarget{class_item_a9f09c704274546d5bd0903d0cddfd194}{
 \index{\-Item@{\-Item}!get\-\_\-num\-\_\-commands@{get\-\_\-num\-\_\-commands}}
 \index{get\-\_\-num\-\_\-commands@{get\-\_\-num\-\_\-commands}!Item@{\-Item}}
@@ -415,6 +462,20 @@ std\-::string {\bfseries depends}}
 
 \begin{DoxyReturn}{\-Returns}
 \-The number of descriptions for this item. 
+\end{DoxyReturn}
+\hypertarget{class_item_a5c0702ac713015d393aa00304ac56dd6}{
+\index{\-Item@{\-Item}!get\-\_\-num\-\_\-items@{get\-\_\-num\-\_\-items}}
+\index{get\-\_\-num\-\_\-items@{get\-\_\-num\-\_\-items}!Item@{\-Item}}
+\subsubsection[{get\-\_\-num\-\_\-items}]{\setlength{\rightskip}{0pt plus 5cm}int \-Item\-::get\-\_\-num\-\_\-items (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_item_a5c0702ac713015d393aa00304ac56dd6}
+\-Get the number of items inside this item.
+
+\begin{DoxyReturn}{\-Returns}
+\-The number of items inside this item. 
 \end{DoxyReturn}
 \hypertarget{class_item_a8789a6edd90c43516317f414adba3797}{
 \index{\-Item@{\-Item}!has\-\_\-combine@{has\-\_\-combine}}
@@ -550,8 +611,8 @@ std\-::string {\bfseries depends}}
 \-Removes an item from inside this item by id.
 
 
-\begin{DoxyParams}{\-Parameters}
-{\em \-A} & string -\/ the id of the item to remove. \\
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em item\-\_\-id} & \-A string -\/ the id of the item to remove. \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_item_a183a0ec19bfd51e8af5f24d57880ccd1}{

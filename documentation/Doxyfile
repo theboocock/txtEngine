@@ -38,14 +38,14 @@ PROJECT_NUMBER         = v4.0
 # for a project that appears at the top of each page and should give viewer 
 # a quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = 
+PROJECT_BRIEF          = "A Text Adventure Language Implementation"
 
 # With the PROJECT_LOGO tag one can specify an logo or icon that is 
 # included in the documentation. The maximum height of the logo should not 
 # exceed 55 pixels and the maximum width should not exceed 200 pixels. 
 # Doxygen will copy the logo to the output directory.
 
-PROJECT_LOGO           = /home/cshome/m/mabrams/345/txtEngine/textlogo.gif
+PROJECT_LOGO           = /home/cshome/m/mabrams/345/txtEngine/webserver/img/logo.png
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) 
 # base path where the generated documentation will be put. 
@@ -638,8 +638,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories 
 # with spaces.
 
-INPUT                  = /home/cshome/m/mabrams/345/txtEngine/Area.cpp \
-                         /home/cshome/m/mabrams/345/txtEngine/Area.h \
+INPUT                  = /home/cshome/m/mabrams/345/txtEngine/Area.h \
                          /home/cshome/m/mabrams/345/txtEngine/AreaCommand.cpp \
                          /home/cshome/m/mabrams/345/txtEngine/AreaCommand.h \
                          /home/cshome/m/mabrams/345/txtEngine/combine.cpp \
@@ -717,7 +716,17 @@ RECURSIVE              = NO
 # subdirectory from a directory tree whose root is specified with the INPUT tag. 
 # Note that relative paths are relative to directory from which doxygen is run.
 
-EXCLUDE                = 
+EXCLUDE                = ../tinystr.cpp \
+                         ../tinystr.h \
+                         ../tinyxml.cpp \
+                         ../tinyxml.h \
+                         ../tinyxmlerror.cpp \
+                         ../tinyxmlparser.cpp \
+                         ../backup \
+                         ../Doc \
+                         ../dtd \
+                         ../input \
+                         ../webserver
 
 # The EXCLUDE_SYMLINKS tag can be used select whether or not files or 
 # directories that are symbolic links (a Unix file system feature) are excluded 
@@ -1153,7 +1162,7 @@ ENUM_VALUES_PER_LINE   = 4
 # JavaScript, DHTML, CSS and frames is required (i.e. any modern browser). 
 # Windows users are probably better off using the HTML help feature.
 
-GENERATE_TREEVIEW      = NO
+GENERATE_TREEVIEW      = YES
 
 # By enabling USE_INLINE_TREES, doxygen will generate the Groups, Directories, 
 # and Class Hierarchy pages using a tree view instead of an ordered list.
@@ -1329,7 +1338,7 @@ LATEX_SOURCE_CODE      = NO
 # bibliography, e.g. plainnat, or ieeetr. The default style is "plain". See 
 # http://en.wikipedia.org/wiki/BibTeX for more info.
 
-LATEX_BIB_STYLE        = 
+LATEX_BIB_STYLE        = plain
 
 #---------------------------------------------------------------------------
 # configuration options related to the RTF output
@@ -1702,7 +1711,7 @@ INCLUDED_BY_GRAPH      = YES
 # the time of a run. So in most cases it will be better to enable call graphs 
 # for selected functions only using the \callgraph command.
 
-CALL_GRAPH             = NO
+CALL_GRAPH             = YES
 
 # If the CALLER_GRAPH and HAVE_DOT tags are set to YES then 
 # doxygen will generate a caller dependency graph for every global function 
@@ -1710,7 +1719,7 @@ CALL_GRAPH             = NO
 # the time of a run. So in most cases it will be better to enable caller 
 # graphs for selected functions only using the \callergraph command.
 
-CALLER_GRAPH           = NO
+CALLER_GRAPH           = YES
 
 # If the GRAPHICAL_HIERARCHY and HAVE_DOT tags are set to YES then doxygen 
 # will generate a graphical hierarchy of all classes instead of a textual one.

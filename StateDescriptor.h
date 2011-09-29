@@ -21,21 +21,21 @@
 
 class StateDescriptor {
  protected:
-   std::string id;
-   std::string description;
+   std::string id; ///< The id of the state descriptor.
+   std::string description; ///< The description.
 
  public:
    /**
       Constructor for a state descriptor.
            
-      @param[in] The identifier of the descriptor.
+      @param[in] identifier The identifier of the descriptor.
    */
    StateDescriptor(const char *identifier);
         
    /**
       Sets the description variable of the object.
 
-      @param[in] The description of the object.
+      @param[in] desc The description of the object.
    */
    void set_description(const char *desc);
 

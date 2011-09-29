@@ -6,9 +6,14 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -24,12 +29,14 @@
  <tbody>
  <tr style="height: 56px;">
   
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">txtEngine
    &#160;<span id="projectnumber">v4.0</span>
    </div>
-   
+   <div id="projectbrief">A Text Adventure Language Implementation</div>
   </td>
   
   
@@ -74,6 +81,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('class_area_command.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -87,7 +107,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_area_command.html#a638e3a777d9c8e3810212835b979eff0">AreaCommand</a> (const char *callmeby, const char *areatomoveto, const char *status_command, const char *depends_command, std::vector&lt; std::string &gt; *synonyms, bool locked)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_area_command.html#a638e3a777d9c8e3810212835b979eff0">AreaCommand</a> (const char *callmeby, const char *areatomoveto, const char *status_command, const char *depends_command, std::vector&lt; std::string &gt; *<a class="el" href="class_area_command.html#a2d89a68dd223fefde961b443caec9153">synonyms</a>, bool <a class="el" href="class_area_command.html#a23a6e53dfc6f1d8988f41b9fc48c3048">locked</a>)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_area_command.html#aa978468c6b9bcc165d70437273623950">~AreaCommand</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_area_command.html#a7c24cd88b6913494bfed3b6f6b0fe7f6">get_depends</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_area_command.html#adc3423bc66eba73317cd941632026b85">get_status</a> ()</td></tr>
@@ -102,19 +122,26 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23a6e53dfc6f1d8988f41b9fc48c3048"></a><!-- doxytag: member="AreaCommand::locked" ref="a23a6e53dfc6f1d8988f41b9fc48c3048" args="" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>locked</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_area_command.html#a23a6e53dfc6f1d8988f41b9fc48c3048">locked</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag, whether this area command is locked. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3295a37db88c72813df17dd9b4db060f"></a><!-- doxytag: member="AreaCommand::name" ref="a3295a37db88c72813df17dd9b4db060f" args="" -->
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_area_command.html#a3295a37db88c72813df17dd9b4db060f">name</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of this area command. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ba177c6d8cc7f074d0642e4fd343f14"></a><!-- doxytag: member="AreaCommand::status" ref="a4ba177c6d8cc7f074d0642e4fd343f14" args="" -->
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>status</b></td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_area_command.html#a4ba177c6d8cc7f074d0642e4fd343f14">status</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The status of this area command. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af98d35c3cc1789af861eb8c2511a3d2a"></a><!-- doxytag: member="AreaCommand::message" ref="af98d35c3cc1789af861eb8c2511a3d2a" args="" -->
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>message</b></td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_area_command.html#af98d35c3cc1789af861eb8c2511a3d2a">message</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The message displayed when area command called. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afab48cca59ca37d72e39f24a17fb7c0c"></a><!-- doxytag: member="AreaCommand::depends" ref="afab48cca59ca37d72e39f24a17fb7c0c" args="" -->
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>depends</b></td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_area_command.html#afab48cca59ca37d72e39f24a17fb7c0c">depends</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">What the area command depends on. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ade0f6aabc1891270b1538a3e028f2f"></a><!-- doxytag: member="AreaCommand::move_to_area" ref="a5ade0f6aabc1891270b1538a3e028f2f" args="" -->
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>move_to_area</b></td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_area_command.html#a5ade0f6aabc1891270b1538a3e028f2f">move_to_area</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">New area when area command called. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d89a68dd223fefde961b443caec9153"></a><!-- doxytag: member="AreaCommand::synonyms" ref="a2d89a68dd223fefde961b443caec9153" args="" -->
-std::vector&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>synonyms</b></td></tr>
+std::vector&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_area_command.html#a2d89a68dd223fefde961b443caec9153">synonyms</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of synonyms for area command. <br/></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a638e3a777d9c8e3810212835b979eff0"></a><!-- doxytag: member="AreaCommand::AreaCommand" ref="a638e3a777d9c8e3810212835b979eff0" args="(const char *callmeby, const char *areatomoveto, const char *status_command, const char *depends_command, std::vector&lt; std::string &gt; *synonyms, bool locked)" -->
@@ -169,7 +196,7 @@ std::vector&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bo
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">callmeby</td><td>The name of this command. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">areamoveto</td><td>The area to move to when this command is called. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">areatomoveto</td><td>The area to move to when this command is called. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">status_command</td><td>The status id to change to. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">depends_command</td><td></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">synonyms</td><td>A vector containing synonyms of 'callmeby'. </td></tr>
@@ -402,12 +429,16 @@ std::vector&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bo
 <li>/home/cshome/m/mabrams/345/txtEngine/<a class="el" href="_area_command_8cpp.html">AreaCommand.cpp</a></li>
 </ul>
 </div>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="class_area_command.html">AreaCommand</a>      </li>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -417,12 +448,12 @@ std::vector&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bo
 </div>
 
 
+    <li class="footer">Generated on Thu Sep 29 2011 22:51:22 for txtEngine by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 19 2011 22:22:28 for txtEngine by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.5.1
-</small></address>
 
 </body>
 </html>

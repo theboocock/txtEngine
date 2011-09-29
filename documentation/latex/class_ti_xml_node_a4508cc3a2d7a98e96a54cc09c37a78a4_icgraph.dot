@@ -1,0 +1,15 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="TiXmlNode::Clone",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="TiXmlNode::InsertEndChild",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ti_xml_node.html#af287a913ce46d8dbf7ef24fec69bbaf0"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="TiXmlNode::InsertBeforeChild",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ti_xml_node.html#a71e54e393336382bc9875f64aab5cb15"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="TiXmlNode::InsertAfterChild",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ti_xml_node.html#a274db3292218202805c093f66a964cb5"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="TiXmlNode::ReplaceChild",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ti_xml_node.html#a543208c2c801c84a213529541e904b9f"];
+}

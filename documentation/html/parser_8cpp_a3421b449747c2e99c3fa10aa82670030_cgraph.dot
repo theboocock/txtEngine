@@ -1,0 +1,37 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="make_item",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Item::add_description",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#af6e0efea4346f669ac5479b258511e68"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="make_state_descriptor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parser_8cpp.html#a77cd775cd350280b4e707ba439f01e07"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="StateDescriptor::set_description",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_state_descriptor.html#a58265248efa7a27af7e6bbddeab1d74a"];
+  Node3 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="error_parsing",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parser_8cpp.html#ab94991fee08560fa7428d41c2ead929f"];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Item::add_command",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#ab78d891c3aed983ea7b2e5311b0da68c"];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="make_item_command",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parser_8cpp.html#a2a662ae71857af8d6b9546479a6877ed"];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="ItemCommand::set_message",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item_command.html#abe177c8696e00480a716959b335ebca8"];
+  Node7 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Item::set_combine",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a183a0ec19bfd51e8af5f24d57880ccd1"];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="make_combine",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parser_8cpp.html#a36b388b045cfd98000bb0a66df600421"];
+  Node10 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="combine::set_description",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcombine.html#aa897ba56cee21fdf777faa854910e75f"];
+  Node10 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="combine::set_combination",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcombine.html#ac6c0a056bd26d65601555c9058621704"];
+  Node10 -> Node1 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="Item::add_item",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_item.html#a9edf14d98665b133106339442b972837"];
+  Node1 -> Node1 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

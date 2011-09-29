@@ -1,0 +1,489 @@
+\hypertarget{class_area}{
+\section{\-Area \-Class \-Reference}
+\label{class_area}\index{\-Area@{\-Area}}
+}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_area_a928ac4f85119316a126beafc575a5f84}{has\-\_\-description} (std\-::string desc\-\_\-id)
+\item 
+std\-::string \hyperlink{class_area_ac3f89059fe2ef23610dc3a5650c94c0d}{get\-\_\-status} ()
+\item 
+bool \hyperlink{class_area_a7a2701d4527e084ea7f8944925b539d7}{has\-\_\-current\-\_\-desc} ()
+\item 
+int \hyperlink{class_area_aee8135f25247d5e06dc0b28bf8cabcba}{get\-\_\-num\-\_\-items} ()
+\item 
+std\-::string \hyperlink{class_area_acab405d06547438ee02b3d8b9a2ff013}{get\-\_\-description} ()
+\item 
+void \hyperlink{class_area_a687234da51ac6da40d2aee426926dfcd}{remove\-\_\-item} (int index)
+\item 
+void \hyperlink{class_area_afee6d30b9d43a9960845e13f943584ad}{remove\-\_\-item} (std\-::string item\-\_\-id)
+\item 
+void \hyperlink{class_area_a8f4693277743a9dbc6ac0212fc02c86f}{add\-\_\-item} (\hyperlink{class_item}{\-Item} $\ast$new\-\_\-item)
+\item 
+\hyperlink{class_item}{\-Item} $\ast$ \hyperlink{class_area_aefbaaef99f691c1baf660f70a6ead3aa}{get\-\_\-item} (int index)
+\item 
+std\-::string \hyperlink{class_area_a19d6622fb6fb95f6ba5fb212e26728e6}{get\-\_\-id} ()
+\item 
+bool \hyperlink{class_area_adcc60d9dea5808c8bb0e21d672667b29}{has\-\_\-item} (std\-::string item\-\_\-to\-\_\-find)
+\item 
+\hyperlink{class_item}{\-Item} $\ast$ \hyperlink{class_area_a8c7af01c18c103932be5d22cddd30299}{get\-\_\-item} (std\-::string item\-\_\-id, unsigned int \&item)
+\item 
+void \hyperlink{class_area_a27101dd552a05cebb467f108a5246278}{add\-\_\-description} (\hyperlink{class_state_descriptor}{\-State\-Descriptor} $\ast$desc)
+\item 
+void \hyperlink{class_area_a61f8a73da43dbfa8259a308cb61a28f0}{add\-\_\-command} (\hyperlink{class_area_command}{\-Area\-Command} $\ast$command\-\_\-name)
+\item 
+int \hyperlink{class_area_a4ba46fedbf3da57ca8bc6de3f50de0a4}{get\-\_\-num\-\_\-commands} ()
+\item 
+\hyperlink{class_area_command}{\-Area\-Command} $\ast$ \hyperlink{class_area_ae7ee0c8526f4b18b9aca41faf7570e8d}{get\-\_\-command} (int index)
+\item 
+\hyperlink{class_area_command}{\-Area\-Command} $\ast$ \hyperlink{class_area_a7ed668f761ab79669ad6fb23419b22b2}{has\-\_\-command} (std\-::string command\-\_\-name)
+\item 
+int \hyperlink{class_area_a917fe473912d321f631be8e1b30e5edf}{get\-\_\-num\-\_\-descriptions} ()
+\item 
+\hyperlink{class_state_descriptor}{\-State\-Descriptor} $\ast$ \hyperlink{class_area_a94b7cf6ce69e92cddbd4a2a4ec92fbfd}{get\-\_\-descriptor} (int index)
+\item 
+void \hyperlink{class_area_a6e38f449666617680d0aee968c5c9f57}{unlock} (std\-::string area\-\_\-command\-\_\-id)
+\item 
+\hyperlink{class_area_aebf5c02afaa711ee4a2d13be7c92b421}{\-Area} (const char $\ast$id, const char $\ast$desc\-\_\-id, const char $\ast$status, const char $\ast$name)
+\item 
+\hyperlink{class_area_ace0975982b61a16746c564a0d43a4cc8}{$\sim$\-Area} ()
+\item 
+\hypertarget{class_area_aadb3e4eb71211a2bcd495a1b98a0a9d4}{
+std\-::string {\bfseries get\-\_\-area\-\_\-name} ()}
+\label{class_area_aadb3e4eb71211a2bcd495a1b98a0a9d4}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_area_a8fcfd7b9f54f722a6bf8c68ac26ea4f6}{
+std\-::vector$<$ \hyperlink{class_item}{\-Item} $\ast$ $>$ {\bfseries items}}
+\label{class_area_a8fcfd7b9f54f722a6bf8c68ac26ea4f6}
+
+\item 
+\hypertarget{class_area_a4ec123111d0eb0346cc3fa55ee7328e9}{
+int {\bfseries num\-\_\-descriptions}}
+\label{class_area_a4ec123111d0eb0346cc3fa55ee7328e9}
+
+\item 
+\hypertarget{class_area_a698aec5d64c6990033fd3b029c40c117}{
+int {\bfseries num\-\_\-commands}}
+\label{class_area_a698aec5d64c6990033fd3b029c40c117}
+
+\item 
+\hypertarget{class_area_a29d6271cf822fe3c7865e249643b0728}{
+int {\bfseries num\-\_\-items}}
+\label{class_area_a29d6271cf822fe3c7865e249643b0728}
+
+\item 
+\hypertarget{class_area_ab5b23c6cefb5ff678f5544d7b5900b7b}{
+std\-::string {\bfseries status}}
+\label{class_area_ab5b23c6cefb5ff678f5544d7b5900b7b}
+
+\item 
+\hypertarget{class_area_a71dbaaeab0c2f2d0ba296593e59b22ce}{
+std\-::string {\bfseries id}}
+\label{class_area_a71dbaaeab0c2f2d0ba296593e59b22ce}
+
+\item 
+\hypertarget{class_area_a24201719de9d9dfef7a720c036529dd7}{
+std\-::string {\bfseries name}}
+\label{class_area_a24201719de9d9dfef7a720c036529dd7}
+
+\item 
+\hypertarget{class_area_a21fb316841238b230f351620ec97e3a6}{
+std\-::string {\bfseries curr\-\_\-desc\-\_\-id}}
+\label{class_area_a21fb316841238b230f351620ec97e3a6}
+
+\item 
+\hypertarget{class_area_af699bd40b15954f8403309672f01d44b}{
+std\-::vector$<$ \hyperlink{class_state_descriptor}{\-State\-Descriptor} $\ast$ $>$ {\bfseries description}}
+\label{class_area_af699bd40b15954f8403309672f01d44b}
+
+\item 
+\hypertarget{class_area_a5679c7f10791af2545d6853cf0f31ce1}{
+std\-::vector$<$ \hyperlink{class_area_command}{\-Area\-Command} $\ast$ $>$ {\bfseries commands}}
+\label{class_area_a5679c7f10791af2545d6853cf0f31ce1}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_area_aebf5c02afaa711ee4a2d13be7c92b421}{
+\index{\-Area@{\-Area}!\-Area@{\-Area}}
+\index{\-Area@{\-Area}!Area@{\-Area}}
+\subsubsection[{\-Area}]{\setlength{\rightskip}{0pt plus 5cm}\-Area\-::\-Area (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{id, }
+\item[{const char $\ast$}]{desc\-\_\-id, }
+\item[{const char $\ast$}]{status, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_aebf5c02afaa711ee4a2d13be7c92b421}
+\-The constructor for an \hyperlink{class_area}{\-Area} object.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em id} & \-The id of the area. \\
+\hline
+\mbox{\tt in}  & {\em desc\-\_\-id} & \-The id of the area description. \\
+\hline
+\mbox{\tt in}  & {\em status} & \-The status of the area. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_area_ace0975982b61a16746c564a0d43a4cc8}{
+\index{\-Area@{\-Area}!$\sim$\-Area@{$\sim$\-Area}}
+\index{$\sim$\-Area@{$\sim$\-Area}!Area@{\-Area}}
+\subsubsection[{$\sim$\-Area}]{\setlength{\rightskip}{0pt plus 5cm}\-Area\-::$\sim$\-Area (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_ace0975982b61a16746c564a0d43a4cc8}
+\hyperlink{class_area}{\-Area} \-Deconstructor. 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_area_a61f8a73da43dbfa8259a308cb61a28f0}{
+\index{\-Area@{\-Area}!add\-\_\-command@{add\-\_\-command}}
+\index{add\-\_\-command@{add\-\_\-command}!Area@{\-Area}}
+\subsubsection[{add\-\_\-command}]{\setlength{\rightskip}{0pt plus 5cm}void \-Area\-::add\-\_\-command (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Area\-Command} $\ast$}]{command\-\_\-name}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_a61f8a73da43dbfa8259a308cb61a28f0}
+\-Adds an \hyperlink{class_area_command}{\-Area\-Command} to an area.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em \-A} & pointer to an \hyperlink{class_area_command}{\-Area\-Command}. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_area_a27101dd552a05cebb467f108a5246278}{
+\index{\-Area@{\-Area}!add\-\_\-description@{add\-\_\-description}}
+\index{add\-\_\-description@{add\-\_\-description}!Area@{\-Area}}
+\subsubsection[{add\-\_\-description}]{\setlength{\rightskip}{0pt plus 5cm}void \-Area\-::add\-\_\-description (
+\begin{DoxyParamCaption}
+\item[{{\bf \-State\-Descriptor} $\ast$}]{desc}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_a27101dd552a05cebb467f108a5246278}
+\-Adds a \hyperlink{class_state_descriptor}{\-State\-Descriptor} to an area.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em desc} & \-A pointer to a \hyperlink{class_state_descriptor}{\-State\-Descriptor} object. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_area_a8f4693277743a9dbc6ac0212fc02c86f}{
+\index{\-Area@{\-Area}!add\-\_\-item@{add\-\_\-item}}
+\index{add\-\_\-item@{add\-\_\-item}!Area@{\-Area}}
+\subsubsection[{add\-\_\-item}]{\setlength{\rightskip}{0pt plus 5cm}void \-Area\-::add\-\_\-item (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Item} $\ast$}]{new\-\_\-item}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_a8f4693277743a9dbc6ac0212fc02c86f}
+\-Adds an item to the area.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em new\-\_\-item} & \-A pointer to the item to add to the items vector. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_area_ae7ee0c8526f4b18b9aca41faf7570e8d}{
+\index{\-Area@{\-Area}!get\-\_\-command@{get\-\_\-command}}
+\index{get\-\_\-command@{get\-\_\-command}!Area@{\-Area}}
+\subsubsection[{get\-\_\-command}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Area\-Command} $\ast$ \-Area\-::get\-\_\-command (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_ae7ee0c8526f4b18b9aca41faf7570e8d}
+\-Get an \hyperlink{class_area_command}{\-Area\-Command} for this area by index.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em index} & \-The index of the \hyperlink{class_area_command}{\-Area\-Command} in the commands vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A pointer to the \hyperlink{class_area_command}{\-Area\-Command} or null if it doesn't exist. 
+\end{DoxyReturn}
+\hypertarget{class_area_acab405d06547438ee02b3d8b9a2ff013}{
+\index{\-Area@{\-Area}!get\-\_\-description@{get\-\_\-description}}
+\index{get\-\_\-description@{get\-\_\-description}!Area@{\-Area}}
+\subsubsection[{get\-\_\-description}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Area\-::get\-\_\-description (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_acab405d06547438ee02b3d8b9a2ff013}
+\-Get the area description.
+
+\begin{DoxyReturn}{\-Returns}
+\-String description of the area. 
+\end{DoxyReturn}
+\hypertarget{class_area_a94b7cf6ce69e92cddbd4a2a4ec92fbfd}{
+\index{\-Area@{\-Area}!get\-\_\-descriptor@{get\-\_\-descriptor}}
+\index{get\-\_\-descriptor@{get\-\_\-descriptor}!Area@{\-Area}}
+\subsubsection[{get\-\_\-descriptor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-State\-Descriptor} $\ast$ \-Area\-::get\-\_\-descriptor (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_a94b7cf6ce69e92cddbd4a2a4ec92fbfd}
+\-Gets a \hyperlink{class_state_descriptor}{\-State\-Descriptor} for the area by index.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em index} & \-The index of the \hyperlink{class_state_descriptor}{\-State\-Descriptor} in the description vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A pointer to the \hyperlink{class_state_descriptor}{\-State\-Descriptor} or null if it doesn't exist. 
+\end{DoxyReturn}
+\hypertarget{class_area_a19d6622fb6fb95f6ba5fb212e26728e6}{
+\index{\-Area@{\-Area}!get\-\_\-id@{get\-\_\-id}}
+\index{get\-\_\-id@{get\-\_\-id}!Area@{\-Area}}
+\subsubsection[{get\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Area\-::get\-\_\-id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_a19d6622fb6fb95f6ba5fb212e26728e6}
+\-Get the area id.
+
+\begin{DoxyReturn}{\-Returns}
+\-The id of the area. 
+\end{DoxyReturn}
+\hypertarget{class_area_aefbaaef99f691c1baf660f70a6ead3aa}{
+\index{\-Area@{\-Area}!get\-\_\-item@{get\-\_\-item}}
+\index{get\-\_\-item@{get\-\_\-item}!Area@{\-Area}}
+\subsubsection[{get\-\_\-item}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Item} $\ast$ \-Area\-::get\-\_\-item (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_aefbaaef99f691c1baf660f70a6ead3aa}
+\-Get the item in the area from items vector by index.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em index} & \-The index of the item in the vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A pointer to the item. 
+\end{DoxyReturn}
+\hypertarget{class_area_a8c7af01c18c103932be5d22cddd30299}{
+\index{\-Area@{\-Area}!get\-\_\-item@{get\-\_\-item}}
+\index{get\-\_\-item@{get\-\_\-item}!Area@{\-Area}}
+\subsubsection[{get\-\_\-item}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Item} $\ast$ \-Area\-::get\-\_\-item (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{item\-\_\-id, }
+\item[{unsigned int \&}]{item}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_a8c7af01c18c103932be5d22cddd30299}
+\-Gets a pointer to the item by item id and sets index to the index of the item in the vector.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em item\-\_\-id} & \-The id of the item. \\
+\hline
+\mbox{\tt out}  & {\em index} & \-The address of the item's index member variable. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A pointer to the item. 
+\end{DoxyReturn}
+\hypertarget{class_area_a4ba46fedbf3da57ca8bc6de3f50de0a4}{
+\index{\-Area@{\-Area}!get\-\_\-num\-\_\-commands@{get\-\_\-num\-\_\-commands}}
+\index{get\-\_\-num\-\_\-commands@{get\-\_\-num\-\_\-commands}!Area@{\-Area}}
+\subsubsection[{get\-\_\-num\-\_\-commands}]{\setlength{\rightskip}{0pt plus 5cm}int \-Area\-::get\-\_\-num\-\_\-commands (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_a4ba46fedbf3da57ca8bc6de3f50de0a4}
+\-Get the number of commands for this area.
+
+\begin{DoxyReturn}{\-Returns}
+\-The number of \-Area\-Commands for this area. 
+\end{DoxyReturn}
+\hypertarget{class_area_a917fe473912d321f631be8e1b30e5edf}{
+\index{\-Area@{\-Area}!get\-\_\-num\-\_\-descriptions@{get\-\_\-num\-\_\-descriptions}}
+\index{get\-\_\-num\-\_\-descriptions@{get\-\_\-num\-\_\-descriptions}!Area@{\-Area}}
+\subsubsection[{get\-\_\-num\-\_\-descriptions}]{\setlength{\rightskip}{0pt plus 5cm}int \-Area\-::get\-\_\-num\-\_\-descriptions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_a917fe473912d321f631be8e1b30e5edf}
+\-Get the number if descriptions for the area.
+
+\begin{DoxyReturn}{\-Returns}
+\-The number of descriptions for this area. 
+\end{DoxyReturn}
+\hypertarget{class_area_aee8135f25247d5e06dc0b28bf8cabcba}{
+\index{\-Area@{\-Area}!get\-\_\-num\-\_\-items@{get\-\_\-num\-\_\-items}}
+\index{get\-\_\-num\-\_\-items@{get\-\_\-num\-\_\-items}!Area@{\-Area}}
+\subsubsection[{get\-\_\-num\-\_\-items}]{\setlength{\rightskip}{0pt plus 5cm}int \-Area\-::get\-\_\-num\-\_\-items (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_aee8135f25247d5e06dc0b28bf8cabcba}
+\-Accessor for the number of items in the \hyperlink{class_area}{\-Area}.
+
+\begin{DoxyReturn}{\-Returns}
+\-The number of items in the area. 
+\end{DoxyReturn}
+\hypertarget{class_area_ac3f89059fe2ef23610dc3a5650c94c0d}{
+\index{\-Area@{\-Area}!get\-\_\-status@{get\-\_\-status}}
+\index{get\-\_\-status@{get\-\_\-status}!Area@{\-Area}}
+\subsubsection[{get\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \-Area\-::get\-\_\-status (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_ac3f89059fe2ef23610dc3a5650c94c0d}
+\-This accessor method returns the status of the area.
+
+\begin{DoxyReturn}{\-Returns}
+\-The status of the \hyperlink{class_area}{\-Area}. 
+\end{DoxyReturn}
+\hypertarget{class_area_a7ed668f761ab79669ad6fb23419b22b2}{
+\index{\-Area@{\-Area}!has\-\_\-command@{has\-\_\-command}}
+\index{has\-\_\-command@{has\-\_\-command}!Area@{\-Area}}
+\subsubsection[{has\-\_\-command}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Area\-Command} $\ast$ \-Area\-::has\-\_\-command (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{command\-\_\-name}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_a7ed668f761ab79669ad6fb23419b22b2}
+\-Gets an \hyperlink{class_area_command}{\-Area\-Command} for this area by name.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em command\-\_\-name} & \-The name of the command to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A pointer to the \hyperlink{class_area_command}{\-Area\-Command} or null if it doesn't exist. 
+\end{DoxyReturn}
+\hypertarget{class_area_a7a2701d4527e084ea7f8944925b539d7}{
+\index{\-Area@{\-Area}!has\-\_\-current\-\_\-desc@{has\-\_\-current\-\_\-desc}}
+\index{has\-\_\-current\-\_\-desc@{has\-\_\-current\-\_\-desc}!Area@{\-Area}}
+\subsubsection[{has\-\_\-current\-\_\-desc}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Area\-::has\-\_\-current\-\_\-desc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_a7a2701d4527e084ea7f8944925b539d7}
+\-Calls the has\-\_\-description method.
+
+\-The function arguments listed with \char`\"{}param\char`\"{} will be compared to the declaration and verified. \begin{DoxySeeAlso}{\-See also}
+\hyperlink{class_area_a928ac4f85119316a126beafc575a5f84}{has\-\_\-description()}; 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{\-Returns}
+\-True if the area has the current description otherwise false. 
+\end{DoxyReturn}
+\hypertarget{class_area_a928ac4f85119316a126beafc575a5f84}{
+\index{\-Area@{\-Area}!has\-\_\-description@{has\-\_\-description}}
+\index{has\-\_\-description@{has\-\_\-description}!Area@{\-Area}}
+\subsubsection[{has\-\_\-description}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Area\-::has\-\_\-description (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{desc\-\_\-id}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_a928ac4f85119316a126beafc575a5f84}
+\-Checks if an area has this description.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em desc\-\_\-id} & \-A description \-I\-D. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Returns true if 'description' holds desc\-\_\-id, otherwise returns false. 
+\end{DoxyReturn}
+\hypertarget{class_area_adcc60d9dea5808c8bb0e21d672667b29}{
+\index{\-Area@{\-Area}!has\-\_\-item@{has\-\_\-item}}
+\index{has\-\_\-item@{has\-\_\-item}!Area@{\-Area}}
+\subsubsection[{has\-\_\-item}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Area\-::has\-\_\-item (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{item\-\_\-to\-\_\-find}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_adcc60d9dea5808c8bb0e21d672667b29}
+\-Checks whether the area has an item.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em item\-\_\-to\-\_\-find} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-True if the area (items vector) contains the item. 
+\end{DoxyReturn}
+\hypertarget{class_area_a687234da51ac6da40d2aee426926dfcd}{
+\index{\-Area@{\-Area}!remove\-\_\-item@{remove\-\_\-item}}
+\index{remove\-\_\-item@{remove\-\_\-item}!Area@{\-Area}}
+\subsubsection[{remove\-\_\-item}]{\setlength{\rightskip}{0pt plus 5cm}void \-Area\-::remove\-\_\-item (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_a687234da51ac6da40d2aee426926dfcd}
+\-Remove an item from the area by index.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em index} & \-The index of the item to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Description of returned value. 
+\end{DoxyReturn}
+\hypertarget{class_area_afee6d30b9d43a9960845e13f943584ad}{
+\index{\-Area@{\-Area}!remove\-\_\-item@{remove\-\_\-item}}
+\index{remove\-\_\-item@{remove\-\_\-item}!Area@{\-Area}}
+\subsubsection[{remove\-\_\-item}]{\setlength{\rightskip}{0pt plus 5cm}void \-Area\-::remove\-\_\-item (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{item\-\_\-id}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_afee6d30b9d43a9960845e13f943584ad}
+\-Removes an item from the area by the item id.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em item\-\_\-id} & \-The id of the item to be removed. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_area_a6e38f449666617680d0aee968c5c9f57}{
+\index{\-Area@{\-Area}!unlock@{unlock}}
+\index{unlock@{unlock}!Area@{\-Area}}
+\subsubsection[{unlock}]{\setlength{\rightskip}{0pt plus 5cm}void \-Area\-::unlock (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{area\-\_\-command\-\_\-id}
+\end{DoxyParamCaption}
+)}}
+\label{class_area_a6e38f449666617680d0aee968c5c9f57}
+\-Unlocks an \hyperlink{class_area_command}{\-Area\-Command} of this area.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em area\-\_\-command\-\_\-id} & \-The id of an \hyperlink{class_area_command}{\-Area\-Command} to unlock. \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/cshome/m/mabrams/345/txt\-Engine/\hyperlink{_area_8h}{\-Area.\-h}\item 
+/home/cshome/m/mabrams/345/txt\-Engine/\hyperlink{_area_8cpp}{\-Area.\-cpp}\end{DoxyCompactItemize}

@@ -6,9 +6,14 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -24,12 +29,14 @@
  <tbody>
  <tr style="height: 56px;">
   
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">txtEngine
    &#160;<span id="projectnumber">v4.0</span>
    </div>
-   
+   <div id="projectbrief">A Text Adventure Language Implementation</div>
   </td>
   
   
@@ -74,6 +81,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('class_item.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">Item Member List</div>  </div>
@@ -82,16 +102,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 This is the complete list of members for <a class="el" href="class_item.html">Item</a>, including all inherited members.<table>
   <tr class="memlist"><td><a class="el" href="class_item.html#ab78d891c3aed983ea7b2e5311b0da68c">add_command</a>(ItemCommand *command_name)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#af6e0efea4346f669ac5479b258511e68">add_description</a>(StateDescriptor *desc)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_item.html#a9edf14d98665b133106339442b972837">add_item</a>(Item *)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#ab65ff31499eefb2b32c6d26712295396">add_item</a>(Item *new_item)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#ab8c43c172fbff161c8c2ca765ded9537">change_collectable</a>(bool flip)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>collectable</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>combine_var</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>commands</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>container</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>contains</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>curr_desc_id</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>depends</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>description</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#a6bdb6d40e682e1cac093a786cb51d1d1">collectable</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#a7dc399a5ff88b8f2f9bfef1871dfd0a0">combine_var</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#add7e6704ad626679f70ff8f2ae76698c">commands</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#a7f22375d075c99d1ecfc3f535f74d43f">container</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#a226a0752ee3d4218d44f6de2f787a3c9">contains</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#a3c36a19c6fae89b169cc1acf555532dd">curr_desc_id</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#a921cd9db367f9d02a79667add82b2e04">depends</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#ab27e598cd37ca13b26c40d929d85400d">description</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#acb7d4c776f5ead3203d80e53b5bdc72a">flip_locked</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a51176c036075d9d01da030a32911acea">get_combine</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a2d460d0ac5130e9fd5c05bd3d823a224">get_command</a>(int index)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
@@ -101,34 +121,41 @@ This is the complete list of members for <a class="el" href="class_item.html">It
   <tr class="memlist"><td><a class="el" href="class_item.html#a53ca85af0ed1581f08b7cb143ea9474c">get_descriptor</a>(int index)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a7a3aedd7ab7f81327f57343dcb55d42d">get_id</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a27bb6d69a3c174f6c1815d9ed8ac6fde">get_item</a>(std::string item_id)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#ac60146c5a0b1dfc8147607cdce6fc7de">get_item</a>(int index)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#a2ba411f27235d4061d28569d59b74d41">get_name</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a9f09c704274546d5bd0903d0cddfd194">get_num_commands</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a41e3300333fa679000fa94f6d5073268">get_num_descriptions</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#a5c0702ac713015d393aa00304ac56dd6">get_num_items</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a8789a6edd90c43516317f414adba3797">has_combine</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#aa2b2218512e8d1735043a95dfc30c719">has_container</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a703702e1992a45ac32beb2eb0e3e38bf">has_current_desc</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a75f9cdba85ba1ce65b4ff71073ba8387">has_description</a>(std::string desc_id)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a7cf164e34fe584a29aa56dfb73933452">has_synonym</a>(std::string item)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>id</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#a1c8acc0ec062f69ccc65faf2a3a44bdb">id</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a91f14a96cab681bc02dee3f9c9e6af5d">is_collectable</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a2618bb10b850279603a202e7480f0b78">is_locked</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_item.html#ae9685a7de5cdc12e508e8cf4fea89463">Item</a>(bool collect, const char *identifier, const char *initial_state, std::vector&lt; std::string &gt; *synonyms, const char *depends, bool container, bool locked)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>locked</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>num_commands</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>num_descriptions</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>num_items</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#a434bfe64181261c9e4b69db7863b947e">Item</a>(bool collect, const char *identifier, const char *initial_state, std::vector&lt; std::string &gt; *synonyms, const char *depends, bool container, bool locked, const char *name)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#ad83d99679394b23a06681d21eacd312e">locked</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#a342b7a351c9ae1c5430aa3ef65b670bd">name</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#ac9e4624443be051800792a7f37014373">num_commands</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#a0bedf3dd3801688ca197958b4ed82cd7">num_descriptions</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#ab09c4bcd4d8d1d4626c38e230610df42">num_items</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#aeacd2dfc86786b52c8362f9551e75b51">print_contained_items</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a47edaf75180ff10fe40144de345fdab3">remove_item</a>(std::string item_id)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a183a0ec19bfd51e8af5f24d57880ccd1">set_combine</a>(combine *c)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a3ec1f16ad405a8ddf9ae82a48de551ff">state_change</a>(std::string to_change)</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>synonyms</b> (defined in <a class="el" href="class_item.html">Item</a>)</td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_item.html#a7194157fbfb03b0f18a26c9653bb5ece">synonyms</a></td><td><a class="el" href="class_item.html">Item</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_item.html#a11663c84075b78c3ae5e30fdfcd7c458">~Item</a>()</td><td><a class="el" href="class_item.html">Item</a></td><td></td></tr>
 </table></div>
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -138,12 +165,12 @@ This is the complete list of members for <a class="el" href="class_item.html">It
 </div>
 
 
+    <li class="footer">Generated on Thu Sep 29 2011 22:51:22 for txtEngine by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 19 2011 22:22:28 for txtEngine by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.5.1
-</small></address>
 
 </body>
 </html>

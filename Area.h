@@ -27,14 +27,17 @@
 
 class Area {
  protected:
-   std::vector<Item*> items;
-   int num_descriptions, num_commands, num_items;
-   std::string status;
-   std::string id;
-   std::string name;
-   std::string curr_desc_id;
-   std::vector<StateDescriptor*> description;
-   std::vector<AreaCommand*> commands;
+   std::vector<Item*> items; ///< A vector to hold the area's items.
+   int num_descriptions; ///< The number of descriptions for the area.
+   int num_commands; ///< The number of commands for the area.
+   int num_items; ///< The number of items in the area.
+   std::string status; ///< The status of the area.
+   std::string id; ///< The area's id.
+   std::string name; ///< The name of the area.
+   std::string curr_desc_id; ///< The id of the area's current description.
+   std::vector<StateDescriptor*> description; ///< A vector of all the descriptions
+                                              ///< of the area
+   std::vector<AreaCommand*> commands;///< A vector of all the commands for the area.
  public:
 
    /**
@@ -116,7 +119,7 @@ class Area {
    /**
       Checks whether the area has an item.
 
-      @param[in] item_to_find
+      @param[in] item_to_find The name of the item to find.
       @return True if the area (items vector) contains the item.
    */
    bool has_item(std::string item_to_find);
@@ -126,7 +129,7 @@ class Area {
       index of the item in the vector.
 
       @param[in] item_id The id of the item.
-      @param[out] index The address of the item's index member variable.
+      @param[out] item The address of the item's index member variable.
       @return A pointer to the item.
    */
    Item *get_item(std::string item_id, unsigned int &item);
@@ -141,7 +144,7 @@ class Area {
    /**
       Adds an AreaCommand to an area.
 
-      @param[in] A pointer to an AreaCommand.
+      @param[in] command_name A pointer to an AreaCommand.
    */
    void add_command(AreaCommand *command_name);
 
@@ -196,6 +199,7 @@ class Area {
       @param[in] id The id of the area.
       @param[in] desc_id The id of the area description.
       @param[in] status The status of the area.
+      @param[in] name The name of the area.
    */
    Area(const char *id, const char *desc_id, const char* status, const char* name);
 
@@ -204,6 +208,11 @@ class Area {
    */
    ~Area();
 
+   /**
+      Gets the name of the area.
+	 
+      @return The name of the area.
+   */
    std::string get_area_name();
 
 };

@@ -2,7 +2,7 @@
  * @file Parser.h
  * Parser.h defines the methods for the Parser.cpp source file.
  *
- * @brief Defines the Area class.
+ * @brief Defines the parser class.
  *
  * @author Michael Abrams
  * @author James Boocock
@@ -22,6 +22,15 @@
 #include <string>
 #include "tinyxml.h"
 #include "World.h"
+
+/**
+   Formats the output to wrap correctly.
+
+   @param[in] str The string to be formatted.
+   @param[in] seperator Separator to break the string by.
+   @param[out] result Pointer to a vector of strings.
+*/
+void string_explode(std::string str, std::string seperator, std::vector<std::string> *&result);
 
 /**
    Write description of function here.
@@ -83,7 +92,7 @@ extern Area *make_area(TiXmlNode *pArea, int area_index, World *world);
   Creates a World object from XML.
 
    @param[in] pParent Pointer to a TinyXML Node.
-   @param[in] parent_id A pointer to the parent id of the parent node.
+   @param[in] world A pointer to THE world object.
    @return A World object.
 */
 extern World *make_world(TiXmlNode *pParent, World *world);
@@ -111,7 +120,7 @@ extern World *read_file(const char* pFilename, World *world);
 
    @param[in] pCommand Pointer to a TinyXML node.
    @param[in] parent_id The id of the parent node.
-   @param[in] Pointer to the world object
+   @param[in] world Pointer to the world object
    @return A combine object.
 */
 extern combine *make_combine(TiXmlNode *pCommand, const char * parent_id, World *world);
