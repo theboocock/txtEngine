@@ -28,10 +28,15 @@
   <area id="room1" initialdescription="entry">
     <statedescriptor id="entry">
       Looking around you don't recognise anything, no one is around.
-      There are many things in this room, your head is spinning but you manage to put the pieces together.
-      You are in a growers room, many rare species of plant surround you. Its strange, the plants don't have any smell, in fact there is no smell at all around you. There seems to be a small stream of water ever so slowly, but surely, flowing around the plants in a never ending loop. A design unimaginable to you. 
-      The only exit you can see is a ladder leading to a trapdoor, in what you
-      can only guess is the north end of the room.
+      There are many things in this room, your head is spinning but
+      you manage to put the pieces together.  You are in a growers
+      room, many rare species of plant surround you. Its strange, the
+      plants don't have any smell, in fact there is no smell at all
+      around you. There seems to be a small stream of water ever so
+      slowly, but surely, flowing around the plants in a never ending
+      loop. A design unimaginable to you.  The only exit you can see
+      is a ladder leading to a trapdoor, in what you can only guess is
+      the north end of the room.
     </statedescriptor>
     <item id="plant" initialdescription="init" collectable="false" synonyms="flower,plants,flowers">
       <statedescriptor id="init">
@@ -43,7 +48,7 @@
       <itemcommand name="get" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="touch,grab,move,use,eat">
         The plant is just like any other plant on your fingers, but it seems to make you more dizzy. You leave it alone.
       </itemcommand>
-       <itemcommand name="look" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="see,describe,examine,feel">
+      <itemcommand name="look" statedescription="init" changecollectable="false" collectabledependent="false" areachange="none" synonyms="see,describe,examine,feel">
         Hmm, your vision is still blurry, but the plant looks like it has rotated towards you...
       </itemcommand>
       <itemcommand name="smell" statedescription="smell" changecollectable="false" areachange="none" collectabledependent="false" synonyms="sniff,inhale" depends="marmite">
@@ -90,46 +95,46 @@
       </itemcommand>
     </item>
     <areacommand name="up" area="room2" synonyms="north,ladder,climb,trapdoor" locked="true">
-    You cautiosly pull yourself out of the trapdoor.
+      You cautiosly pull yourself out of the trapdoor.
     </areacommand>
     <areacommand name="back" area="room1" synonyms="elevator,door">
-    You force open the door from which you came, the elevator has gone. The shaft only seems to go up one level. You close the door and turn around.
+      You force open the door from which you came, the elevator has gone. The shaft only seems to go up one level. You close the door and turn around.
     </areacommand>
     <item id="mirror" initialdescription="cansee" collectable="false">
-    <statedescriptor id="cansee">
-    There is a fully reflective surface, like a portrait. Oh its a mirror.
-    </statedescriptor>
-    <itemcommand name="look" statedescription="cansee" changecollectable="false" collectabledependent="false" areachange="none" synonyms="see,describe,examine">
-    You look at your reflection in the mirror. You are wearing brightly coloured parachute pants, atleast they seem brightly coloured, socks but no shoes, and a button up shirt.
-    Hey theres seems to be something in your shirt pocket.
-    </itemcommand>
+      <statedescriptor id="cansee">
+        There is a fully reflective surface, like a portrait. Oh its a mirror.
+      </statedescriptor>
+      <itemcommand name="look" statedescription="cansee" changecollectable="false" collectabledependent="false" areachange="none" synonyms="see,describe,examine">
+        You look at your reflection in the mirror. You are wearing brightly coloured parachute pants, atleast they seem brightly coloured, socks but no shoes, and a button up shirt.
+        Hey theres seems to be something in your shirt pocket.
+      </itemcommand>
     </item>
     <item id="chest" initialdescription="closed" collectable="false" synonyms="box,storage" container="true" locked="true">
-    <statedescriptor id="closed">
-    A locked chest sits directly opposite you. It is not locked by a key though, something more magical has control over it.
-    </statedescriptor>
-    <statedescriptor id="opened">
-    The chest of wonder lies in awe in front of you. Do you dare disturb this magnificent beast?
-    </statedescriptor>
-    <itemcommand name="open" statedescription="opened" changecollectable="false" collectabledependent="false" areachange="none" synonyms="unlock" >
-    You wave the wand in a meaningless fashion above the chest. It did nothing. You throw the want at the chest in disgust!
-    The wand hits the chest and you hear the lock turn, that was weird.
-    </itemcommand>
-    <item id="transistors" initialdescription="init" collectable="true" synonyms="transistor,chips,capasitors">
-    <statedescriptor id="init">
-    Some transistors are strewn throughout the chest.
-    </statedescriptor>
-    <statedescriptor id="have">
-    Some transistors are neatly piled in your hand.
-    </statedescriptor>
-    <statedescriptor id="dropped">
-    There are some transistors here.
-    </statedescriptor>
-    <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,collect">
-    You take the transistors.
-    </itemcommand>
-    </item>
-    <item id="wire" initialdescription="init" collectable="true" synonyms="conductor">
+      <statedescriptor id="closed">
+        A locked chest sits directly opposite you. It is not locked by a key though, something more magical has control over it.
+      </statedescriptor>
+      <statedescriptor id="opened">
+        The chest of wonder lies in awe in front of you. Do you dare disturb this magnificent beast?
+      </statedescriptor>
+      <itemcommand name="open" statedescription="opened" changecollectable="false" collectabledependent="false" areachange="none" synonyms="unlock" >
+        You wave the wand in a meaningless fashion above the chest. It did nothing. You throw the want at the chest in disgust!
+        The wand hits the chest and you hear the lock turn, that was weird.
+      </itemcommand>
+      <item id="transistors" initialdescription="init" collectable="true" synonyms="transistor,chips,capasitors">
+        <statedescriptor id="init">
+          Some transistors are strewn throughout the chest.
+        </statedescriptor>
+        <statedescriptor id="have">
+          Some transistors are neatly piled in your hand.
+        </statedescriptor>
+        <statedescriptor id="dropped">
+          There are some transistors here.
+        </statedescriptor>
+        <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory" synonyms="grab,collect">
+          You take the transistors.
+        </itemcommand>
+      </item>
+      <item id="wire" initialdescription="init" collectable="true" synonyms="conductor">
 	<statedescriptor id="init">
           Some wire is tightly wound in the corner of the chest, as if to say un-wind me and die!
         </statedescriptor>
@@ -153,6 +158,23 @@
             <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="none">
               You drop the pc.
             </itemcommand>
+            <itemcommand name="use" statedescription="have" changecollectable="false" collectabledependent="false" areachange="none">
+              You boot the computer up and it lists a bunch of commands: Play Hack
+            </itemcommand>
+            <itemcommand name="play" statedescription="have" changecollectable="false" collectabledependent="false" areachange="none" unlock="cookie">
+              You start up Tuck Shop Challenge, the idea is to serve
+              all the hungry students quickly and efficiently. That
+              reminds you, your hungry. You decide to eat the marmite,
+              but then smell something yummier behind you.
+            </itemcommand>
+            <itemcommand name="hack" statedescription="have" changecollectable="false" collectabledependent="false" areachange="none" status="die">
+              You hack into the WORLD!!! You start changing things
+              around laughing at how much fun your having! All of a
+              sudden you find yourself hacking into the same room your
+              in. You accidently highlight yourself and click
+              crtl-x. You cut yourself out of the world and die. Oh
+              Well.
+            </itemcommand>
           </item>
           <statedescriptor id="combine_desc">
             you put the two together and make a compuer.
@@ -160,10 +182,7 @@
         </combine>
       </item>
     </item>
-    <item id="pot" initialdescription="open" collectable="false" synonyms="container" container="true" locked="false">
-      <statedescriptor id="closed">
-        A locked chest sits directly opposite you. It is not locked by a key though, something more magical has control over it.
-      </statedescriptor>
+    <item id="pot" initialdescription="open" collectable="false" synonyms="container" container="true" depends="marmite" locked="false">
       <statedescriptor id="open">
         The pot has stuff in it.
       </statedescriptor>
@@ -192,7 +211,7 @@
       <itemcommand name="check" statedescription="none" changecollectable="false" collectabledependent="false" areachange="none" synonyms="look,feel,get,remove,grab,retrieve">
         You feel in your pocket and pull out a note. It reads: 
         'Welcome future me, this is a little hint from the past you, the room you are in is not surreal, you are actually in this realm and if you die you die.
-        The water is not magical but the plants might be. ps. You love vegimite! It has a yellow lid.' You put the note back.
+        The water is not magical but the plants might be. ps. Marmite is stored in a container with what colour lid?' You put the note back.
       </itemcommand>
     </item>
     <item id="lid" initialdescription="none" collectable="false" synonyms="red">
@@ -215,7 +234,7 @@
         Hours pass as you stare at the water flowing in an inifinte loop, how does it do that?
       </itemcommand>
     </item>
-    <item id="cookie" initialdescription="init" collectable="true" synonyms="biscuit,cake,chocolate" depends="marmite">
+    <item id="cookie" initialdescription="init" collectable="true" synonyms="biscuit,cake,chocolate" depends="computer" locked="true">
       <statedescriptor id="init">
         The smell of a warm, freshly cooked cookie catches you attention, you turn to see one sitting on a clean plate in the open cupboard behind where you entered from.
       </statedescriptor>
