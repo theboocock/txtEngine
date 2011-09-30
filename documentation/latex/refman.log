@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  19 SEP 2011 22:26
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  30 SEP 2011 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1023,37 +1023,40 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 59.
  [2]
 [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 127--127
+Underfull \hbox (badness 10000) in paragraph at lines 147--147
  [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-Area-Command.
 cpp -File - 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--129
+Underfull \hbox (badness 10000) in paragraph at lines 149--149
  [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-Area-Command.
-h -File - 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 141--141
- [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-Item-Command.
-cpp -File - 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
- [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-Item-Command.
 h -File - 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 181--181
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
+ [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-Item-Command.
+cpp -File - 
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 194--194
+ [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-Item-Command.
+h -File - 
+ []
+
+
+Underfull \vbox (badness 1590) has occurred while \output is active []
+
+ [7]
+Underfull \hbox (badness 10000) in paragraph at lines 245--245
  [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-State-Descrip
 tor.cpp -File - 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--183
+Underfull \hbox (badness 10000) in paragraph at lines 247--247
  [][] [][][]\T1/phv/m/n/10 /home/cshome/m/mabrams/345/txt-Engine/-State-Descrip
 tor.h -File - 
  []
@@ -1062,13 +1065,7 @@ tor.h -File -
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
-
-Underfull \vbox (badness 1590) has occurred while \output is active []
-
- [6]
-[7] [8
-
-]
+ [8]
 Package hyperref Info: Option `pageanchor' set `true' on input line 63.
 
 Chapter 1.
@@ -1087,31 +1084,33 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
 LaTeX Font Info:    Font shape `OT1/phv/bc/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
-LaTeX Font Info:    Try loading font information for TS1+phv on input line 6.
- (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ts1phv.fd
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 4.
+ (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+LaTeX Font Info:    Try loading font information for TS1+phv on input line 7.
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 6.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 6.
+(Font)              scaled to size 8.99994pt on input line 7.
 
-(/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Overfull \hbox (77.10161pt too wide) in paragraph at lines 10--10
+Overfull \hbox (77.10161pt too wide) in paragraph at lines 11--11
 []\T1/phv/m/n/10 -Tiny-X-M-L -Documentation-: [][]\T1/pcr/m/n/10 http-://www.-g
 rinninglizard.-com/tinyxmldocs/index.-
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 13--13
+Underfull \hbox (badness 1533) in paragraph at lines 14--14
 \T1/phv/m/n/10 -Please re-port any bugs here-: [][]\T1/pcr/m/n/10 https-://gith
 ub.-com/smilefreak/txt-
  []
 
-) [1
+[1
 
-] [2]
+
+]) [2]
 Chapter 2.
 (./annotated.tex) [3
 
@@ -1132,95 +1131,106 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 5.
 LaTeX Font Info:    Font shape `OT1/phv/bc/n' will be
 (Font)              scaled to size 10.79993pt on input line 5.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 61.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 8.09995pt on input line 61.
  [7
 
 ]
 LaTeX Font Info:    Font shape `OT1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 112.
+(Font)              scaled to size 8.99994pt on input line 117.
 LaTeX Font Info:    Font shape `OT1/phv/bc/it' in size <10> not available
-(Font)              Font shape `OT1/phv/bc/sl' tried instead on input line 112.
+(Font)              Font shape `OT1/phv/bc/sl' tried instead on input line 117.
 
 LaTeX Font Info:    Font shape `OT1/phv/bc/sl' will be
-(Font)              scaled to size 8.99994pt on input line 112.
+(Font)              scaled to size 8.99994pt on input line 117.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 118.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 123.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.99994pt on input line 118.
+(Font)              scaled to size 8.99994pt on input line 123.
 
-Underfull \vbox (badness 10000) detected at line 124
+Underfull \vbox (badness 10000) detected at line 131
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 132.
+(hyperref)                removing `math shift' on input line 139.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sim' on input line 132.
+(hyperref)                removing `\sim' on input line 139.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 132.
+(hyperref)                removing `math shift' on input line 139.
 
-
-Underfull \vbox (badness 10000) detected at line 152
+[8]
+Underfull \vbox (badness 10000) detected at line 159
  []
 
 
-Underfull \vbox (badness 10000) detected at line 168
+Underfull \vbox (badness 10000) detected at line 175
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8]
-Underfull \vbox (badness 10000) detected at line 184
+Underfull \vbox (badness 10000) detected at line 191
  []
 
 
-Underfull \vbox (badness 10000) detected at line 200
- []
-
-
-Underfull \vbox (badness 10000) detected at line 233
+Underfull \vbox (badness 10000) detected at line 221
  []
 
 [9]
-Underfull \vbox (badness 10000) detected at line 266
+Underfull \vbox (badness 10000) detected at line 254
  []
 
 
-Underfull \vbox (badness 10000) detected at line 288
+Underfull \vbox (badness 10000) detected at line 287
  []
 
 [10]
-Underfull \vbox (badness 10000) detected at line 363
+Underfull \vbox (badness 10000) detected at line 309
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 384
  []
 
 [11]
-Underfull \vbox (badness 10000) detected at line 399
+Underfull \vbox (badness 10000) detected at line 420
  []
 
 
-Underfull \vbox (badness 10000) detected at line 418
- []
-
-
-Underfull \vbox (badness 10000) detected at line 437
- []
-
-
-Underfull \vbox (badness 10000) detected at line 456
+Underfull \vbox (badness 10000) detected at line 439
  []
 
 [12]
-Underfull \vbox (badness 10000) detected at line 472
+Underfull \vbox (badness 10000) detected at line 458
  []
+
+
+Underfull \vbox (badness 10000) detected at line 477
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 493
+ []
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 500.
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+
+LaTeX Font Warning: Font shape `OT1/pcr/bc/n' undefined
+(Font)              using `OT1/pcr/m/n' instead on input line 500.
 
 ) (./class_area_command.tex [13]
 Underfull \vbox (badness 10000) detected at line 103
  []
 
+[14]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 111.
@@ -1237,11 +1247,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Underfull \vbox (badness 10000) detected at line 131
  []
 
-[14]
+[15]
 Underfull \vbox (badness 10000) detected at line 220
  []
 
-[15]
+[16]
 Underfull \vbox (badness 10000) detected at line 253
  []
 
@@ -1264,123 +1274,69 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 Underfull \vbox (badness 1975) has occurred while \output is active []
 
- [16]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 80--80
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 82
- []
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 105--105
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 107
- []
-
-[17]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 130--130
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 132
- []
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 155--155
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 157
- []
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 180--180
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 182
- []
-
+ [17]
 [18]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 205--205
- []|[]| 
+Underfull \vbox (badness 10000) detected at line 148
  []
 
 
-Underfull \vbox (badness 10000) detected at line 207
- []
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 230--230
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 232
+Underfull \vbox (badness 10000) detected at line 164
  []
 
 ) (./class_item.tex [19] [20]
-Underfull \vbox (badness 10000) detected at line 173
+Underfull \vbox (badness 10000) detected at line 187
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 181.
+(hyperref)                removing `math shift' on input line 195.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sim' on input line 181.
+(hyperref)                removing `\sim' on input line 195.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 181.
+(hyperref)                removing `math shift' on input line 195.
 
 
-Underfull \vbox (badness 10000) detected at line 201
+Underfull \vbox (badness 10000) detected at line 215
  []
 
 
-Underfull \vbox (badness 10000) detected at line 217
+Underfull \vbox (badness 10000) detected at line 231
  []
 
 [21]
-Underfull \vbox (badness 10000) detected at line 233
+Underfull \vbox (badness 10000) detected at line 247
  []
 
 
-Underfull \vbox (badness 10000) detected at line 249
+Underfull \vbox (badness 10000) detected at line 263
  []
 
 
-Underfull \vbox (badness 10000) detected at line 288
- []
-
-
-Underfull \vbox (badness 10000) detected at line 307
+Underfull \vbox (badness 10000) detected at line 302
  []
 
 [22]
-Underfull \vbox (badness 10000) detected at line 354
+Underfull \vbox (badness 10000) detected at line 321
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 368
  []
 
 [23]
-Underfull \vbox (badness 10000) detected at line 387
+Underfull \vbox (badness 10000) detected at line 401
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 420
  []
 
 [24]
-Underfull \vbox (badness 10000) detected at line 476
- []
-
-
-Underfull \vbox (badness 10000) detected at line 495
+Underfull \vbox (badness 10000) detected at line 537
  []
 
 [25]
@@ -1388,238 +1344,130 @@ Underfull \vbox (badness 10000) detected at line 556
  []
 
 
-Underfull \vbox (badness 10000) detected at line 572
+Underfull \vbox (badness 10000) detected at line 617
+ []
+
+[26]
+Underfull \vbox (badness 10000) detected at line 633
  []
 
 
-Underfull \vbox (badness 10000) detected at line 588
+Underfull \vbox (badness 10000) detected at line 649
  []
 
-) (./class_item_command.tex [26]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 138--138
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 140
- []
-
-[27]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 163--163
- []|[]| 
+) (./class_item_command.tex [27]
+Underfull \vbox (badness 10000) detected at line 145
  []
 
 
-Underfull \vbox (badness 10000) detected at line 165
- []
+Overfull \vbox (29.0688pt too high) has occurred while \output is active []
 
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 188--188
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 190
- []
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 213--213
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 215
- []
 
 [28]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 238--238
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 240
- []
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 263--263
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 265
- []
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 288--288
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 290
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [29]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 313--313
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 315
- []
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 338--338
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 340
- []
-
-[30]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 363--363
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 365
- []
-
-) (./class_state_descriptor.tex
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 53--53
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 55
- []
-
-[31]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 66.
+(hyperref)                removing `math shift' on input line 153.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sim' on input line 66.
+(hyperref)                removing `\sim' on input line 153.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 66.
+(hyperref)                removing `math shift' on input line 153.
 
+[29] [30]
+Underfull \vbox (badness 10000) detected at line 327
+ []
 
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 78--78
- []|[]| 
+) (./class_state_descriptor.tex [31]
+Underfull \vbox (badness 10000) detected at line 49
  []
 
 
-Underfull \vbox (badness 10000) detected at line 80
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 57.
 
 
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 106--106
- []|[]| 
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sim' on input line 57.
 
 
-Underfull \vbox (badness 10000) detected at line 108
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 57.
 
 [32]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 131--131
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 133
- []
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 156--156
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 158
+Underfull \vbox (badness 10000) detected at line 105
  []
 
 ) (./class_world.tex [33]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 94.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sim' on input line 94.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 94.
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 106--106
- []|[]| 
+Underfull \vbox (badness 10000) detected at line 87
  []
 
 
-Underfull \vbox (badness 10000) detected at line 108
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 95.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sim' on input line 95.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 95.
+
+
+Underfull \vbox (badness 10000) detected at line 115
  []
 
 
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 134--134
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 136
+Underfull \vbox (badness 10000) detected at line 131
  []
 
 [34]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 159--159
- []|[]| 
- []
-
-
 Underfull \vbox (badness 10000) detected at line 161
  []
 
 
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 184--184
- []|[]| 
+Underfull \vbox (badness 10000) detected at line 180
  []
 
-
-Underfull \vbox (badness 10000) detected at line 186
- []
-
-) [35] [36
-
-]
+[35]) [36]
 Chapter 5.
-(./_area_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 4--4
-[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-Area.cpp -File -
+(./_area_8h.tex
+Underfull \hbox (badness 5504) in paragraph at lines 10--17
+[]\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 string$\OML/ztmc
+m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
+$\T1/pcr/m/n/10 vector$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/1
+0 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 iostream$\OML/ztmcm/m/it/10 >$\
+OMS/ztmcm/m/n/10 ^^B
  []
 
-) (./_area_8h.tex [37]) (./_area_command_8cpp.tex) (./_area_command_8h.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--17
+\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 cstring$\OML/ztmcm
+/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include "-Item.-h"\OMS/ztmcm/m
+/n/10 ^^B \T1/pcr/m/n/10 #include "-State-
+ []
+
+) (./_area_command_8cpp.tex [37
+
+]) (./_area_command_8h.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--4
 []\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-Area-Command.h -
  []
 
-[38]) (./combine_8cpp.tex
+) (./combine_8cpp.tex
 Underfull \hbox (badness 3668) in paragraph at lines 4--4
 []\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/combine.cpp -File -
  []
 
-) (./combine_8h.tex
+[38]) (./combine_8h.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--4
 []\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/combine.h -File -
  []
 
-[39]
+
 Underfull \hbox (badness 10000) in paragraph at lines 10--13
 []\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 iostream$\OML/zt
 mcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10
@@ -1627,31 +1475,33 @@ mcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10
 /10 #include "-State-
  []
 
-) (./_constants_8h.tex
+[39]) (./_constants_8h.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--4
 []\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-Constants.h -File -
 
  []
 
-[40]) (./_item_8cpp.tex
+[40] [41] [42] [43]) (./_item_8cpp.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--4
 []\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-Item.cpp -File -
  []
 
-[41]) (./_item_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 10--15
+) (./_item_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--16
 []\T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 string$\OML/ztmc
 m/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/10 #include $\OML/ztmcm/m/it/10 <
 $\T1/pcr/m/n/10 vector$\OML/ztmcm/m/it/10 >$\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n/1
-0 #include "-State-
+0 #include $\OML/ztmcm/m/it/10 <$\T1/pcr/m/n/10 cstring$\OML/ztmcm/m/it/10 >$\O
+MS/ztmcm/m/n/10 ^^B
  []
 
-) (./_item_command_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 4--4
-[]\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-Item-Command.cpp
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--16
+\T1/pcr/m/n/10 #include "-State-Descriptor.-h"\OMS/ztmcm/m/n/10 ^^B \T1/pcr/m/n
+/10 #include "-Item-Command.-h"\OMS/ztmcm/m/n/10 ^^B
  []
 
-[42]) (./_item_command_8h.tex
+[44]) (./_item_command_8cpp.tex) (./_item_command_8h.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--4
 []\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-Item-Command.h -
  []
@@ -1661,43 +1511,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--13
 
  []
 
-) (./main_8cpp.tex
+[45]) (./main_8cpp.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--4
 []\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/main.cpp -File -
  []
 
-[43]
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 24.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 24.
- [44]
-Underfull \vbox (badness 10000) detected at line 131
+[46] [47]
+Underfull \vbox (badness 10000) detected at line 125
  []
 
 
-Underfull \vbox (badness 10000) detected at line 161
+Underfull \vbox (badness 10000) detected at line 169
  []
 
-[45]
-Underfull \vbox (badness 10000) detected at line 198
- []
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 236--236
- []|[]| 
+[48]
+Underfull \vbox (badness 10000) detected at line 200
  []
 
 
-Underfull \vbox (badness 10000) detected at line 238
- []
-
-[46]
-Underfull \vbox (badness 10000) detected at line 260
+Underfull \vbox (badness 10000) detected at line 221
  []
 
 
-Underfull \vbox (badness 10000) detected at line 279
+Underfull \vbox (badness 10000) detected at line 261
+ []
+
+[49]
+Underfull \vbox (badness 10000) detected at line 277
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 293
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 318
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 342
+ []
+
+[50]
+Underfull \vbox (badness 10000) detected at line 364
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 386
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 405
  []
 
 ) (./parser_8cpp.tex
@@ -1705,76 +1569,48 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--4
 []\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/parser.cpp -File -
  []
 
-[47] [48]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 159--159
- []|[]| 
+[51] [52]
+Underfull \vbox (badness 10000) detected at line 150
  []
 
 
-Underfull \vbox (badness 10000) detected at line 161
+Underfull \vbox (badness 10000) detected at line 172
  []
 
 
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 186--186
- []|[]| 
+Underfull \vbox (badness 10000) detected at line 197
+ []
+
+[53]
+Underfull \vbox (badness 10000) detected at line 222
  []
 
 
-Underfull \vbox (badness 10000) detected at line 188
+Underfull \vbox (badness 10000) detected at line 247
  []
 
 
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 213--213
- []|[]| 
+Underfull \vbox (badness 10000) detected at line 272
+ []
+
+[54]
+Underfull \vbox (badness 10000) detected at line 294
  []
 
 
-Underfull \vbox (badness 10000) detected at line 215
- []
-
-[49]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 240--240
- []|[]| 
+Underfull \vbox (badness 10000) detected at line 319
  []
 
 
-Underfull \vbox (badness 10000) detected at line 242
+Underfull \vbox (badness 10000) detected at line 341
+ []
+
+[55]
+Underfull \vbox (badness 10000) detected at line 363
  []
 
 
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 266--266
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 268
- []
-
-[50]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 293--293
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 295
- []
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 319--319
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 321
- []
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 345--345
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 347
+Underfull \vbox (badness 10000) detected at line 388
  []
 
 ) (./parser_8h.tex
@@ -1782,114 +1618,89 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--4
 []\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/parser.h -File -
  []
 
-[51] [52]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 84--84
- []|[]| 
+[56]
+Underfull \vbox (badness 10000) detected at line 80
  []
 
 
-Underfull \vbox (badness 10000) detected at line 86
+Underfull \vbox (badness 10000) detected at line 102
+ []
+
+[57]
+Underfull \vbox (badness 10000) detected at line 127
  []
 
 
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 111--111
- []|[]| 
+Underfull \vbox (badness 10000) detected at line 152
  []
 
 
-Underfull \vbox (badness 10000) detected at line 113
+Underfull \vbox (badness 10000) detected at line 177
  []
 
-[53]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 138--138
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 140
+[58]
+Underfull \vbox (badness 10000) detected at line 202
  []
 
 
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 165--165
- []|[]| 
+Underfull \vbox (badness 10000) detected at line 224
  []
 
 
-Underfull \vbox (badness 10000) detected at line 167
+Underfull \vbox (badness 10000) detected at line 249
  []
 
 
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 191--191
- []|[]| 
+Underfull \vbox (badness 10000) detected at line 271
  []
 
 
-Underfull \vbox (badness 10000) detected at line 193
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[54]
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 218--218
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 220
+ [59]
+Underfull \vbox (badness 10000) detected at line 293
  []
 
 
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 244--244
- []|[]| 
+Underfull \vbox (badness 10000) detected at line 318
  []
 
-
-Underfull \vbox (badness 10000) detected at line 246
- []
-
-
-Overfull \hbox (1.4979pt too wide) in paragraph at lines 270--270
- []|[]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 272
- []
-
-
-Overfull \vbox (9.53172pt too high) has occurred while \output is active []
-
-
-[55]) (./_state_descriptor_8cpp.tex) (./_state_descriptor_8h.tex
+) (./_state_descriptor_8cpp.tex [60]) (./_state_descriptor_8h.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--4
 []\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-State-Descriptor.h
  []
 
-[56]) (./_world_8cpp.tex
+) (./_world_8cpp.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--4
 []\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-World.cpp -File -
  []
 
-) (./_world_8h.tex
+[61]) (./_world_8h.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--4
 []\OT1/phv/bc/n/14.4 /home/cshome/m/mabrams/345/txt-Engine/-World.h -File -
  []
 
-[57]) (./refman.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 98.
- [58]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
+) (./refman.ind)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 97.
+ [62]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 97.
  (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 98.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 97.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: E0D16A143DCA64521AE7EEA3DD9E311D;32140.
+(rerunfilecheck)             Checksum: 039D5B593BEB5D98AB91450BC5567207;39965.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
  ) 
 Here is how much of TeX's memory you used:
- 11466 strings out of 493747
- 177019 string characters out of 3143546
- 260323 words of memory out of 3000000
- 13841 multiletter control sequences out of 15000+200000
- 59531 words of font info for 75 fonts, out of 3000000 for 9000
+ 11645 strings out of 493747
+ 181337 string characters out of 3143546
+ 262323 words of memory out of 3000000
+ 13941 multiletter control sequences out of 15000+200000
+ 59747 words of font info for 76 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 42i,13n,58p,458b,435s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,13n,58p,728b,525s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
@@ -1899,10 +1710,10 @@ live/2010/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/201
 fonts/type1/urw/helvetic/uhvbo8ac.pfb></usr/local/texlive/2010/texmf-dist/fonts
 /type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/
 urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (68 pages, 221412 bytes).
+Output written on refman.pdf (72 pages, 246098 bytes).
 PDF statistics:
- 2156 PDF objects out of 2487 (max. 8388607)
- 2057 compressed objects within 21 object streams
- 623 named destinations out of 1000 (max. 500000)
- 1505 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2691 PDF objects out of 2984 (max. 8388607)
+ 2583 compressed objects within 26 object streams
+ 700 named destinations out of 1000 (max. 500000)
+ 2017 words of extra memory for PDF output out of 10000 (max. 10000000)
 
