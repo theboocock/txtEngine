@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<world initialarea="room1" language=".txt[framework]" author=".txtFramework Team">
+  <area id="room1" initialdescription="room_1_desc" status="none">
+    <statedescriptor id="room_1_desc">
+      
+      Welcome to the tutorial on how to play a txtEngine game.
+      This game will help you learn game commands and also demonstrate
+      what is possible with the txtEngine language. Enjoy! Type 'look' to have a look around.
+    </statedescriptor>
+    <statedescriptor id="homeshort">
+      This is room number one, the initial area of the game. It is very boring so you should
+      leave immediately! Room two is to the NORTH. To go to this room type 'go north' OR 'north'
+      OR simply a 'n' will suffice. See you on the other side.
+    </statedescriptor>
+    <areacommand name="north" area="room2" status="none">
+      You made it to room 2! I thought those schnarfquigglers would have had you for lunch!
+    </areacommand>
+  </area>
+  <area id="room2" initialdescription="room_2_desc" status="none">
+    <statedescriptor id="room_2_desc">
+      What a fine room indeed!
+    </statedescriptor>
+    <item id="toolbox" initialdescription="ontable" collectable="false" container="true" synonyms="box,tools,toolbag" locked="true">
+      <statedescriptor id="ontable">
+        A toolbox is on the table, but someone has padlocked it. The silly person left the key right next to it... What a dumb ass.
+      </statedescriptor>
+      <item id="hammer" initialdescription="inbox" collectable="true">
+        <statedescriptor id="inbox">
+          A hammer lies in the toolbox.
+        </statedescriptor>
+        <statedescriptor id="have">
+          You have a hammer.
+        </statedescriptor>
+        <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory">
+          You collect the hammer, it is now in your bag.
+        </itemcommand>
+        <statedescriptor id="dropped">
+          The hammer is here.
+        </statedescriptor>
+        <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="none" synonyms="throw,putdown">
+          You put the hammer down.
+        </itemcommand>
+      </item>
+      <item id="nails" initialdescription="inbox" collectable="true" synonyms="nail">
+        <statedescriptor id="inbox">
+          A pile of nails lie in the toolbox.
+        </statedescriptor>
+        <statedescriptor id="have">
+          You have some nails.
+        </statedescriptor>
+        <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory">
+          You collect the nails, they are now in your bag.
+        </itemcommand>
+        <statedescriptor id="dropped">
+          Some nails are here.
+        </statedescriptor>
+        <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="none" synonyms="throw,putdown">
+          You put the nials down.
+        </itemcommand>
+        <combine id="hammer_nails" first_id="nails" second_id="hammer">
+          <item id="ladder" initialdescription="have" collectable="false">
+            <statedescriptor id="have">
+              You have a ladder. 
+            </statedescriptor>
+            <statedescriptor id="dropped">
+              Here is a ladder.
+            </statedescriptor>
+            <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="none">
+              You put the ladder down.
+            </itemcommand>
+            <itemcommand name="use" statedescription="have" changecollectable="false" collectabledependent="false" areachange="inventory" unlock="room2/north">
+              You put the ladder up against the wall, and can reach
+              things which are higher now.
+            </itemcommand>
+          </item>
+          <statedescriptor id="combine_desc">
+            you put the two together and make a ladder.
+          </statedescriptor>
+        </combine>
+      </item>
+    </item>
+    <item id="key" initialdescription="ontable" collectable="true">
+      <statedescriptor id="ontable">
+        There a small key lieing next to the toolbox.
+      </statedescriptor>
+      <statedescriptor id="have">
+        You have a small key.
+      </statedescriptor>
+      <statedescriptor id="dropped">
+        The key is here.
+      </statedescriptor>
+      <itemcommand name="get" statedescription="have" changecollectable="true" collectabledependent="true" areachange="inventory">
+        You collect the key, it is now in your bag.
+      </itemcommand>
+      <itemcommand name="use" statedescription="have" changecollectable="false" collectabledependent="false" areachange="inventory" unlock="toolbox">
+        You use the key to unlock the toolbox.
+      </itemcommand>
+      <itemcommand name="drop" statedescription="dropped" changecollectable="true" collectabledependent="false" areachange="none" synonyms="throw,putdown">
+        You put the key down.
+      </itemcommand>
+    </item>
+    <areacommand name="north" area="hallway" status="none" synonyms="up,climb" locked="true">
+      You climb the ladder up to the high door, and go on through.
+    </areacommand>
+  </area>
+  <area id="hallway" initialdescription="darkhallway" status="win">
+    <statedescriptor id="darkhallway">
+      You look around and nothing in the dimly lit hallway catches you eye
+      YOU WIN THE GAME CONGRATS BRO.
+    </statedescriptor>
+  </area>
+</world>
